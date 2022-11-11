@@ -25,5 +25,3 @@ export class Button {
     return <hbr-button>Hello, World! I'm</hbr-button>;
   }
 }
-
-class ButtonPill extends Button 
