@@ -1,0 +1,34 @@
+{
+  "name": "@cisco-momentum/harbor-components",
+  "packageManager": "yarn@3.2.4",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0",
+    "yarn": ">=3.0.0"
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "build:clean": "rimraf dist",
+    "start": "yarn build:clean && stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate",
+    "copy-hbr-elements": "ncp '../../../node_modules/@harbor/elements/dist/harbor-elements' './dev/harbor-elements'"
+  },
+  "dependencies": {
+    "@harbor/elements": "^0.1.73",
+    "@stencil/core": "^2.13.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "jest": "^27.4.5",
+    "jest-cli": "^27.4.5",
+    "ncp": "^2.0.0",
+    "puppeteer": "^10.0.0",
+    "rimraf": "^3.0.2"
+  }
+}

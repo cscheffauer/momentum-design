@@ -1,5 +1,5 @@
 {
-  "name": "@cisco-momentum/{{kebabCase packageName}}",
+  "name": "@cisco-momentum/components",
   "packageManager": "yarn@3.2.4",
   "engines": {
     "node": ">=18.0.0",

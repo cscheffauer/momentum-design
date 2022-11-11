@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Momentum Live Preview</title>
+
+    <script type="module" src="/dev/storyMapper.js"></script>
+
+    <script type="module" src="../dist/components/components.esm.js"></script>
+    <script nomodule src="../dist/components/components.js"></script>
+
+    <script type="module" src="/dev/harbor-elements/harbor-elements.esm.js"></script>
+
+    <link rel="stylesheet" href="/dev/harbor-elements/styles/base.css" />
+
+    <link rel="stylesheet" href="/dev/main.css" />
+  </head>
+  <body>
+    <div class="outer-layout">
+        <div class="header">
+            <img alt="momentum-design-logo" class="momentum-design-logo" src="/dev/momentum-design-logo.png"/>
+        </div>
+        <div class="inner-layout">
+            <div id="chooser" class="chooser">
+                <p class="components-header-text">Components</p>
+                <div id="components" class="components-box"></div>
+            </div>
+            <iframe src="" id="frame" class="frame"></iframe>
+        </div>
+    </div>
+  </body>
+</html>

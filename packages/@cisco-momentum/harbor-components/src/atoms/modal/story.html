@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+
+    <script type="module" src="/dev/harbor-elements/harbor-elements.esm.js"></script>
+
+    <link rel="stylesheet" href="/dev/harbor-elements/styles/base.css" />
+
+    <script type="module" src="/dist/components/components.esm.js"></script>
+    <script nomodule src="../dist/components/components.js"></script>
+
+    <link rel="stylesheet" href="../../../dev/main.css" />
+    <script>
+        function handleButtonClick() {
+            const modal = document.querySelector('md-modal');
+            modal.show();
+        }
+    </script>
+</head>
+<body>
+    <h3 class="component-name">Modal</h3>
+    <p class="component-description">
+        This is the description for the cool Modal yeiii.
+    </p>
+    <div class="component-sandbox">
+        <button onclick="handleButtonClick()">Open Modal</button>
+        <md-modal>test</md-modal>
+    </div>
+</body>
+</html>
