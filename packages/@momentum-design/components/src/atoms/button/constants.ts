@@ -1,1 +1,3 @@
-export const tagName = 'md-button';
+const tagName = 'md-button';
+
+export { tagName };

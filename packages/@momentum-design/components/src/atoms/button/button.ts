@@ -9,7 +9,7 @@ import { LitElement, css, html } from 'lit';
  * @csspart button - The button
  */
 
-export class MdButton extends LitElement {
+class MdButton extends LitElement {
   override render() {
     return html`
         <button @click=${this._onClick}>
@@ -31,3 +31,5 @@ export class MdButton extends LitElement {
     }
   `;
 }
+
+export { MdButton };

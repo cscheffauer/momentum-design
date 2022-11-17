@@ -1,1 +1,3 @@
-export const tagName = 'md-theme-provider';
+const tagName = 'md-theme-provider';
+
+export { tagName };

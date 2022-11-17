@@ -2,13 +2,13 @@
 /* eslint-disable no-underscore-dangle */
 import { LitElement, css, html } from 'lit';
 
-export class MdThemeProvider extends LitElement {
+class MdThemeProvider extends LitElement {
   override render() {
     return html`<div><slot></slot></div>`;
   }
 
   static override styles = css`
-    div {
+    :host {
         --md-atoms-button-width: 100px;
         --md-atoms-button-height: 40px;
         --md-atoms-button-background-color: #444;
@@ -16,3 +16,5 @@ export class MdThemeProvider extends LitElement {
     }
   `;
 }
+
+export { MdThemeProvider };
