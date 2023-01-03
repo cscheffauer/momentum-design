@@ -1,12 +1,12 @@
 import { MdButton } from './button';
-import { tagName } from './constants';
+import { TAG_NAME } from './constants';
 
-customElements.define(tagName, MdButton);
+customElements.define(TAG_NAME, MdButton);
 
 export { MdButton };
 
 declare global {
     interface HTMLElementTagNameMap {
-        [tagName]: MdButton
+        [TAG_NAME]: MdButton
     }
 }

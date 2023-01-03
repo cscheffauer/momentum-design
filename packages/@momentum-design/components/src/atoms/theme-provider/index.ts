@@ -1,12 +1,12 @@
 import { MdThemeProvider } from './theme-provider';
-import { tagName } from './constants';
+import { TAG_NAME } from './constants';
 
-customElements.define(tagName, MdThemeProvider);
+customElements.define(TAG_NAME, MdThemeProvider);
 
 export { MdThemeProvider };
 
 declare global {
     interface HTMLElementTagNameMap {
-        [tagName]: MdThemeProvider
+        [TAG_NAME]: MdThemeProvider
     }
 }

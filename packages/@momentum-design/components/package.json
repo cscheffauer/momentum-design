@@ -21,6 +21,7 @@
     "test:prebuild": "echo \"script 'test:prebuild' has not been implemented\""
   },
   "dependencies": {
+    "@momentum-design/tokens": "workspace:^",
     "lit": "^2.4.1"
   },
   "devDependencies": {

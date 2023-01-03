@@ -1,6 +1,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-underscore-dangle */
-import { LitElement, css, html } from 'lit';
+import { LitElement, html } from 'lit';
+import { styles } from './styles';
 
 /**
  * An example element.
@@ -22,14 +23,7 @@ class MdButton extends LitElement {
     console.log('clicked');
   }
 
-  static override styles = css`
-    button {
-      width: var(--md-atoms-button-width);
-      height: var(--md-atoms-button-height);
-      background-color: var(--md-atoms-button-background-color);
-      border: var(--md-atoms-button-border);
-    }
-  `;
+  static override styles = styles;
 }
 
 export { MdButton };

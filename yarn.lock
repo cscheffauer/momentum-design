@@ -1724,6 +1724,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@momentum-design/components@workspace:packages/@momentum-design/components"
   dependencies:
+    "@momentum-design/tokens": "workspace:^"
     "@playwright/test": ^1.28.0
     lit: ^2.4.1
     typescript: ^4.6.4

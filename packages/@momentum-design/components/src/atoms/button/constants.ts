@@ -1,3 +1,3 @@
-const tagName = 'md-button';
+const TAG_NAME = 'md-button';
 
-export { tagName };
+export { TAG_NAME };
