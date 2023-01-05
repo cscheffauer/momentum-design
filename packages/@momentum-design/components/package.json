@@ -10,9 +10,11 @@
     "analyze": "yarn analyze:prebuild && yarn analyze:postbuild",
     "analyze:postbuild": "echo \"script 'analyze:postbuild' has not been implemented\"",
     "analyze:prebuild": "echo \"script 'analyze:prebuild' has not been implemented\"",
-    "dev": "vite",
+    "dev": "yarn clean:dist && concurrently 'yarn build:watch' 'ncp public dist && web-dev-server'",
+    "build:watch": "tsc --watch",
     "build": "tsc",
     "clean": "echo \"script 'clean' has not been implemented\"",
+    "clean:dist": "rimraf ./dist",
     "docs": "echo \"script 'docs' has not been implemented\"",
     "publish": "yarn publish:npmjs",
     "publish:npmjs": "echo \"script 'publish:npmjs' has not been implemented\"",
@@ -26,7 +28,11 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.28.0",
-    "typescript": "^4.6.4",
-    "vite": "^3.2.3"
+    "@web/dev-server": "^0.1.35",
+    "@web/dev-server-esbuild": "^0.3.3",
+    "concurrently": "^7.6.0",
+    "ncp": "^2.0.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.6.4"
   }
 }

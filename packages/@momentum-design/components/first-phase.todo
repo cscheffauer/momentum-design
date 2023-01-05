@@ -1,0 +1,14 @@
+Todos:
+  ✔ Move theme provider outside of story to common place @2h @started(23-01-05 11:45) @done(23-01-05 13:37) @lasted(1h52m46s)
+  ☐ Clean up dev process with hot reload @1h
+  ☐ Create ButtonPill component @30m
+  ☐ Add styling to ButtonPill component @1h 
+  
+
+__________________________________________
+    Press Cmd/Ctrl+Enter to add a new todo
+    Press Alt+D to mark a todo as done
+    Press Alt+S to mark a todo as started
+
+
+

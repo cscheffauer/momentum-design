@@ -1,29 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="../../index.ts"></script>
     <title>Button</title>
 </head>
-<style>
-    md-button {
-        --md-comp-atoms-button-width: 200px;
-    }
-</style>
 <body>
-    <md-theme-provider theme="lightWebex">
-        <md-button></md-button>
-    </md-theme-provider>
-    <button id="theme-switch">Switch</button>
+    <md-button></md-button>
 </body>
-<script>
-    const button = document.getElementById('theme-switch');
-    const themeprovider = document.getElementsByTagName('md-theme-provider')[0];
-    function handleClick() {
-        themeprovider.theme = themeprovider.theme === 'darkWebex' ? 'lightWebex' : 'darkWebex'
-    };
-    button.onclick = handleClick;
-</script>
 </html>

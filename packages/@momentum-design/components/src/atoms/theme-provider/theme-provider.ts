@@ -4,8 +4,6 @@ import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 
 import { styles } from './styles';
-import '@momentum-design/tokens/dist/css/theme/webex/dark-stable.css';
-import '@momentum-design/tokens/dist/css/theme/webex/light-stable.css';
 import type { ThemeName } from './types';
 import { DEFAULTS, THEME_NAMES } from './constants';
 import { constructThemeClass } from './utils';
@@ -17,7 +15,7 @@ class MdThemeProvider extends LitElement {
   @property()
   theme: ThemeName = DEFAULTS.THEME;
 
-  private _toggleTheme() {
+  private async _toggleTheme() {
     // remove all existing theme classes from the classList:
     this.classList.remove(...this.themeNames.map((themeName) => constructThemeClass(themeName)));
     // add current theme class to classList:

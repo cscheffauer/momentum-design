@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Momentum Live Preview</title>
-    <script type="module" src="/storyMapper.js"></script>
-    <link rel="stylesheet" href="/index.css" />
-    <script type="module" src="../dist/index.js"></script>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Momentum Live Preview</title>
+  <link rel="stylesheet" href="/themes/dark-stable.css" />
+  <link rel="stylesheet" href="/themes/light-stable.css" />
+  <script type="module" src="/index.js"></script>
+  <script type="module" src="/storyMapper.js"></script>
+  <link rel="stylesheet" href="/index.css" />
+</head>
+
+<body>
+  <md-theme-provider theme="lightWebex">
     <div class="main-layout">
       <header>
-        <img alt="momentum-logo" class="momentum-logo" src="/momentum-logo.png"/>
+        <img alt="momentum-logo" class="momentum-logo" src="/momentum-logo.png" />
+        <button id="theme-switch">Switch Theme</button>
       </header>
       <div class="layout">
         <div id="chooser" class="chooser"></div>
         <iframe src="" id="frame"></iframe>
       </div>
     </div>
-  </body>
+  </md-theme-provider>
+</body>
+<script>
+  const button = document.getElementById('theme-switch');
+  const themeprovider = document.getElementsByTagName('md-theme-provider')[0];
+  function handleClick() {
+    themeprovider.theme = themeprovider.theme === 'darkWebex' ? 'lightWebex' : 'darkWebex'
+  };
+  button.onclick = handleClick;
+</script>
+
 </html>

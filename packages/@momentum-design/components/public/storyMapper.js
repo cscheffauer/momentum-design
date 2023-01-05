@@ -15,11 +15,11 @@ stories.forEach((story) => {
   chooser.appendChild(listItem);
 });
 
-// The actual router, get the current URL and generate the corresponding template
-const router = () => {
-  const url = window.location.hash.slice(1) || '/';
-  frame.src = stories.find((story) => url.includes(story.id)).path;
-};
-// For first load or when routes are changed in browser url box.
-window.addEventListener('load', router);
-window.addEventListener('hashchange', router);
+// // The actual router, get the current URL and generate the corresponding template
+// const router = () => {
+//   const url = window.location.hash.slice(1) || '/';
+//   frame.src = stories.find((story) => url.includes(story.id)).path;
+// };
+// // For first load or when routes are changed in browser url box.
+// window.addEventListener('load', router);
+// window.addEventListener('hashchange', router);
