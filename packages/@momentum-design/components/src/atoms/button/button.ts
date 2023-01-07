@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-underscore-dangle */
 import { LitElement, html } from 'lit';
-import { property } from 'lit/decorators.js';
+import { WithDisabled } from '../../utils/mixins/WithDisabled';
 import { styles } from './styles';
 
 /**
@@ -11,20 +11,12 @@ import { styles } from './styles';
  * @csspart button - The button
  */
 
-class MdButton extends LitElement {
-  @property()
-  type: string;
-
-  constructor() {
-    super();
-    this.type = 'button';
-  }
-
+class MdButton extends WithDisabled(LitElement) {
   override render() {
+    console.log(this.disabled);
     return html`
-        <button @click=${this._onClick}>
+        <button ?disabled=${this.disabled} @click=${this._onClick}>
             <slot></slot>
-            
         </button>
     `;
   }
