@@ -3,9 +3,7 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  background-color: #000000;
 }
-  
   
 body {
   position: fixed;
@@ -20,6 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
+  background-color: var(--mds-color-theme-background-solid-primary-normal);
 }
 
 header {
@@ -37,31 +36,48 @@ header {
 .chooser {
   flex-shrink: 0;
   width: 320px;
-  background: linear-gradient(180deg, #1A1A1A 0%, #0F0F0F 100%);
+  background: linear-gradient(180deg, var(--mds-color-theme-background-solid-secondary-normal) 0%, var(--mds-color-theme-background-solid-primary-normal) 100%);
+  padding-top: 5px;
 }
 
 .listItem {
-  color: white;
+  color: var(--mds-color-theme-text-primary-normal);
+  background-color: var(--mds-color-theme-button-inverted-normal);
   width: calc(100% - 34px);
   height: 50px;
   display: flex;
   align-items: center;
   padding: 0px 12px;
   margin: 0px 5px 5px 5px;
+  border-radius: 8px;
 }
 .listItem:hover{
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--mds-color-theme-button-inverted-hover);
 }
 .listItem:active{
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.348);
+  background-color: var(--mds-color-theme-button-inverted-pressed);
 }
 
-iframe {
-  border:none;
+#frame {
   width: 100%;
   background-image: url('./background-graphic.png');
   background-repeat: no-repeat;
   background-position: top right;
+}
+
+.theme-switch-button {
+  margin-left: auto;
+  appearance: none;
+  outline: none;
+  border: none;
+  height: 24px;
+  background-color: var(--mds-color-theme-button-primary-normal);
+  color: var(--mds-color-theme-text-inverted-normal);
+}
+.theme-switch-button:hover {
+  background-color: var(--mds-color-theme-button-primary-hover);
+}
+
+.theme-switch-button:active {
+  background-color: var(--mds-color-theme-button-primary-pressed);
 }

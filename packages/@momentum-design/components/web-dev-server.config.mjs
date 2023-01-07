@@ -1,5 +1,5 @@
 export default {
-  open: '/index.html',
+  open: '/',
   nodeResolve: {
     exportConditions: ['development'],
   },

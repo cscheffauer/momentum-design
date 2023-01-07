@@ -2,10 +2,11 @@ import { css } from 'lit';
 
 const styles = css`
   :host {
-    --md-comp-atoms-button-width: 100px;
-    --md-comp-atoms-button-height: 40px;
+    --md-comp-atoms-button-width: 120px;
+    --md-comp-atoms-button-height: 90px;
     --md-comp-atoms-button-background-color: var(--mds-color-theme-button-primary-normal);
     --md-comp-atoms-button-border: none;
+    display: inline-flex;
   }
   button {
     width: var(--md-comp-atoms-button-width);
