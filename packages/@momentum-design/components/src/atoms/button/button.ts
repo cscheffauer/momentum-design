@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-underscore-dangle */
 import { LitElement, html } from 'lit';
-import { WithDisabled } from '../../utils/mixins/WithDisabled';
+import { BasePropsMixin } from '../../utils/mixins/BasePropsMixin';
 import { styles } from './styles';
 
 /**
@@ -11,18 +11,19 @@ import { styles } from './styles';
  * @csspart button - The button
  */
 
-class MdButton extends WithDisabled(LitElement) {
+class MdButton extends BasePropsMixin(LitElement) {
   override render() {
-    console.log(this.disabled);
+    // TODO: fix style passing in
     return html`
-        <button ?disabled=${this.disabled} @click=${this._onClick}>
-            <slot></slot>
-        </button>
+      <button
+        id=${this.id}
+        class=${this.class}
+        .style=${this.style}
+        ?disabled=${this.disabled}
+      >
+        <slot></slot>
+      </button>
     `;
-  }
-
-  private _onClick() {
-    console.log('clicked');
   }
 
   static override styles = styles;

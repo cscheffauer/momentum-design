@@ -10,7 +10,7 @@ stories.forEach((story) => {
   listItem.className = 'listItem';
   listItem.innerHTML = story.label;
   listItem.onclick = () => {
-    history.pushState({}, story.label, `/${story.id}`);
+    history.pushState({}, story.label, `/${story.id}-${story.details}`);
     frame.innerHTML = story.html;
   };
   chooser.appendChild(listItem);
@@ -19,7 +19,7 @@ stories.forEach((story) => {
 // The actual router, get the current URL and generate the corresponding template
 const router = () => {
   const url = window.location.pathname || '/';
-  frame.innerHTML = stories.find((story) => url.includes(story.id)).html;
+  frame.innerHTML = stories.find((story) => url.includes(story.id) && url.includes(story.details)).html;
 };
 // For first load or when routes are changed in browser url box.
 window.addEventListener('load', router);

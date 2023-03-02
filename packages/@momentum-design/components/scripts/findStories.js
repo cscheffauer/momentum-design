@@ -23,17 +23,19 @@ const writeStoriesToFile = async (stories) => {
   await fs.writeFile(storyFilePath, `export const stories = ${JSON.stringify(stories)}`);
 };
 
-glob('**/story.html', {}, async (er, files) => {
+glob('**/*.story.html', {}, async (er, files) => {
   const filesWithData = await readFiles(files);
   const stories = [];
   filesWithData.forEach((fileWithData) => {
     const root = parse(fileWithData.data);
     const title = root.querySelector('title').innerHTML;
+    const details = root.querySelector('details').innerHTML;
     const bodyContent = root.querySelector('body').innerHTML;
     if (title.length && bodyContent.length) {
       stories.push({
         id: title.toLowerCase(),
-        label: title,
+        details: details.toLowerCase(),
+        label: `${title} / ${details}`,
         html: bodyContent,
       });
     }
