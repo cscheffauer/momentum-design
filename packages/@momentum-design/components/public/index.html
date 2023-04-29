@@ -13,11 +13,12 @@
 </head>
 
 <body>
-  <md-theme-provider>
+  <md-theme-provider id="theme-provider" theme="darkWebex" themes="darkWebex lightWebex" class-prefix="mds-theme-stable"
+    class-separator="-">
     <div class="main-layout">
       <header>
         <img alt="momentum-logo" class="momentum-logo" src="/momentum-logo.png" />
-        <button id="theme-switch" class="theme-switch-button">Switch Theme</button>
+        <md-button id="theme-switch" class="theme-switch-button">Switch Theme</button>
       </header>
       <div class="layout">
         <div id="chooser" class="chooser"></div>
@@ -28,9 +29,9 @@
 </body>
 <script>
   const button = document.getElementById('theme-switch');
-  const themeprovider = document.getElementsByTagName('md-theme-provider')[0];
+  const themeprovider = document.getElementById('theme-provider');
   function handleClick() {
-    themeprovider.theme = themeprovider.theme === 'darkWebex' ? 'lightWebex' : 'darkWebex'
+    themeprovider.switchTheme();
   };
   button.onclick = handleClick;
 </script>

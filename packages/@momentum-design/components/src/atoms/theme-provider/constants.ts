@@ -1,6 +1,6 @@
 const TAG_NAME = 'md-theme-provider';
 
-const THEME_CLASS_PREFIX_STABLE = 'mds-theme-stable';
+const THEME_CLASS_PREFIX = 'mds-theme-stable';
 
 const THEME_CLASS_SEPARATOR = '-';
 
@@ -20,9 +20,7 @@ const THEME_NAMES = {
   LIGHT_WEBEX: 'lightWebex' as const,
 };
 
-const THEMES = {
-  ...THEME_NAMES,
-};
+const THEMES = Object.values(THEME_NAMES);
 
 const DEFAULTS = {
   THEME: THEME_NAMES.DARK_WEBEX,
@@ -30,7 +28,7 @@ const DEFAULTS = {
 
 export {
   DEFAULTS,
-  THEME_CLASS_PREFIX_STABLE,
+  THEME_CLASS_PREFIX,
   THEME_CLASS_SEPARATOR,
   THEME_NAMES,
   THEMES,

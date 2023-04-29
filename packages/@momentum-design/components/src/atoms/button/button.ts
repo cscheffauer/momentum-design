@@ -3,17 +3,10 @@
 import { LitElement, html } from 'lit';
 import { BasePropsMixin } from '../../utils/mixins/BasePropsMixin';
 import { styles } from './styles';
+import { DisabledMixin } from '../../utils/mixins/DisabledMixin';
 
-/**
- * An example element.
- *
- * @slot - This element has a slot
- * @csspart button - The button
- */
-
-class MdButton extends BasePropsMixin(LitElement) {
+class MdButton extends BasePropsMixin(DisabledMixin(LitElement)) {
   override render() {
-    // TODO: fix style passing in
     return html`
       <button
         id=${this.id}
