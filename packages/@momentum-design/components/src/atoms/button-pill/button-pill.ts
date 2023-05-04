@@ -1,5 +1,4 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-underscore-dangle */
+import { html } from 'lit';
 import { MdButton } from '../button';
 import { styles } from './styles';
 
@@ -11,6 +10,12 @@ import { styles } from './styles';
  */
 
 class MdButtonPill extends MdButton {
+  override render() {
+    return html`
+      <slot name="i"></slot>
+      `;
+  }
+
   static override styles = styles;
 }
 

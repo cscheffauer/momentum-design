@@ -1,5 +1,3 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-underscore-dangle */
 import { LitElement, html } from 'lit';
 import { property } from 'lit/decorators.js';
 
@@ -38,7 +36,7 @@ class MdThemeProvider extends LitElement {
     super.updated(changedProperties);
 
     if (changedProperties.has('theme')) {
-      this._updateActiveThemeClass();
+      this.updateActiveThemeClass();
     }
   }
 
@@ -46,7 +44,7 @@ class MdThemeProvider extends LitElement {
    * Function to update the active theme classname to update the theme tokens
    * as CSS variables on the web component.
    */
-  private _updateActiveThemeClass() {
+  private updateActiveThemeClass() {
     // remove all existing theme classes from the classList:
     this.classList.remove(
       ...this.themes.split(' ').map((theme) => constructThemeClass(theme, this.classPrefix, this.classSeparator)),

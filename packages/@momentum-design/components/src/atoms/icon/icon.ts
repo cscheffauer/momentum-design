@@ -1,5 +1,3 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-underscore-dangle */
 import { LitElement, TemplateResult, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { BasePropsMixin } from '../../utils/mixins/BasePropsMixin';
@@ -14,16 +12,16 @@ import { styles } from './styles';
 
 class MdIcon extends BasePropsMixin(LitElement) {
   @state()
-  _iconData: TemplateResult = html``;
+  private iconData: TemplateResult = html``;
 
   @property({ type: String, reflect: true })
   name: string = 'annotate-regular';
 
-  private async _getIconData() {
+  private getIconData() {
     dynamicSVGImport(this.name)
       .then((iconResponse) => {
         const iconHtml = new DOMParser().parseFromString(iconResponse, 'text/html').body.children;
-        this._iconData = html`${iconHtml}`;
+        this.iconData = html`${iconHtml}`;
       });
   }
 
@@ -31,7 +29,7 @@ class MdIcon extends BasePropsMixin(LitElement) {
     super.updated(changedProperties);
 
     if (changedProperties.has('name')) {
-      this._getIconData();
+      this.getIconData();
     }
   }
 
@@ -41,7 +39,7 @@ class MdIcon extends BasePropsMixin(LitElement) {
         id=${this.id}
         class=${this.class}
       >
-        ${this._iconData}
+        ${this.iconData}
       </div>
     `;
   }

@@ -12,7 +12,7 @@ export const BasePropsMixin = <T extends Constructor<LitElement>>(
 ) => {
   class InnerMixinClass extends superClass {
     @property({ reflect: true, type: String })
-    class = '';
+    public class = '';
   }
   // Cast return type to your mixin's interface intersected with the superClass type
   return InnerMixinClass as Constructor<BasePropsMixinInterface> & T;

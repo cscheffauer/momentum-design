@@ -12,7 +12,7 @@ export const DisabledMixin = <T extends Constructor<LitElement>>(
 ) => {
   class InnerMixinClass extends superClass {
     @property({ reflect: true, type: Boolean })
-    disabled = false;
+    public disabled = false;
   }
   // Cast return type to your mixin's interface intersected with the superClass type
   return InnerMixinClass as Constructor<DisabledMixinInterface> & T;
