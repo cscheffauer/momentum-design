@@ -1,4 +1,4 @@
-import { MdButton } from './button';
+import { MdButton } from './button.component';
 import { TAG_NAME } from './constants';
 
 customElements.define(TAG_NAME, MdButton);

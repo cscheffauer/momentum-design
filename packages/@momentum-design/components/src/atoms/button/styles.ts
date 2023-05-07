@@ -5,10 +5,11 @@ const styles = css`
     display: inline-flex;
     width: 100px;
     height: 20px;
-    background-color: var(--mds-color-theme-common-button-primary-normal);
+    background-color: var(--mds-color-theme-button-primary-normal);
+    color: var(--mds-color-theme-button-inverted-normal);
   }
   :host(:hover) {
-    background-color: var(--mds-color-theme-common-button-primary-hover);
+    background-color: var(--mds-color-theme-button-primary-hover);
   }
 `;
 

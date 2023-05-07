@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/atoms/button/button.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdButton",
+          "slots": [
+            {
+              "description": "This is a default/unnamed slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "public",
+              "default": "'button'",
+              "attribute": "role",
+              "reflects": true
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "whether button should be disabled",
+              "name": "disabled",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "classNames to be passed in",
+              "name": "class",
+              "kind": "field"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "'button'",
+              "fieldName": "role"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "BasePropsMixin",
+              "module": "/src/utils/mixins/BasePropsMixin"
+            },
+            {
+              "name": "DisabledMixin",
+              "module": "/src/utils/mixins/DisabledMixin"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "md-button",
+          "summary": "This is MyElement",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdButton",
+          "declaration": {
+            "name": "MdButton",
+            "module": "src/atoms/button/button.component.ts"
+          }
+        }
+      ]
+    }
+  ]
+}
