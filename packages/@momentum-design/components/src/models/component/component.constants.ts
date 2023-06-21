@@ -1,9 +1,11 @@
-const COMPONENT_NAME_PREFIX = 'mdc';
-const COMPONENT_NAME = 'component-abstract';
+import type { Constants } from './component.types';
 
-const CONSTANTS = {
-  COMPONENT_NAME,
-  COMPONENT_NAME_PREFIX,
+const NAMESPACE = {
+  PREFIX: 'mdc',
+};
+
+const CONSTANTS: Constants = {
+  NAMESPACE,
 };
 
 export default CONSTANTS;
