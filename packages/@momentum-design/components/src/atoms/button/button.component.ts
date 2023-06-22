@@ -1,9 +1,9 @@
-import { html, PropertyValues } from 'lit';
+import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import { styles } from './styles';
-import { Component } from '../../models';
-import { BasePropsMixin } from '../../utils/mixins/BasePropsMixin';
+import { styles } from './button.styles';
 import { DisabledMixin } from '../../utils/mixins/DisabledMixin';
+import { Component } from '../../models';
+import { TabIndexMixin } from '../../utils/mixins/TabIndexMixin';
 /**
  * @slot - This is a default/unnamed slot
  *
@@ -15,7 +15,7 @@ import { DisabledMixin } from '../../utils/mixins/DisabledMixin';
  * @tag md-button
  * @tagname md-button
  */
-class MdButton extends BasePropsMixin(DisabledMixin(Component)) {
+class MdButton extends TabIndexMixin(DisabledMixin(Component)) {
   @property({ type: String, reflect: true })
   public override role: string = 'button';
 
@@ -26,5 +26,4 @@ class MdButton extends BasePropsMixin(DisabledMixin(Component)) {
   static override styles = styles;
 }
 
-export interface MdButtonProps extends PropertyValues<MdButton> {}
 export { MdButton };

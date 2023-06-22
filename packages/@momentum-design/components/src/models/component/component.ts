@@ -1,7 +1,5 @@
 import { LitElement } from 'lit';
 
-import CONSTANTS from './component.constants';
-
 /**
  * Core Component class to ultimately be inherited by all Web Components within
  * this package.
@@ -37,21 +35,11 @@ class Component extends LitElement {
    * @returns - Void.
    */
   public static register(namespace: string): void {
-    if (!(namespace?.length > 0)) {
-      throw new Error(`Namespace has not been defined properly for component ${this.name}`);
-    }
     if (customElements.get(namespace)) {
       return;
     }
 
     customElements.define(namespace, this as any);
-  }
-
-  /**
-   * Constants associated with this `Component` Class.
-   */
-  public static get CONSTANTS() {
-    return CONSTANTS;
   }
 }
 

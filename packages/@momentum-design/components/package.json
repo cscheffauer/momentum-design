@@ -26,6 +26,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@lion/ui": "^0.3.3",
     "@momentum-design/icons": "workspace:^",
     "@momentum-design/tokens": "workspace:^",
     "lit": "^2.7.3"

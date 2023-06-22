@@ -1,6 +1,6 @@
-import { constructTagName } from '../../utils/tagName';
+import utils from '../../utils/tag-name';
 
-const TAG_NAME = constructTagName('theme-provider');
+const TAG_NAME = utils.constructTagName('theme-provider');
 
 const THEME_CLASS_PREFIX = 'mds-theme-stable';
 
