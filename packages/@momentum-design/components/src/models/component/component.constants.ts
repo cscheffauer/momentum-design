@@ -1,10 +1,9 @@
-import type { Constants } from './component.types';
-
 const NAMESPACE = {
   PREFIX: 'mdc',
+  SEPARATOR: '-',
 };
 
-const CONSTANTS: Constants = {
+const CONSTANTS = {
   NAMESPACE,
 };
 

@@ -1,7 +1,7 @@
 import Component from './component';
 
 export type {
-  Constants as ComponentConstants,
+  RegisterOptions as ComponentRegisterOptions,
 } from './component.types';
 
 export default Component;

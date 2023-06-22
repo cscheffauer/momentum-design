@@ -1,38 +1,16 @@
 /**
- * Returned interface for a `Component` Class Object's `namespace` getter.
- *
- * @public
- */
-export interface Namespace {
-  /**
-   * Name for this `Component` Class Object's namespace.
-   */
-  name: string;
-
-  /**
-   * Prefix for this `Component` Class Object's namespace.
-   */
-  prefix?: string;
-}
-
-/**
- * Interface for a `Component` Class Object's static `CONSTANTS` getter.
+ * `Component` Class' static `registration()` method options.
  * 
  * @public
  */
-export interface Constants {
+export interface RegisterOptions {
   /**
-   * TODO
+   * Name to use when registering this `Component` Class' to within DOM.
    */
-  NAMESPACE: {
-    /**
-     * TODO
-     */
-    NAME?: string;
+  name?: string;
 
-    /**
-     * TODO
-     */
-    PREFIX?: string;
-  }
+  /**
+   * Name to use when registering this `Component` Class' to within DOM.
+   */
+  prefix?: string;
 }
