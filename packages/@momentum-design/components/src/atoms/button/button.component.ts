@@ -15,7 +15,7 @@ import { DisabledMixin } from '../../utils/mixins/DisabledMixin';
  * @tag md-button
  * @tagname md-button
  */
-class MdButton extends BasePropsMixin(Component) {
+class MdButton extends BasePropsMixin(DisabledMixin(Component)) {
   @property({ type: String, reflect: true })
   public override role: string = 'button';
 

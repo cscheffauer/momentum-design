@@ -59,6 +59,10 @@
             {
               "name": "BasePropsMixin",
               "module": "/src/utils/mixins/BasePropsMixin"
+            },
+            {
+              "name": "DisabledMixin",
+              "module": "/src/utils/mixins/DisabledMixin"
             }
           ],
           "superclass": {
