@@ -59,15 +59,11 @@
             {
               "name": "BasePropsMixin",
               "module": "/src/utils/mixins/BasePropsMixin"
-            },
-            {
-              "name": "DisabledMixin",
-              "module": "/src/utils/mixins/DisabledMixin"
             }
           ],
           "superclass": {
-            "name": "LitElement",
-            "package": "lit"
+            "name": "Component",
+            "module": "/src/models"
           },
           "tagName": "md-button",
           "summary": "This is MyElement",

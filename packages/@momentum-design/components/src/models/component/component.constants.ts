@@ -1,6 +1,6 @@
 const NAMESPACE = {
-  PREFIX: 'mdc',
-  SEPARATOR: '-',
+  PREFIX: 'mdc' as const,
+  SEPARATOR: '-' as const,
 };
 
 const CONSTANTS = {

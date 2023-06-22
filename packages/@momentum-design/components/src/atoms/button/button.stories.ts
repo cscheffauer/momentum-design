@@ -3,12 +3,12 @@ import '.';
 import { html } from 'lit';
 
 const render = (args: Args) => html`
-  <md-button .disabled=${args.disabled} .class=${args.class || undefined}> ${args.children} </md-button>
+  <mdc-button disabled=${args.disabled} .class=${args.class || undefined}> ${args.children} </mdc-button>
 `;
 
 const meta: Meta = {
   tags: ['autodocs'],
-  component: 'md-button',
+  component: 'mdc-button',
   render,
   argTypes: {
     role: {
@@ -24,5 +24,6 @@ export default meta;
 export const Primary: StoryObj = {
   args: {
     children: 'test',
+    disabled: true,
   },
 };

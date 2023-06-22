@@ -1,8 +1,9 @@
-import { LitElement, html, PropertyValues } from 'lit';
+import { html, PropertyValues } from 'lit';
 import { property } from 'lit/decorators.js';
+import { styles } from './styles';
+import { Component } from '../../models';
 import { BasePropsMixin } from '../../utils/mixins/BasePropsMixin';
 import { DisabledMixin } from '../../utils/mixins/DisabledMixin';
-import { styles } from './styles';
 /**
  * @slot - This is a default/unnamed slot
  *
@@ -14,7 +15,7 @@ import { styles } from './styles';
  * @tag md-button
  * @tagname md-button
  */
-class MdButton extends BasePropsMixin(DisabledMixin(LitElement)) {
+class MdButton extends BasePropsMixin(Component) {
   @property({ type: String, reflect: true })
   public override role: string = 'button';
 

@@ -1,8 +1,10 @@
-const TAG_NAME = {
-  PREFIX: 'md' as const,
-  DIVIDER: '-' as const,
+const NAMESPACE = {
+  PREFIX: 'mdc' as const,
+  SEPARATOR: '-' as const,
 };
 
-export {
-  TAG_NAME,
+const CONSTANTS = {
+  NAMESPACE,
 };
+
+export default CONSTANTS;
