@@ -2,7 +2,7 @@ export default {
   /** Globs to analyze */
   globs: ['src/**/**/*.component.ts'],
   /** Globs to exclude */
-  exclude: ['src/utils/mixins/**/*.ts', 'src/**/**/styles.ts'],
+  exclude: ['src/utils/mixins/**/*.ts', 'src/**/**/styles.ts', 'config/plop/**/*.ts', 'config/plop/*.ts'],
   /** Directory to output CEM to */
   outdir: 'data',
   /** Run in dev mode, provides extra logging */

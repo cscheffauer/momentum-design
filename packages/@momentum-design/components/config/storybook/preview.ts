@@ -1,25 +1,29 @@
-import type { Preview, StoryContext } from "@storybook/web-components";
-import { html } from "lit";
-import "../src/atoms/theme-provider";
-import "./themes/dark-stable.css";
-import "./themes/light-stable.css";
-import { setCustomElementsManifest } from "@storybook/web-components";
-import customElements from "../data/custom-elements.json";
-import { themes } from "./themes";
+import type { Preview, StoryContext } from '@storybook/web-components';
+import { html } from 'lit';
+import '../../src/atoms/theme-provider';
+import './themes/dark-stable.css';
+import './themes/light-stable.css';
+import { setCustomElementsManifest } from '@storybook/web-components';
+import customElements from '../../data/custom-elements.json';
+import { themes } from './themes';
 
 setCustomElementsManifest(customElements);
 
-const setBodyBackground = (background: string) => {
-  const body = document.querySelector("body.sb-show-main") as HTMLElement;
+const setBodyStyle = (backgroundColor: string) => {
+  const body = document.querySelector('body.sb-show-main') as HTMLElement;
   if (body) {
-    body.style.background = background;
+    body.style.backgroundColor = backgroundColor;
+    body.style.height = '100vh';
+    body.style.backgroundImage = 'url(\'/background-graphic.png\')';
+    body.style.backgroundRepeat = 'no-repeat';
+    body.style.backgroundPosition = 'top right';
   }
 };
 
 const withThemeProvider = (story, context: StoryContext) => {
   const currentTheme = context.globals.theme;
   const themeObject = themes.find((theme) => theme.name === currentTheme);
-  setBodyBackground(themeObject?.value!);
+  setBodyStyle(themeObject?.backgroundColor!);
 
   return html`<md-theme-provider
     id="theme-provider"
@@ -34,7 +38,7 @@ const withThemeProvider = (story, context: StoryContext) => {
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       controls: { expanded: true },
       matchers: {
@@ -46,12 +50,12 @@ const preview: Preview = {
   decorators: [withThemeProvider],
   globalTypes: {
     theme: {
-      description: "Global theme for components",
+      description: 'Global theme for components',
       defaultValue: themes[0].name,
       toolbar: {
         // The label to show for this toolbar item
-        title: "Theme",
-        icon: "globe",
+        title: 'Theme',
+        icon: 'globe',
         // Array of plain string values or MenuItem shape (see below)
         items: themes.map((theme) => theme.name),
         // Change title based on selected value
