@@ -1,7 +1,7 @@
 {
   "name": "@momentum-design/components",
   "packageManager": "yarn@3.2.4",
-  "type": "module",
+  "type": "commonjs",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0",
@@ -14,6 +14,7 @@
     "dev": "concurrently --names 'manifest,storybook' -c 'blue.bold,magenta.bold' 'yarn:dev:generate-manifest' 'yarn:dev:storybook'",
     "dev:generate-manifest": "custom-elements-manifest analyze --config config/custom-elements-manifest.config.js",
     "dev:storybook": "storybook dev -p 6006 -c config/storybook",
+    "build:browser": "node esbuild.config.js",
     "build": "tsc",
     "clean": "echo \"script 'clean' has not been implemented\"",
     "clean:dist": "rimraf ./dist",
@@ -45,6 +46,7 @@
     "@storybook/web-components-vite": "^7.0.9",
     "concurrently": "^8.0.1",
     "delay-cli": "^2.0.0",
+    "esbuild": "^0.18.10",
     "plop": "^3.1.2",
     "rimraf": "^3.0.2",
     "storybook": "^7.0.9",

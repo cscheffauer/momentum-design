@@ -1,5 +1,5 @@
-import { constructTagName } from '../../utils/tagName';
+import utils from '../../utils/tag-name';
 
-const TAG_NAME = constructTagName('button-pill');
+const TAG_NAME = utils.constructTagName('button-pill');
 
 export { TAG_NAME };

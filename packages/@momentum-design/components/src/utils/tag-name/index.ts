@@ -10,4 +10,6 @@ type ReturnType<ComponentName extends string> =
 const constructTagName = <ComponentName extends string>(componentName: ComponentName): ReturnType<ComponentName> =>
   [CONSTANTS.NAMESPACE.PREFIX, componentName].join(CONSTANTS.NAMESPACE.SEPARATOR) as ReturnType<ComponentName>;
 
-export default { constructTagName };
+export default {
+  constructTagName,
+};
