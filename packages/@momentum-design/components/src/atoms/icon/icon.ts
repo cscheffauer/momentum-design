@@ -1,8 +1,8 @@
-import { LitElement, TemplateResult, html } from 'lit';
+import { TemplateResult, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import { BasePropsMixin } from '../../utils/mixins/BasePropsMixin';
 import { dynamicSVGImport } from './utils';
 import { styles } from './styles';
+import { Component } from '../../models';
 /**
  * An example element.
  *
@@ -10,7 +10,7 @@ import { styles } from './styles';
  * @csspart button - The button
  */
 
-class MdIcon extends BasePropsMixin(LitElement) {
+class MdIcon extends Component {
   @state()
   private iconData: TemplateResult = html``;
 
@@ -37,7 +37,6 @@ class MdIcon extends BasePropsMixin(LitElement) {
     return html`
       <div
         id=${this.id}
-        class=${this.class}
       >
         ${this.iconData}
       </div>

@@ -1,7 +1,7 @@
 import { MdIcon } from './icon';
 import { TAG_NAME } from './constants';
 
-customElements.define(TAG_NAME, MdIcon);
+MdIcon.register(TAG_NAME);
 
 export { MdIcon };
 

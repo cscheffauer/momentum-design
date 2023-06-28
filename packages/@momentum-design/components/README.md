@@ -14,3 +14,7 @@ See [our contributing guide](./CONTRIBUTING.md)
 ## Scripts
 
 See [our script documentation](./SCRIPTS.md)
+
+## Testing
+
+See [our testing documentation](./TESTING.md)

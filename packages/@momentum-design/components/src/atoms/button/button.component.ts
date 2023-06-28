@@ -25,5 +25,4 @@ class MdButton extends TabIndexMixin(DisabledMixin(Component)) {
 
   static override styles = styles;
 }
-
 export { MdButton };

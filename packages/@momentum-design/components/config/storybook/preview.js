@@ -1,4 +1,3 @@
-import type { Preview, StoryContext } from '@storybook/web-components';
 import { html } from 'lit';
 import '../../src/atoms/theme-provider';
 import './themes/dark-stable.css';
@@ -9,8 +8,8 @@ import { themes } from './themes';
 
 setCustomElementsManifest(customElements);
 
-const setBodyStyle = (backgroundColor: string) => {
-  const body = document.querySelector('body.sb-show-main') as HTMLElement;
+const setBodyStyle = (backgroundColor) => {
+  const body = document.querySelector('body.sb-show-main');
   if (body) {
     body.style.backgroundColor = backgroundColor;
     body.style.height = '100vh';
@@ -20,10 +19,10 @@ const setBodyStyle = (backgroundColor: string) => {
   }
 };
 
-const withThemeProvider = (story, context: StoryContext) => {
+const withThemeProvider = (story, context) => {
   const currentTheme = context.globals.theme;
   const themeObject = themes.find((theme) => theme.name === currentTheme);
-  setBodyStyle(themeObject?.backgroundColor!);
+  setBodyStyle(themeObject?.backgroundColor);
 
   return html`<md-theme-provider
     id="theme-provider"
@@ -36,7 +35,7 @@ const withThemeProvider = (story, context: StoryContext) => {
   </md-theme-provider>`;
 };
 
-const preview: Preview = {
+const preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {

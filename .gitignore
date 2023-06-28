@@ -114,6 +114,9 @@ dist
 # TernJS port file
 .tern-port
 
+# Playwright Test Results
+test-results/
+
 ### SPECIAL CASES ###
 
 # figma plugin so that Design doesn't have to run a build

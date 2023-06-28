@@ -3,7 +3,11 @@
   "compilerOptions": {
     "target": "es2019",
     "module": "es2020",
-    "lib": ["es2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "es2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
@@ -30,6 +34,13 @@
       }
     ]
   },
-  "include": ["src/**/*.ts"],
+  "include": [
+    "src/**/*.ts"
+  ],
   "exclude": [],
-} 
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
