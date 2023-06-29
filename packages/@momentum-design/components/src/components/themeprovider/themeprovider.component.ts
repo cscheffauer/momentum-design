@@ -1,10 +1,18 @@
-import { LitElement, html } from 'lit';
+import { html } from 'lit';
 import { property } from 'lit/decorators.js';
+import { DEFAULTS, THEMES, THEME_CLASS_PREFIX, THEME_CLASS_SEPARATOR } from './themeprovider.constants';
+import { constructThemeClass, getNextTheme } from './themeprovider.utils';
+import { Provider } from '../../models';
 
-import { DEFAULTS, THEMES, THEME_CLASS_PREFIX, THEME_CLASS_SEPARATOR } from './constants';
-import { constructThemeClass, getNextTheme } from './utils';
-
-class MdThemeProvider extends LitElement {
+/**
+ * @slot - This is a default/unnamed slot
+ *
+ * @summary This is MyElement
+ *
+ * @tag mdc-themeprovider
+ * @tagname mdc-themeprovider
+ */
+class MdcThemeprovider extends Provider {
   @property({ type: String })
   themes: string = THEMES.join(' ');
 
@@ -58,4 +66,4 @@ class MdThemeProvider extends LitElement {
   }
 }
 
-export { MdThemeProvider };
+export { MdcThemeprovider };

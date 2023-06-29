@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import '../../src/atoms/theme-provider';
+import '../../src/components/themeprovider';
 import './themes/dark-stable.css';
 import './themes/light-stable.css';
 import { setCustomElementsManifest } from '@storybook/web-components';
@@ -24,7 +24,7 @@ const withThemeProvider = (story, context) => {
   const themeObject = themes.find((theme) => theme.name === currentTheme);
   setBodyStyle(themeObject?.backgroundColor);
 
-  return html`<md-theme-provider
+  return html`<mdc-themeprovider
     id="theme-provider"
     theme="${currentTheme}"
     themes="darkWebex lightWebex"
@@ -32,7 +32,7 @@ const withThemeProvider = (story, context) => {
     class-separator="-"
   >
     ${story()}
-  </md-theme-provider>`;
+  </mdc-themeprovider>`;
 };
 
 const preview = {

@@ -1,23 +1,25 @@
 import type { Meta, StoryObj, Args } from '@storybook/web-components';
 import '.';
 import { html } from 'lit';
-import './theme-provider.styles.css';
-import { THEMES } from './constants';
+import './themeprovider.stories.styles.css';
+import { THEMES } from './themeprovider.constants';
+import './themeprovider.stories.utils';
 
 const render = (args: Args) => html`
-  <md-theme-provider class="themeWrapper" theme="${args.theme}">
-    <p>Current theme: ${args.theme}</p>
+  <mdc-themeprovider class="themeWrapper" theme="${args.theme}">
+    <p>Current theme: </p>
+    <mdc-subcomponent></mdc-subcomponent>
     <div>
       <div class="colorBox" style="background: var(--mds-color-theme-text-accent-normal);"></div>
       <div class="colorBox" style="background: var(--mds-color-theme-text-warning-normal);"></div>
       <div class="colorBox" style="background: var(--mds-color-theme-background-alert-success-normal);"></div>
     </div>
-  </md-theme-provider>
+  </mdc-themeprovider>
 `;
 
 const meta: Meta = {
   tags: ['autodocs'],
-  component: 'md-theme-provider',
+  component: 'mdc-themeprovider',
   render,
   argTypes: {
     theme: {

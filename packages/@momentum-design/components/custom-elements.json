@@ -56,42 +56,10 @@
         },
         {
           "kind": "js",
-          "name": "MdThemeProvider",
+          "name": "MdcThemeprovider",
           "declaration": {
-            "name": "MdThemeProvider",
+            "name": "MdcThemeprovider",
             "module": "src/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "config/esbuild/build-config.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "config/esbuild/e2e-config.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "config/plop/esbuild.config.plop.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "config/plop/plopfile.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "module": "config/plop/plopfile.ts"
           }
         }
       ]
@@ -163,6 +131,38 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/plop/esbuild.config.plop.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/plop/plopfile.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "config/plop/plopfile.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/esbuild/build-config.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/esbuild/e2e-config.js",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -626,24 +626,24 @@
     },
     {
       "kind": "javascript-module",
-      "path": "config/plop/actions/AddComponent.ts",
+      "path": "config/storybook/themes/index.js",
       "declarations": [
         {
           "kind": "variable",
-          "name": "AddComponent",
+          "name": "themes",
           "type": {
-            "text": "ActionType"
+            "text": "array"
           },
-          "default": "{\n  type: 'addMany',\n  base,\n  templateFiles: `${join(`${base}`, '**')}`,\n  destination: `${join(`${folders.components}`, `{{${componentName}}}`)}`,\n  data: {\n    componentName,\n    prefix: componentNamePrefix,\n    separator: componentNameSeparator,\n  },\n  globOptions: {\n    // allow hidden files to be copied as well:\n    dot: false,\n  },\n}"
+          "default": "[\n  {\n    name: 'darkWebex',\n    backgroundColor: '#000000',\n  },\n  {\n    name: 'lightWebex',\n    backgroundColor: '#ffffff',\n  },\n]"
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "AddComponent",
+          "name": "themes",
           "declaration": {
-            "name": "AddComponent",
-            "module": "config/plop/actions/AddComponent.ts"
+            "name": "themes",
+            "module": "config/storybook/themes/index.js"
           }
         }
       ]
@@ -695,7 +695,7 @@
           "type": {
             "text": "object"
           },
-          "default": "{\n  components: `${join(root, 'src', 'components')}`,\n  templates: `${join(plop, 'templates')}`,\n}"
+          "default": "{\n  src: `${join(root, 'src')}`,\n  components: `${join(root, 'src', 'components')}`,\n  templates: `${join(plop, 'templates')}`,\n}"
         }
       ],
       "exports": [
@@ -745,6 +745,78 @@
           "declaration": {
             "name": "folders",
             "module": "config/plop/constants/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/plop/actions/AddComponent.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "AddComponent",
+          "type": {
+            "text": "ActionType"
+          },
+          "default": "{\n  type: 'addMany',\n  base,\n  templateFiles: `${join(`${base}`, '**')}`,\n  destination: `${join(`${folders.components}`, `{{${componentName}}}`)}`,\n  data: {\n    componentName,\n    prefix: componentNamePrefix,\n    separator: componentNameSeparator,\n  },\n  globOptions: {\n    // allow hidden files to be copied as well:\n    dot: false,\n  },\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AddComponent",
+          "declaration": {
+            "name": "AddComponent",
+            "module": "config/plop/actions/AddComponent.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/plop/actions/AddToComponentExports.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "AddToComponentExports",
+          "type": {
+            "text": "ActionType"
+          },
+          "default": "{\n  type: 'modify',\n  path: `${join(`${folders.src}`, 'index.ts')}`,\n  pattern: /(};)/g,\n  data: {\n    componentName,\n    prefix: componentNamePrefix,\n  },\n  template:\n    `  {{sentenceCase prefix}}{{sentenceCase ${componentName}}},\\n$1`,\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AddToComponentExports",
+          "declaration": {
+            "name": "AddToComponentExports",
+            "module": "config/plop/actions/AddToComponentExports.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/plop/actions/AddToComponentImports.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "AddToComponentImports",
+          "type": {
+            "text": "ActionType"
+          },
+          "default": "{\n  type: 'modify',\n  path: `${join(`${folders.src}`, 'index.ts')}`,\n  pattern: /(\\nexport)/g,\n  data: {\n    componentName,\n    prefix: componentNamePrefix,\n  },\n  template:\n    `import { {{sentenceCase prefix}}{{sentenceCase ${componentName}}} } from './components/{{${componentName}}}';\\n$1`,\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AddToComponentImports",
+          "declaration": {
+            "name": "AddToComponentImports",
+            "module": "config/plop/actions/AddToComponentImports.ts"
           }
         }
       ]
@@ -994,217 +1066,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "dist/atoms/button/button.component.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdButton",
-          "slots": [
-            {
-              "description": "This is a default/unnamed slot",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'button'"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "whether button should be disabled",
-              "inheritedFrom": {
-                "name": "DisabledMixin",
-                "module": "src/utils/mixins/DisabledMixin.ts"
-              }
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "classNames to be passed in",
-              "name": "class",
-              "kind": "field"
-            },
-            {
-              "kind": "field",
-              "name": "tabIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "inheritedFrom": {
-                "name": "TabIndexMixin",
-                "module": "src/utils/mixins/TabIndexMixin.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "register",
-              "privacy": "public",
-              "static": true,
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              },
-              "parameters": [
-                {
-                  "name": "namespace",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ],
-              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
-              "inheritedFrom": {
-                "name": "Component",
-                "module": "src/models/component/component.ts"
-              }
-            }
-          ],
-          "mixins": [
-            {
-              "name": "TabIndexMixin",
-              "module": "/dist/utils/mixins/TabIndexMixin"
-            },
-            {
-              "name": "DisabledMixin",
-              "module": "/dist/utils/mixins/DisabledMixin"
-            }
-          ],
-          "superclass": {
-            "name": "Component",
-            "module": "/dist/models"
-          },
-          "tagName": "md-button",
-          "summary": "This is MyElement",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdButton",
-          "declaration": {
-            "name": "MdButton",
-            "module": "dist/atoms/button/button.component.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/atoms/button/button.constants.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "TAG_NAME"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "TAG_NAME",
-          "declaration": {
-            "name": "TAG_NAME",
-            "module": "dist/atoms/button/button.constants.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/atoms/button/button.stories.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n    tags: ['autodocs'],\n    component: 'mdc-button',\n    render,\n    argTypes: {\n        role: {\n            table: {\n                disable: true,\n            },\n        },\n    },\n}"
-        },
-        {
-          "kind": "variable",
-          "name": "Primary",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n    args: {\n        children: 'test',\n        disabled: true,\n        class: 'test',\n        onClick: () => { },\n    },\n}"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "meta",
-            "module": "dist/atoms/button/button.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Primary",
-          "declaration": {
-            "name": "Primary",
-            "module": "dist/atoms/button/button.stories.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/atoms/button/button.styles.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "default": "css `\n  :host {\n    /* Variables: */\n    --mdc-button-background-color-normal: var(--mds-color-theme-button-primary-normal);\n    --mdc-button-background-color-hover: var(--mds-color-theme-button-primary-hover);\n\n    /* State: */\n    display: inline-flex;\n    width: 100px;\n    height: 20px;\n    color: var(--mds-color-theme-button-inverted-normal);\n    background-color: var(--mdc-button-background-color);\n  }\n  :host(:hover) {\n    background-color: var(--mdc-button-background-color-hover);\n  }\n`"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "styles",
-          "declaration": {
-            "name": "styles",
-            "module": "dist/atoms/button/button.styles.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/atoms/button/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdButton",
-          "declaration": {
-            "name": "MdButton",
-            "module": "dist/atoms/button/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "dist/atoms/icon/constants.js",
       "declarations": [
         {
@@ -1389,24 +1250,473 @@
     },
     {
       "kind": "javascript-module",
-      "path": "config/storybook/themes/index.js",
+      "path": "dist/models/component/component.js",
       "declarations": [
         {
-          "kind": "variable",
-          "name": "themes",
-          "type": {
-            "text": "array"
+          "kind": "class",
+          "description": "Core Component class to ultimately be inherited by all Web Components within\nthis package.",
+          "name": "Component",
+          "members": [
+            {
+              "kind": "method",
+              "name": "register",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "namespace"
+                }
+              ],
+              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
           },
-          "default": "[\n  {\n    name: 'darkWebex',\n    backgroundColor: '#000000',\n  },\n  {\n    name: 'lightWebex',\n    backgroundColor: '#ffffff',\n  },\n]"
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "namespace",
+          "declaration": {
+            "name": "anonymous_0",
+            "module": "dist/models/component/component.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Component",
+            "module": "dist/models/component/component.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/models/component/component.types.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/models/component/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Component",
+            "module": "dist/models/component/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/components/avatar/avatar.component.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdcAvatar",
+          "slots": [
+            {
+              "description": "This is a default/unnamed slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "privacy": "public",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "parameters": [
+                {
+                  "name": "namespace",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
+              "inheritedFrom": {
+                "name": "Component",
+                "module": "src/models/component/component.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "Component",
+            "module": "/dist/models"
+          },
+          "tagName": "mdc-avatar",
+          "summary": "This is MyElement",
+          "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "themes",
+          "name": "MdcAvatar",
           "declaration": {
-            "name": "themes",
-            "module": "config/storybook/themes/index.js"
+            "name": "MdcAvatar",
+            "module": "dist/components/avatar/avatar.component.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/components/avatar/avatar.constants.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "TAG_NAME"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TAG_NAME",
+          "declaration": {
+            "name": "TAG_NAME",
+            "module": "dist/components/avatar/avatar.constants.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/components/avatar/avatar.stories.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "meta",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n    tags: ['autodocs'],\n    component: 'mdc-avatar',\n    render,\n    argTypes: {},\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "Primary",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n    args: {},\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "meta",
+            "module": "dist/components/avatar/avatar.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Primary",
+          "declaration": {
+            "name": "Primary",
+            "module": "dist/components/avatar/avatar.stories.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/components/avatar/avatar.styles.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "default": "css `\n  :host {\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "styles",
+          "declaration": {
+            "name": "styles",
+            "module": "dist/components/avatar/avatar.styles.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/components/avatar/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcAvatar",
+          "declaration": {
+            "name": "MdcAvatar",
+            "module": "dist/components/avatar/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/models/provider/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Provider",
+            "module": "dist/models/provider/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/models/provider/provider.constants.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "CONSTANTS",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n    ERRORS,\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "CONSTANTS",
+            "module": "dist/models/provider/provider.constants.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/models/provider/provider.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Provider Component class to ultimately be inherited by all Provider-type Web\nComponents within this package.",
+          "name": "Provider",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render",
+              "description": "Render this Provider.",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "get",
+              "static": true,
+              "parameters": [
+                {
+                  "name": "options",
+                  "description": "Options to use when locating this Provider."
+                }
+              ],
+              "description": "Get the Provider of this type as a parent of the provided Component.",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "CONSTANTS",
+              "static": true,
+              "description": "Constants associated with this Provider.",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "privacy": "public",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "parameters": [
+                {
+                  "name": "namespace",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
+              "inheritedFrom": {
+                "name": "Component",
+                "module": "src/models/component/component.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "Component",
+            "module": "/dist/models/component"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Provider",
+            "module": "dist/models/provider/provider.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/models/provider/provider.types.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/utils/mixins/DisabledMixin.js",
+      "declarations": [
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "DisabledMixin",
+          "members": [
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DisabledMixin",
+          "declaration": {
+            "name": "DisabledMixin",
+            "module": "dist/utils/mixins/DisabledMixin.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/utils/mixins/TabIndexMixin.js",
+      "declarations": [
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "TabIndexMixin",
+          "members": [
+            {
+              "kind": "field",
+              "name": "tabIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TabIndexMixin",
+          "declaration": {
+            "name": "TabIndexMixin",
+            "module": "dist/utils/mixins/TabIndexMixin.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/utils/tag-name/constants.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "CONSTANTS",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n    NAMESPACE,\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "CONSTANTS",
+            "module": "dist/utils/tag-name/constants.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/utils/tag-name/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "dist/utils/tag-name/index.js"
           }
         }
       ]
@@ -1705,480 +2015,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "dist/components/avatar/avatar.component.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdcAvatar",
-          "slots": [
-            {
-              "description": "This is a default/unnamed slot",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "method",
-              "name": "register",
-              "privacy": "public",
-              "static": true,
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              },
-              "parameters": [
-                {
-                  "name": "namespace",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ],
-              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
-              "inheritedFrom": {
-                "name": "Component",
-                "module": "src/models/component/component.ts"
-              }
-            }
-          ],
-          "superclass": {
-            "name": "Component",
-            "module": "/dist/models"
-          },
-          "tagName": "mdc-avatar",
-          "summary": "This is MyElement",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdcAvatar",
-          "declaration": {
-            "name": "MdcAvatar",
-            "module": "dist/components/avatar/avatar.component.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/components/avatar/avatar.constants.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "TAG_NAME"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "TAG_NAME",
-          "declaration": {
-            "name": "TAG_NAME",
-            "module": "dist/components/avatar/avatar.constants.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/components/avatar/avatar.stories.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n    tags: ['autodocs'],\n    component: 'mdc-avatar',\n    render,\n    argTypes: {},\n}"
-        },
-        {
-          "kind": "variable",
-          "name": "Primary",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n    args: {},\n}"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "meta",
-            "module": "dist/components/avatar/avatar.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Primary",
-          "declaration": {
-            "name": "Primary",
-            "module": "dist/components/avatar/avatar.stories.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/components/avatar/avatar.styles.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "default": "css `\n  :host {\n  }\n`"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "styles",
-          "declaration": {
-            "name": "styles",
-            "module": "dist/components/avatar/avatar.styles.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/components/avatar/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdcAvatar",
-          "declaration": {
-            "name": "MdcAvatar",
-            "module": "dist/components/avatar/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/models/component/component.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Core Component class to ultimately be inherited by all Web Components within\nthis package.",
-          "name": "Component",
-          "members": [
-            {
-              "kind": "method",
-              "name": "register",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "namespace"
-                }
-              ],
-              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              }
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "namespace",
-          "declaration": {
-            "name": "anonymous_0",
-            "module": "dist/models/component/component.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "Component",
-            "module": "dist/models/component/component.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/models/component/component.types.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/models/component/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "Component",
-            "module": "dist/models/component/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/models/provider/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "Provider",
-            "module": "dist/models/provider/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/models/provider/provider.constants.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "CONSTANTS",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n    ERRORS,\n}"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "CONSTANTS",
-            "module": "dist/models/provider/provider.constants.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/models/provider/provider.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Provider Component class to ultimately be inherited by all Provider-type Web\nComponents within this package.",
-          "name": "Provider",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render",
-              "description": "Render this Provider.",
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "get",
-              "static": true,
-              "parameters": [
-                {
-                  "name": "options",
-                  "description": "Options to use when locating this Provider."
-                }
-              ],
-              "description": "Get the Provider of this type as a parent of the provided Component.",
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              }
-            },
-            {
-              "kind": "field",
-              "name": "CONSTANTS",
-              "static": true,
-              "description": "Constants associated with this Provider.",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "register",
-              "privacy": "public",
-              "static": true,
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              },
-              "parameters": [
-                {
-                  "name": "namespace",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ],
-              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
-              "inheritedFrom": {
-                "name": "Component",
-                "module": "src/models/component/component.ts"
-              }
-            }
-          ],
-          "superclass": {
-            "name": "Component",
-            "module": "/dist/models/component"
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "Provider",
-            "module": "dist/models/provider/provider.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/models/provider/provider.types.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/utils/mixins/DisabledMixin.js",
-      "declarations": [
-        {
-          "kind": "mixin",
-          "description": "",
-          "name": "DisabledMixin",
-          "members": [
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            }
-          ],
-          "parameters": [
-            {
-              "name": "superClass"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DisabledMixin",
-          "declaration": {
-            "name": "DisabledMixin",
-            "module": "dist/utils/mixins/DisabledMixin.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/utils/mixins/TabIndexMixin.js",
-      "declarations": [
-        {
-          "kind": "mixin",
-          "description": "",
-          "name": "TabIndexMixin",
-          "members": [
-            {
-              "kind": "field",
-              "name": "tabIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0"
-            }
-          ],
-          "parameters": [
-            {
-              "name": "superClass"
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "TabIndexMixin",
-          "declaration": {
-            "name": "TabIndexMixin",
-            "module": "dist/utils/mixins/TabIndexMixin.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/utils/tag-name/constants.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "CONSTANTS",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n    NAMESPACE,\n}"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "CONSTANTS",
-            "module": "dist/utils/tag-name/constants.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/utils/tag-name/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "module": "dist/utils/tag-name/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/atoms/button/button.component.ts",
+      "path": "dist/atoms/button/button.component.js",
       "declarations": [
         {
           "kind": "class",
@@ -2192,23 +2029,16 @@
           ],
           "members": [
             {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "public",
-              "default": "'button'"
-            },
-            {
               "kind": "method",
               "name": "render"
             },
             {
               "kind": "field",
-              "name": "styles",
-              "static": true,
-              "default": "styles"
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "'button'"
             },
             {
               "kind": "field",
@@ -2271,16 +2101,16 @@
           "mixins": [
             {
               "name": "TabIndexMixin",
-              "module": "/src/utils/mixins/TabIndexMixin"
+              "module": "/dist/utils/mixins/TabIndexMixin"
             },
             {
               "name": "DisabledMixin",
-              "module": "/src/utils/mixins/DisabledMixin"
+              "module": "/dist/utils/mixins/DisabledMixin"
             }
           ],
           "superclass": {
             "name": "Component",
-            "module": "/src/models"
+            "module": "/dist/models"
           },
           "tagName": "md-button",
           "summary": "This is MyElement",
@@ -2293,14 +2123,14 @@
           "name": "MdButton",
           "declaration": {
             "name": "MdButton",
-            "module": "src/atoms/button/button.component.ts"
+            "module": "dist/atoms/button/button.component.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/atoms/button/button.constants.ts",
+      "path": "dist/atoms/button/button.constants.js",
       "declarations": [
         {
           "kind": "variable",
@@ -2313,30 +2143,30 @@
           "name": "TAG_NAME",
           "declaration": {
             "name": "TAG_NAME",
-            "module": "src/atoms/button/button.constants.ts"
+            "module": "dist/atoms/button/button.constants.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/atoms/button/button.stories.ts",
+      "path": "dist/atoms/button/button.stories.js",
       "declarations": [
         {
           "kind": "variable",
           "name": "meta",
           "type": {
-            "text": "Meta"
+            "text": "object"
           },
-          "default": "{\n  tags: ['autodocs'],\n  component: 'mdc-button',\n  render,\n  argTypes: {\n    role: {\n      table: {\n        disable: true,\n      },\n    },\n  },\n}"
+          "default": "{\n    tags: ['autodocs'],\n    component: 'mdc-button',\n    render,\n    argTypes: {\n        role: {\n            table: {\n                disable: true,\n            },\n        },\n    },\n}"
         },
         {
           "kind": "variable",
           "name": "Primary",
           "type": {
-            "text": "StoryObj"
+            "text": "object"
           },
-          "default": "{\n  args: {\n    children: 'test',\n    disabled: true,\n    class: 'test',\n    onClick: () => {},\n  },\n}"
+          "default": "{\n    args: {\n        children: 'test',\n        disabled: true,\n        class: 'test',\n        onClick: () => { },\n    },\n}"
         }
       ],
       "exports": [
@@ -2345,7 +2175,7 @@
           "name": "default",
           "declaration": {
             "name": "meta",
-            "module": "src/atoms/button/button.stories.ts"
+            "module": "dist/atoms/button/button.stories.js"
           }
         },
         {
@@ -2353,19 +2183,19 @@
           "name": "Primary",
           "declaration": {
             "name": "Primary",
-            "module": "src/atoms/button/button.stories.ts"
+            "module": "dist/atoms/button/button.stories.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/atoms/button/button.styles.ts",
+      "path": "dist/atoms/button/button.styles.js",
       "declarations": [
         {
           "kind": "variable",
           "name": "styles",
-          "default": "css`\n  :host {\n    /* Variables: */\n    --mdc-button-background-color-normal: var(--mds-color-theme-button-primary-normal);\n    --mdc-button-background-color-hover: var(--mds-color-theme-button-primary-hover);\n\n    /* State: */\n    display: inline-flex;\n    width: 100px;\n    height: 20px;\n    color: var(--mds-color-theme-button-inverted-normal);\n    background-color: var(--mdc-button-background-color);\n  }\n  :host(:hover) {\n    background-color: var(--mdc-button-background-color-hover);\n  }\n`"
+          "default": "css `\n  :host {\n    /* Variables: */\n    --mdc-button-background-color-normal: var(--mds-color-theme-button-primary-normal);\n    --mdc-button-background-color-hover: var(--mds-color-theme-button-primary-hover);\n\n    /* State: */\n    display: inline-flex;\n    width: 100px;\n    height: 20px;\n    color: var(--mds-color-theme-button-inverted-normal);\n    background-color: var(--mdc-button-background-color);\n  }\n  :host(:hover) {\n    background-color: var(--mdc-button-background-color-hover);\n  }\n`"
         }
       ],
       "exports": [
@@ -2374,14 +2204,14 @@
           "name": "styles",
           "declaration": {
             "name": "styles",
-            "module": "src/atoms/button/button.styles.ts"
+            "module": "dist/atoms/button/button.styles.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/atoms/button/index.ts",
+      "path": "dist/atoms/button/index.js",
       "declarations": [],
       "exports": [
         {
@@ -2389,7 +2219,7 @@
           "name": "MdButton",
           "declaration": {
             "name": "MdButton",
-            "module": "src/atoms/button/index.ts"
+            "module": "dist/atoms/button/index.js"
           }
         }
       ]
@@ -4167,6 +3997,224 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/atoms/button/button.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdButton",
+          "slots": [
+            {
+              "description": "This is a default/unnamed slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "public",
+              "default": "'button'"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "default": "styles"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "whether button should be disabled",
+              "inheritedFrom": {
+                "name": "DisabledMixin",
+                "module": "src/utils/mixins/DisabledMixin.ts"
+              }
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "classNames to be passed in",
+              "name": "class",
+              "kind": "field"
+            },
+            {
+              "kind": "field",
+              "name": "tabIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "inheritedFrom": {
+                "name": "TabIndexMixin",
+                "module": "src/utils/mixins/TabIndexMixin.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "privacy": "public",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "parameters": [
+                {
+                  "name": "namespace",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
+              "inheritedFrom": {
+                "name": "Component",
+                "module": "src/models/component/component.ts"
+              }
+            }
+          ],
+          "mixins": [
+            {
+              "name": "TabIndexMixin",
+              "module": "/src/utils/mixins/TabIndexMixin"
+            },
+            {
+              "name": "DisabledMixin",
+              "module": "/src/utils/mixins/DisabledMixin"
+            }
+          ],
+          "superclass": {
+            "name": "Component",
+            "module": "/src/models"
+          },
+          "tagName": "md-button",
+          "summary": "This is MyElement",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdButton",
+          "declaration": {
+            "name": "MdButton",
+            "module": "src/atoms/button/button.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/atoms/button/button.constants.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "TAG_NAME"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TAG_NAME",
+          "declaration": {
+            "name": "TAG_NAME",
+            "module": "src/atoms/button/button.constants.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/atoms/button/button.stories.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "meta",
+          "type": {
+            "text": "Meta"
+          },
+          "default": "{\n  tags: ['autodocs'],\n  component: 'mdc-button',\n  render,\n  argTypes: {\n    role: {\n      table: {\n        disable: true,\n      },\n    },\n  },\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "Primary",
+          "type": {
+            "text": "StoryObj"
+          },
+          "default": "{\n  args: {\n    children: 'test',\n    disabled: true,\n    class: 'test',\n    onClick: () => {},\n  },\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "meta",
+            "module": "src/atoms/button/button.stories.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Primary",
+          "declaration": {
+            "name": "Primary",
+            "module": "src/atoms/button/button.stories.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/atoms/button/button.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "default": "css`\n  :host {\n    /* Variables: */\n    --mdc-button-background-color-normal: var(--mds-color-theme-button-primary-normal);\n    --mdc-button-background-color-hover: var(--mds-color-theme-button-primary-hover);\n\n    /* State: */\n    display: inline-flex;\n    width: 100px;\n    height: 20px;\n    color: var(--mds-color-theme-button-inverted-normal);\n    background-color: var(--mdc-button-background-color);\n  }\n  :host(:hover) {\n    background-color: var(--mdc-button-background-color-hover);\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "styles",
+          "declaration": {
+            "name": "styles",
+            "module": "src/atoms/button/button.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/atoms/button/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdButton",
+          "declaration": {
+            "name": "MdButton",
+            "module": "src/atoms/button/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/atoms/icon/constants.ts",
       "declarations": [
         {
@@ -4360,510 +4408,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/atoms/theme-provider/constants.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "TAG_NAME"
-        },
-        {
-          "kind": "variable",
-          "name": "THEME_CLASS_PREFIX",
-          "type": {
-            "text": "string"
-          },
-          "default": "'mds-theme-stable'"
-        },
-        {
-          "kind": "variable",
-          "name": "THEME_CLASS_SEPARATOR",
-          "type": {
-            "text": "string"
-          },
-          "default": "'-'"
-        },
-        {
-          "kind": "variable",
-          "name": "THEME_NAMES",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  // DARK_BRONZE: 'darkBronze' as const,\n  // DARK_INDIGO: 'darkIndigo' as const,\n  // DARK_JADE: 'darkJade' as const,\n  // DARK_LAVENDER: 'darkLavender' as const,\n  // DARK_ROSE: 'darkRose' as const,\n  DARK_WEBEX: 'darkWebex' as const,\n  // LIGHT_BRONZE: 'lightBronze' as const,\n  // LIGHT_INDIGO: 'lightIndigo' as const,\n  // LIGHT_JADE: 'lightJade' as const,\n  // LIGHT_LAVENDER: 'lightLavender' as const,\n  // LIGHT_ROSE: 'lightRose' as const,\n  LIGHT_WEBEX: 'lightWebex' as const,\n}"
-        },
-        {
-          "kind": "variable",
-          "name": "THEMES"
-        },
-        {
-          "kind": "variable",
-          "name": "DEFAULTS",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  THEME: THEME_NAMES.DARK_WEBEX,\n}"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DEFAULTS",
-          "declaration": {
-            "name": "DEFAULTS",
-            "module": "src/atoms/theme-provider/constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "THEME_CLASS_PREFIX",
-          "declaration": {
-            "name": "THEME_CLASS_PREFIX",
-            "module": "src/atoms/theme-provider/constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "THEME_CLASS_SEPARATOR",
-          "declaration": {
-            "name": "THEME_CLASS_SEPARATOR",
-            "module": "src/atoms/theme-provider/constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "THEME_NAMES",
-          "declaration": {
-            "name": "THEME_NAMES",
-            "module": "src/atoms/theme-provider/constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "THEMES",
-          "declaration": {
-            "name": "THEMES",
-            "module": "src/atoms/theme-provider/constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "TAG_NAME",
-          "declaration": {
-            "name": "TAG_NAME",
-            "module": "src/atoms/theme-provider/constants.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/atoms/theme-provider/index.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "TAG_NAME",
-          "declaration": {
-            "name": "MdThemeProvider",
-            "module": "/src/atoms/theme-provider/theme-provider"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "MdThemeProvider",
-          "declaration": {
-            "name": "MdThemeProvider",
-            "module": "src/atoms/theme-provider/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/atoms/theme-provider/theme-provider.stories.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "Meta"
-          },
-          "default": "{\n  tags: ['autodocs'],\n  component: 'md-theme-provider',\n  render,\n  argTypes: {\n    theme: {\n      options: THEMES,\n      control: { type: 'radio' },\n    },\n  },\n}"
-        },
-        {
-          "kind": "variable",
-          "name": "Primary",
-          "type": {
-            "text": "StoryObj"
-          },
-          "default": "{\n  args: {\n    theme: THEMES[0],\n  },\n}"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "meta",
-            "module": "src/atoms/theme-provider/theme-provider.stories.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Primary",
-          "declaration": {
-            "name": "Primary",
-            "module": "src/atoms/theme-provider/theme-provider.stories.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/atoms/theme-provider/theme-provider.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdThemeProvider",
-          "members": [
-            {
-              "kind": "field",
-              "name": "themes",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "classPrefix",
-              "type": {
-                "text": "string"
-              },
-              "default": "THEME_CLASS_PREFIX"
-            },
-            {
-              "kind": "field",
-              "name": "classSeparator",
-              "type": {
-                "text": "string"
-              },
-              "default": "THEME_CLASS_SEPARATOR"
-            },
-            {
-              "kind": "field",
-              "name": "theme",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "switchTheme",
-              "privacy": "public",
-              "parameters": [
-                {
-                  "name": "theme",
-                  "type": {
-                    "text": "string"
-                  },
-                  "description": "theme to switch to, if not provided pick next available"
-                }
-              ],
-              "description": "Allows to programmatically switch the theme on the theme provider\n\nIf no `theme` arg is passed in, it will pick the next available one\nin the themes string"
-            },
-            {
-              "kind": "method",
-              "name": "updated",
-              "parameters": [
-                {
-                  "name": "changedProperties",
-                  "type": {
-                    "text": "Map<string, any>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "updateActiveThemeClass",
-              "privacy": "private",
-              "description": "Function to update the active theme classname to update the theme tokens\nas CSS variables on the web component."
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "TAG_NAME",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdThemeProvider",
-          "declaration": {
-            "name": "MdThemeProvider",
-            "module": "src/atoms/theme-provider/theme-provider.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/atoms/theme-provider/types.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/atoms/theme-provider/utils.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "constructThemeClass",
-          "return": {
-            "type": {
-              "text": "string"
-            }
-          },
-          "parameters": [
-            {
-              "name": "theme",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "prefix",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "separator",
-              "type": {
-                "text": "string"
-              }
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "getNextTheme",
-          "parameters": [
-            {
-              "name": "themes",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "currentTheme",
-              "type": {
-                "text": "string"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "constructThemeClass",
-          "declaration": {
-            "name": "constructThemeClass",
-            "module": "src/atoms/theme-provider/utils.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "getNextTheme",
-          "declaration": {
-            "name": "getNextTheme",
-            "module": "src/atoms/theme-provider/utils.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/avatar/avatar.component.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdcAvatar",
-          "slots": [
-            {
-              "description": "This is a default/unnamed slot",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true,
-              "default": "styles"
-            },
-            {
-              "kind": "method",
-              "name": "register",
-              "privacy": "public",
-              "static": true,
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              },
-              "parameters": [
-                {
-                  "name": "namespace",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ],
-              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
-              "inheritedFrom": {
-                "name": "Component",
-                "module": "src/models/component/component.ts"
-              }
-            }
-          ],
-          "superclass": {
-            "name": "Component",
-            "module": "/src/models"
-          },
-          "tagName": "mdc-avatar",
-          "summary": "This is MyElement",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdcAvatar",
-          "declaration": {
-            "name": "MdcAvatar",
-            "module": "src/components/avatar/avatar.component.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/avatar/avatar.constants.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "TAG_NAME"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "TAG_NAME",
-          "declaration": {
-            "name": "TAG_NAME",
-            "module": "src/components/avatar/avatar.constants.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/avatar/avatar.e2e-test.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/avatar/avatar.stories.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "Meta"
-          },
-          "default": "{\n  tags: ['autodocs'],\n  component: 'mdc-avatar',\n  render,\n  argTypes: {},\n}"
-        },
-        {
-          "kind": "variable",
-          "name": "Primary",
-          "type": {
-            "text": "StoryObj"
-          },
-          "default": "{\n  args: {},\n}"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "meta",
-            "module": "src/components/avatar/avatar.stories.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Primary",
-          "declaration": {
-            "name": "Primary",
-            "module": "src/components/avatar/avatar.stories.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/avatar/avatar.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "default": "css`\n  :host {\n  }\n`"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "styles",
-          "declaration": {
-            "name": "styles",
-            "module": "src/components/avatar/avatar.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/avatar/index.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdcAvatar",
-          "declaration": {
-            "name": "MdcAvatar",
-            "module": "src/components/avatar/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/models/component/component.ts",
       "declarations": [
         {
@@ -4943,6 +4487,367 @@
           "declaration": {
             "name": "Component",
             "module": "src/models/component/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/themeprovider/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcThemeprovider",
+          "declaration": {
+            "name": "MdcThemeprovider",
+            "module": "src/components/themeprovider/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/themeprovider/themeprovider.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdcThemeprovider",
+          "slots": [
+            {
+              "description": "This is a default/unnamed slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "themes",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "classPrefix",
+              "type": {
+                "text": "string"
+              },
+              "default": "THEME_CLASS_PREFIX"
+            },
+            {
+              "kind": "field",
+              "name": "classSeparator",
+              "type": {
+                "text": "string"
+              },
+              "default": "THEME_CLASS_SEPARATOR"
+            },
+            {
+              "kind": "field",
+              "name": "theme",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "switchTheme",
+              "privacy": "public",
+              "parameters": [
+                {
+                  "name": "theme",
+                  "type": {
+                    "text": "string"
+                  },
+                  "description": "theme to switch to, if not provided pick next available"
+                }
+              ],
+              "description": "Allows to programmatically switch the theme on the theme provider\n\nIf no `theme` arg is passed in, it will pick the next available one\nin the themes string"
+            },
+            {
+              "kind": "method",
+              "name": "updated",
+              "parameters": [
+                {
+                  "name": "changedProperties",
+                  "type": {
+                    "text": "Map<string, any>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "updateActiveThemeClass",
+              "privacy": "private",
+              "description": "Function to update the active theme classname to update the theme tokens\nas CSS variables on the web component."
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "privacy": "public",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "parameters": [
+                {
+                  "name": "namespace",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
+              "inheritedFrom": {
+                "name": "Component",
+                "module": "src/models/component/component.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "Component",
+            "module": "/src/models"
+          },
+          "tagName": "mdc-themeprovider",
+          "summary": "This is MyElement",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcThemeprovider",
+          "declaration": {
+            "name": "MdcThemeprovider",
+            "module": "src/components/themeprovider/themeprovider.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/themeprovider/themeprovider.constants.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "TAG_NAME"
+        },
+        {
+          "kind": "variable",
+          "name": "THEME_CLASS_PREFIX",
+          "type": {
+            "text": "string"
+          },
+          "default": "'mds-theme-stable'"
+        },
+        {
+          "kind": "variable",
+          "name": "THEME_CLASS_SEPARATOR",
+          "type": {
+            "text": "string"
+          },
+          "default": "'-'"
+        },
+        {
+          "kind": "variable",
+          "name": "THEME_NAMES",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  // DARK_BRONZE: 'darkBronze' as const,\n  // DARK_INDIGO: 'darkIndigo' as const,\n  // DARK_JADE: 'darkJade' as const,\n  // DARK_LAVENDER: 'darkLavender' as const,\n  // DARK_ROSE: 'darkRose' as const,\n  DARK_WEBEX: 'darkWebex' as const,\n  // LIGHT_BRONZE: 'lightBronze' as const,\n  // LIGHT_INDIGO: 'lightIndigo' as const,\n  // LIGHT_JADE: 'lightJade' as const,\n  // LIGHT_LAVENDER: 'lightLavender' as const,\n  // LIGHT_ROSE: 'lightRose' as const,\n  LIGHT_WEBEX: 'lightWebex' as const,\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "THEMES"
+        },
+        {
+          "kind": "variable",
+          "name": "DEFAULTS",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  THEME: THEME_NAMES.DARK_WEBEX,\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DEFAULTS",
+          "declaration": {
+            "name": "DEFAULTS",
+            "module": "src/components/themeprovider/themeprovider.constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "THEME_CLASS_PREFIX",
+          "declaration": {
+            "name": "THEME_CLASS_PREFIX",
+            "module": "src/components/themeprovider/themeprovider.constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "THEME_CLASS_SEPARATOR",
+          "declaration": {
+            "name": "THEME_CLASS_SEPARATOR",
+            "module": "src/components/themeprovider/themeprovider.constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "THEME_NAMES",
+          "declaration": {
+            "name": "THEME_NAMES",
+            "module": "src/components/themeprovider/themeprovider.constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "THEMES",
+          "declaration": {
+            "name": "THEMES",
+            "module": "src/components/themeprovider/themeprovider.constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "TAG_NAME",
+          "declaration": {
+            "name": "TAG_NAME",
+            "module": "src/components/themeprovider/themeprovider.constants.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/themeprovider/themeprovider.e2e-test.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/themeprovider/themeprovider.stories.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "meta",
+          "type": {
+            "text": "Meta"
+          },
+          "default": "{\n  tags: ['autodocs'],\n  component: 'mdc-themeprovider',\n  render,\n  argTypes: {\n    theme: {\n      options: THEMES,\n      control: { type: 'radio' },\n    },\n  },\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "Primary",
+          "type": {
+            "text": "StoryObj"
+          },
+          "default": "{\n  args: {\n    theme: THEMES[0],\n  },\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "meta",
+            "module": "src/components/themeprovider/themeprovider.stories.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Primary",
+          "declaration": {
+            "name": "Primary",
+            "module": "src/components/themeprovider/themeprovider.stories.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/themeprovider/themeprovider.types.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/themeprovider/themeprovider.utils.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "constructThemeClass",
+          "return": {
+            "type": {
+              "text": "string"
+            }
+          },
+          "parameters": [
+            {
+              "name": "theme",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "prefix",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "separator",
+              "type": {
+                "text": "string"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "getNextTheme",
+          "parameters": [
+            {
+              "name": "themes",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "currentTheme",
+              "type": {
+                "text": "string"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "constructThemeClass",
+          "declaration": {
+            "name": "constructThemeClass",
+            "module": "src/components/themeprovider/themeprovider.utils.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "getNextTheme",
+          "declaration": {
+            "name": "getNextTheme",
+            "module": "src/components/themeprovider/themeprovider.utils.ts"
           }
         }
       ]
@@ -5429,12 +5334,8 @@
         },
         {
           "kind": "variable",
-          "name": "D",
-          "default": "class extends ${render(){return S`<slot name=\"i\"></slot>`}static"
-        },
-        {
-          "kind": "variable",
-          "name": "Lt"
+          "name": "B",
+          "default": "class extends ${render(){return A`<slot name=\"i\"></slot>`}static"
         },
         {
           "kind": "variable",
@@ -5442,8 +5343,12 @@
         },
         {
           "kind": "variable",
-          "name": "A",
-          "default": "class extends f{constructor(){super(...arguments);this.themes=qt.join(\" \");this.classPrefix=Dt;this.classSeparator=Bt;this.theme=zt.THEME}switchTheme(e){e?this.theme=e:this.theme=Gt(this.themes,this.theme)}updated(e){super.updated(e),e.has(\"theme\")&&this.updateActiveThemeClass()}updateActiveThemeClass(){this.classList.remove(...this.themes.split(\" \").map(e=>pt(e,this.classPrefix,this.classSeparator))),this.classList.add(pt(this.theme,this.classPrefix,this.classSeparator))}render(){return S`<slot></slot>`}}"
+          "name": "Dt"
+        },
+        {
+          "kind": "variable",
+          "name": "_",
+          "default": "class extends f{constructor(){super(...arguments);this.themes=qt.join(\" \");this.classPrefix=Bt;this.classSeparator=jt;this.theme=zt.THEME}switchTheme(e){e?this.theme=e:this.theme=Vt(this.themes,this.theme)}updated(e){super.updated(e),e.has(\"theme\")&&this.updateActiveThemeClass()}updateActiveThemeClass(){this.classList.remove(...this.themes.split(\" \").map(e=>ut(e,this.classPrefix,this.classSeparator))),this.classList.add(ut(this.theme,this.classPrefix,this.classSeparator))}render(){return A`<slot></slot>`}}"
         }
       ],
       "exports": [
@@ -5457,17 +5362,17 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "Lt",
+          "name": "It",
           "declaration": {
-            "name": "D",
+            "name": "B",
             "module": "config/playwright/public/dist/browser/index.js"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "It",
+          "name": "Dt",
           "declaration": {
-            "name": "A",
+            "name": "_",
             "module": "config/playwright/public/dist/browser/index.js"
           }
         }

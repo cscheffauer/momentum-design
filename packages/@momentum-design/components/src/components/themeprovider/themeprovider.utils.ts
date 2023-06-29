@@ -1,8 +1,5 @@
-/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable max-len */
-
-const constructThemeClass = (theme: string, prefix: string, separator: string): string =>
-  [prefix, theme].join(separator);
+const constructThemeClass = (theme: string, prefix: string, separator: string): string => [prefix, theme].join(separator);
 
 const getNextTheme = (themes: string, currentTheme: string) => {
   const themesArray = themes.split(' ');
