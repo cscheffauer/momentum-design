@@ -25,6 +25,7 @@ export const root: string = process.cwd();
 export const plop: string = `${join(root, 'config', 'plop')}`;
 
 export const folders = {
+  src: `${join(root, 'src')}`,
   components: `${join(root, 'src', 'components')}`,
   templates: `${join(plop, 'templates')}`,
 };

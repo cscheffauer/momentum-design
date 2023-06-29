@@ -2,6 +2,7 @@
 import { Page, expect, Locator, TestInfo } from '@playwright/test';
 
 import Accessibility from './utils/accessibility';
+import VisualRegression from './utils/visual-regression';
 
 const componentsDevPageTitle = 'Momentum Components Dev Page';
 const htmlRootElementSelector = '#root';
@@ -12,6 +13,7 @@ interface MountOptions {
 
 interface ComponentsPage {
   accessibility: Accessibility;
+  visualRegression: VisualRegression;
   page: Page;
   testInfo: TestInfo
 }
@@ -23,12 +25,13 @@ interface ComponentsPage {
  * used for Momentum components E2E testing
  */
 class ComponentsPage {
-  constructor(page: Page,testInfo: TestInfo) {
+  constructor(page: Page, testInfo: TestInfo) {
     this.page = page;
     this.testInfo = testInfo;
 
     // creates utility objects on components page and inject dependencies:
     this.accessibility = new Accessibility(this.page, this.testInfo);
+    this.visualRegression = new VisualRegression(this.page);
   }
 
   /**

@@ -114,8 +114,9 @@ dist
 # TernJS port file
 .tern-port
 
-# Playwright Test Results
+# Playwright Test Results & Report
 test-results/
+playwright-report/
 
 ### SPECIAL CASES ###
 

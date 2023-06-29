@@ -44,6 +44,8 @@ const config: PlaywrightTestConfig = {
     trace: 'retain-on-failure',
   },
 
+  snapshotPathTemplate: '{testDir}/{testFileDir}/__screenshots__/{arg}{ext}',
+
   /* Configure projects for major browsers */
   projects: [
     {

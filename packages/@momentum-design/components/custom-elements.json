@@ -66,6 +66,106 @@
     },
     {
       "kind": "javascript-module",
+      "path": "config/esbuild/build-config.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/esbuild/e2e-config.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/plop/esbuild.config.plop.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/plop/plopfile.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "config/plop/plopfile.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/storybook/MomentumStorybookTheme.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "config/storybook/MomentumStorybookTheme.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/storybook/main.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "config",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],\n  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],\n  framework: {\n    name: '@storybook/web-components-vite',\n    options: {},\n  },\n  core: {\n    disableTelemetry: true, // 👈 Disables telemetry\n  },\n  docs: {\n    autodocs: 'tag',\n  },\n  staticDirs: ['./public'],\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "config",
+            "module": "config/storybook/main.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/storybook/manager.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/storybook/preview.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "preview",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    controls: {\n      controls: { expanded: true },\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n  decorators: [withThemeProvider],\n  globalTypes: {\n    theme: {\n      description: 'Global theme for components',\n      defaultValue: themes[0].name,\n      toolbar: {\n        // The label to show for this toolbar item\n        title: 'Theme',\n        icon: 'globe',\n        // Array of plain string values or MenuItem shape (see below)\n        items: themes.map((theme) => theme.name),\n        // Change title based on selected value\n        dynamicTitle: true,\n      },\n    },\n  },\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "preview",
+            "module": "config/storybook/preview.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "dist/browser/index.js",
       "declarations": [
         {
@@ -187,91 +287,46 @@
     },
     {
       "kind": "javascript-module",
-      "path": "config/plop/esbuild.config.plop.js",
+      "path": "playwright-report/trace/index.2d1c26c0.js",
       "declarations": [],
       "exports": []
     },
     {
       "kind": "javascript-module",
-      "path": "config/plop/plopfile.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "module": "config/plop/plopfile.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "config/storybook/MomentumStorybookTheme.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "module": "config/storybook/MomentumStorybookTheme.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "config/storybook/main.js",
+      "path": "playwright-report/trace/sw.bundle.js",
       "declarations": [
         {
           "kind": "variable",
-          "name": "config",
-          "type": {
-            "text": "object"
+          "name": "D",
+          "default": "C[0][1]"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "anonymous_0",
+          "superclass": {
+            "name": "HTMLElement"
           },
-          "default": "{\n  stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],\n  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],\n  framework: {\n    name: '@storybook/web-components-vite',\n    options: {},\n  },\n  core: {\n    disableTelemetry: true, // 👈 Disables telemetry\n  },\n  docs: {\n    autodocs: 'tag',\n  },\n  staticDirs: ['./public'],\n}"
+          "tagName": "t",
+          "customElement": true
         }
       ],
       "exports": [
         {
-          "kind": "js",
-          "name": "default",
+          "kind": "custom-element-definition",
+          "name": "D",
           "declaration": {
-            "name": "config",
-            "module": "config/storybook/main.js"
+            "name": "anonymous_0",
+            "module": "playwright-report/trace/sw.bundle.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "config/storybook/manager.js",
+      "path": "playwright-report/trace/uiMode.af19af9f.js",
       "declarations": [],
       "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "config/storybook/preview.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "preview",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    controls: {\n      controls: { expanded: true },\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/,\n      },\n    },\n  },\n  decorators: [withThemeProvider],\n  globalTypes: {\n    theme: {\n      description: 'Global theme for components',\n      defaultValue: themes[0].name,\n      toolbar: {\n        // The label to show for this toolbar item\n        title: 'Theme',\n        icon: 'globe',\n        // Array of plain string values or MenuItem shape (see below)\n        items: themes.map((theme) => theme.name),\n        // Change title based on selected value\n        dynamicTitle: true,\n      },\n    },\n  },\n}"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "preview",
-            "module": "config/storybook/preview.js"
-          }
-        }
-      ]
     },
     {
       "kind": "javascript-module",
@@ -317,6 +372,625 @@
       "path": "src/utils/types.ts",
       "declarations": [],
       "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/playwright/setup/Components.page.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Components Page Object Model\n\nThis object model includes basic functionalities like setup, teardown, mount, etc.\nused for Momentum components E2E testing",
+          "name": "ComponentsPage",
+          "members": [
+            {
+              "kind": "method",
+              "name": "setup",
+              "description": "**Setup function**\n\nto run before the test to navigate correctly"
+            },
+            {
+              "kind": "method",
+              "name": "tearDown",
+              "description": "**TearDown function**\n\nto run after the test"
+            },
+            {
+              "kind": "method",
+              "name": "navigate",
+              "parameters": [
+                {
+                  "name": "url",
+                  "optional": true,
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "**Navigate function**\n\nPath urls are allowed\n\nIf no url provided, it navigates to baseURL\n\n- Go to the provided url\n- Await till page has been loaded"
+            },
+            {
+              "kind": "method",
+              "name": "mount",
+              "parameters": [
+                {
+                  "name": "{ html }",
+                  "type": {
+                    "text": "MountOptions"
+                  }
+                },
+                {
+                  "description": "a object with options, including the `html` string to mount",
+                  "name": "options"
+                }
+              ],
+              "description": "Mount a html string to the index.html which gets displayed"
+            },
+            {
+              "kind": "method",
+              "name": "fireCustomMethod",
+              "parameters": [
+                {
+                  "name": "locator",
+                  "type": {
+                    "text": "Locator"
+                  },
+                  "description": "Playwright locator"
+                },
+                {
+                  "name": "methodName",
+                  "type": {
+                    "text": "string"
+                  },
+                  "description": "methodName to fire on queried HTMLElement"
+                },
+                {
+                  "name": "methodArgs",
+                  "optional": true,
+                  "type": {
+                    "text": "Array<any>"
+                  },
+                  "description": "args to pass into method"
+                }
+              ],
+              "description": "Fire the `methodName` with `methodArgs` on a HTMLElement, queried by the passed in `locator`",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "waitForEvent",
+              "parameters": [
+                {
+                  "name": "locator",
+                  "type": {
+                    "text": "Locator"
+                  },
+                  "description": "Playwright locator"
+                },
+                {
+                  "name": "eventName",
+                  "type": {
+                    "text": "string"
+                  },
+                  "description": "eventName to wait for to be fired on queried HTMLElement"
+                }
+              ],
+              "description": "Wait for the event `eventName` to be fired on a HTMLElement, queried by the passed in `locator`",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "setAttribute",
+              "parameters": [
+                {
+                  "name": "locator",
+                  "type": {
+                    "text": "Locator"
+                  },
+                  "description": "Playwright locator"
+                },
+                {
+                  "name": "qualifiedName",
+                  "type": {
+                    "text": "string"
+                  },
+                  "description": "qualifiedName of the attribute to be set"
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "any"
+                  },
+                  "description": "value of the attribute to be set"
+                }
+              ],
+              "description": "Set a attribute on a HTMLElement, queried by the passed in `locator`"
+            },
+            {
+              "kind": "method",
+              "name": "removeAttribute",
+              "parameters": [
+                {
+                  "name": "locator",
+                  "type": {
+                    "text": "Locator"
+                  },
+                  "description": "Playwright locator"
+                },
+                {
+                  "name": "qualifiedName",
+                  "type": {
+                    "text": "string"
+                  },
+                  "description": "qualifiedName of the attribute to be removed"
+                }
+              ],
+              "description": "Remove a attribute of a HTMLElement, queried by the passed in `locator`"
+            },
+            {
+              "kind": "field",
+              "name": "page",
+              "default": "page"
+            },
+            {
+              "kind": "field",
+              "name": "testInfo",
+              "default": "testInfo"
+            },
+            {
+              "kind": "field",
+              "name": "accessibility",
+              "default": "new Accessibility(this.page, this.testInfo)"
+            },
+            {
+              "kind": "field",
+              "name": "visualRegression",
+              "default": "new VisualRegression(this.page)"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "ComponentsPage",
+            "module": "config/playwright/setup/Components.page.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/playwright/setup/constants.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "CONSTANTS",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  ACCESSIBILITY,\n  VISUAL_REGRESSION,\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "CONSTANTS",
+            "module": "config/playwright/setup/constants.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/playwright/setup/index.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "test"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "test",
+          "declaration": {
+            "name": "test",
+            "module": "config/playwright/setup/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ComponentsPage",
+          "declaration": {
+            "name": "ComponentsPage",
+            "module": "config/playwright/setup/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/playwright/setup/types.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/plop/actions/AddComponent.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "AddComponent",
+          "type": {
+            "text": "ActionType"
+          },
+          "default": "{\n  type: 'addMany',\n  base,\n  templateFiles: `${join(`${base}`, '**')}`,\n  destination: `${join(`${folders.components}`, `{{${componentName}}}`)}`,\n  data: {\n    componentName,\n    prefix: componentNamePrefix,\n    separator: componentNameSeparator,\n  },\n  globOptions: {\n    // allow hidden files to be copied as well:\n    dot: false,\n  },\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AddComponent",
+          "declaration": {
+            "name": "AddComponent",
+            "module": "config/plop/actions/AddComponent.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/plop/constants/index.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentName",
+          "type": {
+            "text": "string"
+          },
+          "default": "'componentName'"
+        },
+        {
+          "kind": "variable",
+          "name": "componentNamePrefix",
+          "type": {
+            "text": "string"
+          }
+        },
+        {
+          "kind": "variable",
+          "name": "componentNameSeparator",
+          "type": {
+            "text": "string"
+          }
+        },
+        {
+          "kind": "variable",
+          "name": "root",
+          "type": {
+            "text": "string"
+          }
+        },
+        {
+          "kind": "variable",
+          "name": "plop",
+          "type": {
+            "text": "string"
+          },
+          "default": "`${join(root, 'config', 'plop')}`"
+        },
+        {
+          "kind": "variable",
+          "name": "folders",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  components: `${join(root, 'src', 'components')}`,\n  templates: `${join(plop, 'templates')}`,\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "componentName",
+          "declaration": {
+            "name": "componentName",
+            "module": "config/plop/constants/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "componentNamePrefix",
+          "declaration": {
+            "name": "componentNamePrefix",
+            "module": "config/plop/constants/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "componentNameSeparator",
+          "declaration": {
+            "name": "componentNameSeparator",
+            "module": "config/plop/constants/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "root",
+          "declaration": {
+            "name": "root",
+            "module": "config/plop/constants/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "plop",
+          "declaration": {
+            "name": "plop",
+            "module": "config/plop/constants/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "folders",
+          "declaration": {
+            "name": "folders",
+            "module": "config/plop/constants/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/plop/prompts/index.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "prompt",
+          "return": {
+            "type": {
+              "text": "PromptQuestion"
+            }
+          },
+          "parameters": [
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "message",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "type",
+              "default": "PROMPT_TYPE.INPUT",
+              "type": {
+                "text": "PROMPT_TYPE"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "prompt",
+          "declaration": {
+            "name": "prompt",
+            "module": "config/plop/prompts/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/atoms/button-pill/button-pill.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "An example element.",
+          "name": "MdButtonPill",
+          "cssParts": [
+            {
+              "description": "The button",
+              "name": "button"
+            }
+          ],
+          "slots": [
+            {
+              "description": "This element has a slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render",
+              "inheritedFrom": {
+                "name": "MdButton",
+                "module": "src/atoms/button/button.component.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "tabIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "inheritedFrom": {
+                "name": "TabIndexMixin",
+                "module": "src/utils/mixins/TabIndexMixin.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "whether button should be disabled",
+              "inheritedFrom": {
+                "name": "DisabledMixin",
+                "module": "src/utils/mixins/DisabledMixin.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "public",
+              "default": "'button'",
+              "inheritedFrom": {
+                "name": "MdButton",
+                "module": "src/atoms/button/button.component.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "default": "styles",
+              "inheritedFrom": {
+                "name": "MdButton",
+                "module": "src/atoms/button/button.component.ts"
+              }
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "classNames to be passed in",
+              "name": "class",
+              "kind": "field",
+              "inheritedFrom": {
+                "name": "MdButton",
+                "module": "src/atoms/button/button.component.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "privacy": "public",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "parameters": [
+                {
+                  "name": "namespace",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
+              "inheritedFrom": {
+                "name": "Component",
+                "module": "src/models/component/component.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "MdButton",
+            "module": "/dist/atoms/button"
+          },
+          "tagName": "TAG_NAME",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdButtonPill",
+          "declaration": {
+            "name": "MdButtonPill",
+            "module": "dist/atoms/button-pill/button-pill.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/atoms/button-pill/constants.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "TAG_NAME"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TAG_NAME",
+          "declaration": {
+            "name": "TAG_NAME",
+            "module": "dist/atoms/button-pill/constants.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/atoms/button-pill/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "TAG_NAME",
+          "declaration": {
+            "name": "MdButtonPill",
+            "module": "/dist/atoms/button-pill/button-pill"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "MdButtonPill",
+          "declaration": {
+            "name": "MdButtonPill",
+            "module": "dist/atoms/button-pill/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/atoms/button-pill/styles.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "default": "css `\n  :host {\n    --mdc-atoms-button-general-width: unset;\n    --mdc-atoms-button-general-height: unset;\n    --mdc-atoms-button-general-background-color: buttonface;\n    --mdc-atoms-button-general-border: 2px outset buttonborder;\n\n    --mdc-atoms-button-hover-width: var(--mdc-atoms-button-general-width);\n    --mdc-atoms-button-hover-height: var(--mdc-atoms-button-general-height);\n    --mdc-atoms-button-hover-background-color: var(--mdc-atoms-button-general-background-color);\n    --mdc-atoms-button-hover-border: var(--mdc-atoms-button-general-border);\n\n    --mdc-atoms-button-active-width: var(--mdc-atoms-button-general-width);\n    --mdc-atoms-button-active-height: var(--mdc-atoms-button-general-height);\n    --mdc-atoms-button-active-background-color: var(--mdc-atoms-button-general-background-color);\n    --mdc-atoms-button-active-border: 2px inset buttonborder;\n    display: inline-flex;\n  }\n  button {\n    width: var(--mdc-atoms-button-general-width);\n    height: var(--mdc-atoms-button-general-height);\n    background-color: var(--mdc-atoms-button-general-background-color);\n    border: var(--mdc-atoms-button-general-border);\n  }\n\n  button:hover {\n    width: var(--mdc-atoms-button-hover-width);\n    height: var(--mdc-atoms-button-hover-height);\n    background-color: var(--mdc-atoms-button-hover-background-color);\n    border: var(--mdc-atoms-button-hover-border);\n  }\n\n  button:active {\n    width: var(--mdc-atoms-button-active-width);\n    height: var(--mdc-atoms-button-active-height);\n    background-color: var(--mdc-atoms-button-active-background-color);\n    border: var(--mdc-atoms-button-active-border);\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "styles",
+          "declaration": {
+            "name": "styles",
+            "module": "dist/atoms/button-pill/styles.js"
+          }
+        }
+      ]
     },
     {
       "kind": "javascript-module",
@@ -531,203 +1205,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "dist/atoms/button-pill/button-pill.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "An example element.",
-          "name": "MdButtonPill",
-          "cssParts": [
-            {
-              "description": "The button",
-              "name": "button"
-            }
-          ],
-          "slots": [
-            {
-              "description": "This element has a slot",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "render",
-              "inheritedFrom": {
-                "name": "MdButton",
-                "module": "src/atoms/button/button.component.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "tabIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "inheritedFrom": {
-                "name": "TabIndexMixin",
-                "module": "src/utils/mixins/TabIndexMixin.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "whether button should be disabled",
-              "inheritedFrom": {
-                "name": "DisabledMixin",
-                "module": "src/utils/mixins/DisabledMixin.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "public",
-              "default": "'button'",
-              "inheritedFrom": {
-                "name": "MdButton",
-                "module": "src/atoms/button/button.component.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true,
-              "default": "styles",
-              "inheritedFrom": {
-                "name": "MdButton",
-                "module": "src/atoms/button/button.component.ts"
-              }
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "classNames to be passed in",
-              "name": "class",
-              "kind": "field",
-              "inheritedFrom": {
-                "name": "MdButton",
-                "module": "src/atoms/button/button.component.ts"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "register",
-              "privacy": "public",
-              "static": true,
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              },
-              "parameters": [
-                {
-                  "name": "namespace",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ],
-              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
-              "inheritedFrom": {
-                "name": "Component",
-                "module": "src/models/component/component.ts"
-              }
-            }
-          ],
-          "superclass": {
-            "name": "MdButton",
-            "module": "/dist/atoms/button"
-          },
-          "tagName": "TAG_NAME",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdButtonPill",
-          "declaration": {
-            "name": "MdButtonPill",
-            "module": "dist/atoms/button-pill/button-pill.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/atoms/button-pill/constants.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "TAG_NAME"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "TAG_NAME",
-          "declaration": {
-            "name": "TAG_NAME",
-            "module": "dist/atoms/button-pill/constants.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/atoms/button-pill/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "TAG_NAME",
-          "declaration": {
-            "name": "MdButtonPill",
-            "module": "/dist/atoms/button-pill/button-pill"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "MdButtonPill",
-          "declaration": {
-            "name": "MdButtonPill",
-            "module": "dist/atoms/button-pill/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "dist/atoms/button-pill/styles.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "default": "css `\n  :host {\n    --mdc-atoms-button-general-width: unset;\n    --mdc-atoms-button-general-height: unset;\n    --mdc-atoms-button-general-background-color: buttonface;\n    --mdc-atoms-button-general-border: 2px outset buttonborder;\n\n    --mdc-atoms-button-hover-width: var(--mdc-atoms-button-general-width);\n    --mdc-atoms-button-hover-height: var(--mdc-atoms-button-general-height);\n    --mdc-atoms-button-hover-background-color: var(--mdc-atoms-button-general-background-color);\n    --mdc-atoms-button-hover-border: var(--mdc-atoms-button-general-border);\n\n    --mdc-atoms-button-active-width: var(--mdc-atoms-button-general-width);\n    --mdc-atoms-button-active-height: var(--mdc-atoms-button-general-height);\n    --mdc-atoms-button-active-background-color: var(--mdc-atoms-button-general-background-color);\n    --mdc-atoms-button-active-border: 2px inset buttonborder;\n    display: inline-flex;\n  }\n  button {\n    width: var(--mdc-atoms-button-general-width);\n    height: var(--mdc-atoms-button-general-height);\n    background-color: var(--mdc-atoms-button-general-background-color);\n    border: var(--mdc-atoms-button-general-border);\n  }\n\n  button:hover {\n    width: var(--mdc-atoms-button-hover-width);\n    height: var(--mdc-atoms-button-hover-height);\n    background-color: var(--mdc-atoms-button-hover-background-color);\n    border: var(--mdc-atoms-button-hover-border);\n  }\n\n  button:active {\n    width: var(--mdc-atoms-button-active-width);\n    height: var(--mdc-atoms-button-active-height);\n    background-color: var(--mdc-atoms-button-active-background-color);\n    border: var(--mdc-atoms-button-active-border);\n  }\n`"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "styles",
-          "declaration": {
-            "name": "styles",
-            "module": "dist/atoms/button-pill/styles.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "dist/atoms/icon/constants.js",
       "declarations": [
         {
@@ -906,6 +1383,30 @@
           "declaration": {
             "name": "dynamicSVGImport",
             "module": "dist/atoms/icon/utils.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/storybook/themes/index.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "themes",
+          "type": {
+            "text": "array"
+          },
+          "default": "[\n  {\n    name: 'darkWebex',\n    backgroundColor: '#000000',\n  },\n  {\n    name: 'lightWebex',\n    backgroundColor: '#ffffff',\n  },\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "themes",
+          "declaration": {
+            "name": "themes",
+            "module": "config/storybook/themes/index.js"
           }
         }
       ]
@@ -1677,201 +2178,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "config/plop/actions/AddComponent.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "AddComponent",
-          "type": {
-            "text": "ActionType"
-          },
-          "default": "{\n  type: 'addMany',\n  base,\n  templateFiles: `${join(`${base}`, '**')}`,\n  destination: `${join(`${folders.components}`, `{{${componentName}}}`)}`,\n  data: {\n    componentName,\n    prefix: componentNamePrefix,\n    separator: componentNameSeparator,\n  },\n  globOptions: {\n    // allow hidden files to be copied as well:\n    dot: false,\n  },\n}"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "AddComponent",
-          "declaration": {
-            "name": "AddComponent",
-            "module": "config/plop/actions/AddComponent.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "config/plop/constants/index.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "componentName",
-          "type": {
-            "text": "string"
-          },
-          "default": "'componentName'"
-        },
-        {
-          "kind": "variable",
-          "name": "componentNamePrefix",
-          "type": {
-            "text": "string"
-          }
-        },
-        {
-          "kind": "variable",
-          "name": "componentNameSeparator",
-          "type": {
-            "text": "string"
-          }
-        },
-        {
-          "kind": "variable",
-          "name": "root",
-          "type": {
-            "text": "string"
-          }
-        },
-        {
-          "kind": "variable",
-          "name": "plop",
-          "type": {
-            "text": "string"
-          },
-          "default": "`${join(root, 'config', 'plop')}`"
-        },
-        {
-          "kind": "variable",
-          "name": "folders",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  components: `${join(root, 'src', 'components')}`,\n  templates: `${join(plop, 'templates')}`,\n}"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "componentName",
-          "declaration": {
-            "name": "componentName",
-            "module": "config/plop/constants/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "componentNamePrefix",
-          "declaration": {
-            "name": "componentNamePrefix",
-            "module": "config/plop/constants/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "componentNameSeparator",
-          "declaration": {
-            "name": "componentNameSeparator",
-            "module": "config/plop/constants/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "root",
-          "declaration": {
-            "name": "root",
-            "module": "config/plop/constants/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "plop",
-          "declaration": {
-            "name": "plop",
-            "module": "config/plop/constants/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "folders",
-          "declaration": {
-            "name": "folders",
-            "module": "config/plop/constants/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "config/plop/prompts/index.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "prompt",
-          "return": {
-            "type": {
-              "text": "PromptQuestion"
-            }
-          },
-          "parameters": [
-            {
-              "name": "name",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "message",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "type",
-              "default": "PROMPT_TYPE.INPUT",
-              "type": {
-                "text": "PROMPT_TYPE"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "prompt",
-          "declaration": {
-            "name": "prompt",
-            "module": "config/plop/prompts/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "config/storybook/themes/index.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "themes",
-          "type": {
-            "text": "array"
-          },
-          "default": "[\n  {\n    name: 'darkWebex',\n    backgroundColor: '#000000',\n  },\n  {\n    name: 'lightWebex',\n    backgroundColor: '#ffffff',\n  },\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "themes",
-          "declaration": {
-            "name": "themes",
-            "module": "config/storybook/themes/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/atoms/button/button.component.ts",
       "declarations": [
         {
@@ -2084,6 +2390,1580 @@
           "declaration": {
             "name": "MdButton",
             "module": "src/atoms/button/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "playwright-report/trace/assets/codeMirrorModule-01517d3f.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "du"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "du",
+            "module": "playwright-report/trace/assets/codeMirrorModule-01517d3f.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "playwright-report/trace/assets/wsPort-84eed44f.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "t"
+        },
+        {
+          "kind": "function",
+          "name": "n",
+          "parameters": [
+            {
+              "name": "o"
+            }
+          ]
+        },
+        {
+          "kind": "variable",
+          "name": "s",
+          "type": {
+            "text": "object"
+          },
+          "default": "{}"
+        },
+        {
+          "kind": "function",
+          "name": "r",
+          "parameters": [
+            {
+              "name": "o"
+            }
+          ]
+        },
+        {
+          "kind": "variable",
+          "name": "On"
+        },
+        {
+          "kind": "function",
+          "name": "Cu",
+          "parameters": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "kind": "variable",
+          "name": "M",
+          "type": {
+            "text": "object"
+          },
+          "default": "{}"
+        },
+        {
+          "kind": "variable",
+          "name": "o",
+          "type": {
+            "text": "object"
+          },
+          "default": "{}"
+        },
+        {
+          "kind": "variable",
+          "name": "i",
+          "type": {
+            "text": "null"
+          },
+          "default": "null"
+        },
+        {
+          "kind": "variable",
+          "name": "l"
+        },
+        {
+          "kind": "variable",
+          "name": "c"
+        },
+        {
+          "kind": "variable",
+          "name": "q"
+        },
+        {
+          "kind": "variable",
+          "name": "An"
+        },
+        {
+          "kind": "variable",
+          "name": "y"
+        },
+        {
+          "kind": "variable",
+          "name": "A"
+        },
+        {
+          "kind": "function",
+          "name": "bs"
+        },
+        {
+          "kind": "variable",
+          "name": "e"
+        },
+        {
+          "kind": "function",
+          "name": "Un",
+          "parameters": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "JJ",
+          "parameters": [
+            {
+              "name": "e"
+            },
+            {
+              "name": "t"
+            }
+          ]
+        },
+        {
+          "kind": "variable",
+          "name": "Nr",
+          "default": "new lm"
+        },
+        {
+          "kind": "function",
+          "name": "YJ"
+        },
+        {
+          "kind": "function",
+          "name": "ZJ"
+        },
+        {
+          "kind": "function",
+          "name": "eY",
+          "parameters": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "tY",
+          "parameters": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "nY"
+        },
+        {
+          "kind": "function",
+          "name": "t",
+          "parameters": [
+            {
+              "name": "C"
+            },
+            {
+              "name": "D"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "n",
+          "parameters": [
+            {
+              "name": "C"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "r",
+          "parameters": [
+            {
+              "name": "C"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "o",
+          "parameters": [
+            {
+              "name": "C"
+            },
+            {
+              "name": "D"
+            }
+          ]
+        },
+        {
+          "kind": "variable",
+          "name": "a",
+          "type": {
+            "text": "array"
+          },
+          "default": "[]"
+        },
+        {
+          "kind": "variable",
+          "name": "u",
+          "type": {
+            "text": "number"
+          },
+          "default": "1"
+        },
+        {
+          "kind": "variable",
+          "name": "h",
+          "type": {
+            "text": "null"
+          },
+          "default": "null"
+        },
+        {
+          "kind": "variable",
+          "name": "d",
+          "type": {
+            "text": "number"
+          },
+          "default": "3"
+        },
+        {
+          "kind": "variable",
+          "name": "m",
+          "type": {
+            "text": "boolean"
+          },
+          "default": "!1"
+        },
+        {
+          "kind": "variable",
+          "name": "E",
+          "type": {
+            "text": "boolean"
+          },
+          "default": "!1"
+        },
+        {
+          "kind": "variable",
+          "name": "S"
+        },
+        {
+          "kind": "variable",
+          "name": "f"
+        },
+        {
+          "kind": "function",
+          "name": "g",
+          "parameters": [
+            {
+              "name": "C"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "k",
+          "parameters": [
+            {
+              "name": "C"
+            },
+            {
+              "name": "D"
+            }
+          ]
+        },
+        {
+          "kind": "variable",
+          "name": "b",
+          "type": {
+            "text": "boolean"
+          },
+          "default": "!1"
+        },
+        {
+          "kind": "variable",
+          "name": "R",
+          "type": {
+            "text": "number"
+          },
+          "default": "5"
+        },
+        {
+          "kind": "function",
+          "name": "T"
+        },
+        {
+          "kind": "function",
+          "name": "_",
+          "parameters": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "t",
+          "parameters": [
+            {
+              "name": "o"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "t",
+          "parameters": [
+            {
+              "name": "n"
+            },
+            {
+              "name": "r"
+            },
+            {
+              "name": "o"
+            },
+            {
+              "name": "s"
+            },
+            {
+              "name": "i"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "j",
+          "parameters": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "kind": "variable",
+          "name": "W",
+          "type": {
+            "text": "boolean"
+          },
+          "default": "!1"
+        },
+        {
+          "kind": "function",
+          "name": "t",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "n",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "r",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "o",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "s",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            },
+            {
+              "name": "g"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "i",
+          "parameters": [
+            {
+              "name": "p"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "l",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            },
+            {
+              "name": "g"
+            },
+            {
+              "name": "w"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "c",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            },
+            {
+              "name": "g"
+            },
+            {
+              "name": "w"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "a",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            },
+            {
+              "name": "g"
+            },
+            {
+              "name": "w"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "u",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            },
+            {
+              "name": "g"
+            },
+            {
+              "name": "w"
+            },
+            {
+              "name": "k"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "h",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            },
+            {
+              "name": "g"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "d",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            },
+            {
+              "name": "g"
+            },
+            {
+              "name": "w"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "m",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            },
+            {
+              "name": "g"
+            },
+            {
+              "name": "w"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "E",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            },
+            {
+              "name": "g"
+            },
+            {
+              "name": "w"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "S",
+          "parameters": [
+            {
+              "name": "p"
+            },
+            {
+              "name": "f"
+            },
+            {
+              "name": "g"
+            },
+            {
+              "name": "w"
+            }
+          ]
+        },
+        {
+          "kind": "variable",
+          "name": "rY"
+        },
+        {
+          "kind": "function",
+          "name": "So",
+          "parameters": [
+            {
+              "name": "{children:e,title:t=\"\",icon:n,disabled:r=!1,toggled:o=!1,onClick:s=()=>{},style:i}"
+            }
+          ]
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "oY",
+          "members": [
+            {
+              "kind": "field",
+              "name": "browserName"
+            },
+            {
+              "kind": "field",
+              "name": "sdkLanguage"
+            },
+            {
+              "kind": "field",
+              "name": "testIdAttributeName"
+            },
+            {
+              "kind": "field",
+              "name": "platform"
+            },
+            {
+              "kind": "field",
+              "name": "title"
+            },
+            {
+              "kind": "field",
+              "name": "options"
+            },
+            {
+              "kind": "field",
+              "name": "wallTime"
+            },
+            {
+              "kind": "field",
+              "name": "startTime"
+            },
+            {
+              "kind": "field",
+              "name": "endTime"
+            },
+            {
+              "kind": "field",
+              "name": "pages"
+            },
+            {
+              "kind": "field",
+              "name": "actions"
+            },
+            {
+              "kind": "field",
+              "name": "events"
+            },
+            {
+              "kind": "field",
+              "name": "hasSource"
+            },
+            {
+              "kind": "field",
+              "name": "sources"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "sY",
+          "parameters": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "vl",
+          "parameters": [
+            {
+              "name": "{sidebarSize:e,sidebarHidden:t=!1,sidebarIsFirst:n=!1,orientation:r=\"vertical\",children:o}"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "i"
+        },
+        {
+          "kind": "function",
+          "name": "l"
+        },
+        {
+          "kind": "function",
+          "name": "c",
+          "parameters": [
+            {
+              "name": "x",
+              "default": "o"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "a",
+          "parameters": [
+            {
+              "name": "x",
+              "default": "o"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "u",
+          "parameters": [
+            {
+              "name": "x",
+              "default": "o"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "h",
+          "parameters": [
+            {
+              "name": "x",
+              "default": "o"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "d",
+          "parameters": [
+            {
+              "name": "x",
+              "default": "o"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "m",
+          "parameters": [
+            {
+              "name": "x",
+              "default": "o"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "E",
+          "parameters": [
+            {
+              "name": "x",
+              "default": "o"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "S",
+          "parameters": [
+            {
+              "name": "x",
+              "default": "o"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "f"
+        },
+        {
+          "kind": "function",
+          "name": "g"
+        },
+        {
+          "kind": "function",
+          "name": "k"
+        },
+        {
+          "kind": "function",
+          "name": "n",
+          "parameters": [
+            {
+              "name": "r"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "s"
+        },
+        {
+          "kind": "function",
+          "name": "i"
+        },
+        {
+          "kind": "function",
+          "name": "o"
+        },
+        {
+          "kind": "function",
+          "name": "l"
+        },
+        {
+          "kind": "function",
+          "name": "c",
+          "parameters": [
+            {
+              "name": "S"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "a"
+        },
+        {
+          "kind": "function",
+          "name": "u",
+          "parameters": [
+            {
+              "name": "S"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "h"
+        },
+        {
+          "kind": "function",
+          "name": "d"
+        },
+        {
+          "kind": "function",
+          "name": "m"
+        },
+        {
+          "kind": "function",
+          "name": "s",
+          "parameters": [
+            {
+              "name": "i"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "Bv",
+          "parameters": [
+            {
+              "name": "{rootItem:e,render:t,icon:n,isError:r,selectedItem:o,onAccepted:s,onSelected:i,onHighlighted:l,treeState:c,setTreeState:a,noItemsMessage:u,dataTestId:h,autoExpandDepth:d}"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "o",
+          "parameters": [
+            {
+              "name": "s"
+            },
+            {
+              "name": "i"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "i",
+          "parameters": [
+            {
+              "name": "l"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "r",
+          "parameters": [
+            {
+              "name": "c"
+            },
+            {
+              "name": "a"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "o",
+          "parameters": [
+            {
+              "name": "c"
+            },
+            {
+              "name": "a"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "s",
+          "parameters": [
+            {
+              "name": "c"
+            },
+            {
+              "name": "a"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "s"
+        },
+        {
+          "kind": "function",
+          "name": "i",
+          "parameters": [
+            {
+              "name": "k"
+            },
+            {
+              "name": "b"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "l",
+          "parameters": [
+            {
+              "name": "k"
+            },
+            {
+              "name": "b"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "c",
+          "parameters": [
+            {
+              "name": "k"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "a",
+          "parameters": [
+            {
+              "name": "k"
+            },
+            {
+              "name": "b"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "u",
+          "parameters": [
+            {
+              "name": "k"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "h",
+          "parameters": [
+            {
+              "name": "k"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "e",
+          "parameters": [
+            {
+              "name": "t"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "YK",
+          "parameters": [
+            {
+              "name": "{title:e,children:t,setExpanded:n,expanded:r}"
+            }
+          ]
+        },
+        {
+          "kind": "variable",
+          "name": "sX",
+          "default": "function(t,n,r){if(!n||n.length===0)return t();const o=document.getElementsByTagName(\"link\");return Promise.all(n.map(s=>{if(s=oX(s,r),s in iu)return;iu[s]=!0;const i=s.endsWith(\".css\"),l=i?'[rel=\"stylesheet\"]':\"\";if(!!r)for(let u=o.length-1;u>=0;u--){const h=o[u];if(h.href===s&&(!i||h.rel===\"stylesheet\"))return}else if(document.querySelector(`link[href=\"${s}\"]${l}`))return;const a=document.createElement(\"link\");if(a.rel=i?\"stylesheet\":rX,i||(a.as=\"script\",a.crossOrigin=\"\"),a.href=s,document.head.appendChild(a),i)return new Promise((u,h)=>{a.addEventListener(\"load\",u),a.addEventListener(\"error\",()=>h(new Error(`Unable to preload CSS for ${s}`)))})})).then(()=>t())}"
+        },
+        {
+          "kind": "function",
+          "name": "xl",
+          "parameters": [
+            {
+              "name": "{noShadow:e,children:t,noMinHeight:n}"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "t",
+          "parameters": [
+            {
+              "name": "n"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "t",
+          "parameters": [
+            {
+              "name": "u"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "n",
+          "parameters": [
+            {
+              "name": "u"
+            },
+            {
+              "name": "h"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "r",
+          "parameters": [
+            {
+              "name": "u"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "o",
+          "parameters": [
+            {
+              "name": "u"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "s",
+          "parameters": [
+            {
+              "name": "u"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "i",
+          "parameters": [
+            {
+              "name": "u"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "l",
+          "parameters": [
+            {
+              "name": "u"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "c",
+          "parameters": [
+            {
+              "name": "u"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "a",
+          "parameters": [
+            {
+              "name": "u"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "t",
+          "parameters": [
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "n",
+          "parameters": [
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "r",
+          "parameters": [
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "o",
+          "parameters": [
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "l",
+          "parameters": [
+            {
+              "name": "u"
+            },
+            {
+              "name": "h"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "s",
+          "parameters": [
+            {
+              "name": "l"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "o",
+          "parameters": [
+            {
+              "name": "s"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "s",
+          "parameters": [
+            {
+              "name": "i"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "s",
+          "parameters": [
+            {
+              "name": "i"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "s",
+          "parameters": [
+            {
+              "name": "i"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "o",
+          "parameters": [
+            {
+              "name": "i"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "s",
+          "parameters": [
+            {
+              "name": "i"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "s",
+          "parameters": [
+            {
+              "name": "l"
+            },
+            {
+              "name": "c"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "o",
+          "parameters": [
+            {
+              "name": "i"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "s",
+          "parameters": [
+            {
+              "name": "i"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "r",
+          "parameters": [
+            {
+              "name": "o"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "u",
+          "parameters": [
+            {
+              "name": "d"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "l"
+        },
+        {
+          "kind": "function",
+          "name": "s"
+        },
+        {
+          "kind": "function",
+          "name": "h",
+          "parameters": [
+            {
+              "name": "d"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "c",
+          "parameters": [
+            {
+              "name": "u"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "r"
+        },
+        {
+          "kind": "function",
+          "name": "t",
+          "parameters": [
+            {
+              "name": "r"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "S",
+          "parameters": [
+            {
+              "name": "w"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "l",
+          "parameters": [
+            {
+              "name": "c"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "iY",
+          "parameters": [
+            {
+              "name": "{model:e,hideTimelineBars:t,hideStackFrames:n,showSourcesFirst:r,rootDir:o,fallbackLocation:s,initialSelection:i,onSelectionChanged:l,isLive:c,drawer:a}"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "lY",
+          "parameters": [
+            {
+              "name": "e"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "E",
+          "declaration": {
+            "name": "YK",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "M",
+          "declaration": {
+            "name": "oY",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "R",
+          "declaration": {
+            "name": "An",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "S",
+          "declaration": {
+            "name": "vl",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "T",
+          "declaration": {
+            "name": "So",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "W",
+          "declaration": {
+            "name": "iY",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "_",
+          "declaration": {
+            "name": "sX",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "a",
+          "declaration": {
+            "name": "y",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "b",
+          "declaration": {
+            "name": "YJ",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "c",
+          "declaration": {
+            "name": "lY",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "d",
+          "declaration": {
+            "name": "rY",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "e",
+          "declaration": {
+            "name": "nY",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "f",
+          "declaration": {
+            "name": "eY",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "g",
+          "declaration": {
+            "name": "tY",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "h",
+          "declaration": {
+            "name": "JJ",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "i",
+          "declaration": {
+            "name": "xl",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "j",
+          "declaration": {
+            "name": "A",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "k",
+          "declaration": {
+            "name": "sY",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "l",
+          "declaration": {
+            "name": "Bv",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "m",
+          "declaration": {
+            "name": "Un",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "n",
+          "declaration": {
+            "name": "Cu",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "o",
+          "declaration": {
+            "name": "On",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "r",
+          "declaration": {
+            "name": "q",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "s",
+          "declaration": {
+            "name": "Nr",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "t",
+          "declaration": {
+            "name": "ZJ",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "u",
+          "declaration": {
+            "name": "bs",
+            "module": "playwright-report/trace/assets/wsPort-84eed44f.js"
           }
         }
       ]
@@ -2812,6 +4692,263 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/avatar/avatar.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdcAvatar",
+          "slots": [
+            {
+              "description": "This is a default/unnamed slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "default": "styles"
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "privacy": "public",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "parameters": [
+                {
+                  "name": "namespace",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
+              "inheritedFrom": {
+                "name": "Component",
+                "module": "src/models/component/component.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "Component",
+            "module": "/src/models"
+          },
+          "tagName": "mdc-avatar",
+          "summary": "This is MyElement",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcAvatar",
+          "declaration": {
+            "name": "MdcAvatar",
+            "module": "src/components/avatar/avatar.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/avatar/avatar.constants.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "TAG_NAME"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TAG_NAME",
+          "declaration": {
+            "name": "TAG_NAME",
+            "module": "src/components/avatar/avatar.constants.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/avatar/avatar.e2e-test.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/avatar/avatar.stories.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "meta",
+          "type": {
+            "text": "Meta"
+          },
+          "default": "{\n  tags: ['autodocs'],\n  component: 'mdc-avatar',\n  render,\n  argTypes: {},\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "Primary",
+          "type": {
+            "text": "StoryObj"
+          },
+          "default": "{\n  args: {},\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "meta",
+            "module": "src/components/avatar/avatar.stories.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Primary",
+          "declaration": {
+            "name": "Primary",
+            "module": "src/components/avatar/avatar.stories.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/avatar/avatar.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "default": "css`\n  :host {\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "styles",
+          "declaration": {
+            "name": "styles",
+            "module": "src/components/avatar/avatar.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/avatar/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcAvatar",
+          "declaration": {
+            "name": "MdcAvatar",
+            "module": "src/components/avatar/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/models/component/component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Core Component class to ultimately be inherited by all Web Components within\nthis package.",
+          "name": "Component",
+          "members": [
+            {
+              "kind": "method",
+              "name": "register",
+              "privacy": "public",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "parameters": [
+                {
+                  "name": "namespace",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry."
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "namespace",
+          "declaration": {
+            "name": "anonymous_0",
+            "module": "src/models/component/component.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Component",
+            "module": "src/models/component/component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/models/component/component.types.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/models/component/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComponentRegisterOptions",
+          "declaration": {
+            "name": "RegisterOptions",
+            "module": "./component.types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Component",
+            "module": "src/models/component/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/models/provider/index.ts",
       "declarations": [],
       "exports": [
@@ -3039,91 +5176,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/models/component/component.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Core Component class to ultimately be inherited by all Web Components within\nthis package.",
-          "name": "Component",
-          "members": [
-            {
-              "kind": "method",
-              "name": "register",
-              "privacy": "public",
-              "static": true,
-              "return": {
-                "type": {
-                  "text": ""
-                }
-              },
-              "parameters": [
-                {
-                  "name": "namespace",
-                  "type": {
-                    "text": "string"
-                  }
-                }
-              ],
-              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry."
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "custom-element-definition",
-          "name": "namespace",
-          "declaration": {
-            "name": "anonymous_0",
-            "module": "src/models/component/component.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "Component",
-            "module": "src/models/component/component.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/models/component/component.types.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/models/component/index.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ComponentRegisterOptions",
-          "declaration": {
-            "name": "RegisterOptions",
-            "module": "./component.types"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "Component",
-            "module": "src/models/component/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/utils/tag-name/constants.ts",
       "declarations": [
         {
@@ -3162,6 +5214,151 @@
     },
     {
       "kind": "javascript-module",
+      "path": "config/playwright/setup/steps/accessibility.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "config/playwright/setup/steps/accessibility.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/playwright/setup/utils/accessibility.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Contains common `accessibility` utils, which are useful when doing accessibility tests",
+          "name": "Accessibility",
+          "members": [
+            {
+              "kind": "method",
+              "name": "attachA11yResults",
+              "parameters": [
+                {
+                  "name": "accessibilityScanResults",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ],
+              "description": "Attaches the provided scan results as JSON\nto the test report"
+            },
+            {
+              "kind": "method",
+              "name": "checkForA11yViolations",
+              "description": "Checks for Accessibility violations by scanning the whole\npage with axe-core, using the specific accessibility WCAG tags to check\nand disabled rules. The results will be attached as a JSON file\nto the test report afterwards.\n\nThis function will fail if there are any accessibility violations."
+            },
+            {
+              "kind": "method",
+              "name": "pressAndCheckFocus",
+              "parameters": [
+                {
+                  "name": "keyToPress",
+                  "type": {
+                    "text": "string"
+                  },
+                  "description": "key which should be pressed"
+                },
+                {
+                  "name": "elementsToBeFocused",
+                  "type": {
+                    "text": "Array<Locator>"
+                  },
+                  "description": "array of elements, which have to be focused after pressing a key"
+                }
+              ],
+              "description": "pressAndCheckFocus utility function - it will press the provided `keyToPress` as often\nas the provided `elementsToBeFocused` are and checks afterwards, if the provided element of the\n`elementsToBeFocused` has been focused.\n\nIf only 1 keyPress needs to be done, just simply provide the `elementsToBeFocused` array with\n1 element, which should receive focus."
+            },
+            {
+              "kind": "field",
+              "name": "page",
+              "default": "page"
+            },
+            {
+              "kind": "field",
+              "name": "testInfo",
+              "default": "testInfo"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Accessibility",
+            "module": "config/playwright/setup/utils/accessibility.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/playwright/setup/utils/visual-regression.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Contains common `visual-regression` utils, which are useful when doing visual-regression tests",
+          "name": "VisualRegression",
+          "members": [
+            {
+              "kind": "method",
+              "name": "takeScreenshot",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  },
+                  "description": "name of the screenshot, file extension will be appended automatically!"
+                },
+                {
+                  "name": "options",
+                  "optional": true,
+                  "type": {
+                    "text": "ScreenShotOptions"
+                  },
+                  "description": "description"
+                },
+                {
+                  "description": "element to take screenshot from",
+                  "name": "options.element"
+                }
+              ],
+              "description": "Takes a screenshot of the whole page, with the passed in options"
+            },
+            {
+              "kind": "field",
+              "name": "page",
+              "default": "page"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "VisualRegression",
+            "module": "config/playwright/setup/utils/visual-regression.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "config/plop/generators/component/index.ts",
       "declarations": [
         {
@@ -3180,6 +5377,98 @@
           "declaration": {
             "name": "ComponentGenerator",
             "module": "config/plop/generators/component/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/playwright/public/dist/browser/index.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "t"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "t",
+          "members": [
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "!1"
+            }
+          ],
+          "superclass": {
+            "name": "s",
+            "module": "config/playwright/public/dist/browser/index.js"
+          }
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "t",
+          "members": [
+            {
+              "kind": "field",
+              "name": "tabIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            }
+          ],
+          "superclass": {
+            "name": "s",
+            "module": "config/playwright/public/dist/browser/index.js"
+          }
+        },
+        {
+          "kind": "variable",
+          "name": "D",
+          "default": "class extends ${render(){return S`<slot name=\"i\"></slot>`}static"
+        },
+        {
+          "kind": "variable",
+          "name": "Lt"
+        },
+        {
+          "kind": "variable",
+          "name": "It"
+        },
+        {
+          "kind": "variable",
+          "name": "A",
+          "default": "class extends f{constructor(){super(...arguments);this.themes=qt.join(\" \");this.classPrefix=Dt;this.classSeparator=Bt;this.theme=zt.THEME}switchTheme(e){e?this.theme=e:this.theme=Gt(this.themes,this.theme)}updated(e){super.updated(e),e.has(\"theme\")&&this.updateActiveThemeClass()}updateActiveThemeClass(){this.classList.remove(...this.themes.split(\" \").map(e=>pt(e,this.classPrefix,this.classSeparator))),this.classList.add(pt(this.theme,this.classPrefix,this.classSeparator))}render(){return S`<slot></slot>`}}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "t",
+          "declaration": {
+            "name": "anonymous_0",
+            "module": "config/playwright/public/dist/browser/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "Lt",
+          "declaration": {
+            "name": "D",
+            "module": "config/playwright/public/dist/browser/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "It",
+          "declaration": {
+            "name": "A",
+            "module": "config/playwright/public/dist/browser/index.js"
           }
         }
       ]

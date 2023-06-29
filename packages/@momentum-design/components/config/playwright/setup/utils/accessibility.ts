@@ -1,6 +1,8 @@
-import { Locator, Page, expect, TestInfo } from "@playwright/test";
-import AxeBuilder from "@axe-core/playwright";
-import CONSTANTS from "../constants";
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-await-in-loop */
+import { Locator, Page, expect, TestInfo } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import CONSTANTS from '../constants';
 
 interface Accessibility {
   page: Page;
@@ -16,13 +18,26 @@ class Accessibility {
     this.testInfo = testInfo;
   }
 
+  /**
+   * Attaches the provided scan results as JSON
+   * to the test report
+   * @param accessibilityScanResults
+   */
   async attachA11yResults(accessibilityScanResults: any) {
-    await this.testInfo.attach("accessibility-scan-results", {
+    await this.testInfo.attach('accessibility-scan-results', {
       body: JSON.stringify(accessibilityScanResults, null, 2),
-      contentType: "application/json",
+      contentType: 'application/json',
     });
   }
 
+  /**
+   * Checks for Accessibility violations by scanning the whole
+   * page with axe-core, using the specific accessibility WCAG tags to check
+   * and disabled rules. The results will be attached as a JSON file
+   * to the test report afterwards.
+   *
+   * This function will fail if there are any accessibility violations.
+   */
   async checkForA11yViolations() {
     const accessibilityScanResults = await new AxeBuilder({ page: this.page })
       .withTags(CONSTANTS.ACCESSIBILITY.WCAG_TAGS_TO_CHECK)
@@ -33,6 +48,7 @@ class Accessibility {
 
     expect(accessibilityScanResults.violations).toEqual([]);
   }
+
   /**
    * pressAndCheckFocus utility function - it will press the provided `keyToPress` as often
    * as the provided `elementsToBeFocused` are and checks afterwards, if the provided element of the

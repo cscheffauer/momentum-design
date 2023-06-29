@@ -13,7 +13,7 @@
     "sourceMap": true,
     "inlineSources": true,
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -35,12 +35,11 @@
     ]
   },
   "include": [
-    "src/**/*.ts"
+    "src",
+    "config",
+    ".eslintrc.js"
   ],
-  "exclude": [],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "exclude": [
+    "node_modules"
+  ],
 }
