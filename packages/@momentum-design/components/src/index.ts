@@ -1,9 +1,14 @@
-import { MdButton } from './atoms/button';
-import { MdButtonPill } from './atoms/button-pill';
-import { MdcThemeprovider } from './components/themeprovider';
+import {
+  Component,
+  Provider,
+} from './models';
+
+import {
+  ThemeProvider,
+} from './providers';
 
 export {
-  MdButton,
-  MdButtonPill,
-  MdcThemeprovider,
+  Component,
+  Provider,
+  ThemeProvider,
 };

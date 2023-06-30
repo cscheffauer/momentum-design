@@ -1,7 +1,3 @@
-import Provider from './provider';
-
-export type {
-  GetOptions as ProviderGetOptions,
-} from './provider.types';
+import Provider from './provider.component';
 
 export default Provider;

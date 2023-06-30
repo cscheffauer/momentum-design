@@ -5,10 +5,6 @@ export type {
   ComponentRegisterOptions,
 } from './component';
 
-export type {
-  ProviderGetOptions,
-} from './provider';
-
 export {
   Component,
   Provider,

@@ -3242,6 +3242,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lit-labs/context@npm:^0.3.3":
+  version: 0.3.3
+  resolution: "@lit-labs/context@npm:0.3.3"
+  dependencies:
+    "@lit/reactive-element": ^1.5.0
+    lit: ^2.7.0
+  checksum: 3607a7f965f22072feeef8db791e37be45921d9168ea3f432e160cb1fb337de19b2b41a2cd8db5d4fd2675d704d567a24695b796d0b14590616e9232f27579d3
+  languageName: node
+  linkType: hard
+
 "@lit-labs/ssr-dom-shim@npm:^1.0.0, @lit-labs/ssr-dom-shim@npm:^1.1.0":
   version: 1.1.1
   resolution: "@lit-labs/ssr-dom-shim@npm:1.1.1"
@@ -3255,6 +3265,15 @@ __metadata:
   dependencies:
     "@lit-labs/ssr-dom-shim": ^1.0.0
   checksum: fab0bcfdade9c26af2ad5115fb564bcf8ba0732a3a8be86c157851c2771e3fdc65ab38f2cd60fa121946058bf6e487461fd217f87b01f96e88ee7a95d5d866ba
+  languageName: node
+  linkType: hard
+
+"@lit/reactive-element@npm:^1.5.0":
+  version: 1.6.2
+  resolution: "@lit/reactive-element@npm:1.6.2"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": ^1.0.0
+  checksum: 011a3ef0933fda86ec726d29ebc14e829e2f1ba23eca8ed8ed4d5c6f2a102c55cc6986000c5f4c8c3d0c549bc671f5d84d00ce91adc5bbd95970eec3662c0a92
   languageName: node
   linkType: hard
 
@@ -3486,6 +3505,7 @@ __metadata:
   dependencies:
     "@axe-core/playwright": ^4.7.3
     "@custom-elements-manifest/analyzer": ^0.8.1
+    "@lit-labs/context": ^0.3.3
     "@momentum-design/icons": "workspace:^"
     "@momentum-design/tokens": "workspace:^"
     "@playwright/test": ^1.35.1
@@ -12497,7 +12517,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:^2.7.5":
+"lit@npm:^2.7.0, lit@npm:^2.7.5":
   version: 2.7.5
   resolution: "lit@npm:2.7.5"
   dependencies:

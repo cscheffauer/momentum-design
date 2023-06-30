@@ -35,6 +35,7 @@
     "generate:component": "yarn build:plop && plop --plopfile config/plop/dist/plopfile.mjs"
   },
   "dependencies": {
+    "@lit-labs/context": "^0.3.3",
     "@momentum-design/icons": "workspace:^",
     "@momentum-design/tokens": "workspace:^",
     "lit": "^2.7.5"
