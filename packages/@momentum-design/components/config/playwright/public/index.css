@@ -15,6 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     width: calc(30%);
+    height: auto;
     background: var(--mds-color-theme-background-solid-primary-normal);
     color: var(--mds-color-theme-text-primary-normal);
     padding: 10px;

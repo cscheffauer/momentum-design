@@ -4,11 +4,11 @@ import {
 } from './models';
 
 import {
-  ThemeProvider,
-} from './providers';
+  MdcThemeprovider,
+} from './components/themeprovider';
 
 export {
   Component,
   Provider,
-  ThemeProvider,
+  MdcThemeprovider,
 };

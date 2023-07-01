@@ -1,3 +1,4 @@
+import { expect } from '@playwright/test';
 import { ComponentsPage, test } from '../../../config/playwright/setup';
 import steps from '../../../config/playwright/setup/steps/accessibility';
 
@@ -42,33 +43,22 @@ const testToRun = async (componentsPage: ComponentsPage, theme: string) => {
    * ATTRIBUTES
    */
   await test.step('attributes', async () => {
-    await test.step('attribute X should be present on component by default', async () => {
-      // TODO: add test here
+    await test.step('attribute theme should be present on component by default', async () => {
+      expect(await themeprovider.getAttribute('theme')).toBe(theme);
+    });
+
+    await test.step('corresponding theme class should be present on component by default', async () => {
+      expect(await themeprovider.getAttribute('class')).toContain(`mds-theme-stable-${theme}`);
     });
   });
 
   /**
-   * INTERACTIONS
+   * METHODS
    */
-  await test.step('interactions', async () => {
-    await test.step('mouse/pointer', async () => {
-      await test.step('component should fire callback x when clicking on it', async () => {
-        // TODO: add test here
-      });
-    });
-
-    await test.step('focus', async () => {
-      await test.step('component should be focusable with tab', async () => {
-        // TODO: add test here
-      });
-
-      // add additional tests here, like tabbing through several parts of the component
-    });
-
-    await test.step('keyboard', async () => {
-      await test.step('component should fire callback x when pressing y', async () => {
-        // TODO: add test here
-      });
+  await test.step('methods', async () => {
+    await test.step('toggles theme when firing switchTheme method', async () => {
+      await themeprovider.evaluate((node: any) => node.switchTheme());
+      expect(await themeprovider.getAttribute('theme')).toBe(theme === 'darkWebex' ? 'lightWebex' : 'darkWebex');
     });
   });
 };
