@@ -19,6 +19,7 @@ test.beforeEach(async ({ componentsPage, theme }) => {
 
 const testToRun = async (componentsPage: ComponentsPage, theme: string) => {
   const themeprovider = componentsPage.page.locator('mdc-themeprovider');
+  const oppositeTheme = theme === 'darkWebex' ? 'lightWebex' : 'darkWebex';
 
   // initial check for the themeprovider be visible on the screen:
   await themeprovider.waitFor();
@@ -49,6 +50,7 @@ const testToRun = async (componentsPage: ComponentsPage, theme: string) => {
 
     await test.step('corresponding theme class should be present on component by default', async () => {
       expect(await themeprovider.getAttribute('class')).toContain(`mds-theme-stable-${theme}`);
+      expect(await themeprovider.getAttribute('class')).not.toContain(`mds-theme-stable-${oppositeTheme}`);
     });
   });
 
@@ -58,7 +60,7 @@ const testToRun = async (componentsPage: ComponentsPage, theme: string) => {
   await test.step('methods', async () => {
     await test.step('toggles theme when firing switchTheme method', async () => {
       await themeprovider.evaluate((node: any) => node.switchTheme());
-      expect(await themeprovider.getAttribute('theme')).toBe(theme === 'darkWebex' ? 'lightWebex' : 'darkWebex');
+      expect(await themeprovider.getAttribute('theme')).toBe(oppositeTheme);
     });
   });
 };
