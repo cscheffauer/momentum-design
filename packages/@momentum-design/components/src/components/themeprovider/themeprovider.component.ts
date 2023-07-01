@@ -3,6 +3,7 @@ import { property } from 'lit/decorators.js';
 import { DEFAULTS, THEMES, THEME_CLASS_PREFIX, THEME_CLASS_SEPARATOR } from './themeprovider.constants';
 import { constructThemeClass, getNextTheme } from './themeprovider.utils';
 import { Provider } from '../../models';
+import ThemeProviderContext from './themeprovider.context';
 
 /**
  * @slot - This is a default/unnamed slot
@@ -12,7 +13,19 @@ import { Provider } from '../../models';
  * @tag mdc-themeprovider
  * @tagname mdc-themeprovider
  */
-class MdcThemeprovider extends Provider {
+class MdcThemeprovider extends Provider<ThemeProviderContext> {
+  constructor() {
+    // initialise the context by running the Provider constructor:
+    super({
+      context: ThemeProviderContext.context,
+      initialValue: new ThemeProviderContext(DEFAULTS.THEME),
+    });
+  }
+
+  public static get Context() {
+    return ThemeProviderContext.context;
+  }
+
   @property({ type: String })
   themes: string = THEMES.join(' ');
 
@@ -44,6 +57,10 @@ class MdcThemeprovider extends Provider {
     super.updated(changedProperties);
 
     if (changedProperties.has('theme')) {
+      // update the contexts value and update all observers
+      this.context.value.theme = this.theme;
+      this.context.updateObservers();
+
       this.updateActiveThemeClass();
     }
   }

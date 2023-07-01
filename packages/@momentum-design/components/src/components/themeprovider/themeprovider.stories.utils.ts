@@ -1,25 +1,18 @@
 import { html } from 'lit';
 import { Component } from '../../models';
 import { MdcThemeprovider } from './themeprovider.component';
-
+import providerUtils from '../../utils/provider';
 // subcomponent to be rendered in storybook, to showcase that the
 // theme can be consumed as a subcomponent
 
 // TODO: either fix existing provider or switch to use lit context
 class SubComponentThemeProvider extends Component {
-  protected themeProvider: MdcThemeprovider;
+  currentTheme?: string;
 
-  currentTheme: string;
-
-  public constructor() {
-    super();
-    this.themeProvider = MdcThemeprovider.get({ component: this });
-
-    this.currentTheme = this.themeProvider.theme;
-  }
+  private themeProviderContext = providerUtils.consume(this, MdcThemeprovider.Context);
 
   override render() {
-    return html` <p>${this.currentTheme}</p> `;
+    return html` <p>${this.themeProviderContext.value?.theme}</p> `;
   }
 }
 
