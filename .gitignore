@@ -125,5 +125,7 @@ playwright-report/
 # not part of pipeline as of now
 !packages/@momentum-design/figma-plugin-assets-export/dist
 
+packages/@momentum-design/components/config/storybook/public/icons
+
 # MAC system File
 **/.DS_Store

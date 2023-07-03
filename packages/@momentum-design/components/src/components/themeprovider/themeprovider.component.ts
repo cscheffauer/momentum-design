@@ -4,7 +4,7 @@ import { DEFAULTS, THEMES, THEME_CLASS_PREFIX, THEME_CLASS_SEPARATOR } from './t
 import { constructThemeClass, getNextTheme } from './themeprovider.utils';
 import { Provider } from '../../models';
 import ThemeProviderContext from './themeprovider.context';
-
+import { styles } from './themeprovider.styles';
 /**
  * @slot - This is a default/unnamed slot
  *
@@ -81,6 +81,8 @@ class MdcThemeprovider extends Provider<ThemeProviderContext> {
   override render() {
     return html`<slot></slot>`;
   }
+
+  static override styles = styles;
 }
 
 export { MdcThemeprovider };

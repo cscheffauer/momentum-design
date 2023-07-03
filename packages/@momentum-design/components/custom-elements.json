@@ -30,8 +30,36 @@
             "name": "MdcThemeprovider",
             "module": "src/index.ts"
           }
+        },
+        {
+          "kind": "js",
+          "name": "MdcIcon",
+          "declaration": {
+            "name": "MdcIcon",
+            "module": "src/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "MdcIconprovider",
+          "declaration": {
+            "name": "MdcIconprovider",
+            "module": "src/index.ts"
+          }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "scripts/copyIcons.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "scripts/copyTokens.js",
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -238,6 +266,177 @@
           "declaration": {
             "name": "AddToComponentImports",
             "module": "config/plop/actions/AddToComponentImports.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/plop/constants/index.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentName",
+          "type": {
+            "text": "string"
+          },
+          "default": "'componentName'"
+        },
+        {
+          "kind": "variable",
+          "name": "componentNamePrefix",
+          "type": {
+            "text": "string"
+          }
+        },
+        {
+          "kind": "variable",
+          "name": "componentNameSeparator",
+          "type": {
+            "text": "string"
+          }
+        },
+        {
+          "kind": "variable",
+          "name": "root",
+          "type": {
+            "text": "string"
+          }
+        },
+        {
+          "kind": "variable",
+          "name": "plop",
+          "type": {
+            "text": "string"
+          },
+          "default": "`${join(root, 'config', 'plop')}`"
+        },
+        {
+          "kind": "variable",
+          "name": "folders",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  src: `${join(root, 'src')}`,\n  components: `${join(root, 'src', 'components')}`,\n  templates: `${join(plop, 'templates')}`,\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "componentName",
+          "declaration": {
+            "name": "componentName",
+            "module": "config/plop/constants/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "componentNamePrefix",
+          "declaration": {
+            "name": "componentNamePrefix",
+            "module": "config/plop/constants/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "componentNameSeparator",
+          "declaration": {
+            "name": "componentNameSeparator",
+            "module": "config/plop/constants/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "root",
+          "declaration": {
+            "name": "root",
+            "module": "config/plop/constants/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "plop",
+          "declaration": {
+            "name": "plop",
+            "module": "config/plop/constants/index.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "folders",
+          "declaration": {
+            "name": "folders",
+            "module": "config/plop/constants/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/plop/prompts/index.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "prompt",
+          "return": {
+            "type": {
+              "text": "PromptQuestion"
+            }
+          },
+          "parameters": [
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "message",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "type",
+              "default": "PROMPT_TYPE.INPUT",
+              "type": {
+                "text": "PROMPT_TYPE"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "prompt",
+          "declaration": {
+            "name": "prompt",
+            "module": "config/plop/prompts/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "config/storybook/themes/index.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "themes",
+          "type": {
+            "text": "array"
+          },
+          "default": "[\n  {\n    name: 'darkWebex',\n    backgroundColor: '#000000',\n  },\n  {\n    name: 'lightWebex',\n    backgroundColor: '#ffffff',\n  },\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "themes",
+          "declaration": {
+            "name": "themes",
+            "module": "config/storybook/themes/index.js"
           }
         }
       ]
@@ -495,177 +694,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "config/plop/constants/index.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "componentName",
-          "type": {
-            "text": "string"
-          },
-          "default": "'componentName'"
-        },
-        {
-          "kind": "variable",
-          "name": "componentNamePrefix",
-          "type": {
-            "text": "string"
-          }
-        },
-        {
-          "kind": "variable",
-          "name": "componentNameSeparator",
-          "type": {
-            "text": "string"
-          }
-        },
-        {
-          "kind": "variable",
-          "name": "root",
-          "type": {
-            "text": "string"
-          }
-        },
-        {
-          "kind": "variable",
-          "name": "plop",
-          "type": {
-            "text": "string"
-          },
-          "default": "`${join(root, 'config', 'plop')}`"
-        },
-        {
-          "kind": "variable",
-          "name": "folders",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  src: `${join(root, 'src')}`,\n  components: `${join(root, 'src', 'components')}`,\n  templates: `${join(plop, 'templates')}`,\n}"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "componentName",
-          "declaration": {
-            "name": "componentName",
-            "module": "config/plop/constants/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "componentNamePrefix",
-          "declaration": {
-            "name": "componentNamePrefix",
-            "module": "config/plop/constants/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "componentNameSeparator",
-          "declaration": {
-            "name": "componentNameSeparator",
-            "module": "config/plop/constants/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "root",
-          "declaration": {
-            "name": "root",
-            "module": "config/plop/constants/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "plop",
-          "declaration": {
-            "name": "plop",
-            "module": "config/plop/constants/index.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "folders",
-          "declaration": {
-            "name": "folders",
-            "module": "config/plop/constants/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "config/plop/prompts/index.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "prompt",
-          "return": {
-            "type": {
-              "text": "PromptQuestion"
-            }
-          },
-          "parameters": [
-            {
-              "name": "name",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "message",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "type",
-              "default": "PROMPT_TYPE.INPUT",
-              "type": {
-                "text": "PROMPT_TYPE"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "prompt",
-          "declaration": {
-            "name": "prompt",
-            "module": "config/plop/prompts/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "config/storybook/themes/index.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "themes",
-          "type": {
-            "text": "array"
-          },
-          "default": "[\n  {\n    name: 'darkWebex',\n    backgroundColor: '#000000',\n  },\n  {\n    name: 'lightWebex',\n    backgroundColor: '#ffffff',\n  },\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "themes",
-          "declaration": {
-            "name": "themes",
-            "module": "config/storybook/themes/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/atoms/button/button.component.ts",
       "declarations": [
         {
@@ -886,13 +914,95 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/models/component/component.component.ts",
+      "path": "src/atoms/button-pill/button-pill.ts",
       "declarations": [
         {
           "kind": "class",
-          "description": "Core Component class to ultimately be inherited by all Web Components within\nthis package.",
-          "name": "Component",
+          "description": "An example element.",
+          "name": "MdButtonPill",
+          "cssParts": [
+            {
+              "description": "The button",
+              "name": "button"
+            }
+          ],
+          "slots": [
+            {
+              "description": "This element has a slot",
+              "name": ""
+            }
+          ],
           "members": [
+            {
+              "kind": "method",
+              "name": "render",
+              "inheritedFrom": {
+                "name": "MdButton",
+                "module": "src/atoms/button/button.component.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "default": "styles",
+              "inheritedFrom": {
+                "name": "MdButton",
+                "module": "src/atoms/button/button.component.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "tabIndex",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "public",
+              "default": "0",
+              "inheritedFrom": {
+                "name": "TabIndexMixin",
+                "module": "src/utils/mixins/TabIndexMixin.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "public",
+              "default": "false",
+              "description": "whether button should be disabled",
+              "inheritedFrom": {
+                "name": "DisabledMixin",
+                "module": "src/utils/mixins/DisabledMixin.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "public",
+              "default": "'button'",
+              "inheritedFrom": {
+                "name": "MdButton",
+                "module": "src/atoms/button/button.component.ts"
+              }
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "classNames to be passed in",
+              "name": "class",
+              "kind": "field",
+              "inheritedFrom": {
+                "name": "MdButton",
+                "module": "src/atoms/button/button.component.ts"
+              }
+            },
             {
               "kind": "method",
               "name": "register",
@@ -911,60 +1021,92 @@
                   }
                 }
               ],
-              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry."
+              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
+              "inheritedFrom": {
+                "name": "Component",
+                "module": "src/models/component/component.component.ts"
+              }
             }
           ],
           "superclass": {
-            "name": "LitElement",
-            "package": "lit"
+            "name": "MdButton",
+            "module": "/src/atoms/button"
           },
+          "tagName": "TAG_NAME",
           "customElement": true
         }
       ],
       "exports": [
         {
-          "kind": "custom-element-definition",
-          "name": "namespace",
-          "declaration": {
-            "name": "anonymous_0",
-            "module": "src/models/component/component.component.ts"
-          }
-        },
-        {
           "kind": "js",
-          "name": "default",
+          "name": "MdButtonPill",
           "declaration": {
-            "name": "Component",
-            "module": "src/models/component/component.component.ts"
+            "name": "MdButtonPill",
+            "module": "src/atoms/button-pill/button-pill.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/models/component/component.types.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/models/component/index.ts",
-      "declarations": [],
+      "path": "src/atoms/button-pill/constants.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "TAG_NAME"
+        }
+      ],
       "exports": [
         {
           "kind": "js",
-          "name": "ComponentRegisterOptions",
+          "name": "TAG_NAME",
           "declaration": {
-            "name": "RegisterOptions",
-            "module": "./component.types"
+            "name": "TAG_NAME",
+            "module": "src/atoms/button-pill/constants.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/atoms/button-pill/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "TAG_NAME",
+          "declaration": {
+            "name": "MdButtonPill",
+            "module": "/src/atoms/button-pill/button-pill"
           }
         },
         {
           "kind": "js",
-          "name": "default",
+          "name": "MdButtonPill",
           "declaration": {
-            "name": "Component",
-            "module": "src/models/component/index.ts"
+            "name": "MdButtonPill",
+            "module": "src/atoms/button-pill/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/atoms/button-pill/styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "default": "css`\n  :host {\n    --mdc-atoms-button-general-width: unset;\n    --mdc-atoms-button-general-height: unset;\n    --mdc-atoms-button-general-background-color: buttonface;\n    --mdc-atoms-button-general-border: 2px outset buttonborder;\n\n    --mdc-atoms-button-hover-width: var(--mdc-atoms-button-general-width);\n    --mdc-atoms-button-hover-height: var(--mdc-atoms-button-general-height);\n    --mdc-atoms-button-hover-background-color: var(--mdc-atoms-button-general-background-color);\n    --mdc-atoms-button-hover-border: var(--mdc-atoms-button-general-border);\n\n    --mdc-atoms-button-active-width: var(--mdc-atoms-button-general-width);\n    --mdc-atoms-button-active-height: var(--mdc-atoms-button-general-height);\n    --mdc-atoms-button-active-background-color: var(--mdc-atoms-button-general-background-color);\n    --mdc-atoms-button-active-border: 2px inset buttonborder;\n    display: inline-flex;\n  }\n  button {\n    width: var(--mdc-atoms-button-general-width);\n    height: var(--mdc-atoms-button-general-height);\n    background-color: var(--mdc-atoms-button-general-background-color);\n    border: var(--mdc-atoms-button-general-border);\n  }\n\n  button:hover {\n    width: var(--mdc-atoms-button-hover-width);\n    height: var(--mdc-atoms-button-hover-height);\n    background-color: var(--mdc-atoms-button-hover-background-color);\n    border: var(--mdc-atoms-button-hover-border);\n  }\n\n  button:active {\n    width: var(--mdc-atoms-button-active-width);\n    height: var(--mdc-atoms-button-active-height);\n    background-color: var(--mdc-atoms-button-active-background-color);\n    border: var(--mdc-atoms-button-active-border);\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "styles",
+          "declaration": {
+            "name": "styles",
+            "module": "src/atoms/button-pill/styles.ts"
           }
         }
       ]
@@ -1162,128 +1304,62 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/utils/mixins/DisabledMixin.ts",
-      "declarations": [
-        {
-          "kind": "mixin",
-          "description": "",
-          "name": "DisabledMixin",
-          "members": [
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "public",
-              "default": "false"
-            }
-          ],
-          "parameters": [
-            {
-              "name": "superClass",
-              "type": {
-                "text": "T"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "DisabledMixin",
-          "declaration": {
-            "name": "DisabledMixin",
-            "module": "src/utils/mixins/DisabledMixin.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/utils/mixins/TabIndexMixin.ts",
-      "declarations": [
-        {
-          "kind": "mixin",
-          "description": "",
-          "name": "TabIndexMixin",
-          "members": [
-            {
-              "kind": "field",
-              "name": "tabIndex",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "public",
-              "default": "0"
-            }
-          ],
-          "parameters": [
-            {
-              "name": "superClass",
-              "type": {
-                "text": "T"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "TabIndexMixin",
-          "declaration": {
-            "name": "TabIndexMixin",
-            "module": "src/utils/mixins/TabIndexMixin.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/models/provider/index.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "Provider",
-            "module": "src/models/provider/index.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/models/provider/provider.component.ts",
+      "path": "src/components/icon/icon.component.ts",
       "declarations": [
         {
           "kind": "class",
-          "description": "Provider Component class to ultimately be inherited by all Provider-type Web\nComponents within this package.",
-          "name": "Provider",
+          "description": "",
+          "name": "MdcIcon",
+          "slots": [
+            {
+              "description": "This is a default/unnamed slot",
+              "name": ""
+            }
+          ],
           "members": [
             {
               "kind": "field",
-              "name": "context",
+              "name": "iconData",
               "type": {
-                "text": "ContextProvider<{ __context__: C; }>"
+                "text": "TemplateResult"
               },
-              "privacy": "protected",
-              "description": "Context associated with this provider.",
-              "default": "new ContextProvider(this, {\n      context,\n      initialValue,\n    })"
+              "privacy": "private",
+              "default": "svg``"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "'annotate-regular'"
+            },
+            {
+              "kind": "method",
+              "name": "getIconData",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updated",
+              "parameters": [
+                {
+                  "name": "changedProperties",
+                  "type": {
+                    "text": "Map<string, any>"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "render"
             },
             {
               "kind": "field",
               "name": "styles",
-              "type": {
-                "text": "CSSResult | Array<CSSResult>"
-              },
-              "privacy": "public",
               "static": true,
-              "default": "styles",
-              "description": "Styles associated with this Provider Component."
+              "default": "styles"
             },
             {
               "kind": "method",
@@ -1312,8 +1388,69 @@
           ],
           "superclass": {
             "name": "Component",
-            "module": "/src/models/component"
+            "module": "/src/models"
+          },
+          "tagName": "mdc-icon",
+          "summary": "This is MyElement",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcIcon",
+          "declaration": {
+            "name": "MdcIcon",
+            "module": "src/components/icon/icon.component.ts"
           }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/icon/icon.constants.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "TAG_NAME"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TAG_NAME",
+          "declaration": {
+            "name": "TAG_NAME",
+            "module": "src/components/icon/icon.constants.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/icon/icon.e2e-test.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/icon/icon.stories.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "meta",
+          "type": {
+            "text": "Meta"
+          },
+          "default": "{\n  tags: ['autodocs'],\n  component: 'mdc-icon',\n  render,\n  argTypes: {},\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "Primary",
+          "type": {
+            "text": "StoryObj"
+          },
+          "default": "{\n  args: {},\n}"
         }
       ],
       "exports": [
@@ -1321,122 +1458,109 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "Provider",
-            "module": "src/models/provider/provider.component.ts"
+            "name": "meta",
+            "module": "src/components/icon/icon.stories.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Primary",
+          "declaration": {
+            "name": "Primary",
+            "module": "src/components/icon/icon.stories.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/models/provider/provider.styles.ts",
+      "path": "src/components/icon/icon.styles.ts",
       "declarations": [
         {
           "kind": "variable",
           "name": "styles",
-          "default": "css`\n  :host {\n    border: 0;\n    display: block;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n  }\n`"
+          "default": "css`\n  :host {\n  }\n\n  svg {\n    fill: currentColor;\n  }\n`"
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "default",
+          "name": "styles",
           "declaration": {
             "name": "styles",
-            "module": "src/models/provider/provider.styles.ts"
+            "module": "src/components/icon/icon.styles.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/atoms/button-pill/button-pill.ts",
+      "path": "src/components/icon/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcIcon",
+          "declaration": {
+            "name": "MdcIcon",
+            "module": "src/components/icon/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/iconprovider/iconprovider.component.ts",
       "declarations": [
         {
           "kind": "class",
-          "description": "An example element.",
-          "name": "MdButtonPill",
-          "cssParts": [
-            {
-              "description": "The button",
-              "name": "button"
-            }
-          ],
+          "description": "",
+          "name": "MdcIconprovider",
           "slots": [
             {
-              "description": "This element has a slot",
+              "description": "This is a default/unnamed slot",
               "name": ""
             }
           ],
           "members": [
             {
+              "kind": "field",
+              "name": "Context",
+              "privacy": "public",
+              "static": true,
+              "readonly": true
+            },
+            {
               "kind": "method",
-              "name": "render",
-              "inheritedFrom": {
-                "name": "MdButton",
-                "module": "src/atoms/button/button.component.ts"
-              }
+              "name": "render"
             },
             {
               "kind": "field",
               "name": "styles",
+              "type": {
+                "text": "CSSResult | Array<CSSResult>"
+              },
+              "privacy": "public",
               "static": true,
               "default": "styles",
+              "description": "Styles associated with this Provider Component.",
               "inheritedFrom": {
-                "name": "MdButton",
-                "module": "src/atoms/button/button.component.ts"
+                "name": "Provider",
+                "module": "src/models/provider/provider.component.ts"
               }
             },
             {
               "kind": "field",
-              "name": "tabIndex",
+              "name": "context",
               "type": {
-                "text": "number"
+                "text": "ContextProvider<{ __context__: C; }>"
               },
-              "privacy": "public",
-              "default": "0",
+              "privacy": "protected",
+              "description": "Context associated with this provider.",
+              "default": "new ContextProvider(this, {\n      context,\n      initialValue,\n    })",
               "inheritedFrom": {
-                "name": "TabIndexMixin",
-                "module": "src/utils/mixins/TabIndexMixin.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "public",
-              "default": "false",
-              "description": "whether button should be disabled",
-              "inheritedFrom": {
-                "name": "DisabledMixin",
-                "module": "src/utils/mixins/DisabledMixin.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "public",
-              "default": "'button'",
-              "inheritedFrom": {
-                "name": "MdButton",
-                "module": "src/atoms/button/button.component.ts"
-              }
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "classNames to be passed in",
-              "name": "class",
-              "kind": "field",
-              "inheritedFrom": {
-                "name": "MdButton",
-                "module": "src/atoms/button/button.component.ts"
+                "name": "Provider",
+                "module": "src/models/provider/provider.component.ts"
               }
             },
             {
@@ -1465,27 +1589,28 @@
             }
           ],
           "superclass": {
-            "name": "MdButton",
-            "module": "/src/atoms/button"
+            "name": "Provider",
+            "module": "/src/models"
           },
-          "tagName": "TAG_NAME",
+          "tagName": "mdc-iconprovider",
+          "summary": "This is MyElement",
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "MdButtonPill",
+          "name": "MdcIconprovider",
           "declaration": {
-            "name": "MdButtonPill",
-            "module": "src/atoms/button-pill/button-pill.ts"
+            "name": "MdcIconprovider",
+            "module": "src/components/iconprovider/iconprovider.component.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/atoms/button-pill/constants.ts",
+      "path": "src/components/iconprovider/iconprovider.constants.ts",
       "declarations": [
         {
           "kind": "variable",
@@ -1498,42 +1623,103 @@
           "name": "TAG_NAME",
           "declaration": {
             "name": "TAG_NAME",
-            "module": "src/atoms/button-pill/constants.ts"
+            "module": "src/components/iconprovider/iconprovider.constants.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/atoms/button-pill/index.ts",
-      "declarations": [],
+      "path": "src/components/iconprovider/iconprovider.context.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "IconProviderContext",
+          "members": [
+            {
+              "kind": "field",
+              "name": "theme",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "default": "defaultTheme"
+            },
+            {
+              "kind": "field",
+              "name": "context",
+              "privacy": "public",
+              "static": true
+            }
+          ]
+        }
+      ],
       "exports": [
         {
-          "kind": "custom-element-definition",
-          "name": "TAG_NAME",
+          "kind": "js",
+          "name": "default",
           "declaration": {
-            "name": "MdButtonPill",
-            "module": "/src/atoms/button-pill/button-pill"
+            "name": "IconProviderContext",
+            "module": "src/components/iconprovider/iconprovider.context.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/iconprovider/iconprovider.e2e-test.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/iconprovider/iconprovider.stories.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "meta",
+          "type": {
+            "text": "Meta"
+          },
+          "default": "{\n  tags: ['autodocs'],\n  component: 'mdc-iconprovider',\n  render,\n  argTypes: {},\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "Primary",
+          "type": {
+            "text": "StoryObj"
+          },
+          "default": "{\n  args: {},\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "meta",
+            "module": "src/components/iconprovider/iconprovider.stories.ts"
           }
         },
         {
           "kind": "js",
-          "name": "MdButtonPill",
+          "name": "Primary",
           "declaration": {
-            "name": "MdButtonPill",
-            "module": "src/atoms/button-pill/index.ts"
+            "name": "Primary",
+            "module": "src/components/iconprovider/iconprovider.stories.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/atoms/button-pill/styles.ts",
+      "path": "src/components/iconprovider/iconprovider.styles.ts",
       "declarations": [
         {
           "kind": "variable",
           "name": "styles",
-          "default": "css`\n  :host {\n    --mdc-atoms-button-general-width: unset;\n    --mdc-atoms-button-general-height: unset;\n    --mdc-atoms-button-general-background-color: buttonface;\n    --mdc-atoms-button-general-border: 2px outset buttonborder;\n\n    --mdc-atoms-button-hover-width: var(--mdc-atoms-button-general-width);\n    --mdc-atoms-button-hover-height: var(--mdc-atoms-button-general-height);\n    --mdc-atoms-button-hover-background-color: var(--mdc-atoms-button-general-background-color);\n    --mdc-atoms-button-hover-border: var(--mdc-atoms-button-general-border);\n\n    --mdc-atoms-button-active-width: var(--mdc-atoms-button-general-width);\n    --mdc-atoms-button-active-height: var(--mdc-atoms-button-general-height);\n    --mdc-atoms-button-active-background-color: var(--mdc-atoms-button-general-background-color);\n    --mdc-atoms-button-active-border: 2px inset buttonborder;\n    display: inline-flex;\n  }\n  button {\n    width: var(--mdc-atoms-button-general-width);\n    height: var(--mdc-atoms-button-general-height);\n    background-color: var(--mdc-atoms-button-general-background-color);\n    border: var(--mdc-atoms-button-general-border);\n  }\n\n  button:hover {\n    width: var(--mdc-atoms-button-hover-width);\n    height: var(--mdc-atoms-button-hover-height);\n    background-color: var(--mdc-atoms-button-hover-background-color);\n    border: var(--mdc-atoms-button-hover-border);\n  }\n\n  button:active {\n    width: var(--mdc-atoms-button-active-width);\n    height: var(--mdc-atoms-button-active-height);\n    background-color: var(--mdc-atoms-button-active-background-color);\n    border: var(--mdc-atoms-button-active-border);\n  }\n`"
+          "default": "css`\n  :host {\n  }\n`"
         }
       ],
       "exports": [
@@ -1542,7 +1728,22 @@
           "name": "styles",
           "declaration": {
             "name": "styles",
-            "module": "src/atoms/button-pill/styles.ts"
+            "module": "src/components/iconprovider/iconprovider.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/iconprovider/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcIconprovider",
+          "declaration": {
+            "name": "MdcIconprovider",
+            "module": "src/components/iconprovider/index.ts"
           }
         }
       ]
@@ -1990,6 +2191,303 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/models/component/component.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Core Component class to ultimately be inherited by all Web Components within\nthis package.",
+          "name": "Component",
+          "members": [
+            {
+              "kind": "method",
+              "name": "register",
+              "privacy": "public",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "parameters": [
+                {
+                  "name": "namespace",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry."
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "namespace",
+          "declaration": {
+            "name": "anonymous_0",
+            "module": "src/models/component/component.component.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Component",
+            "module": "src/models/component/component.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/models/component/component.types.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/models/component/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ComponentRegisterOptions",
+          "declaration": {
+            "name": "RegisterOptions",
+            "module": "./component.types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Component",
+            "module": "src/models/component/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/models/provider/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Provider",
+            "module": "src/models/provider/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/models/provider/provider.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Provider Component class to ultimately be inherited by all Provider-type Web\nComponents within this package.",
+          "name": "Provider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "context",
+              "type": {
+                "text": "ContextProvider<{ __context__: C; }>"
+              },
+              "privacy": "protected",
+              "description": "Context associated with this provider.",
+              "default": "new ContextProvider(this, {\n      context,\n      initialValue,\n    })"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "type": {
+                "text": "CSSResult | Array<CSSResult>"
+              },
+              "privacy": "public",
+              "static": true,
+              "default": "styles",
+              "description": "Styles associated with this Provider Component."
+            },
+            {
+              "kind": "method",
+              "name": "register",
+              "privacy": "public",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "parameters": [
+                {
+                  "name": "namespace",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Register `this` extended `Component` Class as a custom element within the\nDOM's custom elements registry.",
+              "inheritedFrom": {
+                "name": "Component",
+                "module": "src/models/component/component.component.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "Component",
+            "module": "/src/models/component"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Provider",
+            "module": "src/models/provider/provider.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/models/provider/provider.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "default": "css`\n  :host {\n    border: 0;\n    display: block;\n    height: 100%;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/models/provider/provider.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/utils/mixins/DisabledMixin.ts",
+      "declarations": [
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "DisabledMixin",
+          "members": [
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "public",
+              "default": "false"
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass",
+              "type": {
+                "text": "T"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DisabledMixin",
+          "declaration": {
+            "name": "DisabledMixin",
+            "module": "src/utils/mixins/DisabledMixin.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/utils/mixins/TabIndexMixin.ts",
+      "declarations": [
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "TabIndexMixin",
+          "members": [
+            {
+              "kind": "field",
+              "name": "tabIndex",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "public",
+              "default": "0"
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass",
+              "type": {
+                "text": "T"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "TabIndexMixin",
+          "declaration": {
+            "name": "TabIndexMixin",
+            "module": "src/utils/mixins/TabIndexMixin.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/utils/provider/index.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "providerUtils",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n  consume,\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "providerUtils",
+            "module": "src/utils/provider/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/utils/tag-name/constants.ts",
       "declarations": [
         {
@@ -2028,24 +2526,24 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/utils/provider/index.ts",
+      "path": "config/plop/generators/component/index.ts",
       "declarations": [
         {
           "kind": "variable",
-          "name": "providerUtils",
+          "name": "ComponentGenerator",
           "type": {
             "text": "object"
           },
-          "default": "{\n  consume,\n}"
+          "default": "{\n  name: GENERATOR_NAME.COMPONENT_GENERATOR,\n  generator,\n}"
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "default",
+          "name": "ComponentGenerator",
           "declaration": {
-            "name": "providerUtils",
-            "module": "src/utils/provider/index.ts"
+            "name": "ComponentGenerator",
+            "module": "config/plop/generators/component/index.ts"
           }
         }
       ]
@@ -2197,24 +2695,20 @@
     },
     {
       "kind": "javascript-module",
-      "path": "config/plop/generators/component/index.ts",
+      "path": "config/playwright/public/dist/browser/index.js",
       "declarations": [
         {
           "kind": "variable",
-          "name": "ComponentGenerator",
-          "type": {
-            "text": "object"
-          },
-          "default": "{\n  name: GENERATOR_NAME.COMPONENT_GENERATOR,\n  generator,\n}"
+          "name": "t"
         }
       ],
       "exports": [
         {
-          "kind": "js",
-          "name": "ComponentGenerator",
+          "kind": "custom-element-definition",
+          "name": "t",
           "declaration": {
-            "name": "ComponentGenerator",
-            "module": "config/plop/generators/component/index.ts"
+            "name": "anonymous_0",
+            "module": "config/playwright/public/dist/browser/index.js"
           }
         }
       ]

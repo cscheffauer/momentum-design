@@ -3522,6 +3522,7 @@ __metadata:
     esbuild: ^0.18.10
     esbuild-plugin-minify-html-literals: ^1.0.5
     eslint-plugin-lit: ^1.8.3
+    fs-extra: ^11.1.1
     lit: ^2.7.5
     plop: ^3.1.2
     rimraf: ^3.0.2
@@ -10040,7 +10041,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^11.1.0":
+"fs-extra@npm:^11.1.0, fs-extra@npm:^11.1.1":
   version: 11.1.1
   resolution: "fs-extra@npm:11.1.1"
   dependencies:

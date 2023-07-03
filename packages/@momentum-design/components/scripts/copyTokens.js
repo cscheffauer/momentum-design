@@ -20,4 +20,5 @@ const copyToFolder = (src, destFolder) => {
 copyToFolder(complete, playwrightPublicDist);
 copyToFolder(dark, playwrightPublicDist);
 copyToFolder(light, playwrightPublicDist);
+
 console.log(chalk.gray('Tokens have been copied successfully!'));
