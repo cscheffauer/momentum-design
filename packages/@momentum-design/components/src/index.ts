@@ -3,10 +3,8 @@ import {
   Provider,
 } from './models';
 
-import {
-  MdcThemeprovider,
-} from './components/themeprovider';
-import { MdcIcon } from './components/icon';
+import MdcThemeprovider from './components/themeprovider';
+import MdcIcon from './components/icon';
 import { MdcIconprovider } from './components/iconprovider';
 
 export {

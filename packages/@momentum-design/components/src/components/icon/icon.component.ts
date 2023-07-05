@@ -3,7 +3,7 @@ import { property, state } from 'lit/decorators.js';
 import { styles } from './icon.styles';
 import { Component } from '../../models';
 import providerUtils from '../../utils/provider';
-import { MdcIconprovider } from '../iconprovider';
+import MdcIconprovider from '../iconprovider';
 import { dynamicSVGImport } from './icon.utils';
 
 /**
@@ -21,7 +21,7 @@ class MdcIcon extends Component {
   @property({ type: String, reflect: true })
   name: string = 'annotate-regular';
 
-  private iconProviderContext = providerUtils.consume(this, MdcIconprovider.Context);
+  private iconProviderContext = providerUtils.consume({ host: this, context: MdcIconprovider.Context });
 
   private async getIconData() {
     if (this.iconProviderContext.value) {

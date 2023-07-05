@@ -1,11 +1,19 @@
-/* eslint-disable max-len */
 import { Context, ContextConsumer } from '@lit-labs/context';
 import { ReactiveElement } from 'lit';
 
-const consume = <C extends Context<unknown, unknown>>(host: ReactiveElement, context: C) => new ContextConsumer<C, typeof host>(host, {
-  context,
-  subscribe: true,
-});
+type ConsumeOptions<C> = {
+  host: ReactiveElement;
+  context: C;
+  subscribe?:boolean
+}
+const consume = <C extends Context<unknown, unknown>>(options: ConsumeOptions<C>) => {
+  const { host, context, subscribe } = options;
+
+  return new ContextConsumer<C, typeof host>(host, {
+    context,
+    subscribe: subscribe ?? true,
+  });
+};
 
 const providerUtils = {
   consume,

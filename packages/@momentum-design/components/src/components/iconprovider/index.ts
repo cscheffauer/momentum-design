@@ -4,7 +4,7 @@ import { TAG_NAME } from './iconprovider.constants';
 
 MdcIconprovider.register(TAG_NAME);
 
-export { MdcIconprovider };
+export default MdcIconprovider;
 
 export interface MdcIconproviderAttributes extends PropertyValues<MdcIconprovider> {}
 declare global {

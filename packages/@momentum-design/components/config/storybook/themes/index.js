@@ -1,10 +1,12 @@
 export const themes = [
   {
-    name: 'darkWebex',
+    name: 'mds-theme-stable-darkWebex',
+    displayName: 'darkWebex',
     backgroundColor: '#000000',
   },
   {
-    name: 'lightWebex',
+    name: 'mds-theme-stable-lightWebex',
+    displayName: 'lightWebex',
     backgroundColor: '#ffffff',
   },
 ];

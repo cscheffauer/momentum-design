@@ -1,12 +1,11 @@
+/* eslint-disable implicit-arrow-linebreak */
 import utils from '../../utils/tag-name';
+import type { Theme } from './themeprovider.types';
+import themeProviderUtils from './themeprovider.utils';
 
 const TAG_NAME = utils.constructTagName('themeprovider');
 
-const THEME_CLASS_PREFIX = 'mds-theme-stable';
-
-const THEME_CLASS_SEPARATOR = '-';
-
-// Some themes are disabled until tokens are properly imported.
+// Some themes are disabled until tokens are available for those themes
 const THEME_NAMES = {
   // DARK_BRONZE: 'darkBronze' as const,
   // DARK_INDIGO: 'darkIndigo' as const,
@@ -22,17 +21,12 @@ const THEME_NAMES = {
   LIGHT_WEBEX: 'lightWebex' as const,
 };
 
-const THEMES = Object.values(THEME_NAMES);
+const THEMES = Object.values(THEME_NAMES).map(
+  (themeName) => themeProviderUtils.getFullQualifiedTheme(themeName),
+);
 
 const DEFAULTS = {
-  THEME: THEME_NAMES.DARK_WEBEX,
+  THEME: themeProviderUtils.getFullQualifiedTheme(THEME_NAMES.DARK_WEBEX) as Theme<typeof THEME_NAMES.DARK_WEBEX>,
 };
 
-export {
-  DEFAULTS,
-  THEME_CLASS_PREFIX,
-  THEME_CLASS_SEPARATOR,
-  THEME_NAMES,
-  THEMES,
-  TAG_NAME,
-};
+export { DEFAULTS, THEME_NAMES, THEMES, TAG_NAME };

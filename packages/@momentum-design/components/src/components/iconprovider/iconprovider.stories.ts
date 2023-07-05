@@ -1,9 +1,12 @@
 import type { Meta, StoryObj, Args } from '@storybook/web-components';
 import '.';
 import { html } from 'lit';
+import './iconprovider.stories.utils';
 
 const render = (args: Args) => html`
-  <mdc-iconprovider />
+  <mdc-iconprovider url="${args.url}" file-extension="${args.fileExtension}">
+    <mdc-subcomponent-icon></mdc-subcomponent-icon>
+  </mdc-iconprovider>
 `;
 
 const meta: Meta = {
@@ -16,5 +19,8 @@ const meta: Meta = {
 export default meta;
 
 export const Primary: StoryObj = {
-  args: {},
+  args: {
+    url: '/test',
+    fileExtension: 'svg',
+  },
 };

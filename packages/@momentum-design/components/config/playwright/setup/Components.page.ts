@@ -1,6 +1,7 @@
 /* eslint-disable no-redeclare */
 import { Page, expect, Locator, TestInfo } from '@playwright/test';
-
+import type { ThemeName } from '../../../src/components/themeprovider/themeprovider.types';
+import utils from '../../../src/components/themeprovider/themeprovider.utils';
 import Accessibility from './utils/accessibility';
 import VisualRegression from './utils/visual-regression';
 
@@ -32,6 +33,25 @@ class ComponentsPage {
     // creates utility objects on components page and inject dependencies:
     this.accessibility = new Accessibility(this.page, this.testInfo);
     this.visualRegression = new VisualRegression(this.page);
+  }
+
+  /**
+   * Sets the theme on the global theme provider
+   * for e2e tests. This allows testing
+   * with specified themes.
+   * @param theme - themeName to be used for setting theme on themeprovider
+   */
+  async setGlobalTheme(theme: ThemeName) {
+    const themeClass = utils.getFullQualifiedTheme(theme);
+    await this.page.evaluate(
+      (args) => {
+        const themeProvider = window.document.querySelector('body mdc-themeprovider');
+        if (themeProvider) {
+          themeProvider.setAttribute('theme', args.themeClass);
+        }
+      },
+      { themeClass },
+    );
   }
 
   /**

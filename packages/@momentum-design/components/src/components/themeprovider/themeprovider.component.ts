@@ -1,14 +1,18 @@
-import { html } from 'lit';
 import { property } from 'lit/decorators.js';
-import { DEFAULTS, THEMES, THEME_CLASS_PREFIX, THEME_CLASS_SEPARATOR } from './themeprovider.constants';
-import { constructThemeClass, getNextTheme } from './themeprovider.utils';
+import { DEFAULTS, THEMES } from './themeprovider.constants';
 import { Provider } from '../../models';
 import ThemeProviderContext from './themeprovider.context';
 import { styles } from './themeprovider.styles';
+import type { Theme } from './themeprovider.types';
+
 /**
- * @slot - This is a default/unnamed slot
+ * ThemeProvider component, which sets the theme css variables
+ * for the child dom nodes and allows to be consumed from sub components
+ * (see providerUtils.consume for how to consume)
  *
- * @summary This is MyElement
+ * @property {string} themes - available themes to switch to
+ * @property {string} theme - current theme (fully qualified)
+ *
  *
  * @tag mdc-themeprovider
  * @tagname mdc-themeprovider
@@ -26,42 +30,48 @@ class MdcThemeprovider extends Provider<ThemeProviderContext> {
     return ThemeProviderContext.context;
   }
 
+  /**
+   * Available themes to switch to
+   *
+   * Has to be a space separated string, like className
+   * e.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`
+   */
   @property({ type: String })
   themes: string = THEMES.join(' ');
 
-  @property({ type: String, attribute: 'class-prefix' })
-  classPrefix: string = THEME_CLASS_PREFIX;
-
-  @property({ type: String, attribute: 'class-separator' })
-  classSeparator: string = THEME_CLASS_SEPARATOR;
-
-  @property({ type: String, reflect: true })
-  theme: string = DEFAULTS.THEME;
-
   /**
-   * Allows to programmatically switch the theme on the theme provider
+   * Current theme attribute
    *
-   * If no `theme` arg is passed in, it will pick the next available one
-   * in the themes string
-   * @param theme - theme to switch to, if not provided pick next available
+   * Has to be fully qualified, such that
+   * the theme name matches the className of the respective
+   * theme stylesheet
    */
-  public switchTheme(theme: string) {
-    if (theme) {
-      this.theme = theme;
-    } else {
-      this.theme = getNextTheme(this.themes, this.theme);
-    }
-  }
+  @property({ type: String })
+  theme: Theme = DEFAULTS.THEME;
 
-  override updated(changedProperties: Map<string, any>) {
+  protected override updated(changedProperties: Map<string, any>) {
     super.updated(changedProperties);
 
     if (changedProperties.has('theme')) {
-      // update the contexts value and update all observers
-      this.context.value.theme = this.theme;
-      this.context.updateObservers();
-
       this.updateActiveThemeClass();
+    }
+  }
+
+  /**
+   * Update all observing components of this
+   * provider to update the theme
+   */
+  protected updateContext(): void {
+    let shouldUpdateConsumers = false;
+
+    if (this.context.value.theme !== this.theme) {
+      this.context.value.theme = this.theme;
+
+      shouldUpdateConsumers = true;
+    }
+
+    if (shouldUpdateConsumers) {
+      this.context.updateObservers();
     }
   }
 
@@ -71,18 +81,12 @@ class MdcThemeprovider extends Provider<ThemeProviderContext> {
    */
   private updateActiveThemeClass() {
     // remove all existing theme classes from the classList:
-    this.classList.remove(
-      ...this.themes.split(' ').map((theme) => constructThemeClass(theme, this.classPrefix, this.classSeparator)),
-    );
+    this.classList.remove(...this.themes.split(' '));
     // add current theme class to classList:
-    this.classList.add(constructThemeClass(this.theme, this.classPrefix, this.classSeparator));
+    this.classList.add(this.theme);
   }
 
-  override render() {
-    return html`<slot></slot>`;
-  }
-
-  static override styles = styles;
+  public static override styles = styles;
 }
 
 export { MdcThemeprovider };

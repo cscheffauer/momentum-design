@@ -11,5 +11,6 @@ module.exports = {
     ...config.rules,
     '@typescript-eslint/no-floating-promises': 'error',
     'no-redeclare': 'off',
+    'implicit-arrow-linebreak': 'off',
   },
 };

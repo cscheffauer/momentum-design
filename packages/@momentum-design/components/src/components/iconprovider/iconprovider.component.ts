@@ -1,4 +1,3 @@
-import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { Provider } from '../../models';
 import IconProviderContext from './iconprovider.context';
@@ -31,19 +30,19 @@ class MdcIconprovider extends Provider<IconProviderContext> {
   @property({ type: String })
   url?: string;
 
-  override updated(changedProperties: Map<string, any>) {
-    super.updated(changedProperties);
+  protected updateContext(): void {
+    let shouldUpdateConsumers = false;
 
-    if (changedProperties.has('fileExtension') || changedProperties.has('url')) {
-      // update the contexts value and update all observers
+    if (this.context.value.fileExtension !== this.fileExtension || this.context.value.url !== this.url) {
       this.context.value.fileExtension = this.fileExtension;
       this.context.value.url = this.url;
+
+      shouldUpdateConsumers = true;
+    }
+
+    if (shouldUpdateConsumers) {
       this.context.updateObservers();
     }
-  }
-
-  override render() {
-    return html`<slot></slot>`;
   }
 }
 

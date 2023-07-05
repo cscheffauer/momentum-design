@@ -4,11 +4,11 @@ import { TAG_NAME } from './{{componentName}}.constants';
 
 {{sentenceCase prefix}}{{sentenceCase componentName}}.register(TAG_NAME);
 
-export { {{sentenceCase prefix}}{{sentenceCase componentName}} };
-
 export interface {{sentenceCase prefix}}{{sentenceCase componentName}}Attributes extends PropertyValues<{{sentenceCase prefix}}{{sentenceCase componentName}}> {}
 declare global {
     interface HTMLElementTagNameMap {
         [TAG_NAME]: {{sentenceCase prefix}}{{sentenceCase componentName}}
     }
 }
+
+export default {{sentenceCase prefix}}{{sentenceCase componentName}};

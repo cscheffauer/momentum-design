@@ -12,11 +12,11 @@ import { Component } from '../../models';
  * @tagname {{prefix}}-{{componentName}}
  */
 class {{sentenceCase prefix}}{{sentenceCase componentName}} extends Component {
-  override render() {
+  public override render() {
     return html`<p>This is a dummy component!</p><slot></slot>`;
   }
 
-  static override styles = styles;
+  public static override styles = styles;
 }
 
 export { {{sentenceCase prefix}}{{sentenceCase componentName}} };

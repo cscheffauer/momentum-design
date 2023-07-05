@@ -13,7 +13,7 @@ const url = `http://localhost:${port}`;
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: '../../src/components',
+  testDir: '../../src',
   testMatch: /.*\.e2e-test\.ts/,
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,

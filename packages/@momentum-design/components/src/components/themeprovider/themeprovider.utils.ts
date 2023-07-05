@@ -1,11 +1,16 @@
-/* eslint-disable max-len */
-const constructThemeClass = (theme: string, prefix: string, separator: string): string => [prefix, theme].join(separator);
+import type { Theme, ThemeName } from './themeprovider.types';
 
-const getNextTheme = (themes: string, currentTheme: string) => {
-  const themesArray = themes.split(' ');
-  const currentThemeIndex = themesArray.findIndex((theme) => theme === currentTheme);
-  const newThemeIndex = currentThemeIndex + 1 > themesArray.length - 1 ? 0 : currentThemeIndex + 1;
-  return themesArray[newThemeIndex];
+const THEME_CLASS_PREFIX = 'mds-theme-stable' as const;
+
+export const THEME_CLASS_SEPARATOR = '-' as const;
+
+const getFullQualifiedTheme = <T extends ThemeName>(themeName: T): Theme =>
+  [THEME_CLASS_PREFIX, themeName].join(THEME_CLASS_SEPARATOR) as Theme<T>;
+
+const utils = {
+  getFullQualifiedTheme,
 };
 
-export { constructThemeClass, getNextTheme };
+export default utils;
+export type ThemeClassPrefix = typeof THEME_CLASS_PREFIX;
+export type ThemeClassSeparator = typeof THEME_CLASS_SEPARATOR;
