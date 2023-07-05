@@ -27,7 +27,10 @@ class MdcIcon extends Component {
     if (this.iconProviderContext.value) {
       const { fileExtension, url } = this.iconProviderContext.value;
       if (url && fileExtension) {
-        const iconHtml = await dynamicSVGImport(url, this.name, fileExtension);
+        const iconHtml = await dynamicSVGImport(url, this.name, fileExtension)
+          .catch((reason) => {
+            console.warn('Icon load failed:', reason);
+          });
         this.iconData = html`${iconHtml}`;
       }
     }
