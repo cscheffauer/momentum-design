@@ -3,8 +3,8 @@ import '.';
 import { html } from 'lit';
 
 const render = (args: Args) => html`
-  <mdc-iconprovider type="relative" url="/icons/svg">
-      <mdc-icon name="${args.name}"></mdc-icon>
+  <mdc-iconprovider url="/icons/svg">
+      <mdc-icon name="${args.name}" scale="${args.scale}"></mdc-icon>
   </mdc-iconprovider>
 `;
 
@@ -21,5 +21,6 @@ export default meta;
 export const Primary: StoryObj = {
   args: {
     name: 'accessibility-regular',
+    scale: 1,
   },
 };

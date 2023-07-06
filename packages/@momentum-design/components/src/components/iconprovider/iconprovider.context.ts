@@ -7,6 +7,8 @@ class IconProviderContext {
 
   public url?: string;
 
+  public lengthUnit?: string;
+
   // create typed lit context as part of the IconProviderContext
   public static context = createContext<IconProviderContext>(TAG_NAME);
 }

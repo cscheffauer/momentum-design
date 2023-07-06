@@ -30,12 +30,20 @@ class MdcIconprovider extends Provider<IconProviderContext> {
   @property({ type: String })
   url?: string;
 
+  @property({ type: String, attribute: 'length-unit' })
+  lengthUnit?: string = DEFAULTS.LENGTH_UNIT;
+
   protected updateContext(): void {
     let shouldUpdateConsumers = false;
 
-    if (this.context.value.fileExtension !== this.fileExtension || this.context.value.url !== this.url) {
+    if (
+      this.context.value.fileExtension !== this.fileExtension
+      || this.context.value.url !== this.url
+      || this.context.value.lengthUnit !== this.lengthUnit
+    ) {
       this.context.value.fileExtension = this.fileExtension;
       this.context.value.url = this.url;
+      this.context.value.lengthUnit = this.lengthUnit;
 
       shouldUpdateConsumers = true;
     }
