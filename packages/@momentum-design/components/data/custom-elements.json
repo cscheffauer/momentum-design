@@ -4,12 +4,12 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/atoms/button/button.component.ts",
+      "path": "src/components/icon/icon.component.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "MdButton",
+          "name": "MdcIcon",
           "slots": [
             {
               "description": "This is a default/unnamed slot",
@@ -19,57 +19,90 @@
           "members": [
             {
               "kind": "field",
-              "name": "role",
+              "name": "iconData",
               "type": {
-                "text": "string"
+                "text": "TemplateResult"
               },
-              "privacy": "public",
-              "default": "'button'",
-              "attribute": "role",
+              "privacy": "private",
+              "default": "html``"
+            },
+            {
+              "kind": "field",
+              "name": "lengthUnitFromContext",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "name",
               "reflects": true
             },
             {
+              "kind": "field",
+              "name": "scale",
               "type": {
-                "text": "boolean"
+                "text": "number | undefined"
               },
-              "description": "whether button should be disabled",
-              "name": "disabled",
-              "kind": "field"
+              "attribute": "scale"
             },
             {
+              "kind": "field",
+              "name": "lengthUnit",
               "type": {
-                "text": "string"
+                "text": "string | undefined"
               },
-              "description": "classNames to be passed in",
-              "name": "class",
-              "kind": "field"
+              "attribute": "length-unit"
+            },
+            {
+              "kind": "field",
+              "name": "iconProviderContext",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "getIconData",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateSize",
+              "privacy": "private"
             }
           ],
           "attributes": [
             {
-              "name": "role",
+              "name": "name",
               "type": {
-                "text": "string"
+                "text": "string | undefined"
               },
-              "default": "'button'",
-              "fieldName": "role"
-            }
-          ],
-          "mixins": [
-            {
-              "name": "TabIndexMixin",
-              "module": "/src/utils/mixins/TabIndexMixin"
+              "fieldName": "name"
             },
             {
-              "name": "DisabledMixin",
-              "module": "/src/utils/mixins/DisabledMixin"
+              "name": "scale",
+              "type": {
+                "text": "number | undefined"
+              },
+              "fieldName": "scale"
+            },
+            {
+              "name": "length-unit",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "lengthUnit"
             }
           ],
           "superclass": {
             "name": "Component",
             "module": "/src/models"
           },
-          "tagName": "md-button",
+          "tagName": "mdc-icon",
           "summary": "This is MyElement",
           "customElement": true
         }
@@ -77,10 +110,205 @@
       "exports": [
         {
           "kind": "js",
-          "name": "MdButton",
+          "name": "MdcIcon",
           "declaration": {
-            "name": "MdButton",
-            "module": "src/atoms/button/button.component.ts"
+            "name": "MdcIcon",
+            "module": "src/components/icon/icon.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/iconprovider/iconprovider.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "IconProvider component, which allows to be consumed from sub components\n(see `providerUtils.consume` for how to consume)\n\nBundling icons will be up to the consumer of this component, such\nthat only a url has to be passed in from which the icons will be\nfetched.",
+          "name": "MdcIconprovider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "Context",
+              "privacy": "public",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "url",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Url of where icons will be fetched from",
+              "attribute": "url"
+            },
+            {
+              "kind": "field",
+              "name": "fileExtension",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "File extension of icons, default: 'svg'",
+              "attribute": "file-extension",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "lengthUnit",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Length unit used for sizing of icons, default: 'em'",
+              "attribute": "length-unit",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "updateValuesInContext",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateContext",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "url",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Url of where icons will be fetched from",
+              "fieldName": "url"
+            },
+            {
+              "name": "file-extension",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "File extension of icons, default: 'svg'",
+              "fieldName": "fileExtension"
+            },
+            {
+              "name": "length-unit",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Length unit used for sizing of icons, default: 'em'",
+              "fieldName": "lengthUnit"
+            }
+          ],
+          "superclass": {
+            "name": "Provider",
+            "module": "/src/models"
+          },
+          "tagName": "mdc-iconprovider",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcIconprovider",
+          "declaration": {
+            "name": "MdcIconprovider",
+            "module": "src/components/iconprovider/iconprovider.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/themeprovider/themeprovider.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "ThemeProvider component, which sets the theme css variables\nfor the child dom nodes and allows to be consumed from sub components\n(see providerUtils.consume for how to consume)",
+          "name": "MdcThemeprovider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "Context",
+              "privacy": "public",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "themes",
+              "type": {
+                "text": "string"
+              },
+              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
+              "attribute": "themes"
+            },
+            {
+              "kind": "field",
+              "name": "theme",
+              "type": {
+                "text": "Theme"
+              },
+              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
+              "attribute": "theme"
+            },
+            {
+              "kind": "method",
+              "name": "updateContext",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Update all observing components of this\nprovider to update the theme"
+            },
+            {
+              "kind": "method",
+              "name": "updateActiveThemeClass",
+              "privacy": "private",
+              "description": "Function to update the active theme classname to update the theme tokens\nas CSS variables on the web component."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "themes",
+              "type": {
+                "text": "string"
+              },
+              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
+              "fieldName": "themes"
+            },
+            {
+              "name": "theme",
+              "type": {
+                "text": "Theme"
+              },
+              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
+              "fieldName": "theme"
+            }
+          ],
+          "superclass": {
+            "name": "Provider",
+            "module": "/src/models"
+          },
+          "tagName": "mdc-themeprovider",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcThemeprovider",
+          "declaration": {
+            "name": "MdcThemeprovider",
+            "module": "src/components/themeprovider/themeprovider.component.ts"
           }
         }
       ]

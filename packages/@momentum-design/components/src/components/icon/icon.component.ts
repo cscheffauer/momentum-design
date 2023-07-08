@@ -6,7 +6,6 @@ import providerUtils from '../../utils/provider';
 import MdcIconprovider from '../iconprovider';
 import { dynamicSVGImport } from './icon.utils';
 import { DEFAULTS } from './icon.constants';
-
 /**
  * @slot - This is a default/unnamed slot
  *
@@ -40,15 +39,19 @@ class MdcIcon extends Component {
       const { fileExtension, url } = this.iconProviderContext.value;
       if (url && fileExtension && this.name) {
         const iconHtml = await dynamicSVGImport(url, this.name, fileExtension);
-        this.iconData = html`${iconHtml}`;
+        if (iconHtml) {
+          this.iconData = html`${iconHtml}`;
+        }
       }
     }
   }
 
   private updateSize() {
-    const value = `${this.scale}${this.lengthUnit || this.lengthUnitFromContext}`;
-    this.style.width = value;
-    this.style.height = value;
+    if (this.scale && (this.lengthUnit || this.lengthUnitFromContext)) {
+      const value = `${this.scale}${this.lengthUnit || this.lengthUnitFromContext}`;
+      this.style.width = value;
+      this.style.height = value;
+    }
   }
 
   override async updated(changedProperties: Map<string, any>) {

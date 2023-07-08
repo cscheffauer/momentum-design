@@ -1,4 +1,3 @@
-import { html } from 'lit';
 import '../../src/components/themeprovider';
 import '@momentum-design/tokens/dist/css/core/complete.css';
 import '@momentum-design/tokens/dist/css/theme/webex/dark-stable.css';
@@ -7,36 +6,21 @@ import '@momentum-design/tokens/dist/css/theme/webex/light-stable.css';
 import { setCustomElementsManifest } from '@storybook/web-components';
 import customElements from '../../data/custom-elements.json';
 import { themes } from './themes';
+import { withThemeProvider } from './provider/themeProvider';
+import { withIconProvider } from './provider/iconProvider';
 
 setCustomElementsManifest(customElements);
 
-const setBodyStyle = (backgroundColor) => {
-  const body = document.querySelector('body.sb-show-main');
-  if (body) {
-    body.style.backgroundColor = backgroundColor;
-    body.style.height = '100vh';
-    body.style.backgroundImage = 'url(\'/background-graphic.png\')';
-    body.style.backgroundRepeat = 'no-repeat';
-    body.style.backgroundPosition = 'top right';
-  }
-};
-
-const withThemeProvider = (story, context) => {
-  const currentTheme = context.globals.theme;
-  const themeObject = themes.find((theme) => theme.displayName === currentTheme);
-  setBodyStyle(themeObject?.backgroundColor);
-
-  return html`<mdc-themeprovider
-    id="theme-provider"
-    theme="${themeObject.name}"
-    themes="mds-theme-stable-darkWebex mds-theme-stable-lightWebex"
-  >
-    ${story()}
-  </mdc-themeprovider>`;
-};
-
 const preview = {
   parameters: {
+    a11y: {
+      options: {
+        runOnly: {
+          type: 'tag',
+          values: ['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'],
+        },
+      },
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       controls: { expanded: true },
@@ -46,7 +30,7 @@ const preview = {
       },
     },
   },
-  decorators: [withThemeProvider],
+  decorators: [withThemeProvider, withIconProvider],
   globalTypes: {
     theme: {
       description: 'Global theme for components',

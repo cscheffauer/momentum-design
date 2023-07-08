@@ -1,13 +1,11 @@
-import { PropertyValues } from 'lit';
 import { {{sentenceCase prefix}}{{sentenceCase componentName}} } from './{{componentName}}.component';
 import { TAG_NAME } from './{{componentName}}.constants';
 
 {{sentenceCase prefix}}{{sentenceCase componentName}}.register(TAG_NAME);
 
-export interface {{sentenceCase prefix}}{{sentenceCase componentName}}Attributes extends PropertyValues<{{sentenceCase prefix}}{{sentenceCase componentName}}> {}
 declare global {
     interface HTMLElementTagNameMap {
-        [TAG_NAME]: {{sentenceCase prefix}}{{sentenceCase componentName}}
+        ['{{prefix}}{{separator}}{{componentName}}']: {{sentenceCase prefix}}{{sentenceCase componentName}}
     }
 }
 

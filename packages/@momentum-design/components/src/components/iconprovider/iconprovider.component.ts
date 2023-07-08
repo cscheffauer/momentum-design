@@ -1,12 +1,15 @@
 import { property } from 'lit/decorators.js';
 import { Provider } from '../../models';
 import IconProviderContext from './iconprovider.context';
-import { DEFAULTS } from './iconprovider.constants';
+import { ALLOWED_FILE_EXTENSIONS, DEFAULTS } from './iconprovider.constants';
 
 /**
- * @slot - This is a default/unnamed slot
+ * IconProvider component, which allows to be consumed from sub components
+ * (see `providerUtils.consume` for how to consume)
  *
- * @summary This is MyElement
+ * Bundling icons will be up to the consumer of this component, such
+ * that only a url has to be passed in from which the icons will be
+ * fetched.
  *
  * @tag mdc-iconprovider
  * @tagname mdc-iconprovider
@@ -24,14 +27,32 @@ class MdcIconprovider extends Provider<IconProviderContext> {
     return IconProviderContext.context;
   }
 
-  @property({ type: String, attribute: 'file-extension' })
-  fileExtension: string = DEFAULTS.FILE_EXTENSION;
-
+  /**
+   * Url of where icons will be fetched from
+   */
   @property({ type: String })
   url?: string;
 
-  @property({ type: String, attribute: 'length-unit' })
+  /**
+   * File extension of icons, default: 'svg'
+   */
+  @property({ type: String, attribute: 'file-extension', reflect: true })
+  fileExtension?: string = DEFAULTS.FILE_EXTENSION;
+
+  /**
+   * Length unit used for sizing of icons, default: 'em'
+   */
+  @property({ type: String, attribute: 'length-unit', reflect: true })
   lengthUnit?: string = DEFAULTS.LENGTH_UNIT;
+
+  private updateValuesInContext() {
+    // only update fileExtension on context if its an allowed fileExtension
+    if (this.fileExtension && ALLOWED_FILE_EXTENSIONS.includes(this.fileExtension)) {
+      this.context.value.fileExtension = this.fileExtension;
+    }
+    this.context.value.url = this.url;
+    this.context.value.lengthUnit = this.lengthUnit;
+  }
 
   protected updateContext(): void {
     let shouldUpdateConsumers = false;
@@ -41,9 +62,7 @@ class MdcIconprovider extends Provider<IconProviderContext> {
       || this.context.value.url !== this.url
       || this.context.value.lengthUnit !== this.lengthUnit
     ) {
-      this.context.value.fileExtension = this.fileExtension;
-      this.context.value.url = this.url;
-      this.context.value.lengthUnit = this.lengthUnit;
+      this.updateValuesInContext();
 
       shouldUpdateConsumers = true;
     }

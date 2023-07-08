@@ -9,6 +9,8 @@ body {
 #root {
     height: 100%;
     width: 100%;
+    background: var(--mds-color-theme-background-solid-primary-normal);
+    color: var(--mds-color-theme-text-primary-normal);
 }
 
 .themeWrapper {

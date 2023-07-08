@@ -10,10 +10,6 @@ import type { Theme } from './themeprovider.types';
  * for the child dom nodes and allows to be consumed from sub components
  * (see providerUtils.consume for how to consume)
  *
- * @property {string} themes - available themes to switch to
- * @property {string} theme - current theme (fully qualified)
- *
- *
  * @tag mdc-themeprovider
  * @tagname mdc-themeprovider
  */

@@ -1,16 +1,33 @@
-import { test } from '../../../config/playwright/setup';
+import { expect } from '@playwright/test';
+import { ComponentsPage, test } from '../../../config/playwright/setup';
 import steps from '../../../config/playwright/setup/steps/accessibility';
+import { DEFAULTS } from './iconprovider.constants';
 
-test.beforeEach(async ({ componentsPage }) => {
+type SetupOptions = {
+  componentsPage: ComponentsPage;
+  url: string;
+  fileExtension?: string;
+  lengthUnit?: string;
+};
+const setup = async (args: SetupOptions) => {
+  const { componentsPage, ...restArgs } = args;
   await componentsPage.mount({
     html: `
-        <mdc-iconprovider />
+    <mdc-iconprovider 
+      url="${restArgs.url}" 
+      id="local" 
+      ${restArgs.fileExtension ? `file-extension="${restArgs.fileExtension}"` : ''}
+      ${restArgs.lengthUnit ? `length-unit="${restArgs.lengthUnit}"` : ''}
+      <mdc-icon name="accessibility-regular" scale="2"></mdc-icon>
+    </mdc-iconprovider>
       `,
   });
-});
+};
 
 test('mdc-iconprovider', async ({ componentsPage }) => {
-  const iconprovider = componentsPage.page.locator('mdc-iconprovider');
+  const url = '/dist/icons/svg';
+  await setup({ componentsPage, url });
+  const iconprovider = componentsPage.page.locator('mdc-iconprovider#local');
 
   // initial check for the iconprovider be visible on the screen:
   await iconprovider.waitFor();
@@ -26,8 +43,10 @@ test('mdc-iconprovider', async ({ componentsPage }) => {
    * VISUAL REGRESSION
    */
   await test.step('visual-regression', async () => {
-    await test.step('matches screenshot of element', async () => {
-      await componentsPage.visualRegression.takeScreenshot('mdc-iconprovider', { element: iconprovider });
+    await test.step('matches screenshot of element with default values', async () => {
+      await componentsPage.visualRegression.takeScreenshot('mdc-iconprovider', {
+        element: iconprovider,
+      });
     });
   });
 
@@ -36,32 +55,9 @@ test('mdc-iconprovider', async ({ componentsPage }) => {
    */
   await test.step('attributes', async () => {
     await test.step('attribute X should be present on component by default', async () => {
-      // TODO: add test here
-    });
-  });
-
-  /**
-   * INTERACTIONS
-   */
-  await test.step('interactions', async () => {
-    await test.step('mouse/pointer', async () => {
-      await test.step('component should fire callback x when clicking on it', async () => {
-        // TODO: add test here
-      });
-    });
-
-    await test.step('focus', async () => {
-      await test.step('component should be focusable with tab', async () => {
-        // TODO: add test here
-      });
-
-      // add additional tests here, like tabbing through several parts of the component
-    });
-
-    await test.step('keyboard', async () => {
-      await test.step('component should fire callback x when pressing y', async () => {
-        // TODO: add test here
-      });
+      await expect(iconprovider).toHaveAttribute('url', url);
+      await expect(iconprovider).toHaveAttribute('file-extension', DEFAULTS.FILE_EXTENSION);
+      await expect(iconprovider).toHaveAttribute('length-unit', DEFAULTS.LENGTH_UNIT);
     });
   });
 });

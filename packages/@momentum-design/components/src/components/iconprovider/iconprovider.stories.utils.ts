@@ -14,6 +14,7 @@ class SubComponentIconProvider extends Component {
     return html`
       <p>URL: ${this.iconProviderContext.value?.url}</p>
       <p>File Extension: ${this.iconProviderContext.value?.fileExtension}</p>
+      <p>Length Unit: ${this.iconProviderContext.value?.lengthUnit}</p>
     `;
   }
 }

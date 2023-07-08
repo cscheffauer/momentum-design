@@ -1,8 +1,10 @@
-export default {
+module.exports = {
   /** Globs to analyze */
-  globs: ['src/**/**/*.component.ts'],
+  globs: ['src/components/**/*.component.ts'],
   /** Globs to exclude */
-  exclude: ['src/utils/mixins/**/*.ts', 'src/**/**/styles.ts', 'config/plop/**/*.ts', 'config/plop/*.ts'],
+  exclude: [
+    '*.js',
+  ],
   /** Directory to output CEM to */
   outdir: 'data',
   /** Run in dev mode, provides extra logging */

@@ -10,6 +10,7 @@ const htmlRootElementSelector = '#root';
 
 interface MountOptions {
   html: string;
+  clearDocument?: boolean;
 }
 
 interface ComponentsPage {
@@ -92,7 +93,7 @@ class ComponentsPage {
    *
    * @param options - a object with options, including the `html` string to mount
    */
-  async mount({ html }: MountOptions) {
+  async mount({ html, clearDocument = false }: MountOptions) {
     await this.page.evaluate(
       (args) => {
         function htmlToElement(htmlString: string): Element {
@@ -102,27 +103,15 @@ class ComponentsPage {
         }
         const rootElement = window.document.querySelector(args.htmlRootElementSelector);
         if (rootElement) {
+          // delete children of textContent before mounting the passed in html:
+          if (args.clearDocument) {
+            rootElement.textContent = '';
+          }
           rootElement.appendChild(htmlToElement(args.html));
         }
       },
-      { html, htmlRootElementSelector },
+      { html, htmlRootElementSelector, clearDocument },
     );
-  }
-
-  /**
-   * Fire the `methodName` with `methodArgs` on a HTMLElement, queried by the passed in `locator`
-   *
-   * @param locator - Playwright locator
-   * @param methodName - methodName to fire on queried HTMLElement
-   * @param methodArgs - args to pass into method
-   * @returns return value of method once fired
-   */
-  async fireCustomMethod(locator: Locator, methodName: string, methodArgs?: Array<any>) {
-    const returnValue = await locator.evaluate(
-      (element: HTMLElement, args) => element[args.methodName](args.methodArgs),
-      { methodName, methodArgs },
-    );
-    return returnValue;
   }
 
   /**
