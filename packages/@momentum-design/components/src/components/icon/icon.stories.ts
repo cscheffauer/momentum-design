@@ -1,8 +1,9 @@
 import type { Meta, StoryObj, Args } from '@storybook/web-components';
 import '.';
-import { html } from 'lit';
+import fixtures from './icon.fixtures';
 
-const render = (args: Args) => html` <mdc-icon name="${args.name}" scale="${args.scale}"></mdc-icon> `;
+const render = (args: Args) => fixtures.base(args);
+const renderAccessibility = (args: Args) => fixtures.accessibility(args);
 
 const meta: Meta = {
   tags: ['autodocs'],
@@ -21,8 +22,11 @@ export const Primary: StoryObj = {
 };
 
 export const Accessibility: StoryObj = {
+  render: renderAccessibility,
   args: {
     name: 'accessibility-regular',
     scale: 1,
+    role: 'graphics-document',
+    'aria-label': 'This is the accessibility icon',
   },
 };

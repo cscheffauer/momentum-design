@@ -1,4 +1,4 @@
-import { TemplateResult, html } from 'lit';
+import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { styles } from './icon.styles';
 import { Component } from '../../models';
@@ -16,7 +16,7 @@ import { DEFAULTS } from './icon.constants';
  */
 class MdcIcon extends Component {
   @state()
-  private iconData: TemplateResult = html``;
+  private iconData?: HTMLElement;
 
   @state()
   private lengthUnitFromContext?: string;
@@ -32,6 +32,12 @@ class MdcIcon extends Component {
   @property({ type: String, attribute: 'length-unit' })
   lengthUnit?: string;
 
+  @property({ type: String })
+  override role: string | null = null;
+
+  @property({ type: String, attribute: 'aria-label' })
+  override ariaLabel: string | null = null;
+
   private iconProviderContext = providerUtils.consume({ host: this, context: MdcIconprovider.Context });
 
   private async getIconData() {
@@ -39,9 +45,9 @@ class MdcIcon extends Component {
       const { fileExtension, url } = this.iconProviderContext.value;
       if (url && fileExtension && this.name) {
         const iconHtml = await dynamicSVGImport(url, this.name, fileExtension);
-        if (iconHtml) {
-          this.iconData = html`${iconHtml}`;
-        }
+        this.iconData = iconHtml as HTMLElement;
+        this.setRole();
+        this.setAriaLabel();
       }
     }
   }
@@ -54,11 +60,36 @@ class MdcIcon extends Component {
     }
   }
 
+  private setRole() {
+    if (this.role) {
+      // pass through role attribute to svg if set on mdc-icon
+      this.iconData?.setAttribute('role', this.role);
+    }
+  }
+
+  private setAriaLabel() {
+    if (this.ariaLabel) {
+      // pass through aria-label attribute to svg if set on mdc-icon
+      this.iconData?.setAttribute('aria-label', this.ariaLabel);
+    }
+  }
+
   override async updated(changedProperties: Map<string, any>) {
+    console.log(changedProperties);
     super.updated(changedProperties);
 
     if (changedProperties.has('name')) {
       await this.getIconData();
+    }
+
+    if (changedProperties.has('role')) {
+      console.log('change');
+      this.setRole();
+    }
+
+    if (changedProperties.has('aria-label')) {
+      console.log('change');
+      this.setAriaLabel();
     }
 
     if (changedProperties.has('scale') || changedProperties.has('length-unit')) {

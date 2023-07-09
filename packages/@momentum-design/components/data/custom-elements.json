@@ -21,10 +21,9 @@
               "kind": "field",
               "name": "iconData",
               "type": {
-                "text": "TemplateResult"
+                "text": "HTMLElement | undefined"
               },
-              "privacy": "private",
-              "default": "html``"
+              "privacy": "private"
             },
             {
               "kind": "field",
@@ -61,6 +60,24 @@
             },
             {
               "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string | null"
+              },
+              "default": "null",
+              "attribute": "role"
+            },
+            {
+              "kind": "field",
+              "name": "ariaLabel",
+              "type": {
+                "text": "string | null"
+              },
+              "default": "null",
+              "attribute": "aria-label"
+            },
+            {
+              "kind": "field",
               "name": "iconProviderContext",
               "privacy": "private"
             },
@@ -72,6 +89,16 @@
             {
               "kind": "method",
               "name": "updateSize",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setRole",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaLabel",
               "privacy": "private"
             }
           ],
@@ -96,6 +123,22 @@
                 "text": "string | undefined"
               },
               "fieldName": "lengthUnit"
+            },
+            {
+              "name": "role",
+              "type": {
+                "text": "string | null"
+              },
+              "default": "null",
+              "fieldName": "role"
+            },
+            {
+              "name": "aria-label",
+              "type": {
+                "text": "string | null"
+              },
+              "default": "null",
+              "fieldName": "ariaLabel"
             }
           ],
           "superclass": {
