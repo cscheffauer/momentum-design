@@ -1,6 +1,6 @@
 /* eslint-disable implicit-arrow-linebreak */
 
-const dynamicSVGImport = async (url: string, name: string, fileExtension: string): Promise<Element | undefined> =>
+const dynamicSVGImport = async (url: string, name: string, fileExtension: string): Promise<Element> =>
   fetch(`${url}/${name}.${fileExtension}`)
     .then((response) => {
       if (!response.ok) {
@@ -8,10 +8,6 @@ const dynamicSVGImport = async (url: string, name: string, fileExtension: string
       }
       return response.text();
     })
-    .then((iconResponse) => new DOMParser().parseFromString(iconResponse, 'text/html').body.children[0])
-    .catch((error) => {
-      console.error(error);
-      return undefined;
-    });
+    .then((iconResponse) => new DOMParser().parseFromString(iconResponse, 'text/html').body.children[0]);
 
 export { dynamicSVGImport };

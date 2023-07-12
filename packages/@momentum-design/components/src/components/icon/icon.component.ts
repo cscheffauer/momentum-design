@@ -71,34 +71,34 @@ class MdcIcon extends Component {
     if (this.ariaLabel) {
       // pass through aria-label attribute to svg if set on mdc-icon
       this.iconData?.setAttribute('aria-label', this.ariaLabel);
+    } else {
+      this.iconData?.removeAttribute('aria-label');
     }
   }
 
-  override async updated(changedProperties: Map<string, any>) {
-    console.log(changedProperties);
+  override updated(changedProperties: Map<string, any>) {
     super.updated(changedProperties);
 
     if (changedProperties.has('name')) {
-      await this.getIconData();
+      this.getIconData().catch((err) => {
+        console.error(err);
+      });
     }
 
     if (changedProperties.has('role')) {
-      console.log('change');
       this.setRole();
     }
 
-    if (changedProperties.has('aria-label')) {
-      console.log('change');
+    if (changedProperties.has('ariaLabel')) {
       this.setAriaLabel();
     }
 
-    if (changedProperties.has('scale') || changedProperties.has('length-unit')) {
+    if (changedProperties.has('scale') || changedProperties.has('lengthUnit')) {
       this.updateSize();
     }
 
     if (this.lengthUnitFromContext !== this.iconProviderContext.value?.lengthUnit) {
       this.lengthUnitFromContext = this.iconProviderContext.value?.lengthUnit;
-
       this.updateSize();
     }
   }
