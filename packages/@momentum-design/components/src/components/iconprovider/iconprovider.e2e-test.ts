@@ -18,6 +18,7 @@ const setup = async (args: SetupOptions) => {
       id="local" 
       ${restArgs.fileExtension ? `file-extension="${restArgs.fileExtension}"` : ''}
       ${restArgs.lengthUnit ? `length-unit="${restArgs.lengthUnit}"` : ''}
+    >
       <mdc-icon name="accessibility-regular" scale="2"></mdc-icon>
     </mdc-iconprovider>
       `,

@@ -1,24 +1,52 @@
-import { test } from '../../../config/playwright/setup';
+import { expect } from '@playwright/test';
+import { ComponentsPage, test } from '../../../config/playwright/setup';
 import steps from '../../../config/playwright/setup/steps/accessibility';
 
-test.beforeEach(async ({ componentsPage }) => {
+type SetupOptions = {
+  componentsPage: ComponentsPage;
+  name: string;
+  scale?: number;
+  role?: string;
+  ariaLabel?: string;
+};
+const setup = async (args: SetupOptions) => {
+  const { componentsPage, ...restArgs } = args;
   await componentsPage.mount({
     html: `
-        <mdc-icon />
+    <mdc-icon 
+      name="${restArgs.name}" 
+      ${restArgs.scale ? `scale="${restArgs.scale}"` : ''}
+      ${restArgs.role ? `role="${restArgs.role}"` : ''}
+      ${restArgs.ariaLabel ? `aria-label="${restArgs.ariaLabel}"` : ''}
+    >
+    </mdc-icon>
       `,
+    clearDocument: true,
   });
-});
+  const icon = componentsPage.page.locator('mdc-icon');
+  await icon.waitFor();
+  return icon;
+};
 
 test('mdc-icon', async ({ componentsPage }) => {
-  const icon = componentsPage.page.locator('mdc-icon');
-
-  // initial check for the icon be visible on the screen:
-  await icon.waitFor();
+  const name = 'accessibility-regular';
+  await setup({ componentsPage, name });
 
   /**
    * ACCESSIBILITY
    */
-  await test.step('accessibility', async () => {
+  await test.step('accessibility with default props', async () => {
+    await steps.automaticA11yCheckStep(componentsPage);
+  });
+
+  const iconWithRole = await setup({
+    componentsPage,
+    name,
+    role: 'graphics-document',
+    ariaLabel: 'test aria label',
+  });
+
+  await test.step('accessibility with role / aria-label passed in', async () => {
     await steps.automaticA11yCheckStep(componentsPage);
   });
 
@@ -26,8 +54,17 @@ test('mdc-icon', async ({ componentsPage }) => {
    * VISUAL REGRESSION
    */
   await test.step('visual-regression', async () => {
-    await test.step('matches screenshot of element', async () => {
-      await componentsPage.visualRegression.takeScreenshot('mdc-icon', { element: icon });
+    await test.step('matches screenshot of element with role / aria-label passed in', async () => {
+      await componentsPage.visualRegression.takeScreenshot('mdc-icon-default', { element: iconWithRole });
+    });
+
+    await test.step('matches screenshot of element with scale set to 2', async () => {
+      const iconScaled = await setup({
+        componentsPage,
+        name,
+        scale: 2,
+      });
+      await componentsPage.visualRegression.takeScreenshot('mdc-icon-scale', { element: iconScaled });
     });
   });
 
@@ -35,33 +72,28 @@ test('mdc-icon', async ({ componentsPage }) => {
    * ATTRIBUTES
    */
   await test.step('attributes', async () => {
-    await test.step('attribute X should be present on component by default', async () => {
-      // TODO: add test here
-    });
-  });
-
-  /**
-   * INTERACTIONS
-   */
-  await test.step('interactions', async () => {
-    await test.step('mouse/pointer', async () => {
-      await test.step('component should fire callback x when clicking on it', async () => {
-        // TODO: add test here
-      });
+    await test.step('attributes should be present on component by default', async () => {
+      const icon = await setup({ componentsPage, name });
+      await expect(icon).toHaveAttribute('name', name);
+      await expect(icon).toHaveAttribute('style', 'width: 1em; height: 1em;');
     });
 
-    await test.step('focus', async () => {
-      await test.step('component should be focusable with tab', async () => {
-        // TODO: add test here
-      });
-
-      // add additional tests here, like tabbing through several parts of the component
+    await test.step('attributes should be present on component with scale passed in', async () => {
+      const icon = await setup({ componentsPage, name, scale: 2 });
+      await expect(icon).toHaveAttribute('name', name);
+      await expect(icon).toHaveAttribute('scale', '2');
+      await expect(icon).toHaveAttribute('style', 'width: 2em; height: 2em;');
     });
 
-    await test.step('keyboard', async () => {
-      await test.step('component should fire callback x when pressing y', async () => {
-        // TODO: add test here
+    await test.step('attributes should be present on component with role / aria-label passed in', async () => {
+      const iconWithRole = await setup({
+        componentsPage,
+        name,
+        role: 'graphics-document',
+        ariaLabel: 'test aria label',
       });
+      await expect(iconWithRole).toHaveAttribute('name', name);
+      await expect(iconWithRole).toHaveAttribute('style', 'width: 1em; height: 1em;');
     });
   });
 });

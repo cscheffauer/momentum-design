@@ -6,10 +6,25 @@ import providerUtils from '../../utils/provider';
 import MdcIconprovider from '../iconprovider';
 import { dynamicSVGImport } from './icon.utils';
 import { DEFAULTS } from './icon.constants';
+
 /**
- * @slot - This is a default/unnamed slot
+ * Icon component, which has to be mounted inside of a `IconProvider`
+ * component.
  *
- * @summary This is MyElement
+ * The `IconProvider` component defines where icons should be consumed from (`url`).
+ * This `Icon` component accepts the `name` attribute, which will be
+ * the file name of the icon to be loaded from the given `url`.
+ *
+ * Once fetched, the icon will be mounted. If fetching wasn't successful,
+ * nothing will be shown.
+ *
+ * The `scale` attribute allows scaling the icon based on the provided
+ * `length-unit` attribute (which will either come from the IconProvider or
+ * could be overridden per icon). For example:
+ * if `scale = 1` and `length-unit = 'em'`, the size of the icon will be
+ * `width: 1em; height: 1em`.
+ *
+ * For accessibility the `role` and `aria-label` of the icon can be set.
  *
  * @tag mdc-icon
  * @tagname mdc-icon
@@ -21,37 +36,61 @@ class MdcIcon extends Component {
   @state()
   private lengthUnitFromContext?: string;
 
-  // Name of the icon.
+  /**
+   * Name of the icon (= filename)
+   */
   @property({ type: String, reflect: true })
   name?: string = DEFAULTS.NAME;
 
-  // Scale of the icon.
+  /**
+   * Scale of the icon (works in combination with length unit)
+   */
   @property({ type: Number })
   scale?: number = DEFAULTS.SCALE;
 
+  /**
+   * Length unit attribute for overridding length-unit from `IconProvider`
+   */
   @property({ type: String, attribute: 'length-unit' })
   lengthUnit?: string;
 
+  /**
+   * Role attribute to be set for accessibility
+   */
   @property({ type: String })
   override role: string | null = null;
 
+  /**
+   * Aria-label attribute to be set for accessibility
+   */
   @property({ type: String, attribute: 'aria-label' })
   override ariaLabel: string | null = null;
 
   private iconProviderContext = providerUtils.consume({ host: this, context: MdcIconprovider.Context });
 
+  /**
+   * Get Icon Data function which will fetch the icon (currently only svg)
+   * and sets state and attributes once fetched successfully
+   */
   private async getIconData() {
     if (this.iconProviderContext.value) {
       const { fileExtension, url } = this.iconProviderContext.value;
       if (url && fileExtension && this.name) {
         const iconHtml = await dynamicSVGImport(url, this.name, fileExtension);
+
+        // update iconData state once fetched:
         this.iconData = iconHtml as HTMLElement;
-        this.setRole();
-        this.setAriaLabel();
+
+        // when icon got fetched, set role and aria-label:
+        this.setRoleOnIcon();
+        this.setAriaLabelOnIcon();
       }
     }
   }
 
+  /**
+   * Updates the size by setting the width and height
+   */
   private updateSize() {
     if (this.scale && (this.lengthUnit || this.lengthUnitFromContext)) {
       const value = `${this.scale}${this.lengthUnit || this.lengthUnitFromContext}`;
@@ -60,14 +99,16 @@ class MdcIcon extends Component {
     }
   }
 
-  private setRole() {
+  private setRoleOnIcon() {
     if (this.role) {
       // pass through role attribute to svg if set on mdc-icon
       this.iconData?.setAttribute('role', this.role);
+    } else {
+      this.iconData?.removeAttribute('role');
     }
   }
 
-  private setAriaLabel() {
+  private setAriaLabelOnIcon() {
     if (this.ariaLabel) {
       // pass through aria-label attribute to svg if set on mdc-icon
       this.iconData?.setAttribute('aria-label', this.ariaLabel);
@@ -80,17 +121,18 @@ class MdcIcon extends Component {
     super.updated(changedProperties);
 
     if (changedProperties.has('name')) {
+      // fetch icon data if name changes:
       this.getIconData().catch((err) => {
         console.error(err);
       });
     }
 
     if (changedProperties.has('role')) {
-      this.setRole();
+      this.setRoleOnIcon();
     }
 
     if (changedProperties.has('ariaLabel')) {
-      this.setAriaLabel();
+      this.setAriaLabelOnIcon();
     }
 
     if (changedProperties.has('scale') || changedProperties.has('lengthUnit')) {

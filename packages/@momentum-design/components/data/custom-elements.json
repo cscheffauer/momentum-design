@@ -4,89 +4,164 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/components/themeprovider/themeprovider.component.ts",
+      "path": "src/components/icon/icon.component.ts",
       "declarations": [
         {
           "kind": "class",
-          "description": "ThemeProvider component, which sets the theme css variables\nfor the child dom nodes and allows to be consumed from sub components\n(see providerUtils.consume for how to consume)",
-          "name": "MdcThemeprovider",
+          "description": "Icon component, which has to be mounted inside of a `IconProvider`\ncomponent.\n\nThe `IconProvider` component defines where icons should be consumed from (`url`).\nThis `Icon` component accepts the `name` attribute, which will be\nthe file name of the icon to be loaded from the given `url`.\n\nOnce fetched, the icon will be mounted. If fetching wasn't successful,\nnothing will be shown.\n\nThe `scale` attribute allows scaling the icon based on the provided\n`length-unit` attribute (which will either come from the IconProvider or\ncould be overridden per icon). For example:\nif `scale = 1` and `length-unit = 'em'`, the size of the icon will be\n`width: 1em; height: 1em`.\n\nFor accessibility the `role` and `aria-label` of the icon can be set.",
+          "name": "MdcIcon",
           "members": [
             {
               "kind": "field",
-              "name": "Context",
-              "privacy": "public",
-              "static": true,
-              "readonly": true
+              "name": "iconData",
+              "type": {
+                "text": "HTMLElement | undefined"
+              },
+              "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "themes",
+              "name": "lengthUnitFromContext",
               "type": {
-                "text": "string"
+                "text": "string | undefined"
               },
-              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
-              "attribute": "themes"
+              "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "theme",
+              "name": "name",
               "type": {
-                "text": "Theme"
+                "text": "string | undefined"
               },
-              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
-              "attribute": "theme"
+              "description": "Name of the icon (= filename)",
+              "attribute": "name",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "scale",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "Scale of the icon (works in combination with length unit)",
+              "attribute": "scale"
+            },
+            {
+              "kind": "field",
+              "name": "lengthUnit",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Length unit attribute for overridding length-unit from `IconProvider`",
+              "attribute": "length-unit"
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string | null"
+              },
+              "default": "null",
+              "description": "Role attribute to be set for accessibility",
+              "attribute": "role"
+            },
+            {
+              "kind": "field",
+              "name": "ariaLabel",
+              "type": {
+                "text": "string | null"
+              },
+              "default": "null",
+              "description": "Aria-label attribute to be set for accessibility",
+              "attribute": "aria-label"
+            },
+            {
+              "kind": "field",
+              "name": "iconProviderContext",
+              "privacy": "private"
             },
             {
               "kind": "method",
-              "name": "updateContext",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "description": "Update all observing components of this\nprovider to update the theme"
-            },
-            {
-              "kind": "method",
-              "name": "updateActiveThemeClass",
+              "name": "getIconData",
               "privacy": "private",
-              "description": "Function to update the active theme classname to update the theme tokens\nas CSS variables on the web component."
+              "description": "Get Icon Data function which will fetch the icon (currently only svg)\nand sets state and attributes once fetched successfully"
+            },
+            {
+              "kind": "method",
+              "name": "updateSize",
+              "privacy": "private",
+              "description": "Updates the size by setting the width and height"
+            },
+            {
+              "kind": "method",
+              "name": "setRoleOnIcon",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "setAriaLabelOnIcon",
+              "privacy": "private"
             }
           ],
           "attributes": [
             {
-              "name": "themes",
+              "name": "name",
               "type": {
-                "text": "string"
+                "text": "string | undefined"
               },
-              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
-              "fieldName": "themes"
+              "description": "Name of the icon (= filename)",
+              "fieldName": "name"
             },
             {
-              "name": "theme",
+              "name": "scale",
               "type": {
-                "text": "Theme"
+                "text": "number | undefined"
               },
-              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
-              "fieldName": "theme"
+              "description": "Scale of the icon (works in combination with length unit)",
+              "fieldName": "scale"
+            },
+            {
+              "name": "length-unit",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Length unit attribute for overridding length-unit from `IconProvider`",
+              "fieldName": "lengthUnit"
+            },
+            {
+              "name": "role",
+              "type": {
+                "text": "string | null"
+              },
+              "default": "null",
+              "description": "Role attribute to be set for accessibility",
+              "fieldName": "role"
+            },
+            {
+              "name": "aria-label",
+              "type": {
+                "text": "string | null"
+              },
+              "default": "null",
+              "description": "Aria-label attribute to be set for accessibility",
+              "fieldName": "ariaLabel"
             }
           ],
           "superclass": {
-            "name": "Provider",
+            "name": "Component",
             "module": "/src/models"
           },
-          "tagName": "mdc-themeprovider",
+          "tagName": "mdc-icon",
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "MdcThemeprovider",
+          "name": "MdcIcon",
           "declaration": {
-            "name": "MdcThemeprovider",
-            "module": "src/components/themeprovider/themeprovider.component.ts"
+            "name": "MdcIcon",
+            "module": "src/components/icon/icon.component.ts"
           }
         }
       ]
@@ -199,159 +274,89 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/icon/icon.component.ts",
+      "path": "src/components/themeprovider/themeprovider.component.ts",
       "declarations": [
         {
           "kind": "class",
-          "description": "",
-          "name": "MdcIcon",
-          "slots": [
-            {
-              "description": "This is a default/unnamed slot",
-              "name": ""
-            }
-          ],
+          "description": "ThemeProvider component, which sets the theme css variables\nfor the child dom nodes and allows to be consumed from sub components\n(see providerUtils.consume for how to consume)",
+          "name": "MdcThemeprovider",
           "members": [
             {
               "kind": "field",
-              "name": "iconData",
-              "type": {
-                "text": "HTMLElement | undefined"
-              },
-              "privacy": "private"
+              "name": "Context",
+              "privacy": "public",
+              "static": true,
+              "readonly": true
             },
             {
               "kind": "field",
-              "name": "lengthUnitFromContext",
+              "name": "themes",
               "type": {
-                "text": "string | undefined"
+                "text": "string"
               },
-              "privacy": "private"
+              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
+              "attribute": "themes"
             },
             {
               "kind": "field",
-              "name": "name",
+              "name": "theme",
               "type": {
-                "text": "string | undefined"
+                "text": "Theme"
               },
-              "attribute": "name",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "scale",
-              "type": {
-                "text": "number | undefined"
-              },
-              "attribute": "scale"
-            },
-            {
-              "kind": "field",
-              "name": "lengthUnit",
-              "type": {
-                "text": "string | undefined"
-              },
-              "attribute": "length-unit"
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string | null"
-              },
-              "default": "null",
-              "attribute": "role"
-            },
-            {
-              "kind": "field",
-              "name": "ariaLabel",
-              "type": {
-                "text": "string | null"
-              },
-              "default": "null",
-              "attribute": "aria-label"
-            },
-            {
-              "kind": "field",
-              "name": "iconProviderContext",
-              "privacy": "private"
+              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
+              "attribute": "theme"
             },
             {
               "kind": "method",
-              "name": "getIconData",
-              "privacy": "private"
+              "name": "updateContext",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Update all observing components of this\nprovider to update the theme"
             },
             {
               "kind": "method",
-              "name": "updateSize",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setRole",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "setAriaLabel",
-              "privacy": "private"
+              "name": "updateActiveThemeClass",
+              "privacy": "private",
+              "description": "Function to update the active theme classname to update the theme tokens\nas CSS variables on the web component."
             }
           ],
           "attributes": [
             {
-              "name": "name",
+              "name": "themes",
               "type": {
-                "text": "string | undefined"
+                "text": "string"
               },
-              "fieldName": "name"
+              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
+              "fieldName": "themes"
             },
             {
-              "name": "scale",
+              "name": "theme",
               "type": {
-                "text": "number | undefined"
+                "text": "Theme"
               },
-              "fieldName": "scale"
-            },
-            {
-              "name": "length-unit",
-              "type": {
-                "text": "string | undefined"
-              },
-              "fieldName": "lengthUnit"
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string | null"
-              },
-              "default": "null",
-              "fieldName": "role"
-            },
-            {
-              "name": "aria-label",
-              "type": {
-                "text": "string | null"
-              },
-              "default": "null",
-              "fieldName": "ariaLabel"
+              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
+              "fieldName": "theme"
             }
           ],
           "superclass": {
-            "name": "Component",
+            "name": "Provider",
             "module": "/src/models"
           },
-          "tagName": "mdc-icon",
-          "summary": "This is MyElement",
+          "tagName": "mdc-themeprovider",
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "MdcIcon",
+          "name": "MdcThemeprovider",
           "declaration": {
-            "name": "MdcIcon",
-            "module": "src/components/icon/icon.component.ts"
+            "name": "MdcThemeprovider",
+            "module": "src/components/themeprovider/themeprovider.component.ts"
           }
         }
       ]
