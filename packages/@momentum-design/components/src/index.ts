@@ -6,6 +6,7 @@ import {
 import MdcThemeprovider from './components/themeprovider';
 import MdcIcon from './components/icon';
 import MdcIconprovider from './components/iconprovider';
+import MdcAvatar from './components/avatar';
 
 export {
   Component,
@@ -13,4 +14,5 @@ export {
   MdcThemeprovider,
   MdcIcon,
   MdcIconprovider,
+  MdcAvatar,
 };
