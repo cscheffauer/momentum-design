@@ -21,7 +21,7 @@
               "kind": "field",
               "name": "type",
               "type": {
-                "text": "Type | undefined"
+                "text": "AvatarType | undefined"
               },
               "attribute": "type",
               "reflects": true
@@ -66,7 +66,7 @@
             {
               "name": "type",
               "type": {
-                "text": "Type | undefined"
+                "text": "AvatarType | undefined"
               },
               "fieldName": "type"
             },
@@ -109,6 +109,87 @@
           "declaration": {
             "name": "MdcAvatar",
             "module": "src/components/avatar/avatar.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/badge/badge.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdcBadge",
+          "slots": [
+            {
+              "description": "This is a default/unnamed slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "BadgeType | undefined"
+              },
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "iconName",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "icon-name"
+            },
+            {
+              "kind": "method",
+              "name": "regularTemplate"
+            },
+            {
+              "kind": "method",
+              "name": "warningTemplate"
+            },
+            {
+              "kind": "method",
+              "name": "iconTemplate"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "type",
+              "type": {
+                "text": "BadgeType | undefined"
+              },
+              "fieldName": "type"
+            },
+            {
+              "name": "icon-name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "iconName"
+            }
+          ],
+          "superclass": {
+            "name": "Component",
+            "module": "/src/models"
+          },
+          "tagName": "mdc-badge",
+          "summary": "This is MyElement",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcBadge",
+          "declaration": {
+            "name": "MdcBadge",
+            "module": "src/components/badge/badge.component.ts"
           }
         }
       ]
@@ -279,95 +360,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/themeprovider/themeprovider.component.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "ThemeProvider component, which sets the theme css variables\nfor the child dom nodes and allows to be consumed from sub components\n(see providerUtils.consume for how to consume)",
-          "name": "MdcThemeprovider",
-          "members": [
-            {
-              "kind": "field",
-              "name": "Context",
-              "privacy": "public",
-              "static": true,
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "themes",
-              "type": {
-                "text": "string"
-              },
-              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
-              "attribute": "themes"
-            },
-            {
-              "kind": "field",
-              "name": "theme",
-              "type": {
-                "text": "Theme"
-              },
-              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
-              "attribute": "theme"
-            },
-            {
-              "kind": "method",
-              "name": "updateContext",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "description": "Update all observing components of this\nprovider to update the theme"
-            },
-            {
-              "kind": "method",
-              "name": "updateActiveThemeClass",
-              "privacy": "private",
-              "description": "Function to update the active theme classname to update the theme tokens\nas CSS variables on the web component."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "themes",
-              "type": {
-                "text": "string"
-              },
-              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
-              "fieldName": "themes"
-            },
-            {
-              "name": "theme",
-              "type": {
-                "text": "Theme"
-              },
-              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
-              "fieldName": "theme"
-            }
-          ],
-          "superclass": {
-            "name": "Provider",
-            "module": "/src/models"
-          },
-          "tagName": "mdc-themeprovider",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdcThemeprovider",
-          "declaration": {
-            "name": "MdcThemeprovider",
-            "module": "src/components/themeprovider/themeprovider.component.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/iconprovider/iconprovider.component.ts",
       "declarations": [
         {
@@ -468,6 +460,95 @@
           "declaration": {
             "name": "MdcIconprovider",
             "module": "src/components/iconprovider/iconprovider.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/themeprovider/themeprovider.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "ThemeProvider component, which sets the theme css variables\nfor the child dom nodes and allows to be consumed from sub components\n(see providerUtils.consume for how to consume)",
+          "name": "MdcThemeprovider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "Context",
+              "privacy": "public",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "themes",
+              "type": {
+                "text": "string"
+              },
+              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
+              "attribute": "themes"
+            },
+            {
+              "kind": "field",
+              "name": "theme",
+              "type": {
+                "text": "Theme"
+              },
+              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
+              "attribute": "theme"
+            },
+            {
+              "kind": "method",
+              "name": "updateContext",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Update all observing components of this\nprovider to update the theme"
+            },
+            {
+              "kind": "method",
+              "name": "updateActiveThemeClass",
+              "privacy": "private",
+              "description": "Function to update the active theme classname to update the theme tokens\nas CSS variables on the web component."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "themes",
+              "type": {
+                "text": "string"
+              },
+              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
+              "fieldName": "themes"
+            },
+            {
+              "name": "theme",
+              "type": {
+                "text": "Theme"
+              },
+              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
+              "fieldName": "theme"
+            }
+          ],
+          "superclass": {
+            "name": "Provider",
+            "module": "/src/models"
+          },
+          "tagName": "mdc-themeprovider",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcThemeprovider",
+          "declaration": {
+            "name": "MdcThemeprovider",
+            "module": "src/components/themeprovider/themeprovider.component.ts"
           }
         }
       ]

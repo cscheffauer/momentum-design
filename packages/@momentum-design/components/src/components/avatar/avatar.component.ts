@@ -3,7 +3,7 @@ import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { styles } from './avatar.styles';
 import { Component } from '../../models';
-import { Type } from './avatar.types';
+import { AvatarType } from './avatar.types';
 import { DEFAULTS, LENGTH_UNIT } from './avatar.constants';
 
 /**
@@ -16,7 +16,7 @@ import { DEFAULTS, LENGTH_UNIT } from './avatar.constants';
  */
 class MdcAvatar extends Component {
   @property({ type: String, reflect: true })
-  type?: Type = DEFAULTS.TYPE;
+  type?: AvatarType = DEFAULTS.TYPE;
 
   @property({ type: String })
   alt?: string;

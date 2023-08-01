@@ -1,1 +1,1 @@
-export type Type = 'photo' | 'text' | 'icon' | 'multiuser'
+export type AvatarType = 'photo' | 'text' | 'icon' | 'multiuser'

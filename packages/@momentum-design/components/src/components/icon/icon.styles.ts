@@ -1,19 +1,15 @@
 import { css } from 'lit';
+import { matchChildrenSizeStyles } from '../../utils/styles';
 
-const styles = css`
-  :host {
-    align-items: center;
-    display: flex;
-    height: fit-content;
-    justify-content: center;
-    width: fit-content;
-  }
-
-  svg {
-    height: 100%;
-    width: 100%;
-    fill: currentColor;
-  }
-`;
+const styles = [
+  matchChildrenSizeStyles,
+  css`
+    svg {
+      height: 100%;
+      width: 100%;
+      fill: currentColor;
+    }
+  `,
+];
 
 export { styles };
