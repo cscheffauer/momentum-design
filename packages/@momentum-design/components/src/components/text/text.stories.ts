@@ -1,13 +1,12 @@
 import type { Meta, StoryObj, Args } from '@storybook/web-components';
 import '.';
-import { DEFAULTS } from './badge.constants';
-import fixtures from './badge.fixtures';
+import fixtures from './text.fixtures';
 
 const render = (args: Args) => fixtures.base(args);
 
 const meta: Meta = {
   tags: ['autodocs'],
-  component: 'mdc-badge',
+  component: 'mdc-text',
   render,
   argTypes: {},
 };
@@ -16,10 +15,7 @@ export default meta;
 
 export const Primary: StoryObj = {
   args: {
-    type: DEFAULTS.TYPE,
-    iconName: 'accessibility-regular',
-    scale: 1,
-    lengthUnit: 'rem',
-    text: '99+',
+    type: 'h1',
+    children: 'This is a test',
   },
 };

@@ -1,19 +1,18 @@
 import { css } from 'lit';
-import { matchChildrenSizeStyles } from '../../utils/styles';
+import { hostFitContentStyles } from '../../utils/styles';
 
 const styles = [
-  matchChildrenSizeStyles,
+  hostFitContentStyles,
   css`
     :host {
-      /* Variables: */
-      --mdc-badge-icon-background-color: var(--mds-color-theme-background-accent);
-
-      /* State: */
-      height: 1rem;
-      width: 1rem;
+      --mdc-badge-icon-background-color: var(--mds-color-theme-background-accent-normal);
     }
 
-    .mdc-badge-icon {
+    .mdc-badge-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 9999px;
       background-color: var(--mdc-badge-icon-background-color);
     }
   `,

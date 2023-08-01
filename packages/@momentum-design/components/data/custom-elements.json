@@ -134,8 +134,27 @@
               "type": {
                 "text": "BadgeType | undefined"
               },
+              "description": "Type of the badge\nCan be `regular`, `icon`, `text` or `warning`\n\nDefault: `regular`",
               "attribute": "type",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "scale",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "Scale of the badge (works in combination with length unit)\n\nDefault: `1`",
+              "attribute": "scale"
+            },
+            {
+              "kind": "field",
+              "name": "lengthUnit",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Length unit attribute for scale\n\nDefault: `rem`",
+              "attribute": "length-unit"
             },
             {
               "kind": "field",
@@ -143,19 +162,34 @@
               "type": {
                 "text": "string | undefined"
               },
+              "description": "If `type` is set to `icon`, attribute `iconName` can\nbe used to choose which icon should be shown\n\nIf no `iconName` is provided, no icon will be rendered.",
               "attribute": "icon-name"
             },
             {
-              "kind": "method",
-              "name": "regularTemplate"
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "If `type` is set to `text`, attribute `text` can\nbe used to pass in any text to be displayed in the badge.",
+              "attribute": "text"
             },
             {
               "kind": "method",
-              "name": "warningTemplate"
+              "name": "updateSize",
+              "privacy": "private"
             },
             {
               "kind": "method",
               "name": "iconTemplate"
+            },
+            {
+              "kind": "method",
+              "name": "textTemplate"
+            },
+            {
+              "kind": "method",
+              "name": "warningTemplate"
             }
           ],
           "attributes": [
@@ -164,14 +198,40 @@
               "type": {
                 "text": "BadgeType | undefined"
               },
+              "description": "Type of the badge\nCan be `regular`, `icon`, `text` or `warning`\n\nDefault: `regular`",
               "fieldName": "type"
+            },
+            {
+              "name": "scale",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "Scale of the badge (works in combination with length unit)\n\nDefault: `1`",
+              "fieldName": "scale"
+            },
+            {
+              "name": "length-unit",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Length unit attribute for scale\n\nDefault: `rem`",
+              "fieldName": "lengthUnit"
             },
             {
               "name": "icon-name",
               "type": {
                 "text": "string | undefined"
               },
+              "description": "If `type` is set to `icon`, attribute `iconName` can\nbe used to choose which icon should be shown\n\nIf no `iconName` is provided, no icon will be rendered.",
               "fieldName": "iconName"
+            },
+            {
+              "name": "text",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "If `type` is set to `text`, attribute `text` can\nbe used to pass in any text to be displayed in the badge.",
+              "fieldName": "text"
             }
           ],
           "superclass": {
@@ -460,6 +520,62 @@
           "declaration": {
             "name": "MdcIconprovider",
             "module": "src/components/iconprovider/iconprovider.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/text/text.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "MdcText",
+          "slots": [
+            {
+              "description": "This is a default/unnamed slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "TextType | undefined"
+              },
+              "description": "Type of the text\n\nDefault: `body-regular`",
+              "attribute": "type",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "type",
+              "type": {
+                "text": "TextType | undefined"
+              },
+              "description": "Type of the text\n\nDefault: `body-regular`",
+              "fieldName": "type"
+            }
+          ],
+          "superclass": {
+            "name": "Component",
+            "module": "/src/models"
+          },
+          "tagName": "mdc-text",
+          "summary": "This is MyElement",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "MdcText",
+          "declaration": {
+            "name": "MdcText",
+            "module": "src/components/text/text.component.ts"
           }
         }
       ]

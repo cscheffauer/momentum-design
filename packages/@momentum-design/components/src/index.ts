@@ -8,6 +8,7 @@ import MdcIcon from './components/icon';
 import MdcIconprovider from './components/iconprovider';
 import MdcAvatar from './components/avatar';
 import MdcBadge from './components/badge';
+import MdcText from './components/text';
 
 export {
   Component,
@@ -17,4 +18,5 @@ export {
   MdcIconprovider,
   MdcAvatar,
   MdcBadge,
+  MdcText,
 };

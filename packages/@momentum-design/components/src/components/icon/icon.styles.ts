@@ -1,8 +1,8 @@
 import { css } from 'lit';
-import { matchChildrenSizeStyles } from '../../utils/styles';
+import { hostFitContentStyles } from '../../utils/styles';
 
 const styles = [
-  matchChildrenSizeStyles,
+  hostFitContentStyles,
   css`
     svg {
       height: 100%;

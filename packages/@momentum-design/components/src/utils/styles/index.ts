@@ -1,6 +1,6 @@
 import { css } from 'lit';
 
-const matchChildrenSizeStyles = css`
+const hostFitContentStyles = css`
   :host {
     align-items: center;
     display: flex;
@@ -10,4 +10,4 @@ const matchChildrenSizeStyles = css`
   }
 `;
 
-export { matchChildrenSizeStyles };
+export { hostFitContentStyles };
