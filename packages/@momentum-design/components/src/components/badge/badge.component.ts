@@ -74,7 +74,9 @@ class MdcBadge extends Component {
   }
 
   iconTemplate() {
-    return html`<mdc-icon name="${this.iconName}" scale="80" length-unit="%"></mdc-icon>`;
+    return html`<div class="mdc-badge-icon-container">
+      <mdc-icon name="${this.iconName}" scale="100" length-unit="%"></mdc-icon>
+    </div>`;
   }
 
   textTemplate() {

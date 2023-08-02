@@ -15,6 +15,11 @@ const styles = [
       border-radius: 9999px;
       background-color: var(--mdc-badge-icon-background-color);
     }
+
+    .mdc-badge-icon-container {
+      height: 80%;
+      width: 80%;
+    }
   `,
 ];
 
