@@ -14,7 +14,7 @@ import { ALLOWED_FILE_EXTENSIONS, DEFAULTS } from './iconprovider.constants';
  * @tag mdc-iconprovider
  * @tagname mdc-iconprovider
  */
-class MdcIconprovider extends Provider<IconProviderContext> {
+class IconProvider extends Provider<IconProviderContext> {
   constructor() {
     // initialise the context by running the Provider constructor:
     super({
@@ -73,4 +73,4 @@ class MdcIconprovider extends Provider<IconProviderContext> {
   }
 }
 
-export { MdcIconprovider };
+export default IconProvider;

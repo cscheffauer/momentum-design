@@ -3,7 +3,7 @@ import { property, state } from 'lit/decorators.js';
 import { styles } from './icon.styles';
 import { Component } from '../../models';
 import providerUtils from '../../utils/provider';
-import MdcIconprovider from '../iconprovider';
+import IconProvider from '../iconprovider/iconprovider.component';
 import { dynamicSVGImport } from './icon.utils';
 import { DEFAULTS } from './icon.constants';
 
@@ -29,7 +29,7 @@ import { DEFAULTS } from './icon.constants';
  * @tag mdc-icon
  * @tagname mdc-icon
  */
-class MdcIcon extends Component {
+class Icon extends Component {
   @state()
   private iconData?: HTMLElement;
 
@@ -66,7 +66,7 @@ class MdcIcon extends Component {
   @property({ type: String, attribute: 'aria-label' })
   override ariaLabel: string | null = null;
 
-  private iconProviderContext = providerUtils.consume({ host: this, context: MdcIconprovider.Context });
+  private iconProviderContext = providerUtils.consume({ host: this, context: IconProvider.Context });
 
   /**
    * Get Icon Data function which will fetch the icon (currently only svg)
@@ -152,4 +152,4 @@ class MdcIcon extends Component {
   static override styles = styles;
 }
 
-export { MdcIcon };
+export default Icon;

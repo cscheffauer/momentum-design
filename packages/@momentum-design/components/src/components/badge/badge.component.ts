@@ -14,7 +14,7 @@ import type { BadgeType } from './badge.types';
  * @tag mdc-badge
  * @tagname mdc-badge
  */
-class MdcBadge extends Component {
+class Badge extends Component {
   /**
    * Type of the badge
    * Can be `regular`, `icon`, `text` or `warning`
@@ -118,4 +118,4 @@ class MdcBadge extends Component {
   public static override styles = styles;
 }
 
-export { MdcBadge };
+export default Badge;

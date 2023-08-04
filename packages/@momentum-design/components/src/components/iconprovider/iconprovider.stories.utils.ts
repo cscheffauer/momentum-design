@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import { Component } from '../../models';
-import { MdcIconprovider } from './iconprovider.component';
+import IconProvider from './iconprovider.component';
 import providerUtils from '../../utils/provider';
 
 // Subcomponent to be rendered in storybook, to showcase that the
@@ -8,7 +8,7 @@ import providerUtils from '../../utils/provider';
 class SubComponentIconProvider extends Component {
   currentTheme?: string;
 
-  private iconProviderContext = providerUtils.consume({ host: this, context: MdcIconprovider.Context });
+  private iconProviderContext = providerUtils.consume({ host: this, context: IconProvider.Context });
 
   override render() {
     return html`

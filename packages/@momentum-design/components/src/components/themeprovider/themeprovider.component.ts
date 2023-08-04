@@ -13,7 +13,7 @@ import type { Theme } from './themeprovider.types';
  * @tag mdc-themeprovider
  * @tagname mdc-themeprovider
  */
-class MdcThemeprovider extends Provider<ThemeProviderContext> {
+class ThemeProvider extends Provider<ThemeProviderContext> {
   constructor() {
     // initialise the context by running the Provider constructor:
     super({
@@ -85,4 +85,4 @@ class MdcThemeprovider extends Provider<ThemeProviderContext> {
   public static override styles = styles;
 }
 
-export { MdcThemeprovider };
+export default ThemeProvider;

@@ -13,7 +13,7 @@ import type { TextType } from './text.types';
  * @tag mdc-text
  * @tagname mdc-text
  */
-class MdcText extends Component {
+class Text extends Component {
   /**
    * Type of the text
    *
@@ -60,4 +60,4 @@ class MdcText extends Component {
   public static override styles = styles;
 }
 
-export { MdcText };
+export default Text;

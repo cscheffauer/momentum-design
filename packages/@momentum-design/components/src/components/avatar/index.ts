@@ -1,12 +1,12 @@
-import { MdcAvatar } from './avatar.component';
+import Avatar from './avatar.component';
 import { TAG_NAME } from './avatar.constants';
 
-MdcAvatar.register(TAG_NAME);
+Avatar.register(TAG_NAME);
 
 declare global {
     interface HTMLElementTagNameMap {
-        ['mdc-avatar']: MdcAvatar
+        ['mdc-avatar']: Avatar
     }
 }
 
-export default MdcAvatar;
+export default Avatar;

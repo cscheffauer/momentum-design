@@ -14,7 +14,7 @@ import { DEFAULTS, LENGTH_UNIT } from './avatar.constants';
  * @tag mdc-avatar
  * @tagname mdc-avatar
  */
-class MdcAvatar extends Component {
+class Avatar extends Component {
   @property({ type: String, reflect: true })
   type?: AvatarType = DEFAULTS.TYPE;
 
@@ -72,4 +72,4 @@ class MdcAvatar extends Component {
   public static override styles = styles;
 }
 
-export { MdcAvatar };
+export default Avatar;

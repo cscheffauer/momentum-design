@@ -1,12 +1,12 @@
-import { MdcThemeprovider } from './themeprovider.component';
+import ThemeProvider from './themeprovider.component';
 import { TAG_NAME } from './themeprovider.constants';
 
-MdcThemeprovider.register(TAG_NAME);
+ThemeProvider.register(TAG_NAME);
 
 declare global {
     interface HTMLElementTagNameMap {
-        ['mdc-themeprovider']: MdcThemeprovider
+        ['mdc-themeprovider']: ThemeProvider
     }
 }
 
-export default MdcThemeprovider;
+export default ThemeProvider;

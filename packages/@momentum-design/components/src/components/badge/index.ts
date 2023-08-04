@@ -1,12 +1,12 @@
-import { MdcBadge } from './badge.component';
+import Badge from './badge.component';
 import { TAG_NAME } from './badge.constants';
 
-MdcBadge.register(TAG_NAME);
+Badge.register(TAG_NAME);
 
 declare global {
     interface HTMLElementTagNameMap {
-        ['mdc-badge']: MdcBadge
+        ['mdc-badge']: Badge
     }
 }
 
-export default MdcBadge;
+export default Badge;

@@ -1,12 +1,12 @@
-import { MdcIcon } from './icon.component';
+import Icon from './icon.component';
 import { TAG_NAME } from './icon.constants';
 
-MdcIcon.register(TAG_NAME);
+Icon.register(TAG_NAME);
 
 declare global {
     interface HTMLElementTagNameMap {
-        ['mdc-icon']: MdcIcon
+        ['mdc-icon']: Icon
     }
 }
 
-export default MdcIcon;
+export default Icon;
