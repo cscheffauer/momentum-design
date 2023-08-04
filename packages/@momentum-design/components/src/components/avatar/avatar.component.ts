@@ -54,8 +54,6 @@ class MdcAvatar extends Component {
       <img
         src="${ifDefined(this.src)}"
         alt="${ifDefined(this.alt)}"
-        onLoad="${this.handleOnLoad}"
-        onError="${this.handleOnError}"
         className="{classnames(STYLE.wrapperChildren,"
       />
     `;

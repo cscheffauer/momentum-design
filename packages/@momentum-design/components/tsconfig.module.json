@@ -2,7 +2,7 @@
   "extends": "../../../config/typescript/tsconfig.base.json",
   "compilerOptions": {
     "target": "es2019",
-    "module": "es2020",
+    "module": "CommonJS",
     "lib": [
       "es2020",
       "DOM",
@@ -12,8 +12,8 @@
     "declarationMap": true,
     "sourceMap": true,
     "inlineSources": true,
-    "outDir": "./dist",
-    "rootDir": "./",
+    "outDir": "./dist/module",
+    "declarationDir": "./dist/types",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -35,11 +35,12 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "config",
-    ".eslintrc.js"
+    "src/**/*.*",
   ],
   "exclude": [
+    "**/*.e2e-test.ts",
+    "**/*.fixtures.ts",
+    "**/*.stories.ts",
     "node_modules"
   ],
 }
