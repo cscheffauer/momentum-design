@@ -8,16 +8,28 @@ const meta: Meta = {
   tags: ['autodocs'],
   component: 'mdc-text',
   render,
-  argTypes: {},
+  argTypes: {
+    type: {
+      control: 'radio',
+      options: [
+        'heading-1',
+        'heading-2',
+        'heading-3',
+        'heading-4',
+        'heading-5',
+        'heading-6',
+        'body-regular',
+        'body-small',
+      ],
+    },
+  },
 };
 
 export default meta;
 
 export const Primary: StoryObj = {
   args: {
-    role: 'heading',
-    ariaLevel: '2',
-    fontType: 'momentum-h2',
+    type: 'heading-1',
     children: 'This is a test text',
   },
 };

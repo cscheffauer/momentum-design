@@ -1,21 +1,71 @@
 import { css } from 'lit';
 
 const styles = css`
-:host {
-  display: inline;
-}
+  :host {
+    display: block;
+  }
 
-:host([role="paragraph"]) {
-  display: block;
-}
+  :host([type="heading-1"]) {
+    font-size: 7.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 9.375rem */
+    text-transform: capitalize;
+  }
 
-/* :host([aria-level="1"][role="heading"]) {}
-:host([aria-level="2"][role="heading"]) {}
-:host([aria-level="3"][role="heading"]) {}
-:host([aria-level="4"][role="heading"]) {}
-:host([aria-level="5"][role="heading"]) {}
-:host([aria-level="6"][role="heading"]) {}
-*/
+  :host([type="heading-2"]) {
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 7.5rem */
+    text-transform: capitalize;
+  }
+
+  :host([type="heading-3"]) {
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 3.75rem */
+  }
+
+  :host([type="heading-4"]) {
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 3.125rem */
+  }
+
+  :host([type="heading-5"]) {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 2.5rem */
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  :host([type="heading-6"]) {
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 3rem; /* 171.429% */
+  }
+
+  :host([type="body-regular"]) {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 2.25rem */
+    margin-block-end: 1.5em; /* paragraph spacing */
+  }
+
+  :host([type="body-small"]) {
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 1.875rem */
+    margin-block-end: 0.125rem; /* paragraph spacing */
+  }
 `;
 
 export default styles;

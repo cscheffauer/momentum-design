@@ -1,14 +1,13 @@
 import { html } from 'lit';
+import type { FontType } from './text.types';
 
 type Args = {
   children?: any;
-  role?: string;
-  ariaLevel?: string;
-  fontType?: string;
+  type?: FontType;
 };
 
 const base = (args: Args) => html`
-  <mdc-text role="${args.role}" aria-level="${args.ariaLevel}" font-type="${args.fontType}">${args.children}</mdc-text>
+  <mdc-text type="${args.type}">${args.children}</mdc-text>
 `;
 
 const fixtures = {

@@ -2,6 +2,7 @@ import '../../src/components/themeprovider';
 import '@momentum-design/tokens/dist/css/core/complete.css';
 import '@momentum-design/tokens/dist/css/theme/webex/dark-stable.css';
 import '@momentum-design/tokens/dist/css/theme/webex/light-stable.css';
+import './fonts.css';
 
 import { setCustomElementsManifest } from '@storybook/web-components';
 import customElements from '../../data/custom-elements.json';
