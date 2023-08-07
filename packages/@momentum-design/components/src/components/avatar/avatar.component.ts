@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { styles } from './avatar.styles';
+import styles from './avatar.styles';
 import { Component } from '../../models';
 import { AvatarType } from './avatar.types';
 import { DEFAULTS, LENGTH_UNIT } from './avatar.constants';

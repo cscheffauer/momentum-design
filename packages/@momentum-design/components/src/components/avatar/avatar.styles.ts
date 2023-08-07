@@ -17,4 +17,4 @@ const styles = css`
   }
 `;
 
-export { styles };
+export default styles;

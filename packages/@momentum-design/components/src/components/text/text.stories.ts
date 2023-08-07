@@ -15,7 +15,9 @@ export default meta;
 
 export const Primary: StoryObj = {
   args: {
-    type: 'h1',
-    children: 'This is a test',
+    role: 'heading',
+    ariaLevel: '2',
+    fontType: 'momentum-h2',
+    children: 'This is a test text',
   },
 };

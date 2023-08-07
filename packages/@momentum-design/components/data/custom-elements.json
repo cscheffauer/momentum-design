@@ -9,7 +9,7 @@
         {
           "kind": "class",
           "description": "",
-          "name": "MdcBadge",
+          "name": "Badge",
           "slots": [
             {
               "description": "This is a default/unnamed slot",
@@ -135,9 +135,9 @@
       "exports": [
         {
           "kind": "js",
-          "name": "MdcBadge",
+          "name": "default",
           "declaration": {
-            "name": "MdcBadge",
+            "name": "Badge",
             "module": "src/components/badge/badge.component.ts"
           }
         }
@@ -150,7 +150,7 @@
         {
           "kind": "class",
           "description": "Icon component, which has to be mounted inside of a `IconProvider`\ncomponent.\n\nThe `IconProvider` component defines where icons should be consumed from (`url`).\nThis `Icon` component accepts the `name` attribute, which will be\nthe file name of the icon to be loaded from the given `url`.\n\nOnce fetched, the icon will be mounted. If fetching wasn't successful,\nnothing will be shown.\n\nThe `scale` attribute allows scaling the icon based on the provided\n`length-unit` attribute (which will either come from the IconProvider or\ncould be overridden per icon). For example:\nif `scale = 1` and `length-unit = 'em'`, the size of the icon will be\n`width: 1em; height: 1em`.\n\nFor accessibility the `role` and `aria-label` of the icon can be set.",
-          "name": "MdcIcon",
+          "name": "Icon",
           "members": [
             {
               "kind": "field",
@@ -299,10 +299,323 @@
       "exports": [
         {
           "kind": "js",
-          "name": "MdcIcon",
+          "name": "default",
           "declaration": {
-            "name": "MdcIcon",
+            "name": "Icon",
             "module": "src/components/icon/icon.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/iconprovider/iconprovider.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "IconProvider component, which allows to be consumed from sub components\n(see `providerUtils.consume` for how to consume)\n\nBundling icons will be up to the consumer of this component, such\nthat only a url has to be passed in from which the icons will be\nfetched.",
+          "name": "IconProvider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "Context",
+              "privacy": "public",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "url",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Url of where icons will be fetched from",
+              "attribute": "url"
+            },
+            {
+              "kind": "field",
+              "name": "fileExtension",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "File extension of icons, default: 'svg'",
+              "attribute": "file-extension",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "lengthUnit",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Length unit used for sizing of icons, default: 'em'",
+              "attribute": "length-unit",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "updateValuesInContext",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateContext",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "url",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Url of where icons will be fetched from",
+              "fieldName": "url"
+            },
+            {
+              "name": "file-extension",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "File extension of icons, default: 'svg'",
+              "fieldName": "fileExtension"
+            },
+            {
+              "name": "length-unit",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Length unit used for sizing of icons, default: 'em'",
+              "fieldName": "lengthUnit"
+            }
+          ],
+          "superclass": {
+            "name": "Provider",
+            "module": "/src/models"
+          },
+          "tagName": "mdc-iconprovider",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "IconProvider",
+            "module": "src/components/iconprovider/iconprovider.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/text/text.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Text",
+          "members": [
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string | null"
+              },
+              "privacy": "public",
+              "description": "Role attribute - supported: `heading`, `paragraph`",
+              "default": "null",
+              "attribute": "role",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "ariaLevel",
+              "type": {
+                "text": "string | null"
+              },
+              "privacy": "public",
+              "description": "Aria-level attribute - should only be set if role = `heading`\n\nUsed to determine the type of `heading`, like level 1 -> h1, etc.",
+              "default": "null",
+              "attribute": "aria-level",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "fontType",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "attribute": "font-type",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "handleAriaLevelChanged",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleRoleChanged",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "handleFontTypeChanged",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "role",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Role attribute - supported: `heading`, `paragraph`",
+              "default": "null",
+              "fieldName": "role"
+            },
+            {
+              "name": "aria-level",
+              "type": {
+                "text": "string | null"
+              },
+              "description": "Aria-level attribute - should only be set if role = `heading`\n\nUsed to determine the type of `heading`, like level 1 -> h1, etc.",
+              "default": "null",
+              "fieldName": "ariaLevel"
+            },
+            {
+              "name": "font-type",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "fontType"
+            }
+          ],
+          "superclass": {
+            "name": "Component",
+            "module": "/src/models"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Text",
+            "module": "src/components/text/text.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/themeprovider/themeprovider.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "ThemeProvider component, which sets the theme css variables\nfor the child dom nodes and allows to be consumed from sub components\n(see providerUtils.consume for how to consume)\n\nThemeProvider also includes the different font faces available\nfor Text components.",
+          "name": "ThemeProvider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "Context",
+              "privacy": "public",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "themes",
+              "type": {
+                "text": "string"
+              },
+              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
+              "attribute": "themes"
+            },
+            {
+              "kind": "field",
+              "name": "theme",
+              "type": {
+                "text": "Theme"
+              },
+              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
+              "attribute": "theme"
+            },
+            {
+              "kind": "method",
+              "name": "updateContext",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Update all observing components of this\nprovider to update the theme"
+            },
+            {
+              "kind": "method",
+              "name": "updateActiveThemeClass",
+              "privacy": "private",
+              "description": "Function to update the active theme classname to update the theme tokens\nas CSS variables on the web component."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "themes",
+              "type": {
+                "text": "string"
+              },
+              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
+              "fieldName": "themes"
+            },
+            {
+              "name": "theme",
+              "type": {
+                "text": "Theme"
+              },
+              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
+              "fieldName": "theme"
+            }
+          ],
+          "superclass": {
+            "name": "Provider",
+            "module": "/src/models"
+          },
+          "tagName": "mdc-themeprovider",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "ThemeProvider",
+            "module": "src/components/themeprovider/themeprovider.component.ts"
           }
         }
       ]
@@ -314,7 +627,7 @@
         {
           "kind": "class",
           "description": "",
-          "name": "MdcAvatar",
+          "name": "Avatar",
           "slots": [
             {
               "description": "This is a default/unnamed slot",
@@ -410,261 +723,10 @@
       "exports": [
         {
           "kind": "js",
-          "name": "MdcAvatar",
+          "name": "default",
           "declaration": {
-            "name": "MdcAvatar",
+            "name": "Avatar",
             "module": "src/components/avatar/avatar.component.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/iconprovider/iconprovider.component.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "IconProvider component, which allows to be consumed from sub components\n(see `providerUtils.consume` for how to consume)\n\nBundling icons will be up to the consumer of this component, such\nthat only a url has to be passed in from which the icons will be\nfetched.",
-          "name": "MdcIconprovider",
-          "members": [
-            {
-              "kind": "field",
-              "name": "Context",
-              "privacy": "public",
-              "static": true,
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "url",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Url of where icons will be fetched from",
-              "attribute": "url"
-            },
-            {
-              "kind": "field",
-              "name": "fileExtension",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "File extension of icons, default: 'svg'",
-              "attribute": "file-extension",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "lengthUnit",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Length unit used for sizing of icons, default: 'em'",
-              "attribute": "length-unit",
-              "reflects": true
-            },
-            {
-              "kind": "method",
-              "name": "updateValuesInContext",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "updateContext",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "url",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Url of where icons will be fetched from",
-              "fieldName": "url"
-            },
-            {
-              "name": "file-extension",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "File extension of icons, default: 'svg'",
-              "fieldName": "fileExtension"
-            },
-            {
-              "name": "length-unit",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Length unit used for sizing of icons, default: 'em'",
-              "fieldName": "lengthUnit"
-            }
-          ],
-          "superclass": {
-            "name": "Provider",
-            "module": "/src/models"
-          },
-          "tagName": "mdc-iconprovider",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdcIconprovider",
-          "declaration": {
-            "name": "MdcIconprovider",
-            "module": "src/components/iconprovider/iconprovider.component.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/text/text.component.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "MdcText",
-          "slots": [
-            {
-              "description": "This is a default/unnamed slot",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "TextType | undefined"
-              },
-              "description": "Type of the text\n\nDefault: `body-regular`",
-              "attribute": "type",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "type",
-              "type": {
-                "text": "TextType | undefined"
-              },
-              "description": "Type of the text\n\nDefault: `body-regular`",
-              "fieldName": "type"
-            }
-          ],
-          "superclass": {
-            "name": "Component",
-            "module": "/src/models"
-          },
-          "tagName": "mdc-text",
-          "summary": "This is MyElement",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdcText",
-          "declaration": {
-            "name": "MdcText",
-            "module": "src/components/text/text.component.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/themeprovider/themeprovider.component.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "ThemeProvider component, which sets the theme css variables\nfor the child dom nodes and allows to be consumed from sub components\n(see providerUtils.consume for how to consume)",
-          "name": "MdcThemeprovider",
-          "members": [
-            {
-              "kind": "field",
-              "name": "Context",
-              "privacy": "public",
-              "static": true,
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "themes",
-              "type": {
-                "text": "string"
-              },
-              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
-              "attribute": "themes"
-            },
-            {
-              "kind": "field",
-              "name": "theme",
-              "type": {
-                "text": "Theme"
-              },
-              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
-              "attribute": "theme"
-            },
-            {
-              "kind": "method",
-              "name": "updateContext",
-              "privacy": "protected",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "description": "Update all observing components of this\nprovider to update the theme"
-            },
-            {
-              "kind": "method",
-              "name": "updateActiveThemeClass",
-              "privacy": "private",
-              "description": "Function to update the active theme classname to update the theme tokens\nas CSS variables on the web component."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "themes",
-              "type": {
-                "text": "string"
-              },
-              "description": "Available themes to switch to\n\nHas to be a space separated string, like className\ne.g.: `mds-theme-stable-darkWebex mds-theme-stable-lightWebex`",
-              "fieldName": "themes"
-            },
-            {
-              "name": "theme",
-              "type": {
-                "text": "Theme"
-              },
-              "description": "Current theme attribute\n\nHas to be fully qualified, such that\nthe theme name matches the className of the respective\ntheme stylesheet",
-              "fieldName": "theme"
-            }
-          ],
-          "superclass": {
-            "name": "Provider",
-            "module": "/src/models"
-          },
-          "tagName": "mdc-themeprovider",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "MdcThemeprovider",
-          "declaration": {
-            "name": "MdcThemeprovider",
-            "module": "src/components/themeprovider/themeprovider.component.ts"
           }
         }
       ]

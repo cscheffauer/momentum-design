@@ -1,9 +1,9 @@
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { StyleInfo, styleMap } from 'lit/directives/style-map.js';
-import { styles } from './badge.styles';
 import { Component } from '../../models';
 import { DEFAULTS, WARNING_ICON_NAME } from './badge.constants';
+import styles from './badge.styles';
 import type { BadgeType } from './badge.types';
 
 /**

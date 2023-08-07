@@ -3,20 +3,20 @@ import {
   Provider,
 } from './models';
 
-import MdcThemeprovider from './components/themeprovider';
-import MdcIcon from './components/icon';
-import MdcIconprovider from './components/iconprovider';
-import MdcAvatar from './components/avatar';
-import MdcBadge from './components/badge';
-import MdcText from './components/text';
+import ThemeProvider from './components/themeprovider';
+import Icon from './components/icon';
+import IconProvider from './components/iconprovider';
+import Avatar from './components/avatar';
+import Badge from './components/badge';
+import Text from './components/text';
 
 export {
   Component,
   Provider,
-  MdcThemeprovider,
-  MdcIcon,
-  MdcIconprovider,
-  MdcAvatar,
-  MdcBadge,
-  MdcText,
+  ThemeProvider,
+  Icon,
+  IconProvider,
+  Avatar,
+  Badge,
+  Text,
 };

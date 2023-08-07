@@ -2,13 +2,16 @@ import { property } from 'lit/decorators.js';
 import { DEFAULTS, THEMES } from './themeprovider.constants';
 import { Provider } from '../../models';
 import ThemeProviderContext from './themeprovider.context';
-import { styles } from './themeprovider.styles';
+import styles from './themeprovider.styles';
 import type { Theme } from './themeprovider.types';
 
 /**
  * ThemeProvider component, which sets the theme css variables
  * for the child dom nodes and allows to be consumed from sub components
  * (see providerUtils.consume for how to consume)
+ *
+ * ThemeProvider also includes the different font faces available
+ * for Text components.
  *
  * @tag mdc-themeprovider
  * @tagname mdc-themeprovider

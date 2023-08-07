@@ -1,14 +1,25 @@
 import { html } from 'lit';
-import { property } from 'lit/decorators';
-
+import { property } from 'lit/decorators.js';
+import styles from './text.styles';
 import { Component } from '../../models';
 
 class Text extends Component {
+  /**
+   * Role attribute - supported: `heading`, `paragraph`
+   */
+  @property({ attribute: 'role', reflect: true, type: String })
+  public override role: string | null; // paragraph | heading
+
+  /**
+   * Aria-level attribute - should only be set if role = `heading`
+   *
+   * Used to determine the type of `heading`, like level 1 -> h1, etc.
+   */
   @property({ attribute: 'aria-level', reflect: true, type: String })
   public override ariaLevel: string | null; // 1 - 6
 
-  @property({ attribute: 'role', reflect: true, type: String })
-  public override role: string | null; // paragraph | heading
+  @property({ attribute: 'font-type', reflect: true, type: String })
+  public fontType?: string;
 
   public constructor() {
     super();
@@ -35,6 +46,12 @@ class Text extends Component {
     }
   }
 
+  protected handleFontTypeChanged(): void {
+    if (this.fontType) {
+      this.style.fontFamily = `"${this.fontType}"`;
+    }
+  }
+
   protected override updated(changedProperties: Map<string, any>): void {
     super.updated(changedProperties);
 
@@ -42,14 +59,20 @@ class Text extends Component {
       this.handleRoleChanged();
     }
 
-    if (changedProperties.has('aria-level')) {
+    if (changedProperties.has('ariaLevel')) {
       this.handleAriaLevelChanged();
+    }
+
+    if (changedProperties.has('fontType')) {
+      this.handleFontTypeChanged();
     }
   }
 
   public override render() {
     return html`<slot></slot>`;
   }
+
+  public static override styles = styles;
 }
 
 export default Text;

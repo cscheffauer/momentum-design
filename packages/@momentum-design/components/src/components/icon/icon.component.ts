@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
-import { styles } from './icon.styles';
+import styles from './icon.styles';
 import { Component } from '../../models';
 import providerUtils from '../../utils/provider';
 import IconProvider from '../iconprovider/iconprovider.component';
