@@ -9,5 +9,6 @@
 
 #### Tech debt
 
+- [ ] `Tim` Make the export for both modules and browser consumption
 - [ ] Add jest unit test script to components package.json and hook Jest up (suuuper simple and fast setup if possible) - for utility testing
 - [ ] Make fixtures also work for e2e tests (esm vs cjs is kind of the issue there)
