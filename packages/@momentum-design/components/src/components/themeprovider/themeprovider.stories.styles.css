@@ -3,7 +3,6 @@
   flex-direction: column;
   width: calc(30%);
   background: var(--mds-color-theme-background-solid-primary-normal);
-  color: var(--mds-color-theme-text-primary-normal);
   padding: 10px;
   border: 1px solid var(--mds-color-theme-text-primary-normal)
 }

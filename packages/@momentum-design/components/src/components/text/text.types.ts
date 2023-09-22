@@ -5,5 +5,9 @@ export type FontType =
   | 'heading-4'
   | 'heading-5'
   | 'heading-6'
+  | 'heading-7'
+  | 'body-large'
   | 'body-regular'
-  | 'body-small';
+  | 'body-small'
+  | 'image-title'
+  | 'label';

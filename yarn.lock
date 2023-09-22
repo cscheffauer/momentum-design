@@ -3529,7 +3529,7 @@ __metadata:
     plop: ^3.1.2
     rimraf: ^3.0.2
     storybook: ^7.0.9
-    typescript: ^4.6.4
+    typescript: ^4.8.4
   languageName: unknown
   linkType: soft
 

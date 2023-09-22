@@ -3,8 +3,9 @@ import { create } from '@storybook/theming/create';
 export default create({
   base: 'dark',
 
-  // Typography
-  fontBase: 'Inter, Arial, sans-serif',
+  // Typography for Manager 
+  // (can't use Inter here without a lot of workarounds):
+  fontBase: 'Helvetica Neue, sans-serif',
   fontCode: 'monospace',
 
   brandTitle: 'Momentum Design',

@@ -1,0 +1,15 @@
+/* todo: move this to momentum-design/fonts for better consumption */
+
+@font-face {
+    font-family: "Momentum";
+    src: url("/fonts/Inter.var.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Momentum H1";
+    src: local("Momentum");
+    font-size: 7.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 9.375rem */
+}

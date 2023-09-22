@@ -19,7 +19,8 @@
     "analyze:prebuild": "echo \"script 'analyze:prebuild' has not been implemented\"",
     "dev": "concurrently --names 'manifest,storybook' -c 'blue.bold,magenta.bold' 'yarn:dev:generate-manifest' 'yarn:dev:storybook'",
     "dev:generate-manifest": "custom-elements-manifest analyze --config config/custom-elements-manifest.config.js",
-    "dev:storybook": "yarn copy:icons storybook && storybook dev -p 6006 -c config/storybook",
+    "dev:storybook:setup": "concurrently --names 'copy:icons,copy:fonts' -c 'cyan.bold,blue.bold' 'yarn copy:icons storybook' 'yarn copy:fonts storybook'",
+    "dev:storybook": "yarn dev:storybook:setup && storybook dev -p 6006 -c config/storybook",
     "build:browser:e2e": "node config/esbuild/esbuild-e2e.config.js",
     "build:browser": "node config/esbuild/esbuild.config.js",
     "build:module": "tsc --project \"./tsconfig.module.json\"",
@@ -28,6 +29,7 @@
     "clean:dist": "rimraf ./dist",
     "copy:tokens": "node scripts/copyTokens.js",
     "copy:icons": "node scripts/copyIcons.js",
+    "copy:fonts": "node scripts/copyFonts.js",
     "docs": "echo \"script 'docs' has not been implemented\"",
     "publish": "yarn publish:npmjs",
     "publish:npmjs": "echo \"script 'publish:npmjs' has not been implemented\"",
@@ -35,7 +37,7 @@
     "test:postbuild": "echo \"script 'test:prebuild' has not been implemented\"",
     "test:prebuild": "echo \"script 'test:prebuild' has not been implemented\"",
     "test:e2e:report": "yarn playwright show-report",
-    "test:e2e:setup": "concurrently --names 'copy:tokens,copy:icons' -c 'magenta.bold,cyan.bold' 'yarn copy:tokens' 'yarn copy:icons playwright' && yarn build:browser:e2e",
+    "test:e2e:setup": "concurrently --names 'copy:tokens,copy:icons,copy:fonts' -c 'magenta.bold,cyan.bold,blue.bold' 'yarn copy:tokens' 'yarn copy:icons playwright' 'yarn copy:fonts playwright' && yarn build:browser:e2e",
     "test:e2e": "playwright test --config './config/playwright/playwright.config.ts'",
     "test:e2e:ui": "yarn test:e2e --ui",
     "build-storybook": "storybook build -c config/storybook",
@@ -72,6 +74,6 @@
     "plop": "^3.1.2",
     "rimraf": "^3.0.2",
     "storybook": "^7.0.9",
-    "typescript": "^4.6.4"
+    "typescript": "^4.8.4"
   }
 }

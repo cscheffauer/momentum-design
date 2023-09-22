@@ -1,27 +1,20 @@
-import { FontType } from './text.types';
+import { FontType } from "./text.types";
 
 const getTypeParts = (type: FontType) => {
-  const parts = type.split('-');
+  const parts = type.split("-");
   return { firstPart: parts[0], secondPart: parts[1] };
 };
 const isHeading = (type: FontType) => {
   const { firstPart, secondPart } = getTypeParts(type);
-  return firstPart === 'heading' && (+secondPart > 0 && +secondPart < 7);
-};
-
-const isBody = (type: FontType) => {
-  const { firstPart, secondPart } = getTypeParts(type);
-  return firstPart === 'body' && (['regular', 'small'].includes(secondPart));
+  return firstPart === "heading" && +secondPart > 0 && +secondPart < 7;
 };
 
 const getRole = (type?: FontType) => {
   if (type) {
     if (isHeading(type)) {
-      return 'heading';
+      return "heading";
     }
-    if (isBody(type)) {
-      return 'paragraph';
-    }
+    return "paragraph";
   }
   return null;
 };
