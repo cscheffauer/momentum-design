@@ -1,67 +1,75 @@
-import { test } from '../../../config/playwright/setup';
+/* eslint-disable no-restricted-syntax */
+import { expect } from '@playwright/test';
+import { ComponentsPage, test } from '../../../config/playwright/setup';
 import steps from '../../../config/playwright/setup/steps/accessibility';
+import { VALUES } from './text.constants';
+import { FontType } from './text.types';
+import { getAriaLevel, isHeading } from './text.utils';
 
-test.beforeEach(async ({ componentsPage }) => {
+type SetupOptions = {
+  componentsPage: ComponentsPage;
+  type: FontType;
+  children: any;
+};
+
+const setup = async (args: SetupOptions) => {
+  const { componentsPage, ...restArgs } = args;
   await componentsPage.mount({
     html: `
-        <mdc-text />
+    <mdc-text type="${restArgs.type}">${restArgs.children}</mdc-text>
       `,
+    clearDocument: true,
   });
-});
-
-test('mdc-text', async ({ componentsPage }) => {
   const text = componentsPage.page.locator('mdc-text');
-
-  // initial check for the text be visible on the screen:
   await text.waitFor();
+  return text;
+};
 
-  /**
-   * ACCESSIBILITY
-   */
-  await test.step('accessibility', async () => {
-    await steps.automaticA11yCheckStep(componentsPage);
+const typesToTest: Array<FontType> = VALUES.TYPE;
+
+test.describe('mdc-text', () => {
+  test.use({
+    viewport: {
+      width: 3000,
+      height: 500,
+    },
   });
+  for (const textType of typesToTest) {
+    test(textType, async ({ componentsPage }) => {
+      const textContent = 'abcdefghijklmnopqrstuvwxyz1234567890';
+      const text = await setup({ componentsPage, type: textType, children: textContent });
 
-  /**
-   * VISUAL REGRESSION
-   */
-  await test.step('visual-regression', async () => {
-    await test.step('matches screenshot of element', async () => {
-      await componentsPage.visualRegression.takeScreenshot('mdc-text', { element: text });
-    });
-  });
-
-  /**
-   * ATTRIBUTES
-   */
-  await test.step('attributes', async () => {
-    await test.step('attribute X should be present on component by default', async () => {
-      // TODO: add test here
-    });
-  });
-
-  /**
-   * INTERACTIONS
-   */
-  await test.step('interactions', async () => {
-    await test.step('mouse/pointer', async () => {
-      await test.step('component should fire callback x when clicking on it', async () => {
-        // TODO: add test here
-      });
-    });
-
-    await test.step('focus', async () => {
-      await test.step('component should be focusable with tab', async () => {
-        // TODO: add test here
+      /**
+       * ACCESSIBILITY
+       */
+      await test.step('accessibility', async () => {
+        await steps.automaticA11yCheckStep(componentsPage);
       });
 
-      // add additional tests here, like tabbing through several parts of the component
-    });
+      /**
+       * VISUAL REGRESSION
+       */
+      await test.step('visual-regression', async () => {
+        await test.step('matches screenshot of element', async () => {
+          await componentsPage.visualRegression.takeScreenshot(`mdc-text-${textType}`, { element: text });
+        });
+      });
 
-    await test.step('keyboard', async () => {
-      await test.step('component should fire callback x when pressing y', async () => {
-        // TODO: add test here
+      /**
+       * ATTRIBUTES
+       */
+      await test.step('attributes', async () => {
+        if (isHeading(textType)) {
+          await test.step('attribute role=heading should be present on component if type is heading', async () => {
+            expect(await text.getAttribute('role')).toBe('heading');
+          });
+
+          await test.step('attribute aria-level should be present on component if type is heading', async () => {
+            const expectedLevel = getAriaLevel(textType);
+            expect(await text.getAttribute('aria-level')).toBe(expectedLevel);
+          });
+        }
       });
     });
-  });
+  }
 });

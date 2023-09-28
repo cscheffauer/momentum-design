@@ -1,5 +1,5 @@
-import { css } from "lit";
-import { fontsStyles } from "./fonts.styles";
+import { css } from 'lit';
+import { fontsStyles } from './fonts.styles';
 
 const styles = [
   css`

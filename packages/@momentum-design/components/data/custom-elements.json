@@ -115,147 +115,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/badge/badge.component.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "Badge",
-          "slots": [
-            {
-              "description": "This is a default/unnamed slot",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "BadgeType | undefined"
-              },
-              "description": "Type of the badge\nCan be `regular`, `icon`, `text` or `warning`\n\nDefault: `regular`",
-              "attribute": "type",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "scale",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "Scale of the badge (works in combination with length unit)\n\nDefault: `1`",
-              "attribute": "scale"
-            },
-            {
-              "kind": "field",
-              "name": "lengthUnit",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Length unit attribute for scale\n\nDefault: `rem`",
-              "attribute": "length-unit"
-            },
-            {
-              "kind": "field",
-              "name": "iconName",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "If `type` is set to `icon`, attribute `iconName` can\nbe used to choose which icon should be shown\n\nIf no `iconName` is provided, no icon will be rendered.",
-              "attribute": "icon-name"
-            },
-            {
-              "kind": "field",
-              "name": "text",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "If `type` is set to `text`, attribute `text` can\nbe used to pass in any text to be displayed in the badge.",
-              "attribute": "text"
-            },
-            {
-              "kind": "method",
-              "name": "updateSize",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "iconTemplate"
-            },
-            {
-              "kind": "method",
-              "name": "textTemplate"
-            },
-            {
-              "kind": "method",
-              "name": "warningTemplate"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "type",
-              "type": {
-                "text": "BadgeType | undefined"
-              },
-              "description": "Type of the badge\nCan be `regular`, `icon`, `text` or `warning`\n\nDefault: `regular`",
-              "fieldName": "type"
-            },
-            {
-              "name": "scale",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "Scale of the badge (works in combination with length unit)\n\nDefault: `1`",
-              "fieldName": "scale"
-            },
-            {
-              "name": "length-unit",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "Length unit attribute for scale\n\nDefault: `rem`",
-              "fieldName": "lengthUnit"
-            },
-            {
-              "name": "icon-name",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "If `type` is set to `icon`, attribute `iconName` can\nbe used to choose which icon should be shown\n\nIf no `iconName` is provided, no icon will be rendered.",
-              "fieldName": "iconName"
-            },
-            {
-              "name": "text",
-              "type": {
-                "text": "string | undefined"
-              },
-              "description": "If `type` is set to `text`, attribute `text` can\nbe used to pass in any text to be displayed in the badge.",
-              "fieldName": "text"
-            }
-          ],
-          "superclass": {
-            "name": "Component",
-            "module": "/src/models"
-          },
-          "tagName": "mdc-badge",
-          "summary": "This is MyElement",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "Badge",
-            "module": "src/components/badge/badge.component.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/icon/icon.component.ts",
       "declarations": [
         {
@@ -420,6 +279,147 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/badge/badge.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Badge",
+          "slots": [
+            {
+              "description": "This is a default/unnamed slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "BadgeType | undefined"
+              },
+              "description": "Type of the badge\nCan be `regular`, `icon`, `text` or `warning`\n\nDefault: `regular`",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "scale",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "Scale of the badge (works in combination with length unit)\n\nDefault: `1`",
+              "attribute": "scale"
+            },
+            {
+              "kind": "field",
+              "name": "lengthUnit",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Length unit attribute for scale\n\nDefault: `rem`",
+              "attribute": "length-unit"
+            },
+            {
+              "kind": "field",
+              "name": "iconName",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "If `type` is set to `icon`, attribute `iconName` can\nbe used to choose which icon should be shown\n\nIf no `iconName` is provided, no icon will be rendered.",
+              "attribute": "icon-name"
+            },
+            {
+              "kind": "field",
+              "name": "text",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "If `type` is set to `text`, attribute `text` can\nbe used to pass in any text to be displayed in the badge.",
+              "attribute": "text"
+            },
+            {
+              "kind": "method",
+              "name": "updateSize",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "iconTemplate"
+            },
+            {
+              "kind": "method",
+              "name": "textTemplate"
+            },
+            {
+              "kind": "method",
+              "name": "warningTemplate"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "type",
+              "type": {
+                "text": "BadgeType | undefined"
+              },
+              "description": "Type of the badge\nCan be `regular`, `icon`, `text` or `warning`\n\nDefault: `regular`",
+              "fieldName": "type"
+            },
+            {
+              "name": "scale",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "Scale of the badge (works in combination with length unit)\n\nDefault: `1`",
+              "fieldName": "scale"
+            },
+            {
+              "name": "length-unit",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "Length unit attribute for scale\n\nDefault: `rem`",
+              "fieldName": "lengthUnit"
+            },
+            {
+              "name": "icon-name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "If `type` is set to `icon`, attribute `iconName` can\nbe used to choose which icon should be shown\n\nIf no `iconName` is provided, no icon will be rendered.",
+              "fieldName": "iconName"
+            },
+            {
+              "name": "text",
+              "type": {
+                "text": "string | undefined"
+              },
+              "description": "If `type` is set to `text`, attribute `text` can\nbe used to pass in any text to be displayed in the badge.",
+              "fieldName": "text"
+            }
+          ],
+          "superclass": {
+            "name": "Component",
+            "module": "/src/models"
+          },
+          "tagName": "mdc-badge",
+          "summary": "This is MyElement",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Badge",
+            "module": "src/components/badge/badge.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/iconprovider/iconprovider.component.ts",
       "declarations": [
         {
@@ -530,7 +530,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "Text component, which helps creating a text element aligning with\nstyling.\n\nThe `type` attribute allows changing the type of text, like `heading-1`, etc.\n\nFor accessibility the `role` and `aria-level` on the component are going to be set\nautomatically based on the type e.g. heading-1 will lead to `role=\"heading\"` and `aria-level=1`.",
           "name": "Text",
           "members": [
             {
@@ -540,6 +540,7 @@
                 "text": "FontType | undefined"
               },
               "privacy": "public",
+              "description": "Text Type - defines how the text should be rendered\n\nPossible values: `heading-1` | `heading-2` | `heading-3` | `heading-4`\n| `heading-5` | `heading-6` | `heading-7` | `body-large` | `body-regular`\n| `body-small` | `image-title` | `label`;",
               "attribute": "type",
               "reflects": true
             },
@@ -560,13 +561,16 @@
               "type": {
                 "text": "FontType | undefined"
               },
+              "description": "Text Type - defines how the text should be rendered\n\nPossible values: `heading-1` | `heading-2` | `heading-3` | `heading-4`\n| `heading-5` | `heading-6` | `heading-7` | `body-large` | `body-regular`\n| `body-small` | `image-title` | `label`;",
               "fieldName": "type"
             }
           ],
           "superclass": {
             "name": "Component",
             "module": "/src/models"
-          }
+          },
+          "tagName": "mdc-text",
+          "customElement": true
         }
       ],
       "exports": [

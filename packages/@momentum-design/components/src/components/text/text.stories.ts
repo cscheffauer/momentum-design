@@ -1,5 +1,6 @@
 import type { Meta, StoryObj, Args } from '@storybook/web-components';
 import '.';
+import { VALUES } from './text.constants';
 import fixtures from './text.fixtures';
 
 const render = (args: Args) => fixtures.base(args);
@@ -11,20 +12,7 @@ const meta: Meta = {
   argTypes: {
     type: {
       control: 'radio',
-      options: [
-        'heading-1',
-        'heading-2',
-        'heading-3',
-        'heading-4',
-        'heading-5',
-        'heading-6',
-        'heading-7',
-        'body-large',
-        'body-regular',
-        'body-small',
-        'image-title',
-        'label',
-      ],
+      options: VALUES.TYPE,
     },
   },
 };

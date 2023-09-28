@@ -30,6 +30,11 @@ const preview = {
         date: /Date$/,
       },
     },
+    options: {
+      storySort: {
+        order: ['System', 'Components'],
+      },
+    },
   },
   decorators: [withThemeProvider, withIconProvider],
   globalTypes: {

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Momentum";
+    src: url("/dist/fonts/Inter.var.woff2") format("woff2");
+}
+
 body {
     position: fixed;
     height: 100%;
@@ -10,7 +15,6 @@ body {
     height: 100%;
     width: 100%;
     background: var(--mds-color-theme-background-solid-primary-normal);
-    color: var(--mds-color-theme-text-primary-normal);
 }
 
 .themeWrapper {

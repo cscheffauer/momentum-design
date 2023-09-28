@@ -1,4 +1,4 @@
-import { css } from "lit";
+import { css } from 'lit';
 
 // todo: change definition to tokens once available
 
