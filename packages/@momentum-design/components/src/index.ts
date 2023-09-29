@@ -9,6 +9,7 @@ import IconProvider from './components/iconprovider';
 import Avatar from './components/avatar';
 import Badge from './components/badge';
 import Text from './components/text';
+import MdcChip from './components/chip';
 
 export {
   Component,
@@ -19,4 +20,5 @@ export {
   Avatar,
   Badge,
   Text,
+  MdcChip,
 };
