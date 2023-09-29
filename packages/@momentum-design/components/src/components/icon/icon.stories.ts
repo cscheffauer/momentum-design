@@ -28,5 +28,6 @@ export const Accessibility: StoryObj = {
     scale: 1,
     role: 'graphics-document',
     'aria-label': 'This is the accessibility icon',
+    'aria-hidden': 'false',
   },
 };

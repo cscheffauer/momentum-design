@@ -3284,6 +3284,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@material/web@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@material/web@npm:1.0.0"
+  dependencies:
+    lit: ^2.7.4 || ^3.0.0
+    tslib: ^2.4.0
+  checksum: 0c6772ab2b2c144bba62f323a6d657d44ea3b2c9a2b8e745e0e5d17081983724e8e72857a58a930df28073ec931ed04a4f2364bdcbdf72ce5c85a03abc0578f3
+  languageName: node
+  linkType: hard
+
 "@mdx-js/mdx@npm:^2.0.0, @mdx-js/mdx@npm:^2.1.2":
   version: 2.1.5
   resolution: "@mdx-js/mdx@npm:2.1.5"
@@ -3506,6 +3516,7 @@ __metadata:
     "@axe-core/playwright": ^4.7.3
     "@custom-elements-manifest/analyzer": ^0.8.1
     "@lit-labs/context": ^0.3.3
+    "@material/web": ^1.0.0
     "@momentum-design/icons": "workspace:^"
     "@momentum-design/tokens": "workspace:^"
     "@playwright/test": ^1.35.1
@@ -12796,6 +12807,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lit-html@npm:^2.8.0":
+  version: 2.8.0
+  resolution: "lit-html@npm:2.8.0"
+  dependencies:
+    "@types/trusted-types": ^2.0.2
+  checksum: 2d70df07248bcb2f502a3afb1e91d260735024fa669669ffb1417575aa39c3092779725ac1b90f5f39e4ce78c63f431f51176bc67f532389f0285a6991573255
+  languageName: node
+  linkType: hard
+
 "lit@npm:^2.7.0, lit@npm:^2.7.5":
   version: 2.7.5
   resolution: "lit@npm:2.7.5"
@@ -12804,6 +12824,17 @@ __metadata:
     lit-element: ^3.3.0
     lit-html: ^2.7.0
   checksum: 61a3f87c57136618f47a30b36cdfb592fcba42dcfbdb104d2b5ca291148c2d9a32fcb713bb91090bd08d6897a00e73f8425da6e3626aa080eaf410a32397ae69
+  languageName: node
+  linkType: hard
+
+"lit@npm:^2.7.4 || ^3.0.0":
+  version: 2.8.0
+  resolution: "lit@npm:2.8.0"
+  dependencies:
+    "@lit/reactive-element": ^1.6.0
+    lit-element: ^3.3.0
+    lit-html: ^2.8.0
+  checksum: 2480e733f7d022d3ecba91abc58a20968f0ca8f5fa30b3341ecf4bcf4845e674ad27b721a5ae53529cafc6ca603c015b80d0979ceb7a711e268ef20bb6bc7527
   languageName: node
   linkType: hard
 

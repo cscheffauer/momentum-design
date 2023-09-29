@@ -7,7 +7,13 @@ interface Args {
 const base = (args: Args) => html` <mdc-icon name="${args.name}" scale="${args.scale}"></mdc-icon> `;
 
 const accessibility = (args: Args) => html`
-  <mdc-icon name="${args.name}" scale="${args.scale}" role="${args.role}" aria-label="${args['aria-label']}"></mdc-icon>
+  <mdc-icon
+    name="${args.name}"
+    scale="${args.scale}"
+    role="${args.role}"
+    aria-label="${args['aria-label']}"
+    aria-hidden="${args['aria-hidden']}"
+  ></mdc-icon>
 `;
 
 const fixtures = {

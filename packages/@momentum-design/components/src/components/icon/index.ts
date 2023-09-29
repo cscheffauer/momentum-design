@@ -1,7 +1,8 @@
 import Icon from './icon.component';
 import { TAG_NAME } from './icon.constants';
+import { register } from '../../utils/register';
 
-Icon.register(TAG_NAME);
+register(TAG_NAME, Icon);
 
 declare global {
     interface HTMLElementTagNameMap {

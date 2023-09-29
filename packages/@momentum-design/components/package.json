@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@lit-labs/context": "^0.3.3",
+    "@material/web": "^1.0.0",
     "@momentum-design/icons": "workspace:^",
     "@momentum-design/tokens": "workspace:^",
     "lit": "^2.7.5"

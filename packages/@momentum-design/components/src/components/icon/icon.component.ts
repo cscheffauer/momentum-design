@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { property, state } from 'lit/decorators.js';
+import { Icon as MaterialIcon } from '@material/web/icon/internal/icon';
 import styles from './icon.styles';
-import { Component } from '../../models';
 import providerUtils from '../../utils/provider';
 import IconProvider from '../iconprovider/iconprovider.component';
 import { dynamicSVGImport } from './icon.utils';
@@ -25,11 +25,12 @@ import { DEFAULTS } from './icon.constants';
  * `width: 1em; height: 1em`.
  *
  * For accessibility the `role` and `aria-label` of the icon can be set.
+ * Set `aria-hidden="false"` to create an icon that is announced by screenreaders.
  *
  * @tag mdc-icon
  * @tagname mdc-icon
  */
-class Icon extends Component {
+class Icon extends MaterialIcon {
   @state()
   private iconData?: HTMLElement;
 
@@ -65,6 +66,16 @@ class Icon extends Component {
    */
   @property({ type: String, attribute: 'aria-label' })
   override ariaLabel: string | null = null;
+
+  /**
+   * Allow the user to set `aria-hidden="false"` to create an icon that is
+   * announced by screenreaders.
+   *
+   * Default: true (to hide from VoiceOver, which will create a "group" if the element is a
+   * sibling to other content.)
+   */
+  @property({ type: String, attribute: 'aria-hidden' })
+  override ariaHidden: string | null = null;
 
   private iconProviderContext = providerUtils.consume({ host: this, context: IconProvider.Context });
 

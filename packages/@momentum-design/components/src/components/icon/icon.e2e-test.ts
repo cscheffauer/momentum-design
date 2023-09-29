@@ -8,6 +8,7 @@ type SetupOptions = {
   scale?: number;
   role?: string;
   ariaLabel?: string;
+  ariaHidden?: boolean;
 };
 const setup = async (args: SetupOptions) => {
   const { componentsPage, ...restArgs } = args;
@@ -18,13 +19,16 @@ const setup = async (args: SetupOptions) => {
       ${restArgs.scale ? `scale="${restArgs.scale}"` : ''}
       ${restArgs.role ? `role="${restArgs.role}"` : ''}
       ${restArgs.ariaLabel ? `aria-label="${restArgs.ariaLabel}"` : ''}
+      ${restArgs.ariaHidden !== undefined ? `aria-hidden="${restArgs.ariaHidden}"` : ''}
     >
     </mdc-icon>
       `,
     clearDocument: true,
   });
   const icon = componentsPage.page.locator('mdc-icon');
+  const iconSvg = componentsPage.page.locator('mdc-icon svg');
   await icon.waitFor();
+  await iconSvg.waitFor();
   return icon;
 };
 
@@ -44,6 +48,7 @@ test('mdc-icon', async ({ componentsPage }) => {
     name,
     role: 'graphics-document',
     ariaLabel: 'test aria label',
+    ariaHidden: false,
   });
 
   await test.step('accessibility with role / aria-label passed in', async () => {
@@ -76,6 +81,7 @@ test('mdc-icon', async ({ componentsPage }) => {
       const icon = await setup({ componentsPage, name });
       await expect(icon).toHaveAttribute('name', name);
       await expect(icon).toHaveAttribute('style', 'width: 1em; height: 1em;');
+      await expect(icon).toHaveAttribute('aria-hidden', 'true');
     });
 
     await test.step('attributes should be present on component with scale passed in', async () => {
@@ -91,9 +97,11 @@ test('mdc-icon', async ({ componentsPage }) => {
         name,
         role: 'graphics-document',
         ariaLabel: 'test aria label',
+        ariaHidden: false,
       });
       await expect(iconWithRole).toHaveAttribute('name', name);
       await expect(iconWithRole).toHaveAttribute('style', 'width: 1em; height: 1em;');
+      await expect(iconWithRole).not.toHaveAttribute('aria-hidden', 'true');
     });
   });
 });
