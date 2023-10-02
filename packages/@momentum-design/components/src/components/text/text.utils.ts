@@ -1,22 +1,4 @@
-import { FontType } from './text.types';
-
-/**
- * Split the passed in type and return the parts
- */
-const getTypeParts = (type: FontType) => {
-  const parts = type.split('-');
-  return { firstPart: parts[0], secondPart: parts[1] };
-};
-
-/**
- * Check if passed in type is a heading
- * @param type - type to check
- * @returns boolean, true if it is a heading
- */
-const isHeading = (type: FontType) => {
-  const { firstPart, secondPart } = getTypeParts(type);
-  return firstPart === 'heading' && +secondPart > 0 && +secondPart < 7;
-};
+import { FontSize, FontType } from './text.types';
 
 /**
  * Get corresponding aria-role to type
@@ -25,27 +7,43 @@ const isHeading = (type: FontType) => {
  */
 const getRole = (type?: FontType) => {
   if (type) {
-    if (isHeading(type)) {
+    if (['headline', 'heading'].includes(type)) {
+      // if type is headline or heading, role is set as heading
       return 'heading';
     }
+    // otherwise paragraph
     return 'paragraph';
   }
   return null;
 };
 
 /**
- * Get corresponding aria-level to type
- * @param type type to find corresponding level for
- * @returns aria-level (has to be a number)
+ * Get corresponding aria-level to type & size
+ * @param type - type to find corresponding level for
+ * @param size - type to find corresponding level for
+ * @returns aria-level as string
  */
-const getAriaLevel = (type?: FontType) => {
+const getAriaLevel = (type?: FontType, size?: FontSize) => {
   if (type) {
-    if (isHeading(type)) {
-      const { secondPart } = getTypeParts(type);
-      return secondPart;
+    if (type === 'headline') {
+      return '1';
+    }
+    if (type === 'heading') {
+      switch (size) {
+        case 'xlarge':
+          return '2';
+        case 'large':
+          return '3';
+        case 'midsize':
+          return '4';
+        case 'small':
+          return '5';
+        default:
+          return null;
+      }
     }
   }
   return null;
 };
 
-export { isHeading, getAriaLevel, getRole };
+export { getAriaLevel, getRole };

@@ -1,13 +1,11 @@
-export type FontType =
-  | 'heading-1'
-  | 'heading-2'
-  | 'heading-3'
-  | 'heading-4'
-  | 'heading-5'
-  | 'heading-6'
-  | 'heading-7'
-  | 'body-large'
-  | 'body-regular'
-  | 'body-small'
-  | 'image-title'
-  | 'label';
+export type FontType = 'body' | 'heading' | 'headline';
+export type FontSize = 'small' | 'midsize' | 'large' | 'xlarge';
+export type FontWeight = 'light' | 'regular' | 'medium' | 'bold';
+export type FontDecoration = 'underline';
+
+export type FontObject = {
+    type: FontType,
+    size: FontSize,
+    weight: FontWeight,
+    decoration?: FontDecoration
+}

@@ -1,6 +1,7 @@
 import { LitElement } from 'lit';
 
 // NOTE: methodology can't be used when extending from Material
+// keeping it in library for the time being in case moving back from Material to standalone dev
 
 /**
  * Core Component class to ultimately be inherited by all Web Components within

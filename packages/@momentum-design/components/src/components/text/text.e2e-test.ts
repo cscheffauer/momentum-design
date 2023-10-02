@@ -3,12 +3,16 @@ import { expect } from '@playwright/test';
 import { ComponentsPage, test } from '../../../config/playwright/setup';
 import steps from '../../../config/playwright/setup/steps/accessibility';
 import { VALUES } from './text.constants';
-import { FontType } from './text.types';
-import { getAriaLevel, isHeading } from './text.utils';
+import { joinAndFilter } from './text.stories.utils';
+import { FontDecoration, FontSize, FontType, FontWeight } from './text.types';
+import { getAriaLevel } from './text.utils';
 
 type SetupOptions = {
   componentsPage: ComponentsPage;
   type: FontType;
+  size: FontSize;
+  weight: FontWeight;
+  decoration?: FontDecoration;
   children: any;
 };
 
@@ -16,7 +20,14 @@ const setup = async (args: SetupOptions) => {
   const { componentsPage, ...restArgs } = args;
   await componentsPage.mount({
     html: `
-    <mdc-text type="${restArgs.type}">${restArgs.children}</mdc-text>
+    <mdc-text 
+      type="${restArgs.type}" 
+      size="${restArgs.size}" 
+      weight="${restArgs.weight}" 
+      ${restArgs.decoration ? `decoration="${restArgs.decoration}"` : ''}
+    >
+      ${restArgs.children}
+    </mdc-text>
       `,
     clearDocument: true,
   });
@@ -25,19 +36,13 @@ const setup = async (args: SetupOptions) => {
   return text;
 };
 
-const typesToTest: Array<FontType> = VALUES.TYPE;
-
 test.describe('mdc-text', () => {
-  test.use({
-    viewport: {
-      width: 3000,
-      height: 500,
-    },
-  });
-  for (const textType of typesToTest) {
-    test(textType, async ({ componentsPage }) => {
+  for (const textObject of VALUES) {
+    const uniqueName = joinAndFilter(textObject);
+
+    test(uniqueName, async ({ componentsPage }) => {
       const textContent = 'abcdefghijklmnopqrstuvwxyz1234567890';
-      const text = await setup({ componentsPage, type: textType, children: textContent });
+      const text = await setup({ componentsPage, ...textObject, children: textContent });
 
       /**
        * ACCESSIBILITY
@@ -51,7 +56,7 @@ test.describe('mdc-text', () => {
        */
       await test.step('visual-regression', async () => {
         await test.step('matches screenshot of element', async () => {
-          await componentsPage.visualRegression.takeScreenshot(`mdc-text-${textType}`, { element: text });
+          await componentsPage.visualRegression.takeScreenshot(`mdc-text-${uniqueName}`, { element: text });
         });
       });
 
@@ -59,14 +64,19 @@ test.describe('mdc-text', () => {
        * ATTRIBUTES
        */
       await test.step('attributes', async () => {
-        if (isHeading(textType)) {
-          await test.step('attribute role=heading should be present on component if type is heading', async () => {
+        if (['headline', 'heading'].includes(textObject.type)) {
+          await test.step('attribute role=heading should be present if type is heading or headline', async () => {
             expect(await text.getAttribute('role')).toBe('heading');
           });
 
-          await test.step('attribute aria-level should be present on component if type is heading', async () => {
-            const expectedLevel = getAriaLevel(textType);
+          await test.step('attribute aria-level should be present if type is heading or headline', async () => {
+            const expectedLevel = getAriaLevel(textObject.type, textObject.size);
             expect(await text.getAttribute('aria-level')).toBe(expectedLevel);
+          });
+        } else {
+          await test.step('attribute role=paragraph should be present if type is not heading or headline', async () => {
+            expect(await text.getAttribute('role')).toBe('paragraph');
+            expect(await text.getAttribute('aria-level')).toBe(null);
           });
         }
       });

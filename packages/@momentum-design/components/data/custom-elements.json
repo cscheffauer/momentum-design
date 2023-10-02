@@ -4,6 +4,117 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "src/components/avatar/avatar.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "Avatar",
+          "slots": [
+            {
+              "description": "This is a default/unnamed slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "AvatarType | undefined"
+              },
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "alt",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "alt"
+            },
+            {
+              "kind": "field",
+              "name": "src",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "src"
+            },
+            {
+              "kind": "field",
+              "name": "scale",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "Scale of the avatar",
+              "attribute": "scale"
+            },
+            {
+              "kind": "method",
+              "name": "updateSize",
+              "privacy": "private",
+              "description": "Updates the size by setting the width and height"
+            },
+            {
+              "kind": "method",
+              "name": "photoTemplate"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "type",
+              "type": {
+                "text": "AvatarType | undefined"
+              },
+              "fieldName": "type"
+            },
+            {
+              "name": "alt",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "alt"
+            },
+            {
+              "name": "src",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "src"
+            },
+            {
+              "name": "scale",
+              "type": {
+                "text": "number | undefined"
+              },
+              "description": "Scale of the avatar",
+              "fieldName": "scale"
+            }
+          ],
+          "superclass": {
+            "name": "Component",
+            "module": "/src/models"
+          },
+          "tagName": "mdc-avatar",
+          "summary": "This is MyElement",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "Avatar",
+            "module": "src/components/avatar/avatar.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/badge/badge.component.ts",
       "declarations": [
         {
@@ -145,12 +256,12 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/avatar/avatar.component.ts",
+      "path": "src/components/chip/chip.component.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
-          "name": "Avatar",
+          "name": "Chip",
           "slots": [
             {
               "description": "This is a default/unnamed slot",
@@ -160,85 +271,91 @@
           "members": [
             {
               "kind": "field",
-              "name": "type",
+              "name": "elevated",
               "type": {
-                "text": "AvatarType | undefined"
+                "text": "boolean"
               },
-              "attribute": "type",
-              "reflects": true
+              "default": "false",
+              "attribute": "elevated"
             },
             {
               "kind": "field",
-              "name": "alt",
+              "name": "href",
               "type": {
-                "text": "string | undefined"
+                "text": "string"
               },
-              "attribute": "alt"
+              "default": "''",
+              "attribute": "href"
             },
             {
               "kind": "field",
-              "name": "src",
+              "name": "target",
               "type": {
-                "text": "string | undefined"
+                "text": "'_blank' | '_parent' | '_self' | '_top' | ''"
               },
-              "attribute": "src"
+              "default": "''",
+              "attribute": "target"
             },
             {
               "kind": "field",
-              "name": "scale",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "Scale of the avatar",
-              "attribute": "scale"
+              "name": "primaryId",
+              "readonly": true
             },
             {
               "kind": "method",
-              "name": "updateSize",
-              "privacy": "private",
-              "description": "Updates the size by setting the width and height"
+              "name": "renderPrimaryAction",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "content",
+                  "type": {
+                    "text": "unknown"
+                  }
+                }
+              ]
             },
             {
               "kind": "method",
-              "name": "photoTemplate"
+              "name": "renderSomething",
+              "privacy": "protected"
+            },
+            {
+              "kind": "method",
+              "name": "renderContainerContent",
+              "privacy": "protected"
             }
           ],
           "attributes": [
             {
-              "name": "type",
+              "name": "elevated",
               "type": {
-                "text": "AvatarType | undefined"
+                "text": "boolean"
               },
-              "fieldName": "type"
+              "default": "false",
+              "fieldName": "elevated"
             },
             {
-              "name": "alt",
+              "name": "href",
               "type": {
-                "text": "string | undefined"
+                "text": "string"
               },
-              "fieldName": "alt"
+              "default": "''",
+              "fieldName": "href"
             },
             {
-              "name": "src",
+              "name": "target",
               "type": {
-                "text": "string | undefined"
+                "text": "'_blank' | '_parent' | '_self' | '_top' | ''"
               },
-              "fieldName": "src"
-            },
-            {
-              "name": "scale",
-              "type": {
-                "text": "number | undefined"
-              },
-              "description": "Scale of the avatar",
-              "fieldName": "scale"
+              "default": "''",
+              "fieldName": "target"
             }
           ],
           "superclass": {
-            "name": "Component",
-            "module": "/src/models"
+            "name": "MaterialChip",
+            "package": "@material/web/chips/internal/chip"
           },
-          "tagName": "mdc-avatar",
+          "tagName": "mdc-chip",
           "summary": "This is MyElement",
           "customElement": true
         }
@@ -248,8 +365,8 @@
           "kind": "js",
           "name": "default",
           "declaration": {
-            "name": "Avatar",
-            "module": "src/components/avatar/avatar.component.ts"
+            "name": "Chip",
+            "module": "src/components/chip/chip.component.ts"
           }
         }
       ]
@@ -549,7 +666,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Text component, which helps creating a text element aligning with\nstyling.\n\nThe `type` attribute allows changing the type of text, like `heading-1`, etc.\n\nFor accessibility the `role` and `aria-level` on the component are going to be set\nautomatically based on the type e.g. heading-1 will lead to `role=\"heading\"` and `aria-level=1`.",
+          "description": "Text component, which helps creating a text element aligning with\nstyling.\n\nThe attributes `type`, `size`, `weight` & `decoration` allow changing visual parameters\nof the text, which correspond to `fontFamily`, `fontSize`, `lineHeight` and more css values.\n\nFor accessibility the `role` and `aria-level` on the component are going to be set\nautomatically based on the type e.g. headlines will lead to `role=\"heading\"` and `aria-level=1`.",
           "name": "Text",
           "members": [
             {
@@ -559,13 +676,46 @@
                 "text": "FontType | undefined"
               },
               "privacy": "public",
-              "description": "Text Type - defines how the text should be rendered\n\nPossible values: `heading-1` | `heading-2` | `heading-3` | `heading-4`\n| `heading-5` | `heading-6` | `heading-7` | `body-large` | `body-regular`\n| `body-small` | `image-title` | `label`;",
+              "description": "Font Type - defines what type of text should be rendered\n\nPossible values: `body` | `heading` | `headline`;\n\nDefault: `body`",
               "attribute": "type",
               "reflects": true
             },
             {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "FontSize | undefined"
+              },
+              "privacy": "public",
+              "description": "Font Size - defines what size the text should be rendered in\n\nPossible values: `small` | `midsize` | `large`;\n\nDefault: `small`",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "weight",
+              "type": {
+                "text": "FontWeight | undefined"
+              },
+              "privacy": "public",
+              "description": "Font Weight - defines what weight the text should be rendered with\n\nPossible values: `light` | `regular` | `medium` | `bold`;\n\nDefault: `small`",
+              "attribute": "weight",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "decoration",
+              "type": {
+                "text": "FontDecoration | undefined"
+              },
+              "privacy": "public",
+              "description": "Font Decoration - defines if the text should have decoration like\nunderline for example\n\nPossible values: `underline` | undefined;\n\nDefault: undefined",
+              "attribute": "decoration",
+              "reflects": true
+            },
+            {
               "kind": "method",
-              "name": "handleTypeChanged",
+              "name": "handleTypeOrSizeChanged",
               "privacy": "protected",
               "return": {
                 "type": {
@@ -580,8 +730,32 @@
               "type": {
                 "text": "FontType | undefined"
               },
-              "description": "Text Type - defines how the text should be rendered\n\nPossible values: `heading-1` | `heading-2` | `heading-3` | `heading-4`\n| `heading-5` | `heading-6` | `heading-7` | `body-large` | `body-regular`\n| `body-small` | `image-title` | `label`;",
+              "description": "Font Type - defines what type of text should be rendered\n\nPossible values: `body` | `heading` | `headline`;\n\nDefault: `body`",
               "fieldName": "type"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "FontSize | undefined"
+              },
+              "description": "Font Size - defines what size the text should be rendered in\n\nPossible values: `small` | `midsize` | `large`;\n\nDefault: `small`",
+              "fieldName": "size"
+            },
+            {
+              "name": "weight",
+              "type": {
+                "text": "FontWeight | undefined"
+              },
+              "description": "Font Weight - defines what weight the text should be rendered with\n\nPossible values: `light` | `regular` | `medium` | `bold`;\n\nDefault: `small`",
+              "fieldName": "weight"
+            },
+            {
+              "name": "decoration",
+              "type": {
+                "text": "FontDecoration | undefined"
+              },
+              "description": "Font Decoration - defines if the text should have decoration like\nunderline for example\n\nPossible values: `underline` | undefined;\n\nDefault: undefined",
+              "fieldName": "decoration"
             }
           ],
           "superclass": {
