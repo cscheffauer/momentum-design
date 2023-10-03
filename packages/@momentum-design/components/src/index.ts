@@ -10,6 +10,7 @@ import Avatar from './components/avatar';
 import Badge from './components/badge';
 import Text from './components/text';
 import MdcChip from './components/chip';
+import MdcFocusRing from './components/focusring';
 
 export {
   Component,
@@ -21,4 +22,5 @@ export {
   Badge,
   Text,
   MdcChip,
+  MdcFocusRing,
 };

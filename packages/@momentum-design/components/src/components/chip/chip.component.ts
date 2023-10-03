@@ -59,7 +59,7 @@ class Chip extends MaterialChip {
   protected override renderContainerContent() {
     return html`
     ${this.renderOutline()}
-    <md-focus-ring part="focus-ring"
+    <mdc-focus-ring part="focus-ring"
         for=${this.primaryId}></md-focus-ring>
     ${this.renderPrimaryAction(this.renderSomething())}
   `;

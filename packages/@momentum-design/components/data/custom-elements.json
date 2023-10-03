@@ -373,6 +373,34 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/focusring/focusring.component.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "FocusRing component, which has to be mounted inside of a interactable component, which\nhas `position: relative` defined.\n\nThe FocusRing extends the MaterialFocusRing and overrides its styles to match Momentum;",
+          "name": "FocusRing",
+          "members": [],
+          "superclass": {
+            "name": "MaterialFocusRing",
+            "package": "@material/web/focus/internal/focus-ring"
+          },
+          "tagName": "mdc-focusring",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "FocusRing",
+            "module": "src/components/focusring/focusring.component.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/icon/icon.component.ts",
       "declarations": [
         {
