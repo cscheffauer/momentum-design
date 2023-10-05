@@ -1,5 +1,5 @@
-import { test } from '../../../config/playwright/setup';
-import steps from '../../../config/playwright/setup/steps/accessibility';
+import { test } from '../../../../config/playwright/setup';
+import steps from '../../../../config/playwright/setup/steps/accessibility';
 
 test.beforeEach(async ({ componentsPage }) => {
   await componentsPage.mount({

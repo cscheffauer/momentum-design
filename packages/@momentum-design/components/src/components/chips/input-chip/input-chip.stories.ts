@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, Args } from '@storybook/web-components';
 import '.';
-import fixtures from './chip.fixtures';
+import fixtures from './input-chip.fixtures';
 
 const render = (args: Args) => fixtures.base(args);
 
