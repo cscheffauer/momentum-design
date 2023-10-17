@@ -23,3 +23,8 @@ Component.styles = [tokens, styles];
 
 export default Component;
 ```
+
+#### Global (not component related)
+
+- [ ] Docs: Add consumption markdown based on what was posted in the space
+- [ ] Tokens: Support High Contrast Theme for Windows
