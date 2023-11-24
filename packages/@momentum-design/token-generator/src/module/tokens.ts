@@ -1,6 +1,6 @@
 import { getCorrespondingColorBasedOnHue } from './index';
 import { parseGradient } from './utils';
-import type { ColorType, TokenSchema } from './types';
+import { ColorType, TokenSchema } from './types';
 
 const getGradient = (schemaEntry: Required<ColorType>, hue: number) => {
   const start = getCorrespondingColorBasedOnHue([schemaEntry.startValue], hue);
@@ -23,7 +23,7 @@ const getGradient = (schemaEntry: Required<ColorType>, hue: number) => {
 };
 
 export const getCSSVariableOverrides = (tokenSchema: TokenSchema, hue: number) => {
-  const overrides = {};
+  const overrides: Record<string, any> = {};
   tokenSchema.dynamicTokens.forEach((entry) => {
     if (entry.isGradient) {
       overrides[`--${entry.name}`] = getGradient(entry as Required<ColorType>, hue);

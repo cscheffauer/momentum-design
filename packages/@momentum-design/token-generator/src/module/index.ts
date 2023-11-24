@@ -14,8 +14,5 @@ export const getCorrespondingColorBasedOnHue = (referenceColors: Array<string>, 
   referenceColor.lch.h = hue;
   referenceColor.lch.l = averageLValue;
 
-  console.log(hue);
-  console.log(referenceColor.lch.h, referenceColor.lch.l, referenceColor.lch.c);
-
   return referenceColor.toString({ format: 'hex', collapse: false });
 };
