@@ -5,9 +5,10 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "noEmit": true,
+    "jsx": "react",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true
   },
-  "include": ["src/*.ts", "src/ui/customShapes.ts", "src/ui/defaultStyles.ts", "src/ui/eventHandlers.ts", "src/ui/index.ts"]
+  "include": ["src/*.ts", "src/ui/customShapes.ts", "src/ui/defaultStyles.ts", "src/ui/eventHandlers.ts", "src/ui/index.tsx"]
 } 
