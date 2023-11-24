@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import { ThemeProvider } from '@momentum-ui/react-collaboration';
 import { Tabs, Footer } from './components';
 import Export from './sections/export/Export';
 import Settings from './sections/settings/Settings';
@@ -25,31 +26,33 @@ function App() {
 
   useWindowMessage(setSettings, setAssetChunks, setExportStatus, setStorageStatus);
   return (
-    <div className="wrapper">
-      <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
-      <div className="content">
-        {activeTab === 'export' && settings && (
-          <Export
-            selectedAssetSettingId={selectedAssetSettingId}
-            setSelectedAssetSettingId={setSelectedAssetSettingId}
-            settings={settings}
-            assetChunks={assetChunks}
-            exportStatus={exportStatus}
-            setExportStatus={setExportStatus}
-          />
-        )}
-        {activeTab === 'tools' && <Tools />}
-        {activeTab === 'settings' && (
-          <Settings
-            settings={settings}
-            setSettings={setSettings}
-            storage={storageStatus}
-            setStorage={setStorageStatus}
-          />
-        )}
-      </div>
-      <Footer />
-    </div>
+    <ThemeProvider theme="darkWebex">
+      <div className="wrapper">
+        <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
+        <div className="content">
+          {activeTab === 'export' && settings && (
+            <Export
+              selectedAssetSettingId={selectedAssetSettingId}
+              setSelectedAssetSettingId={setSelectedAssetSettingId}
+              settings={settings}
+              assetChunks={assetChunks}
+              exportStatus={exportStatus}
+              setExportStatus={setExportStatus}
+            />
+          )}
+          {activeTab === 'tools' && <Tools />}
+          {activeTab === 'settings' && (
+            <Settings
+              settings={settings}
+              setSettings={setSettings}
+              storage={storageStatus}
+              setStorage={setStorageStatus}
+            />
+          )}
+        </div>
+        <Footer />
+      </div >
+    </ThemeProvider>
   );
 }
 

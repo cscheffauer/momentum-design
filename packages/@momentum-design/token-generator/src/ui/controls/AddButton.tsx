@@ -1,5 +1,6 @@
 import React from 'react';
 import { Graph } from '@maxgraph/core';
+import { ButtonPill } from '@momentum-ui/react-collaboration';
 import { COLOR_CIRCLE_STYLES } from '../defaultStyles';
 import type { ColorType } from '../../module/types';
 
@@ -28,7 +29,7 @@ const AddButton = (props: Props) => {
     setColorsAction(createdNode.id as string, { name: DEFAULT_NAME, value: COLOR_CIRCLE_STYLES.fillColor });
   };
 
-  return <button onClick={handleClick} className="button">Add color node</button>;
+  return <ButtonPill size={32} onPress={handleClick} className="button">Add</ButtonPill>;
 };
 
 export default AddButton;

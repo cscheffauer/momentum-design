@@ -8,12 +8,22 @@ interface UseColorPreviewProps {
 }
 
 export const useColorPreview = ({ colors, hue }: UseColorPreviewProps) => {
-  const [colorPreviews, setColorPreviews] = useState<Record<string, string>>({});
+  const [colorPreviews, setColorPreviews] = useState<Record<string, Array<string>>>({});
 
   useEffect(() => {
     Object.entries(colors).forEach(([key, value]: [string, ColorType]) => {
+      if (!value.isDynamic) { return; }
+      let newColorPreviews = [getCorrespondingColorBasedOnHue([value.value], hue)];
+
+      if (value.isGradient) {
+        newColorPreviews = [
+          getCorrespondingColorBasedOnHue([value.startValue!], hue),
+          getCorrespondingColorBasedOnHue([value.endValue!], hue),
+        ];
+      }
+
       setColorPreviews(
-        (prevColorPreviews) => ({ ...prevColorPreviews, [key]: getCorrespondingColorBasedOnHue([value.value], hue) }),
+        (prevColorPreviews) => ({ ...prevColorPreviews, [key]: newColorPreviews }),
       );
     });
   }, [colors, hue]);

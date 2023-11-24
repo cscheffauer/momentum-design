@@ -1,4 +1,5 @@
 import type { Cell, Graph } from '@maxgraph/core';
+import { ButtonGroupNext } from '@momentum-ui/react-collaboration';
 import React, { useEffect, useState } from 'react';
 import { ColorType } from '../../module/types';
 import AddButton from './AddButton';
@@ -11,13 +12,14 @@ interface Props {
   selectedColorNodes: Array<Cell>;
   setColorsAction: (nodeId: string, newValues: Partial<ColorType>) => void;
   deleteColorAction: (nodeId: Array<string>) => void;
+  setTokensAction: (tokens: Record<string, any>) => void;
 }
 
 /**
  * The ControlsSection component.
 */
 const ControlsSection = (props: Props) => {
-  const { graph, selectedNodes, selectedColorNodes, setColorsAction, deleteColorAction } = props;
+  const { graph, selectedNodes, selectedColorNodes, setColorsAction, deleteColorAction, setTokensAction } = props;
   const [connectButtonDisabled, setConnectButtonDisabled] = useState(true);
   const [deleteButtonDisabled, setDeleteButtonDisabled] = useState(true);
 
@@ -37,15 +39,50 @@ const ControlsSection = (props: Props) => {
     }
   }, [selectedNodes.length]);
 
+  const handleUploadTokens = (e: any) => {
+    const file = e.target.files[0];
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const result = event.target?.result as string;
+      const resultObject = JSON.parse(result);
+      setTokensAction(resultObject);
+    };
+    reader.onerror = (error) => {
+      console.log(error);
+    };
+    reader.readAsText(file);
+  };
+
+  const buttonGroupChildren: Array<any> = [
+    <AddButton key="0" graph={graph} setColorsAction={setColorsAction} {...ButtonGroupNext.CHILD_PROPS}/>,
+    <ConnectButton
+      key="1"
+      graph={graph}
+      selectedNodes={selectedColorNodes}
+      disabled={connectButtonDisabled}
+      {...ButtonGroupNext.CHILD_PROPS}/>,
+    <DeleteButton
+      key="2"
+      graph={graph}
+      selectedNodes={selectedNodes}
+      disabled={deleteButtonDisabled}
+      deleteColorAction={deleteColorAction}
+      {...ButtonGroupNext.CHILD_PROPS}
+    />,
+  ];
+
   return (
     <section className="controls-section">
-      <AddButton graph={graph} setColorsAction={setColorsAction} />
-      <ConnectButton graph={graph} selectedNodes={selectedColorNodes} disabled={connectButtonDisabled} />
-      <DeleteButton
-        graph={graph}
-        selectedNodes={selectedNodes}
-        disabled={deleteButtonDisabled}
-        deleteColorAction={deleteColorAction} />
+      <ButtonGroupNext children={buttonGroupChildren} />
+      <div className="upload-tokens-area">
+        <p>Tokens:</p>
+        <input
+          className="upload-tokens-input"
+          placeholder="Upload tokens"
+          type="file"
+          onChange={handleUploadTokens} />
+      </div>
     </section>
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Cell, Graph } from '@maxgraph/core';
+import { ButtonPill } from '@momentum-ui/react-collaboration';
 
 interface Props {
     graph: Graph;
@@ -19,13 +20,14 @@ const DeleteButton = (props: Props) => {
   };
 
   return (
-    <button
-      onClick={handleClick}
+    <ButtonPill
+      color="cancel"
+      size={32}
+      onPress={handleClick}
       disabled={disabled}
-      className="delete-button button button-cancel"
     >
         Delete
-    </button>
+    </ButtonPill>
   );
 };
 

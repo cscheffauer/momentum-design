@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Cell, Graph } from '@maxgraph/core';
+import { ButtonPill } from '@momentum-ui/react-collaboration';
 import { EDGE_STYLES } from '../defaultStyles';
 
 interface Props {
@@ -25,7 +26,7 @@ const ConnectButton = (props: Props) => {
     });
   };
 
-  return <button onClick={handleClick} disabled={disabled} className="button">Connect nodes</button>;
+  return <ButtonPill size={32} onPress={handleClick} disabled={disabled}>Connect</ButtonPill>;
 };
 
 export default ConnectButton;

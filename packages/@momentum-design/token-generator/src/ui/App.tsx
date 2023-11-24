@@ -10,12 +10,14 @@ import GraphContainer from './GraphContainer';
 import ControlsSection from './controls/ControlsSection';
 import DetailsSection from './details/DetailsSection';
 import HeaderSection from './header/HeaderSection';
+import ExportSection from './footer/ExportSection';
 
 import { useSelection } from './useSelection.hook';
 import { useDetailsSection } from './useDetailsSection.hook';
 import { useColorPreview } from './useColorPreview.hook';
 import { useColorState } from './useColorState.hook';
 import { useGraph } from './useGraph.hook';
+import { useTokens } from './useTokens.hook';
 
 const App = () => {
   const [hue, setHue] = React.useState<number>(0);
@@ -25,6 +27,7 @@ const App = () => {
 
   const { colors, setColorsAction, deleteColorAction } = useColorState(graph);
   const { colorPreviews } = useColorPreview({ colors, hue });
+  const { setTokens, getColorValueOfToken } = useTokens();
 
   const handleHueChange = (newHue: number) => {
     setHue(newHue);
@@ -33,6 +36,16 @@ const App = () => {
   return (
     <div className="background-wrapper">
       <HeaderSection hue={hue} setHue={handleHueChange} />
+      {graph && (
+        <ControlsSection
+          graph={graph}
+          selectedNodes={selectedNodes}
+          selectedColorNodes={selectedColorNodes}
+          setColorsAction={setColorsAction}
+          deleteColorAction={deleteColorAction}
+          setTokensAction={setTokens}
+        />
+      )}
       <div className="content">
         <div className="main-area">
           <GraphContainer initializeGraph={initializeGraph} />
@@ -42,19 +55,14 @@ const App = () => {
             nodeId={firstSelectedNodeId}
             color={colors[firstSelectedNodeId]}
             setColorsAction={setColorsAction}
-            previewColor={colorPreviews[firstSelectedNodeId]} />
+            previewColors={colorPreviews[firstSelectedNodeId]}
+            getColorValueOfToken={getColorValueOfToken}
+          />
+
         )
         }
       </div>
-      {graph && (
-        <ControlsSection
-          graph={graph}
-          selectedNodes={selectedNodes}
-          selectedColorNodes={selectedColorNodes}
-          setColorsAction={setColorsAction}
-          deleteColorAction={deleteColorAction}
-        />
-      )}
+      <ExportSection colors={colors}/>
     </div>
 
   );
