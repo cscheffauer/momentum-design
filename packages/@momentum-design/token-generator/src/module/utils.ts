@@ -5,3 +5,12 @@ export const getAverageLValue = (referenceColors: Array<string>) => {
   const averageLValue = colorArray.reduce((acc, color) => acc + color.lch.l, 0) / colorArray.length;
   return averageLValue;
 };
+
+export const parseGradient = (gradient: string) => {
+  const foundColors = gradient.split('#');
+
+  return {
+    start: `#${foundColors[1].split(' ')[0]}`,
+    end: `#${foundColors[2].split(' ')[0]}`,
+  };
+};

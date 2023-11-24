@@ -5,4 +5,9 @@ export type ColorType = {
     isGradient?: boolean;
     startValue?: string;
     endValue?: string;
+    originalGradientValue?: string;
 };
+
+export type TokenSchema = {
+    dynamicTokens: Array<ColorType>;
+}

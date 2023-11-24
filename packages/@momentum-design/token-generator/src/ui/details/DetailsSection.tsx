@@ -1,6 +1,6 @@
 import React from 'react';
 import { ButtonPill, CheckboxNext, TextInput } from '@momentum-ui/react-collaboration';
-import { parseGradient } from './utils';
+import { parseGradient } from '../../module/utils';
 import type { ColorType } from '../../module/types';
 import ColorPicker from './ColorPicker';
 import ColorPickerGradient from './ColorPickerGradient';
@@ -53,7 +53,13 @@ const DetailsSection = (props: DetailsSectionProps) => {
     if (colorValueFromToken) {
       if (colorValueFromToken.includes('gradient')) {
         const { start, end } = parseGradient(colorValueFromToken);
-        setColorsAction(nodeId, { isGradient: true, startValue: start, endValue: end, value: start });
+        setColorsAction(nodeId, {
+          isGradient: true,
+          startValue: start,
+          endValue: end,
+          value: start,
+          originalGradientValue: colorValueFromToken,
+        });
       } else {
         setColorsAction(nodeId, { isGradient: false, value: colorValueFromToken });
       }
