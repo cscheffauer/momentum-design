@@ -1,10 +1,12 @@
 import type { Cell, Graph } from '@maxgraph/core';
-import { ButtonGroupNext } from '@momentum-ui/react-collaboration';
+import { ButtonGroupNext, ButtonPill, Overlay, ModalContainer } from '@momentum-ui/react-collaboration';
 import React, { useEffect, useState } from 'react';
 import { ColorType } from '../../module/types';
 import AddButton from './AddButton';
 import ConnectButton from './ConnectButton';
 import DeleteButton from './DeleteButton';
+import TokensModal from './TokensModal';
+import { DEFAULTS } from './constants';
 
 interface Props {
   graph: Graph;
@@ -12,6 +14,7 @@ interface Props {
   selectedColorNodes: Array<Cell>;
   setColorsAction: (nodeId: string, newValues: Partial<ColorType>) => void;
   deleteColorAction: (nodeId: Array<string>) => void;
+  tokens: Record<string, any>;
   setTokensAction: (tokens: Record<string, any>) => void;
 }
 
@@ -19,9 +22,22 @@ interface Props {
  * The ControlsSection component.
 */
 const ControlsSection = (props: Props) => {
-  const { graph, selectedNodes, selectedColorNodes, setColorsAction, deleteColorAction, setTokensAction } = props;
+  const {
+    graph,
+    selectedNodes,
+    selectedColorNodes,
+    setColorsAction,
+    deleteColorAction,
+    tokens,
+    setTokensAction } = props;
   const [connectButtonDisabled, setConnectButtonDisabled] = useState(true);
   const [deleteButtonDisabled, setDeleteButtonDisabled] = useState(true);
+  const [tokenStatus, setTokenStatus] = useState<string>(DEFAULTS.TOKENS_LABELS.UNSET);
+  const [overlayOpen, setOverlayOpen] = useState(false);
+
+  const toggleState = () => {
+    setOverlayOpen(!overlayOpen);
+  };
 
   useEffect(() => {
     if (selectedColorNodes.length === 2) {
@@ -39,29 +55,14 @@ const ControlsSection = (props: Props) => {
     }
   }, [selectedNodes.length]);
 
-  const handleUploadTokens = (e: any) => {
-    const file = e.target.files[0];
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const result = event.target?.result as string;
-      const resultObject = JSON.parse(result);
-      setTokensAction(resultObject);
-    };
-    reader.onerror = (error) => {
-      console.log(error);
-    };
-    reader.readAsText(file);
-  };
-
   const buttonGroupChildren: Array<any> = [
-    <AddButton key="0" graph={graph} setColorsAction={setColorsAction} {...ButtonGroupNext.CHILD_PROPS}/>,
+    <AddButton key="0" graph={graph} setColorsAction={setColorsAction} {...ButtonGroupNext.CHILD_PROPS} />,
     <ConnectButton
       key="1"
       graph={graph}
       selectedNodes={selectedColorNodes}
       disabled={connectButtonDisabled}
-      {...ButtonGroupNext.CHILD_PROPS}/>,
+      {...ButtonGroupNext.CHILD_PROPS} />,
     <DeleteButton
       key="2"
       graph={graph}
@@ -72,16 +73,27 @@ const ControlsSection = (props: Props) => {
     />,
   ];
 
+  console.log(overlayOpen);
+
   return (
     <section className="controls-section">
       <ButtonGroupNext children={buttonGroupChildren} />
       <div className="upload-tokens-area">
-        <p>Tokens:</p>
-        <input
-          className="upload-tokens-input"
-          placeholder="Upload tokens"
-          type="file"
-          onChange={handleUploadTokens} />
+        {tokenStatus}
+        <ButtonPill className="setTokensButton" size={32} onPress={toggleState}>Set</ButtonPill>
+        {overlayOpen && (
+          <Overlay fullscreen>
+            <ModalContainer
+              color="tertiary"
+              elevation={2}
+              isPadded
+              round={50}
+              className="tokens-modal"
+            >
+              <TokensModal tokens={tokens} toggleState={toggleState} setTokensAction={setTokensAction}/>
+            </ModalContainer>
+          </Overlay>
+        )}
       </div>
     </section>
   );

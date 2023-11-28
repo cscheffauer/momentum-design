@@ -1,9 +1,11 @@
 {
   "name": "@momentum-design/token-generator",
   "packageManager": "yarn@3.2.4",
+  "main": "./dist/module/index.js",
+  "types": "./dist/module/types/index.d.ts",
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0",
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0",
     "yarn": ">=3.0.0"
   },
   "scripts": {
@@ -12,6 +14,7 @@
     "analyze:prebuild": "echo \"script 'analyze:prebuild' has not been implemented\"",
     "dev": "vite",
     "build": "tsc --version && tsc && vite build --base ./",
+    "build:module": "tsc --project ./src/module/tsconfig.json",
     "preview": "vite preview",
     "clean": "echo \"script 'clean' has not been implemented\"",
     "docs": "echo \"script 'docs' has not been implemented\"",

@@ -20,5 +20,5 @@ export const useTokens = () => {
     return currentObject.value;
   };
 
-  return { setTokens, getColorValueOfToken };
+  return { tokens, setTokens, getColorValueOfToken };
 };

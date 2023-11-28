@@ -102,6 +102,19 @@ body {
   gap: 0.5rem;
 }
 
+.setTokensButton {
+  margin-left: 1rem;
+}
+
+.tokens-modal {
+  width: 50% !important;
+  height: 50vh;
+}
+
+.close-button {
+  margin-left: auto;
+}
+
 .delete-button {
   margin-left: auto;
 }

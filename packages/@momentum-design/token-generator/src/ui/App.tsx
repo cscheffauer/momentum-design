@@ -27,7 +27,7 @@ const App = () => {
 
   const { colors, setColorsAction, deleteColorAction } = useColorState(graph);
   const { colorPreviews } = useColorPreview({ colors, hue });
-  const { setTokens, getColorValueOfToken } = useTokens();
+  const { tokens, setTokens, getColorValueOfToken } = useTokens();
 
   const handleHueChange = (newHue: number) => {
     setHue(newHue);
@@ -43,6 +43,7 @@ const App = () => {
           selectedColorNodes={selectedColorNodes}
           setColorsAction={setColorsAction}
           deleteColorAction={deleteColorAction}
+          tokens={tokens}
           setTokensAction={setTokens}
         />
       )}
@@ -58,7 +59,6 @@ const App = () => {
             previewColors={colorPreviews[firstSelectedNodeId]}
             getColorValueOfToken={getColorValueOfToken}
           />
-
         )
         }
       </div>
