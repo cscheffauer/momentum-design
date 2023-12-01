@@ -93,6 +93,7 @@ body {
 }
 
 .controls-section {
+  position: relative;
   height: 50px;
   display: flex;
   align-items: center;
@@ -107,9 +108,43 @@ body {
 }
 
 .tokens-modal {
-  width: 50% !important;
-  height: 50vh;
+  width: 70% !important;
+  height: 70vh;
 }
+
+.tokens-modal-wrapper {
+  width: 80%;
+}
+
+.tokens-add-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.tokens-add-button {
+  margin-left: 1rem;
+}
+
+.tokens-add-input {
+  flex: 1;
+}
+
+.tokens-entry {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+}
+
+.theme-selector {
+  display: flex;
+  bottom: 0.75rem;
+  right: 16rem;
+  position: absolute;
+}
+
+
 
 .close-button {
   margin-left: auto;

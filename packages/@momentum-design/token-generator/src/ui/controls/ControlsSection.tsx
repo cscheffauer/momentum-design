@@ -1,6 +1,7 @@
 import type { Cell, Graph } from '@maxgraph/core';
-import { ButtonGroupNext, ButtonPill, Overlay, ModalContainer } from '@momentum-ui/react-collaboration';
-import React, { useEffect, useState } from 'react';
+import { ButtonGroupNext, ButtonPill, Overlay, ModalContainer, SelectNext } from '@momentum-ui/react-collaboration';
+import { Item } from '@react-stately/collections';
+import React, { Key, useEffect, useState } from 'react';
 import { ColorType } from '../../module/types';
 import AddButton from './AddButton';
 import ConnectButton from './ConnectButton';
@@ -16,6 +17,7 @@ interface Props {
   deleteColorAction: (nodeId: Array<string>) => void;
   tokens: Record<string, any>;
   setTokensAction: (tokens: Record<string, any>) => void;
+  setCurrentTheme: React.Dispatch<React.SetStateAction<string>>
 }
 
 /**
@@ -29,11 +31,22 @@ const ControlsSection = (props: Props) => {
     setColorsAction,
     deleteColorAction,
     tokens,
-    setTokensAction } = props;
+    setTokensAction,
+    setCurrentTheme,
+  } = props;
   const [connectButtonDisabled, setConnectButtonDisabled] = useState(true);
   const [deleteButtonDisabled, setDeleteButtonDisabled] = useState(true);
   const [tokenStatus, setTokenStatus] = useState<string>(DEFAULTS.TOKENS_LABELS.UNSET);
   const [overlayOpen, setOverlayOpen] = useState(false);
+
+  const handleThemeChange = (key: Key) => {
+    setCurrentTheme(key as string);
+  };
+
+  useEffect(() => {
+    const themeDefined = Object.keys(tokens).length;
+    setTokenStatus(themeDefined ? `${themeDefined} themes set` : DEFAULTS.TOKENS_LABELS.UNSET);
+  }, [tokens]);
 
   const toggleState = () => {
     setOverlayOpen(!overlayOpen);
@@ -73,11 +86,22 @@ const ControlsSection = (props: Props) => {
     />,
   ];
 
-  console.log(overlayOpen);
-
   return (
     <section className="controls-section">
       <ButtonGroupNext children={buttonGroupChildren} />
+      <div className="theme-selector">
+        <SelectNext
+          onSelectionChange={handleThemeChange}
+          label="Current Theme"
+          isDisabled={Object.keys(tokens).length === 0}
+          items={Object.keys(tokens).map((key) => ({ id: key, value: key }))}
+        >
+          {/* @ts-ignore: next-line */}
+          {(item) => (
+            <Item key={item.id}>{item.value}</Item>
+          )}
+        </SelectNext>
+      </div>
       <div className="upload-tokens-area">
         {tokenStatus}
         <ButtonPill className="setTokensButton" size={32} onPress={toggleState}>Set</ButtonPill>
@@ -90,7 +114,7 @@ const ControlsSection = (props: Props) => {
               round={50}
               className="tokens-modal"
             >
-              <TokensModal tokens={tokens} toggleState={toggleState} setTokensAction={setTokensAction}/>
+              <TokensModal tokens={tokens} toggleState={toggleState} setTokensAction={setTokensAction} />
             </ModalContainer>
           </Overlay>
         )}

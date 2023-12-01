@@ -5449,6 +5449,7 @@ __metadata:
     "@maxgraph/core": ^0.4.1
     "@momentum-design/tokens": "workspace:^"
     "@momentum-ui/react-collaboration": ^26.99.5
+    "@react-stately/collections": ^3.10.3
     "@uiw/react-color-hue": ^2.0.2
     "@uiw/react-color-sketch": ^2.0.2
     "@vitejs/plugin-react": ^4.2.0

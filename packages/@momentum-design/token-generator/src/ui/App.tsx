@@ -27,7 +27,7 @@ const App = () => {
 
   const { colors, setColorsAction, deleteColorAction } = useColorState(graph);
   const { colorPreviews } = useColorPreview({ colors, hue });
-  const { tokens, setTokens, getColorValueOfToken } = useTokens();
+  const { tokens, setTokens, setCurrentTheme, getColorValueOfToken } = useTokens();
 
   const handleHueChange = (newHue: number) => {
     setHue(newHue);
@@ -45,6 +45,7 @@ const App = () => {
           deleteColorAction={deleteColorAction}
           tokens={tokens}
           setTokensAction={setTokens}
+          setCurrentTheme={setCurrentTheme}
         />
       )}
       <div className="content">
