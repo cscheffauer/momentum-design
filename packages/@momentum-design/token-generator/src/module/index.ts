@@ -1,5 +1,5 @@
 import Color from 'colorjs.io';
-import { getAverageLValue } from './utils';
+import { getAverageLValue, getAverageCValue } from './utils';
 
 export const getContrastRatio = (colorString1: string, colorString2: string) => {
   const color1 = new Color(colorString1);
@@ -10,9 +10,12 @@ export const getContrastRatio = (colorString1: string, colorString2: string) => 
 export const getCorrespondingColorBasedOnHue = (referenceColors: Array<string>, hue: number) => {
   const referenceColor = new Color(referenceColors[0]);
   const averageLValue = getAverageLValue(referenceColors);
+  const averageCValue = getAverageCValue(referenceColors);
 
+  console.log(hue);
   referenceColor.lch.h = hue;
   referenceColor.lch.l = averageLValue;
+  referenceColor.lch.c = averageCValue;
 
   return referenceColor.toString({ format: 'hex', collapse: false });
 };

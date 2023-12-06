@@ -1,22 +1,21 @@
 import React from 'react';
 import { ButtonPill, CheckboxNext, TextInput } from '@momentum-ui/react-collaboration';
-import { parseGradient } from '../../module/utils';
 import type { ColorType } from '../../module/types';
 import ColorPicker from './ColorPicker';
 import ColorPickerGradient from './ColorPickerGradient';
 
 interface DetailsSectionProps {
   nodeId: string;
-  color: ColorType
+  color: ColorType;
   setColorsAction: (nodeId: string, newValues: Partial<ColorType>) => void;
   previewColors?: Array<string>;
-  getColorValueOfToken: (tokenName: string) => string;
+  applyTokenColorToNode: (color: ColorType, nodeId: string) => void;
 }
 /**
  * The DetailsSection component.
 */
 const DetailsSection = (props: DetailsSectionProps) => {
-  const { nodeId, color, setColorsAction, previewColors, getColorValueOfToken } = props;
+  const { nodeId, color, setColorsAction, previewColors, applyTokenColorToNode } = props;
 
   const setColorsActionIfChanged = (key: keyof ColorType, newValue: string | boolean) => {
     if (color[key] !== newValue) {
@@ -48,22 +47,8 @@ const DetailsSection = (props: DetailsSectionProps) => {
     setColorsActionIfChanged('endValue', newValue);
   };
 
-  const handleColorFromToken = () => {
-    const colorValueFromToken = getColorValueOfToken(color.name);
-    if (colorValueFromToken) {
-      if (colorValueFromToken.includes('gradient')) {
-        const { start, end } = parseGradient(colorValueFromToken);
-        setColorsAction(nodeId, {
-          isGradient: true,
-          startValue: start,
-          endValue: end,
-          value: start,
-          originalGradientValue: colorValueFromToken,
-        });
-      } else {
-        setColorsAction(nodeId, { isGradient: false, value: colorValueFromToken });
-      }
-    }
+  const handleFromTokenPress = () => {
+    applyTokenColorToNode(color, nodeId);
   };
 
   return (
@@ -101,7 +86,7 @@ const DetailsSection = (props: DetailsSectionProps) => {
           )
         }
 
-        <ButtonPill size={24} onPress={handleColorFromToken} className="from-token-button">From Token</ButtonPill>
+        <ButtonPill size={24} onPress={handleFromTokenPress} className="from-token-button">From Token</ButtonPill>
       </div>
 
       <CheckboxNext

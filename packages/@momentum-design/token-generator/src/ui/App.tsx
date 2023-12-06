@@ -27,7 +27,13 @@ const App = () => {
 
   const { colors, setColorsAction, deleteColorAction } = useColorState(graph);
   const { colorPreviews } = useColorPreview({ colors, hue });
-  const { tokens, setTokens, setCurrentTheme, getColorValueOfToken } = useTokens();
+  const {
+    tokens,
+    setTokens,
+    setCurrentTheme,
+    applyTokenColorToNode,
+    applyAllTokenColorsToNodes,
+  } = useTokens({ colors, setColorsAction });
 
   const handleHueChange = (newHue: number) => {
     setHue(newHue);
@@ -46,6 +52,7 @@ const App = () => {
           tokens={tokens}
           setTokensAction={setTokens}
           setCurrentTheme={setCurrentTheme}
+          applyAllTokenColorsToNodes={applyAllTokenColorsToNodes}
         />
       )}
       <div className="content">
@@ -58,12 +65,12 @@ const App = () => {
             color={colors[firstSelectedNodeId]}
             setColorsAction={setColorsAction}
             previewColors={colorPreviews[firstSelectedNodeId]}
-            getColorValueOfToken={getColorValueOfToken}
+            applyTokenColorToNode={applyTokenColorToNode}
           />
         )
         }
       </div>
-      <ExportSection colors={colors}/>
+      <ExportSection colors={colors} />
     </div>
 
   );

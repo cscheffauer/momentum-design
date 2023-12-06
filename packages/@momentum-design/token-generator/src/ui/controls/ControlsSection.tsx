@@ -17,7 +17,8 @@ interface Props {
   deleteColorAction: (nodeId: Array<string>) => void;
   tokens: Record<string, any>;
   setTokensAction: (tokens: Record<string, any>) => void;
-  setCurrentTheme: React.Dispatch<React.SetStateAction<string>>
+  setCurrentTheme: React.Dispatch<React.SetStateAction<string>>;
+  applyAllTokenColorsToNodes: () => void;
 }
 
 /**
@@ -33,6 +34,7 @@ const ControlsSection = (props: Props) => {
     tokens,
     setTokensAction,
     setCurrentTheme,
+    applyAllTokenColorsToNodes,
   } = props;
   const [connectButtonDisabled, setConnectButtonDisabled] = useState(true);
   const [deleteButtonDisabled, setDeleteButtonDisabled] = useState(true);
@@ -41,6 +43,7 @@ const ControlsSection = (props: Props) => {
 
   const handleThemeChange = (key: Key) => {
     setCurrentTheme(key as string);
+    applyAllTokenColorsToNodes();
   };
 
   useEffect(() => {
