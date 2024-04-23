@@ -1,0 +1,23 @@
+{
+	"extends": "../../../config/typescript/tsconfig.base.json",
+	"compilerOptions": {
+		"allowJs": true,
+		"module": "Node16",
+		"target": "ES2022",
+		"outDir": "dist",
+		"lib": [
+			"ES2022"
+		],
+		"sourceMap": true,
+		"strict": true,
+		"rootDir": "ext-src",
+		"moduleResolution": "Node16"
+	},
+	"include": [
+		"ext-src/**/*"
+	],
+	"exclude": [
+        "node_modules",
+        ".vscode-test"
+    ]
+}
