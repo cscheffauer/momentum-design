@@ -16,8 +16,8 @@ const App = () => {
       <div className="app">
         <Header />
         <div className="mainContentWrapper">
-          <Navigation />
-          <Content/>
+          <Navigation activeTabId={activeTabId} setActiveTabId={setActiveTabId} />
+          <Content />
         </div>
       </div>
     </ThemeProvider>
