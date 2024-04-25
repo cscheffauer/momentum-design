@@ -26,6 +26,7 @@
   "scripts": {
     "vscode:prepublish": "yarn run build",
     "build:ui": "vite build",
+    "preview:ui": "concurrently \"yarn run build:ui --watch\" \"vite preview\"",
     "build:ext": "tsc -p tsconfig.extension.json",
     "build": "yarn run build:ui && yarn run build:ext",
     "lint": "eslint src --ext ts"
@@ -41,12 +42,15 @@
     "@vitejs/plugin-react": "^4.2.1",
     "@vscode/test-cli": "^0.0.8",
     "@vscode/test-electron": "^2.3.9",
+    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "path": "^0.12.7",
     "typescript": "^5.3.3",
     "vite": "^5.2.10"
   },
   "dependencies": {
+    "@momentum-ui/react-collaboration": "^26.101.2",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

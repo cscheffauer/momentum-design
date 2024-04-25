@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
-
+import fs from 'fs';
+import _ from "lodash";
 /**
  * Manages the Momentum webview panel
  */
@@ -76,20 +77,43 @@ class MomentumPanel {
     }
   }
 
+  private _replaceContentInFile(filePath: string, stringToReplace: string, replacement: vscode.Uri) {
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      var result = data.replace(stringToReplace, replacement.toString());
+
+      fs.writeFile(filePath, result, 'utf8', function (err) {
+         if (err) {
+          return console.log(err);
+         }
+      });
+    });
+  }
+
   private _getHtmlForWebview() {
-	// get manifest from 
+    // get manifest from
     const manifestPath = vscode.Uri.joinPath(this._extensionUri, "dist", ".vite", "manifest.json").fsPath;
     const manifest = require(manifestPath);
     const mainScript = manifest["index.html"]["file"];
     const mainStyle = manifest["index.html"]["css"][0];
+    const foundEntry = _.pickBy(manifest, (_1, key) => 
+      _.includes(key, "Inter.var.woff2")
+    );
+    const mainFont = Object.values(foundEntry)[0].file;
 
     const scriptPathOnDisk = vscode.Uri.joinPath(this._extensionUri, "dist", mainScript);
     const scriptUri = this._panel.webview.asWebviewUri(scriptPathOnDisk);
     const stylePathOnDisk = vscode.Uri.joinPath(this._extensionUri, "dist", mainStyle);
     const styleUri = this._panel.webview.asWebviewUri(stylePathOnDisk);
+    const fontPathOnDisk = vscode.Uri.joinPath(this._extensionUri, "dist", mainFont);
+    const fontUri = this._panel.webview.asWebviewUri(fontPathOnDisk);
 
-	// TODO: to be cleaner, load the index.html itself from the dist here and replace the href/src
-	// in it here:
+    this._replaceContentInFile(styleUri.fsPath, mainFont, fontUri);
+
+    // TODO: to be cleaner, load the index.html itself from the dist here and replace the href/src
+    // in it here:
     return `<!DOCTYPE html>
 			<html lang="en">
 			<head>
