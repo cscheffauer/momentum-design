@@ -32,3 +32,5 @@ export const tabData: { id: string; name: string; icon: string, content: React.R
     content: <p style={{marginLeft: '24px'}}>Coming soon...</p>
   },
 ];
+
+export const gitHubRepo = "https://github.com/momentum-design/momentum-design";

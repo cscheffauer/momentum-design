@@ -1,3 +1,24 @@
 .navigationWrapper {
     flex-basis: 13.5rem;
+    margin: 8px;
+}
+
+.navigationList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.navigationListItem {
+    margin-bottom: 2px;
+}
+
+.navigationFooter {
+    margin-top: auto;
 }
