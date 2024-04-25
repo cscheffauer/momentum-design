@@ -6,7 +6,7 @@ import { Content } from './components/Content';
 import { useState } from 'react';
 
 const App = () => {
-  const [activeTabId, setActiveTabId] = useState();
+  const [activeTabId, setActiveTabId] = useState<string>("Icons");
 
   return (
     <ThemeProvider theme="darkWebex" style={{

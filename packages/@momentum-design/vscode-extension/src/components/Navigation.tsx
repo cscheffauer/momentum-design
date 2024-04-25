@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import "./Navigation.css";
 
 import { NavigationTab } from "@momentum-ui/react-collaboration";
@@ -25,11 +26,24 @@ const tabData: { name: string; icon: string }[] = [
   },
 ];
 
-export const Navigation = ({ activeTabId, setActiveTabId }) => {
+export const Navigation = ({
+  activeTabId,
+  setActiveTabId,
+}: {
+  activeTabId: String;
+  setActiveTabId: Dispatch<SetStateAction<string>>;
+}) => {
   return (
     <div className="navigationWrapper">
       {tabData.map((tab) => (
-        <NavigationTab key={tab.name} label={tab.name} size={200} icon={tab.icon} active={activeTabId === tab.name} onPress={() => setActiveTabId(tab.name)} />
+        <NavigationTab
+          key={tab.name}
+          label={tab.name}
+          size={200}
+          icon={tab.icon}
+          active={activeTabId === tab.name}
+          onPress={() => setActiveTabId(tab.name)}
+        />
       ))}
     </div>
   );

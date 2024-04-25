@@ -2,4 +2,5 @@
     background: var(--mds-color-theme-background-gradient-secondary);
     flex: 1;
     height: 100%;
+    border-top-left-radius: 16px;
 }
