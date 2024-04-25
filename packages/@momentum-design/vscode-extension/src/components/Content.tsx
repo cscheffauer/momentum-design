@@ -1,5 +1,7 @@
+import './Content.css';
+
 export const Content = () => {
   return (
-    <div>Content</div>
+    <div className="contentWrapper"></div>
   );
 };

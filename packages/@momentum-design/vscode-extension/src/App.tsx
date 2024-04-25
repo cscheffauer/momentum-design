@@ -3,11 +3,14 @@ import { ThemeProvider } from '@momentum-ui/react-collaboration';
 import { Header } from './components/Header';
 import { Navigation } from './components/Navigation';
 import { Content } from './components/Content';
+import { useState } from 'react';
 
 const App = () => {
+  const [activeTabId, setActiveTabId] = useState();
+
   return (
     <ThemeProvider theme="darkWebex" style={{
-      backgroundColor: 'var(--mds-color-theme-background-solid-primary-normal)',
+      background: 'var(--mds-color-theme-background-gradient-primary)',
       height: '100vh'
     }}>
       <div className="app">
