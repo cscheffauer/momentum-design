@@ -35,16 +35,20 @@ export const Navigation = ({
 }) => {
   return (
     <div className="navigationWrapper">
-      {tabData.map((tab) => (
-        <NavigationTab
-          key={tab.name}
-          label={tab.name}
-          size={200}
-          icon={tab.icon}
-          active={activeTabId === tab.name}
-          onPress={() => setActiveTabId(tab.name)}
-        />
-      ))}
+      <ul className="navigationList">
+        {tabData.map((tab) => (
+          <li className="navigationListItem">
+            <NavigationTab
+              key={tab.name}
+              label={tab.name}
+              size={200}
+              icon={tab.icon}
+              active={activeTabId === tab.name}
+              onPress={() => setActiveTabId(tab.name)}
+            />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

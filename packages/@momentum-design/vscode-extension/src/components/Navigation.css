@@ -2,3 +2,13 @@
     flex-basis: 216px;
     margin: 8px;
 }
+
+.navigationList {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;   
+}
+
+.navigationListItem { 
+    margin-bottom: 2px;
+}

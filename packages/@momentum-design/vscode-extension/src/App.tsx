@@ -17,7 +17,7 @@ const App = () => {
         <Header />
         <div className="mainContentWrapper">
           <Navigation activeTabId={activeTabId} setActiveTabId={setActiveTabId} />
-          <Content />
+          <Content tabId={activeTabId}/>
         </div>
       </div>
     </ThemeProvider>
