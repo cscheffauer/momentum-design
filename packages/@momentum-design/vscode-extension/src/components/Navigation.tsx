@@ -1,5 +1,7 @@
+import './Navigation.css';
+
 export const Navigation = () => {
   return (
-    <div>Navigation</div>
+    <div className="navigationWrapper">Navigation</div>
   );
 };

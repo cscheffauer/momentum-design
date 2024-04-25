@@ -10,9 +10,9 @@ const App = () => {
       backgroundColor: 'var(--mds-color-theme-background-solid-primary-normal)',
       height: '100vh'
     }}>
-      <div className="App">
+      <div className="app">
         <Header />
-        <div className="MainContentWrapper">
+        <div className="mainContentWrapper">
           <Navigation />
           <Content/>
         </div>
