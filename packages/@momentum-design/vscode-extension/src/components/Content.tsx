@@ -21,7 +21,7 @@ export const IllustrationsTab = () => {
 };
 
 export const TokensTab = () => {
-  return <div>Icons Tab</div>;
+  return <div>Tokens Tab</div>;
 };
 
 export const BrandVisualsTab = () => {
