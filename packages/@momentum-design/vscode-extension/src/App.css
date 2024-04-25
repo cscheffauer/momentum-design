@@ -6,6 +6,6 @@
 
 .mainContentWrapper {
     display: flex;
-    height: 100%;
+    height: calc(100% - 3.75rem);
     width: 100%;
 }

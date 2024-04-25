@@ -33,7 +33,7 @@ export const IconsContent = () => {
                     setSelectedVersion={handleSelectedVersion}
                     availableVersions={['@0.0.131', '@0.0.130', '@0.0.129']}
                 />
-                <Browser />
+                <Browser pathToLocalManifestJSON="" placeholderText='Search for an icon by name, description or tags' typeofAssetText='icons'/>
             </div>}
             {activeContentTabId === "release-history" && <p>Release History</p>}
         </ContentLayout>

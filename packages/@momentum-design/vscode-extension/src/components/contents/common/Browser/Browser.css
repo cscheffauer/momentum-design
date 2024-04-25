@@ -1,0 +1,41 @@
+.browserWrapper {
+    margin-top: 2rem;
+    padding-right: 4rem;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.searchInput {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.numberOfIconsText {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.scrollingWrapper {
+    flex-shrink: 1;
+    overflow-y: auto;
+}
+
+.browserGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 3.25rem);
+    grid-template-rows: repeat(auto-fill, 3.25rem);
+    grid-gap: 0.75rem;
+}
+
+.browserGrid > .cardWrapper {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.browserFooter {
+    flex-shrink: 0;
+    height: 7.5rem;
+}

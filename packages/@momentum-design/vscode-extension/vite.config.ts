@@ -23,8 +23,14 @@ export default defineConfig({
       exclude: [],
     }),
   ],
+  optimizeDeps: {
+    include: ["@momentum-design/**/*.*", "@momentum-design/icons/dist/svg/widget-filled.svg?svgr"],
+  },
   resolve: {
     // Workaround to fix inline dependency of a dependency, which is the case in @momentum-ui/react-collaboration
     mainFields: ["module"],
+    alias: [
+      { find: "@momentum-design", replacement: path.resolve(__dirname, "../../../node_modules/@momentum-design") },
+    ],
   },
 });
