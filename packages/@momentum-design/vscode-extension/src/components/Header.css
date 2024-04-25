@@ -1,3 +1,16 @@
 .headerWrapper {
     flex-basis: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerText {
+    margin-left: 25px;
+}
+
+.headerLogo {
+    height: 33px;
+    width: 111px;
+    margin-right: 20px;
 }
