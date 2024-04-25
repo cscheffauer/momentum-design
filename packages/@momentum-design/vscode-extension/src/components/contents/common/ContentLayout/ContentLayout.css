@@ -1,0 +1,9 @@
+.contentLayout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.contentLayout > div:first-child {
+    flex-basis: 4.625rem;
+}

@@ -1,0 +1,9 @@
+.tabBar {
+    box-sizing: border-box;
+    display: flex;
+    padding: 1.5rem;
+    gap: 0.5rem;
+}
+.tab {
+    height: 1.75rem;
+}

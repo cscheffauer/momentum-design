@@ -15,9 +15,16 @@ export default defineConfig({
     open: true,
     port: 5000,
   },
-  plugins: [react(), svgr()],
+  plugins: [
+    react(),
+    svgr({
+      svgrOptions: { icon: true },
+      include: ["**/*.svg?react", "**/*.svg?svgr"],
+      exclude: [],
+    }),
+  ],
   resolve: {
     // Workaround to fix inline dependency of a dependency, which is the case in @momentum-ui/react-collaboration
-    mainFields: ['module'],
+    mainFields: ["module"],
   },
 });

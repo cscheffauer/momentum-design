@@ -1,13 +1,14 @@
-import "./Content.css";
+import { tabData } from '../constants.tsx';
+import './Content.css';
 
-export const Content = ({ tabId }: { tabId: string }) => {
+interface ContentProps {
+  activeTabId: string
+}
+
+export const Content = ({ activeTabId }: ContentProps) => {
   return (
     <div className="contentWrapper">
-      {tabId === "Icons" && <IconsTab />}
-      {tabId === "Illustrations" && <IllustrationsTab />}
-      {tabId === "Tokens" && <TokensTab />}
-      {tabId === "Brand visuals" && <BrandVisualsTab />}
-      {tabId === "Annimations" && <AnnimationsTab />}
+      {tabData.map((tabDataEntry) => activeTabId === tabDataEntry.id && tabDataEntry.content)}
     </div>
   );
 };

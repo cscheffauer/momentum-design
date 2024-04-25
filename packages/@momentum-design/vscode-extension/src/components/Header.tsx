@@ -1,7 +1,7 @@
+/// <reference types="vite-plugin-svgr/client" />
 import './Header.css';
 import { Text } from '@momentum-ui/react-collaboration';
 
-// @ts-ignore: next-line
 import Logo from "@momentum-design/brand-visuals/dist/svg/momentum-design-logo-dark-color-horizontal.svg?react";
 
 export const Header = () => {

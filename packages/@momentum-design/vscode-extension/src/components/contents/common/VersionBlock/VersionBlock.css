@@ -1,0 +1,23 @@
+.versionBlock {
+    height: 5.75rem;
+}
+
+.packageName {
+    color: var(--mds-color-theme-text-secondary-normal);
+    margin-block-start: 0px;
+    margin-block-end: 0.5rem;
+}
+
+.selectWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.buttonHyperlink {
+    margin-left: 1rem;
+}
+
+.detectedVersionText {
+    margin-top: 0.5rem;
+    color: var(--mds-color-theme-text-secondary-normal)
+}
