@@ -1,10 +1,16 @@
 import { ButtonCircle } from "@momentum-ui/react-collaboration";
+import './Browser.css';
 
-export const AssetCard = ({ children }: any) => {
-
-    return (
-        <div className="cardWrapper">
-            <ButtonCircle size={52} ghost>{children}</ButtonCircle>
-        </div>
+export const AssetCard = ({ path, cardSize }: any) => {
+    return (<>
+        {(
+            <div className="cardWrapper">
+                {/* @ts-ignore: next-line */}
+                <ButtonCircle size={cardSize} ghost>
+                    <img className="asset" src={path} style={{ filter: path.includes('colored') ? 'none' : 'invert(1)' }} />
+                </ButtonCircle>
+            </div>
+        )}
+    </>
     );
 };

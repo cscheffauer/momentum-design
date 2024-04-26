@@ -1,5 +1,6 @@
 import { AnnimationsContent } from "./components/contents/Annimations";
 import { IconsContent } from "./components/contents/Icons";
+import { IllustrationsContent } from "./components/contents/Illustrations";
 
 export const tabData: { id: string; name: string; icon: string; content: React.ReactNode }[] = [
   {
@@ -12,7 +13,7 @@ export const tabData: { id: string; name: string; icon: string; content: React.R
     id: "illustrations",
     name: "Illustrations",
     icon: "colour-palette",
-    content: <p style={{ marginLeft: "24px" }}>Coming soon...</p>,
+    content: <IllustrationsContent/>,
   },
   {
     id: "tokens",

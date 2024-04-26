@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { ContentLayout } from '../common/ContentLayout';
 import { TabBar } from '../common/TabBar';
-import './Icons.css';
+import './Illustrations.css';
 import { VersionBlock } from '../common/VersionBlock';
 import Browser from '../common/Browser';
-import JSON from '@momentum-design/icons/dist/manifest.json';
+import JSON from '@momentum-design/illustrations/dist/manifest.json';
 
 const contentTabs = [{
     id: 'library',
@@ -15,19 +15,19 @@ const contentTabs = [{
 }];
 
 
-export const IconsContent = () => {
+export const IllustrationsContent = () => {
     const [activeContentTabId, setActiveContentTabId] = useState(contentTabs[0].id);
 
     return (
         <ContentLayout>
             <TabBar activeTabId={activeContentTabId} setActiveTabId={setActiveContentTabId} tabs={contentTabs} />
-            {activeContentTabId === "library" && <div className="iconContentWrapper">
+            {activeContentTabId === "library" && <div className="illustrationsContentWrapper">
                 <VersionBlock
-                    packageName="@momentum-design/icons"
-                    latestVersion="@0.0.133"
-                    detectedVersion="@0.0.131"
+                    packageName="@momentum-design/illustrations"
+                    latestVersion="@0.0.28"
+                    detectedVersion="@0.0.28"
                 />
-                <Browser manifestContent={JSON as Record<string, string>} placeholderText='Search for an icon by name, description or tags' typeofAsset='icons' />
+                <Browser pageSize={20} cardSize={6.5} manifestContent={JSON as Record<string, string>} placeholderText='Search for an illustrations by name, description or tags' typeofAsset='illustrations' />
             </div>}
             {activeContentTabId === "release-history" && <p>Release History</p>}
         </ContentLayout>

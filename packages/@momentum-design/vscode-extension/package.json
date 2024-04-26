@@ -32,6 +32,7 @@
     "lint": "eslint src --ext ts"
   },
   "devDependencies": {
+    "@rollup/plugin-dynamic-import-vars": "^2.1.2",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
     "@types/react": "^18.2.79",
@@ -45,13 +46,18 @@
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "path": "^0.12.7",
+    "rollup-plugin-copy": "^3.5.0",
     "typescript": "^5.3.3",
     "vite": "^5.2.10",
+    "vite-plugin-dynamic-import": "^1.5.0",
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.5.3",
+    "@momentum-design/animations": "workspace:^",
     "@momentum-design/brand-visuals": "workspace:^",
+    "@momentum-design/icons": "workspace:^",
+    "@momentum-design/illustrations": "workspace:^",
     "@momentum-ui/react-collaboration": "^26.101.2",
     "lodash": "^4.17.21",
     "react": "^18.2.0",

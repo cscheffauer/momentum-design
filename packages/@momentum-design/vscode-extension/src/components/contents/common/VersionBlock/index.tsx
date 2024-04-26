@@ -1,24 +1,18 @@
-import { Text, SelectNext, ButtonHyperlink } from '@momentum-ui/react-collaboration';
-import { Item } from '@react-stately/collections';
+import { Text, ButtonHyperlink } from '@momentum-ui/react-collaboration';
 import './VersionBlock.css';
-import { Key } from 'react';
 
 interface VersionBlockProps {
   packageName: string;
-  availableVersions: Array<string>;
+  latestVersion: string;
   detectedVersion?: string;
-  selectedVersion: string;
-  setSelectedVersion: (version: Key) => void;
 }
 
-export const VersionBlock = ({ detectedVersion, packageName, availableVersions, selectedVersion, setSelectedVersion }: VersionBlockProps) => {
+export const VersionBlock = ({ detectedVersion, packageName, latestVersion }: VersionBlockProps) => {
   return (
     <div className="versionBlock">
       <Text type="body-primary" className="packageName">{packageName}</Text>
-      <div className="selectWrapper">
-        <SelectNext selectedKey={selectedVersion} onSelectionChange={setSelectedVersion}>
-          {availableVersions.map((version) => <Item key={version}>{version}</Item>)}
-        </SelectNext>
+      <div className="latestVersionWrapper">
+        <Text type="body-primary" className="latestVersionText">Latest version: {latestVersion}</Text>
         <ButtonHyperlink className="buttonHyperlink">Version info</ButtonHyperlink>
       </div>
       <Text type="body-compact" className="detectedVersionText">Version {detectedVersion} was detected in your current workspace</Text>

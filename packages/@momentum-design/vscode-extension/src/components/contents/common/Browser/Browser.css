@@ -13,6 +13,11 @@
 
 .numberOfIconsText {
     margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.currentPageText {
+    margin-top: 0;
     margin-bottom: 1rem;
 }
 
@@ -23,8 +28,8 @@
 
 .browserGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 3.25rem);
-    grid-template-rows: repeat(auto-fill, 3.25rem);
+    grid-template-columns: repeat(auto-fill, var(--local-button-size));
+    grid-template-rows: repeat(auto-fit, minmax(var(--local-button-size), 1fr));
     grid-gap: 0.75rem;
 }
 
@@ -35,7 +40,30 @@
     align-items: center;
 }
 
+.cardWrapper > button {
+    height: var(--local-button-size);
+    width: var(--local-button-size);
+}
+
+.cardWrapper > button > img {
+    height: 95%;
+    width: 95%;
+}
+
 .browserFooter {
     flex-shrink: 0;
     height: 7.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.browserFooterButtons {
+    display: flex;
+    width: 18.75rem;
+    justify-content: space-between;
+}
+
+.browserFooterButtons > button {
+    width: 6.25rem;
+    justify-content: center;
 }
