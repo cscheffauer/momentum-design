@@ -6,6 +6,7 @@ import _ from 'lodash';
 import SearchInput from "../SearchInput";
 
 interface BrowserProps {
+  packageName: string;
   manifestContent: Record<string, string>;
   placeholderText: string;
   typeofAsset: string;
@@ -14,9 +15,10 @@ interface BrowserProps {
 }
 
 
-const Browser = ({ manifestContent, placeholderText, typeofAsset, pageSize = 50, cardSize = 3.25 }: BrowserProps) => {
-  var filteredManifestContent = _.pickBy(manifestContent, function (_1, key) {
-    return !_.includes(key, "manifest");
+const Browser = ({ packageName, manifestContent, placeholderText, typeofAsset, pageSize = 50, cardSize = 3.25 }: BrowserProps) => {
+  var filteredManifestContent = _.pickBy(manifestContent, function (value) {
+    // filter out manifest, in case its included
+    return !_.includes(value, "manifest.json");
   });
 
   const totalSize = Object.values(filteredManifestContent).length;
@@ -63,8 +65,18 @@ const Browser = ({ manifestContent, placeholderText, typeofAsset, pageSize = 50,
       <Text type="body-secondary" className="currentPageText">Current page: {currentPage}</Text>
       <div className="browserGrid">
         {Object.entries(paginatedItems).map(([key, value]) => {
-          const finalPath = `${value.replace('./svg', `/${typeofAsset}`)}`;
-          return (<AssetCard text={key} path={finalPath} cardSize={cardSize} resizeImg={typeofAsset === 'illustrations'}/>);
+          const fileBasename = value.split('/').reverse()[0];
+          // only works if dist folders have a flat structure:
+          const finalPath = `/${typeofAsset}/${fileBasename}`;
+          return (<AssetCard
+            text={key}
+            path={finalPath}
+            cardSize={cardSize}
+            typeofAsset={typeofAsset}
+            repoPath={value}
+            packageName={packageName}
+          />
+          );
         })}
       </div>
       <div className="browserFooter">

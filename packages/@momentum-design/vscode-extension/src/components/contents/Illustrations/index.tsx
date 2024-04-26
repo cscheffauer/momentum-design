@@ -18,16 +18,25 @@ const contentTabs = [{
 export const IllustrationsContent = () => {
     const [activeContentTabId, setActiveContentTabId] = useState(contentTabs[0].id);
 
+    const packageName = "@momentum-design/illustrations";
+
     return (
         <ContentLayout>
             <TabBar activeTabId={activeContentTabId} setActiveTabId={setActiveContentTabId} tabs={contentTabs} />
             {activeContentTabId === "library" && <div className="illustrationsContentWrapper">
                 <VersionBlock
-                    packageName="@momentum-design/illustrations"
+                    packageName={packageName}
                     latestVersion="@0.0.28"
                     detectedVersion="@0.0.28"
                 />
-                <Browser pageSize={20} cardSize={6.5} manifestContent={JSON as Record<string, string>} placeholderText='Search for an illustrations by name, description or tags' typeofAsset='illustrations' />
+                <Browser
+                    packageName={packageName}
+                    pageSize={20}
+                    cardSize={6.5}
+                    manifestContent={JSON as Record<string, string>}
+                    placeholderText='Search for an illustrations by name, description or tags'
+                    typeofAsset='illustrations'
+                />
             </div>}
             {activeContentTabId === "release-history" && <p>Release History</p>}
         </ContentLayout>

@@ -1,6 +1,6 @@
-.annimationContentWrapper {
+.animationContentWrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding-left: 1.5rem;
     height: calc(100% - 4.75rem);
 }

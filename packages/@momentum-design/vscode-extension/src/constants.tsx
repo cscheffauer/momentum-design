@@ -1,5 +1,5 @@
 import React from "react";
-import { AnnimationsContent } from "./components/contents/Annimations";
+import { AnimationsContent } from "./components/contents/Animations";
 import { IconsContent } from "./components/contents/Icons";
 import { IllustrationsContent } from "./components/contents/Illustrations";
 
@@ -8,6 +8,7 @@ import ColourPalette from "@momentum-design/icons/dist/svg/colour-palette-regula
 import FillColour from "@momentum-design/icons/dist/svg/fill-colour-regular.svg?react";
 import WebexHelix from "@momentum-design/icons/dist/svg/webex-helix.svg?react";
 import VideoEffect from "@momentum-design/icons/dist/svg/video-effect-regular.svg?react";
+import { BrandVisualsContent } from "./components/contents/BrandVisuals";
 
 export const tabData: { id: string; name: string; icon: React.FunctionComponent; content: React.ReactNode }[] = [
   {
@@ -32,13 +33,13 @@ export const tabData: { id: string; name: string; icon: React.FunctionComponent;
     id: "brand-visuals",
     name: "Brand visuals",
     icon: WebexHelix,
-    content: <p style={{ marginLeft: "24px" }}>Coming soon...</p>,
+    content: <BrandVisualsContent/>,
   },
   {
     id: "animations",
     name: "Animations",
     icon: VideoEffect,
-    content: <AnnimationsContent />,
+    content: <AnimationsContent />,
   },
 ];
 

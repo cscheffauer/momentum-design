@@ -46,6 +46,25 @@
     padding: 2.5%;
 }
 
+.popoverContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem;
+}
+
+.popoverEntry {
+    display: flex;
+}
+
+.popoverEntryLabel {
+    width: 4rem;
+}
+
+.popoverEntryValue {
+    width: fit-content;
+}
+
 .browserFooter {
     flex-shrink: 0;
     height: 7.5rem;

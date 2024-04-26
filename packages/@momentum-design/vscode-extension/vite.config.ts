@@ -27,6 +27,18 @@ export default defineConfig({
               src: path.join(process.cwd(), "../", "illustrations/dist/svg/*.svg"),
               dest: "dist/illustrations",
             },
+            {
+              src: path.join(process.cwd(), "../", "brand-visuals/dist/svg/*.svg"),
+              dest: "dist/brand-visuals",
+            },
+            {
+              src: path.join(process.cwd(), "../", "animations/dist/lottie/**/*.json"),
+              dest: "dist/animations",
+            },
+            {
+              src: path.join(process.cwd(), "../", "tokens/dist/css/theme/webex/*.css"),
+              dest: "dist/tokens",
+            },
           ],
         }),
       ],

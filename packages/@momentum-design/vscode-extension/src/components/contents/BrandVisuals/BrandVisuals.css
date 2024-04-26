@@ -1,0 +1,6 @@
+.brandvisualsContentWrapper {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.5rem;
+    height: calc(100% - 4.75rem);
+}
