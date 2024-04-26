@@ -50,6 +50,7 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@momentum-design/brand-visuals": "workspace:^",
     "@momentum-ui/react-collaboration": "^26.101.2",
     "lodash": "^4.17.21",
