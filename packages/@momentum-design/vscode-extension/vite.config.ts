@@ -2,8 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import svgr from "vite-plugin-svgr";
-import dynamicImport from 'vite-plugin-dynamic-import';
-import copy from 'rollup-plugin-copy';
+import dynamicImport from "vite-plugin-dynamic-import";
+import copy from "rollup-plugin-copy";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,7 +11,7 @@ export default defineConfig({
   build: {
     manifest: true,
     outDir: path.resolve(__dirname, "dist"),
-    emptyOutDir: true,
+    emptyOutDir: false,
     rollupOptions: {
       plugins: [
         //@ts-ignore: next-line
@@ -62,5 +62,8 @@ export default defineConfig({
     alias: [
       { find: "@momentum-design", replacement: path.resolve(__dirname, "../../../node_modules/@momentum-design") },
     ],
+  },
+  define: {
+    _global: {},
   },
 });

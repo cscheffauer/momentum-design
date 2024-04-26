@@ -46,6 +46,15 @@
     padding: 2.5%;
 }
 
+.asset{
+    fill: currentColor;
+}
+
+.asset svg {
+    height: 100%;
+    width: 100%;
+}
+
 .popoverContent {
     display: flex;
     flex-direction: column;

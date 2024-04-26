@@ -82,7 +82,7 @@ class MomentumPanel {
       if (err) {
         return console.log(err);
       }
-      var result = data.replace(stringToReplace, replacement.toString());
+      var result = data.replace(`/${stringToReplace}`, replacement.toString());
 
       fs.writeFile(filePath, result, 'utf8', function (err) {
          if (err) {
@@ -98,7 +98,7 @@ class MomentumPanel {
     const manifest = require(manifestPath);
     const mainScript = manifest["index.html"]["file"];
     const mainStyle = manifest["index.html"]["css"][0];
-    const foundEntry = _.pickBy(manifest, (_1, key) => 
+    const foundEntry: Record<string, Record<string, string>> = _.pickBy(manifest, (_1, key) => 
       _.includes(key, "Inter.var.woff2")
     );
     const mainFont = Object.values(foundEntry)[0].file;
@@ -128,7 +128,7 @@ class MomentumPanel {
 				<noscript>You need to enable JavaScript to run this app.</noscript>
 				<div id="root"></div>
 				
-				<script src="${scriptUri}"></script>
+				<script type="module" src="${scriptUri}"></script>
 			</body>
 			</html>`;
   }

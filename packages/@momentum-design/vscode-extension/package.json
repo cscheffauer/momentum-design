@@ -26,9 +26,11 @@
   "scripts": {
     "vscode:prepublish": "yarn run build",
     "build:ui": "vite build",
-    "preview:ui": "concurrently \"yarn run build:ui --watch\" \"vite preview\"",
     "build:ext": "tsc -p tsconfig.extension.json",
-    "build": "yarn run build:ui && yarn run build:ext",
+    "build": "yarn run clean && yarn run build:ui && yarn run build:ext",
+    "preview:ui": "yarn run clean && mkdir dist && concurrently \"yarn run build:ui --watch\" \"vite preview\"",
+    "clean": "yarn clean:dist",
+    "clean:dist": "rimraf ./dist/",
     "lint": "eslint src --ext ts"
   },
   "devDependencies": {
@@ -46,6 +48,7 @@
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "path": "^0.12.7",
+    "rimraf": "^3.0.2",
     "rollup-plugin-copy": "^3.5.0",
     "typescript": "^5.3.3",
     "vite": "^5.2.10",

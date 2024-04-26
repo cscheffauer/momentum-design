@@ -7,6 +7,8 @@ interface VersionBlockProps {
   detectedVersion?: string;
 }
 
+// for fetching version info from github, check this: https://github.com/microsoft/vscode-extension-samples/blob/main/github-authentication-sample/src/credentials.ts
+
 export const VersionBlock = ({ detectedVersion, packageName, latestVersion }: VersionBlockProps) => {
   return (
     <div className="versionBlock">

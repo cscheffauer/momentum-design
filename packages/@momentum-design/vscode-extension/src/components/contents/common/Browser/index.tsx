@@ -64,20 +64,14 @@ const Browser = ({ packageName, manifestContent, placeholderText, typeofAsset, p
       <Text type="body-secondary" className="numberOfIconsText">Total {typeofAsset} in the library - {totalSize}</Text>
       <Text type="body-secondary" className="currentPageText">Current page: {currentPage}</Text>
       <div className="browserGrid">
-        {Object.entries(paginatedItems).map(([key, value]) => {
-          const fileBasename = value.split('/').reverse()[0];
-          // only works if dist folders have a flat structure:
-          const finalPath = `/${typeofAsset}/${fileBasename}`;
-          return (<AssetCard
-            text={key}
-            path={finalPath}
-            cardSize={cardSize}
-            typeofAsset={typeofAsset}
-            repoPath={value}
-            packageName={packageName}
-          />
-          );
-        })}
+        {Object.entries(paginatedItems).map(([key, value]) => (<AssetCard
+          text={key}
+          cardSize={cardSize}
+          typeofAsset={typeofAsset}
+          repoPath={value}
+          packageName={packageName}
+        />)
+        )}
       </div>
       <div className="browserFooter">
         <div className="browserFooterButtons">
