@@ -43,11 +43,7 @@
 .cardWrapper > button {
     height: var(--local-button-size);
     width: var(--local-button-size);
-}
-
-.cardWrapper > button > img {
-    height: 95%;
-    width: 95%;
+    padding: 2.5%;
 }
 
 .browserFooter {

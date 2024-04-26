@@ -1,0 +1,41 @@
+.navigationTabButton {
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    border-radius: 6rem;
+    outline: none !important;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: var(--mds-color-theme-button-secondary-normal);
+    color: var(--mds-color-theme-text-secondary-normal);
+
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    height: 3rem;
+    width: 100%;
+
+    padding-left: 0.75rem;
+}
+
+.navigationTabButton:hover {
+    background-color: var(--mds-color-theme-button-secondary-hover);
+    color: var(--mds-color-theme-text-secondary-normal);
+}
+
+.navigationTabButton:active {
+    background-color: var(--mds-color-theme-button-secondary-pressed);
+    color: var(--mds-color-theme-text-primary-normal);
+}
+
+.navigationTabButton[data-active='true'] {
+    background-color: var(--mds-color-theme-button-secondary-pressed);
+    color: var(--mds-color-theme-text-primary-normal);
+}
+
+.navigationTabLabel {
+    padding-left: 1rem;
+    padding-right: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

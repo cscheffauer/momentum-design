@@ -1,8 +1,9 @@
-import { ButtonPill, SearchInput, Text } from "@momentum-ui/react-collaboration";
+import { ButtonPill, Text } from "@momentum-ui/react-collaboration";
 import './Browser.css';
 import { AssetCard } from "./AssetCard";
 import { useState, useCallback, useMemo } from "react";
 import _ from 'lodash';
+import SearchInput from "../SearchInput";
 
 interface BrowserProps {
   manifestContent: Record<string, string>;
@@ -14,10 +15,10 @@ interface BrowserProps {
 
 
 const Browser = ({ manifestContent, placeholderText, typeofAsset, pageSize = 50, cardSize = 3.25 }: BrowserProps) => {
-  var filteredManifestContent = _.pickBy(manifestContent, function(_1, key) {
+  var filteredManifestContent = _.pickBy(manifestContent, function (_1, key) {
     return !_.includes(key, "manifest");
   });
-  
+
   const totalSize = Object.values(filteredManifestContent).length;
 
   const PAGE_SIZE = pageSize;
@@ -56,14 +57,14 @@ const Browser = ({ manifestContent, placeholderText, typeofAsset, pageSize = 50,
 
   return (
     // @ts-ignore: next-line
-    <div className="browserWrapper" style={{["--local-button-size"]: `${cardSize}rem`}}>
+    <div className="browserWrapper" style={{ ["--local-button-size"]: `${cardSize}rem` }}>
       <SearchInput placeholder={placeholderText} className="searchInput" onChange={onQueryChange}></SearchInput>
       <Text type="body-secondary" className="numberOfIconsText">Total {typeofAsset} in the library - {totalSize}</Text>
       <Text type="body-secondary" className="currentPageText">Current page: {currentPage}</Text>
       <div className="browserGrid">
         {Object.entries(paginatedItems).map(([key, value]) => {
           const finalPath = `${value.replace('./svg', `/${typeofAsset}`)}`;
-          return (<AssetCard text={key} path={finalPath} cardSize={cardSize} />);
+          return (<AssetCard text={key} path={finalPath} cardSize={cardSize} resizeImg={typeofAsset === 'illustrations'}/>);
         })}
       </div>
       <div className="browserFooter">

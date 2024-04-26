@@ -1,36 +1,43 @@
+import React from "react";
 import { AnnimationsContent } from "./components/contents/Annimations";
 import { IconsContent } from "./components/contents/Icons";
 import { IllustrationsContent } from "./components/contents/Illustrations";
 
-export const tabData: { id: string; name: string; icon: string; content: React.ReactNode }[] = [
+import Widget from "@momentum-design/icons/dist/svg/widget-regular.svg?react";
+import ColourPalette from "@momentum-design/icons/dist/svg/colour-palette-regular.svg?react";
+import FillColour from "@momentum-design/icons/dist/svg/fill-colour-regular.svg?react";
+import WebexHelix from "@momentum-design/icons/dist/svg/webex-helix.svg?react";
+import VideoEffect from "@momentum-design/icons/dist/svg/video-effect-regular.svg?react";
+
+export const tabData: { id: string; name: string; icon: React.FunctionComponent; content: React.ReactNode }[] = [
   {
     id: "icons",
     name: "Icons",
-    icon: "widget",
+    icon: Widget,
     content: <IconsContent />,
   },
   {
     id: "illustrations",
     name: "Illustrations",
-    icon: "colour-palette",
+    icon: ColourPalette,
     content: <IllustrationsContent/>,
   },
   {
     id: "tokens",
     name: "Tokens",
-    icon: "fill-colour",
+    icon: FillColour,
     content: <p style={{ marginLeft: "24px" }}>Coming soon...</p>,
   },
   {
     id: "brand-visuals",
     name: "Brand visuals",
-    icon: "webex-helix",
+    icon: WebexHelix,
     content: <p style={{ marginLeft: "24px" }}>Coming soon...</p>,
   },
   {
     id: "animations",
     name: "Animations",
-    icon: "video-effect",
+    icon: VideoEffect,
     content: <AnnimationsContent />,
   },
 ];
