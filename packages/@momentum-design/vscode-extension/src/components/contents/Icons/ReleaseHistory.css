@@ -1,0 +1,44 @@
+.releaseContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    margin-left: 16px    
+}
+
+.releaseDate {
+    display: flex;    
+    align-items: 'center';
+}
+
+.releaseHistoryCard {
+    background: var(--mds-color-theme-background-solid-tertiary-normal);
+    border-radius: 12px;
+    width: 526px;
+    padding: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.releaseList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: var(--mds-color-theme-text-secondary-normal);
+}
+
+.releaseListItem {
+    margin-bottom: 16px;    
+}
+
+.releaseCardChangeList {
+    list-style-type:circle;
+    padding-left: 16px;
+}
+
+.releaseCardChangeListItem {    
+    padding-left:0px;
+}
+
+.primaryTextColor {
+    color: var(--mds-color-theme-text-primary-normal);
+}

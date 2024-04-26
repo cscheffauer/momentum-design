@@ -5,6 +5,7 @@ import './Icons.css';
 import { VersionBlock } from '../common/VersionBlock';
 import Browser from '../common/Browser';
 import JSON from '@momentum-design/icons/dist/manifest.json';
+import { ReleaseHistory } from './ReleaseHistory';
 
 const contentTabs = [{
     id: 'library',
@@ -29,7 +30,9 @@ export const IconsContent = () => {
                 />
                 <Browser manifestContent={JSON as Record<string, string>} placeholderText='Search for an icon by name, description or tags' typeofAsset='icons' />
             </div>}
-            {activeContentTabId === "release-history" && <p>Release History</p>}
+            {activeContentTabId === "release-history" && <ReleaseHistory />}
         </ContentLayout>
     );
 };
+
+
