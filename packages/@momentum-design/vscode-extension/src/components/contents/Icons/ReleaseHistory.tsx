@@ -12,7 +12,7 @@ const fakeReleaseHistory = [
     latest: true,
   },
   {
-    version: "1.1.0",
+    version: "0.0.132",
     date: "2024-01-03",
     heading: "Various icon updates",
     changes: [
@@ -25,7 +25,7 @@ const fakeReleaseHistory = [
     latest: false,
   },
   {
-    version: "1.2.0",
+    version: "0.0.131",
     date: "2024-01-02",
     heading: "Multiple icon updates",
     changes: [
@@ -82,12 +82,20 @@ const ReleaseHistoryCard = ({
       <Text className="primaryTextColor" type="header-primary">
         @momentum-design/icons@{version} - Icons
       </Text>
-      <div className="releaseDate">
-        <Text className="primaryTextColor" type="header-secondary">
-          {date}
-        </Text>
-        {isLatest && <Tag color="lime">Latest</Tag>}
-      </div>
+      <table className="releaseDate">
+        <tr>
+          <td>
+            <Text className="primaryTextColor" type="header-secondary">
+              {date}
+            </Text>
+          </td>
+          {isLatest && (
+            <td>
+              <Tag color="lime">Latest</Tag>
+            </td>
+          )}
+        </tr>
+      </table>
 
       <Text type="body-secondary">{heading}</Text>
       <ul className="releaseCardChangeList">
