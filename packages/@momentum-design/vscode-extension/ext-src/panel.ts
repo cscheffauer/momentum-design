@@ -77,12 +77,13 @@ class MomentumPanel {
     }
   }
 
-  private _replaceContentInFile(filePath: string, stringToReplace: string, replacement: vscode.Uri) {
+  private _replaceUrlInCSSFile(filePath: string, stringToReplace: string, replacement: vscode.Uri) {
     fs.readFile(filePath, 'utf8', function (err,data) {
       if (err) {
         return console.log(err);
       }
-      var result = data.replace(`/${stringToReplace}`, replacement.toString());
+      // use `url(/...) to find to avoid replacing it another time (when extension gets reopened)`
+      var result = data.replace(`url(/${stringToReplace}`, `url(${replacement.toString()}`);
 
       fs.writeFile(filePath, result, 'utf8', function (err) {
          if (err) {
@@ -110,7 +111,7 @@ class MomentumPanel {
     const fontPathOnDisk = vscode.Uri.joinPath(this._extensionUri, "dist", mainFont);
     const fontUri = this._panel.webview.asWebviewUri(fontPathOnDisk);
 
-    this._replaceContentInFile(styleUri.fsPath, mainFont, fontUri);
+    this._replaceUrlInCSSFile(styleUri.fsPath, mainFont, fontUri);
 
     // TODO: to be cleaner, load the index.html itself from the dist here and replace the href/src
     // in it here:

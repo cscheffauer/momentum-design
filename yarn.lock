@@ -4334,6 +4334,7 @@ __metadata:
     path: ^0.12.7
     react: ^18.2.0
     react-dom: ^18.2.0
+    rimraf: ^3.0.2
     rollup-plugin-copy: ^3.5.0
     typescript: ^5.3.3
     vite: ^5.2.10
