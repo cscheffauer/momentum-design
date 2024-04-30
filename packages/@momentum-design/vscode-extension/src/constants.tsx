@@ -9,6 +9,7 @@ import FillColour from "@momentum-design/icons/dist/svg/fill-colour-regular.svg?
 import WebexHelix from "@momentum-design/icons/dist/svg/webex-helix.svg?react";
 import VideoEffect from "@momentum-design/icons/dist/svg/video-effect-regular.svg?react";
 import { BrandVisualsContent } from "./components/contents/BrandVisuals";
+import { TokensContent } from "./components/contents/Tokens";
 
 export const tabData: { id: string; name: string; icon: React.FunctionComponent; content: React.ReactNode }[] = [
   {
@@ -21,19 +22,19 @@ export const tabData: { id: string; name: string; icon: React.FunctionComponent;
     id: "illustrations",
     name: "Illustrations",
     icon: ColourPalette,
-    content: <IllustrationsContent/>,
+    content: <IllustrationsContent />,
   },
   {
     id: "tokens",
     name: "Tokens",
     icon: FillColour,
-    content: <p style={{ marginLeft: "24px" }}>Coming soon...</p>,
+    content: <TokensContent />,
   },
   {
     id: "brand-visuals",
     name: "Brand visuals",
     icon: WebexHelix,
-    content: <BrandVisualsContent/>,
+    content: <BrandVisualsContent />,
   },
   {
     id: "animations",
@@ -42,5 +43,13 @@ export const tabData: { id: string; name: string; icon: React.FunctionComponent;
     content: <AnimationsContent />,
   },
 ];
+
+export interface ColorTokenProps {
+  token: { name: string; value: string };
+}
+
+export interface Dictionary {
+  [key: string]: [ColorTokenProps];
+}
 
 export const gitHubRepo = "https://github.com/momentum-design/momentum-design";
