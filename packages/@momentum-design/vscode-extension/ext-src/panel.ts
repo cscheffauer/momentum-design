@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
-import fs from 'fs';
+import fs from "fs";
 import _ from "lodash";
+import type { Octokit } from "@octokit/rest";
 /**
  * Manages the Momentum webview panel
  */
@@ -12,20 +13,22 @@ class MomentumPanel {
 
   private readonly _panel: vscode.WebviewPanel;
   private readonly _extensionUri: vscode.Uri;
+  private readonly _octokit: Octokit;
   private _disposables: vscode.Disposable[] = [];
 
-  public static createOrShow(extensionUri: vscode.Uri) {
+  public static createOrShow(extensionUri: vscode.Uri, octokit) {
     // If we already have a panel, show it.
     // Otherwise, create a new panel.
     if (MomentumPanel.currentPanel) {
       MomentumPanel.currentPanel._panel.reveal();
     } else {
-      MomentumPanel.currentPanel = new MomentumPanel(extensionUri);
+      MomentumPanel.currentPanel = new MomentumPanel(extensionUri, octokit);
     }
   }
 
-  private constructor(extensionUri: vscode.Uri) {
+  private constructor(extensionUri: vscode.Uri, octokit: Octokit) {
     this._extensionUri = extensionUri;
+    this._octokit = octokit;
 
     // Create and show a new webview panel
     this._panel = vscode.window.createWebviewPanel("momentum", "Momentum Design System", vscode.ViewColumn.Beside, {
@@ -45,10 +48,10 @@ class MomentumPanel {
 
     // Handle messages from the webview
     this._panel.webview.onDidReceiveMessage(
-      (message) => {
+      async (message) => {
         switch (message.command) {
-          case "alert":
-            vscode.window.showErrorMessage(message.text);
+          case "releases":
+            await this.getAllReleases();
             return;
         }
       },
@@ -57,10 +60,11 @@ class MomentumPanel {
     );
   }
 
-  public doRefactor() {
-    // Send a message to the webview webview.
-    // You can send any JSON serializable data.
-    this._panel.webview.postMessage({ command: "refactor" });
+  public async getAllReleases() {
+    const response = await this._octokit.repos.listReleases({ owner: "momentum-design", repo: "momentum-design" });
+    this._panel.webview.postMessage({ command: "releases-response", releases: response.data });
+    // send vscode notification
+    vscode.window.showInformationMessage("Releases fetched successfully");
   }
 
   public dispose() {
@@ -78,17 +82,17 @@ class MomentumPanel {
   }
 
   private _replaceUrlInCSSFile(filePath: string, stringToReplace: string, replacement: vscode.Uri) {
-    fs.readFile(filePath, 'utf8', function (err,data) {
+    fs.readFile(filePath, "utf8", function (err, data) {
       if (err) {
         return console.log(err);
       }
       // use `url(/...) to find to avoid replacing it another time (when extension gets reopened)`
       var result = data.replace(`url(/${stringToReplace}`, `url(${replacement.toString()}`);
 
-      fs.writeFile(filePath, result, 'utf8', function (err) {
-         if (err) {
+      fs.writeFile(filePath, result, "utf8", function (err) {
+        if (err) {
           return console.log(err);
-         }
+        }
       });
     });
   }
@@ -99,7 +103,7 @@ class MomentumPanel {
     const manifest = require(manifestPath);
     const mainScript = manifest["index.html"]["file"];
     const mainStyle = manifest["index.html"]["css"][0];
-    const foundEntry: Record<string, Record<string, string>> = _.pickBy(manifest, (_1, key) => 
+    const foundEntry: Record<string, Record<string, string>> = _.pickBy(manifest, (_1, key) =>
       _.includes(key, "Inter.var.woff2")
     );
     const mainFont = Object.values(foundEntry)[0].file;
@@ -128,7 +132,10 @@ class MomentumPanel {
 			<body>
 				<noscript>You need to enable JavaScript to run this app.</noscript>
 				<div id="root"></div>
-				
+				<script>
+          const vscode = acquireVsCodeApi();
+          window.vscode = vscode;
+        </script>
 				<script type="module" src="${scriptUri}"></script>
 			</body>
 			</html>`;

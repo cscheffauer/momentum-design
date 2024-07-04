@@ -5,6 +5,7 @@ import './Illustrations.css';
 import { VersionBlock } from '../common/VersionBlock';
 import Browser from '../common/Browser';
 import { useFetch } from '../common/hooks/useCustomFetch';
+import { ReleaseHistory } from '../common/ReleaseHistory/ReleaseHistory';
 
 const contentTabs = [{
     id: 'library',
@@ -22,6 +23,7 @@ export const IllustrationsContent = () => {
 
     const { data, isPending } = useFetch(`https://unpkg.com/${packageName}/dist/manifest.json`, 'json');
 
+    const shownPackageVersion = "@0.0.28";
 
     return (
         <ContentLayout>
@@ -29,11 +31,12 @@ export const IllustrationsContent = () => {
             {activeContentTabId === "library" && <div className="illustrationsContentWrapper">
                 <VersionBlock
                     packageName={packageName}
-                    latestVersion="@0.0.28"
+                    latestVersion={shownPackageVersion}
                     detectedVersion="@0.0.28"
                 />
                 {!isPending ? <Browser
                     packageName={packageName}
+                    packageVersion={shownPackageVersion}
                     pageSize={20}
                     cardSize={6.5}
                     manifestContent={data as unknown as Record<string, string>}
@@ -41,7 +44,7 @@ export const IllustrationsContent = () => {
                     typeofAsset='illustrations'
                 /> : <p>loading...</p>}
             </div>}
-            {activeContentTabId === "release-history" && <p>Release History</p>}
+            {activeContentTabId === "release-history" && <ReleaseHistory packageName={packageName} packageType="Illustrations" />}
         </ContentLayout>
     );
 };

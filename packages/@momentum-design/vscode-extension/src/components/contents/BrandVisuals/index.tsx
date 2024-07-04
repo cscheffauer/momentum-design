@@ -5,6 +5,7 @@ import './BrandVisuals.css';
 import { VersionBlock } from '../common/VersionBlock';
 import Browser from '../common/Browser';
 import { useFetch } from '../common/hooks/useCustomFetch';
+import { ReleaseHistory } from '../common/ReleaseHistory/ReleaseHistory';
 
 const contentTabs = [{
     id: 'library',
@@ -22,24 +23,27 @@ export const BrandVisualsContent = () => {
 
     const { data, isPending } = useFetch(`https://unpkg.com/${packageName}/dist/manifest.json`, 'json');
 
+    const shownPackageVersion = "@0.0.2";
+
     return (
         <ContentLayout>
             <TabBar activeTabId={activeContentTabId} setActiveTabId={setActiveContentTabId} tabs={contentTabs} />
             {activeContentTabId === "library" && <div className="brandvisualsContentWrapper">
                 <VersionBlock
                     packageName={packageName}
-                    latestVersion="@0.0.2"
+                    latestVersion={shownPackageVersion}
                     detectedVersion="@0.0.2"
                 />
                 {!isPending ? <Browser
                     packageName={packageName}
+                    packageVersion={shownPackageVersion}
                     pageSize={20}
                     cardSize={6.5}
                     manifestContent={data as unknown as Record<string, string>}
                     placeholderText='Search for a brand visual by name, description or tags'
                     typeofAsset='brand-visuals' /> : <p>loading...</p>}
             </div>}
-            {activeContentTabId === "release-history" && <p>Release History</p>}
+            {activeContentTabId === "release-history" && <ReleaseHistory packageName={packageName} packageType="Brand Visuals" />}
         </ContentLayout>
     );
 };

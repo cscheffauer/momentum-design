@@ -1,17 +1,18 @@
 {
 	"extends": "../../../config/typescript/tsconfig.base.json",
 	"compilerOptions": {
-		"allowJs": true,
-		"module": "Node16",
-		"target": "ES2022",
+		"module": "commonjs",
+		"target": "ESNext",
 		"outDir": "dist",
-		"lib": [
-			"ES2022"
-		],
 		"sourceMap": true,
 		"strict": true,
 		"rootDir": "ext-src",
-		"moduleResolution": "Node16"
+		"downlevelIteration": true,
+		"checkJs": false,
+		"allowJs": true, 
+		"skipLibCheck": true,  
+		"moduleResolution": "node",  
+		"esModuleInterop": true,  
 	},
 	"include": [
 		"ext-src/**/*"

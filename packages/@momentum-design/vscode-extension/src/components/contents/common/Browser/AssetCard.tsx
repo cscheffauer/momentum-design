@@ -15,13 +15,18 @@ const cleanPath = (path: string) => {
 export const AssetCard = ({ text, repoPath, cardSize, typeofAsset, packageName }: any) => {
     const resizeImg = ['illustrations', 'brand-visuals'].includes(typeofAsset);
 
+    const isDefaultIllustration = typeofAsset === "illustrations" && text.includes("default");
+    const isLightBwBrandVisual = typeofAsset === "brand-visuals" && text.includes("light");
+
+    const shouldShowInvertedBackground = isDefaultIllustration || isLightBwBrandVisual;
+
     const cleanedRepoPath = cleanPath(repoPath);
     const fullRepoPath = `${packageName}/dist${cleanedRepoPath}`;
 
     const { data, isPending } = useFetch(`https://unpkg.com/${fullRepoPath}`, typeofAsset === "animations" ? 'json' : 'text');
 
     const triggerComponent = (
-        <ButtonCircle size={cardSize} ghost>
+        <ButtonCircle size={cardSize} ghost={!shouldShowInvertedBackground}>
             {!isPending ? (
                 typeofAsset === "animations" ?
                     <Player autoplay loop src={data as unknown as string} style={{ height: '90%', width: '90%' }}></Player>
@@ -29,9 +34,10 @@ export const AssetCard = ({ text, repoPath, cardSize, typeofAsset, packageName }
                     <div
                         className="asset"
                         dangerouslySetInnerHTML={{ __html: data as unknown as string }}
+                        data-path={fullRepoPath}
                         style={{
-                            height: resizeImg ? '90%' : 'none',
-                            width: resizeImg ? '90%' : 'none',
+                            height: resizeImg ? '70%' : 'none',
+                            width: resizeImg ? '70%' : 'none',
                         }}
                     />
             ) : <p>...</p>}

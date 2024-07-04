@@ -4,27 +4,3 @@
     padding-left: 1.5rem;
     height: calc(100% - 4.75rem);
 }
-
-.colorTablesWrapper {
-    flex-direction: column;
-    overflow-y: auto;
-}
-
-.colorTable {
-    border: solid 1px white;
-    border-collapse: separate;
-    border-spacing: 10px;
-}
-
-.colorTable th {
-    padding: 1rem;
-    text-align: left;
-    padding: 0;
-}
-
-.colorSample {
-    display: block;
-    width: 4rem;
-    height: 1.5rem;
-    border-radius: .5rem;
-}

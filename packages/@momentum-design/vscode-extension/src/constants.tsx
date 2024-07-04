@@ -2,6 +2,7 @@ import React from "react";
 import { AnimationsContent } from "./components/contents/Animations";
 import { IconsContent } from "./components/contents/Icons";
 import { IllustrationsContent } from "./components/contents/Illustrations";
+import { TokensContent } from "./components/contents/Tokens";
 
 import Widget from "@momentum-design/icons/dist/svg/widget-regular.svg?react";
 import ColourPalette from "@momentum-design/icons/dist/svg/colour-palette-regular.svg?react";
@@ -28,7 +29,7 @@ export const tabData: { id: string; name: string; icon: React.FunctionComponent;
     id: "tokens",
     name: "Tokens",
     icon: FillColour,
-    content: <TokensContent />,
+    content: <TokensContent/>,
   },
   {
     id: "brand-visuals",

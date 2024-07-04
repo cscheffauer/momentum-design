@@ -5,12 +5,15 @@ import { Navigation } from './components/Navigation';
 import { Content } from './components/Content';
 import { useState } from 'react';
 import { tabData } from './constants';
+import type { Release } from './components/contents/common/VersionBlock/useReleases';
+import { ReleasesContext } from './ReleasesContext';
 
 const App = () => {
   // by default set the first tab to be active
   // todo: save the last open tab in local storage and open it the next time
   // the extension opens
   const [activeTabId, setActiveTabId] = useState(tabData[0].id);
+  const [releases, setReleases] = useState<Array<Release> | undefined>();
 
   return (
     <ThemeProvider theme="darkWebex" style={{
@@ -21,7 +24,9 @@ const App = () => {
         <Header />
         <div className="mainContentWrapper">
           <Navigation activeTabId={activeTabId} setActiveTabId={setActiveTabId} />
-          <Content activeTabId={activeTabId}/>
+          <ReleasesContext.Provider value={{ releases, setReleases }}>
+            <Content activeTabId={activeTabId} />
+          </ReleasesContext.Provider>
         </div>
       </div>
     </ThemeProvider>

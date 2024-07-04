@@ -1,0 +1,32 @@
+.tokensListWrapper {
+    margin-top: 2rem;
+    padding-right: 4rem;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.themeRadioGroup label {
+    width: unset;
+    height: unset;
+    overflow: unset;
+}
+
+.themeRadioGroup input {
+    flex: unset;
+}
+
+.themeRadioGroup {
+    margin-bottom: 2rem;
+}
+
+.displayNameRadioGroup {
+    margin-left: 2rem;
+}
+
+.listItem {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 0.25rem;
+}

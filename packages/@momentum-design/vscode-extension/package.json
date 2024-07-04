@@ -13,7 +13,7 @@
   "activationEvents": [
     "onCommand:momentum.start"
   ],
-  "main": "./dist/extension.js",
+  "main": "./dist/extension.cjs",
   "contributes": {
     "commands": [
       {
@@ -27,7 +27,8 @@
     "vscode:prepublish": "yarn run build",
     "build:ui": "vite build",
     "build:ext": "tsc -p tsconfig.extension.json",
-    "build": "yarn run clean && yarn run build:ui && yarn run build:ext",
+    "build:ext:esbuild": "node ./scripts/build.mjs",
+    "build": "yarn run clean && yarn run build:ui && yarn run build:ext:esbuild",
     "preview:ui": "yarn run clean && mkdir dist && concurrently \"yarn run build:ui --watch\" \"vite preview\"",
     "clean": "yarn clean:dist",
     "clean:dist": "rimraf ./dist/",
@@ -46,6 +47,7 @@
     "@vscode/test-cli": "^0.0.8",
     "@vscode/test-electron": "^2.3.9",
     "concurrently": "^8.2.2",
+    "esbuild": "^0.23.0",
     "eslint": "^8.57.0",
     "path": "^0.12.7",
     "rimraf": "^3.0.2",
@@ -61,7 +63,8 @@
     "@momentum-design/brand-visuals": "workspace:^",
     "@momentum-design/icons": "workspace:^",
     "@momentum-design/illustrations": "workspace:^",
-    "@momentum-ui/react-collaboration": "^26.101.2",
+    "@momentum-ui/react-collaboration": "^26.120.1",
+    "@octokit/rest": "^21.0.0",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
