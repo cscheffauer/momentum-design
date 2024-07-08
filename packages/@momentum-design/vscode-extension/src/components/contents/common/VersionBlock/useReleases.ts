@@ -15,7 +15,7 @@ export const useReleases = () => {
 
   const fetchReleases = useCallback(() => {
     // @ts-ignore
-    window.vscode.postMessage({
+    window.vscode?.postMessage({
       command: "releases",
     });
   }, []);

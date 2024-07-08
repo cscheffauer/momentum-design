@@ -8,13 +8,10 @@ export interface Props extends AriaButtonProps {
     className?: string;
     id?: string;
     style?: CSSProperties;
-    size?: number;
     label?: string;
     children?: React.ReactNode;
     active?: boolean;
 }
-
-export type NavTabSize = 200;
 
 
 const NavigationTab: FC<Props> = (props: Props) => {
@@ -32,7 +29,6 @@ const NavigationTab: FC<Props> = (props: Props) => {
             <ButtonSimple
                 className={classnames("navigationTabButton", className)}
                 data-active={active}
-                data-size={200}
                 id={id}
                 style={style}
                 {...otherProps}

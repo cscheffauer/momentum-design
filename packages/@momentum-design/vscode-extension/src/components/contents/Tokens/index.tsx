@@ -5,6 +5,7 @@ import './Tokens.css';
 import { VersionBlock } from '../common/VersionBlock';
 import TokensList from '../common/TokensList';
 import { ReleaseHistory } from '../common/ReleaseHistory/ReleaseHistory';
+import { useReleases } from '../common/VersionBlock/useReleases';
 
 const contentTabs = [{
     id: 'library',
@@ -19,7 +20,9 @@ export const TokensContent = () => {
     const [activeContentTabId, setActiveContentTabId] = useState(contentTabs[0].id);
 
     const packageName = "@momentum-design/tokens";
-    const shownPackageVersion = "@0.0.28";
+    
+    const { getLatestReleaseVersionPerPackage } = useReleases();
+    const packageVersion = getLatestReleaseVersionPerPackage(packageName) || 'NA';
 
     return (
         <ContentLayout>
@@ -27,11 +30,11 @@ export const TokensContent = () => {
             {activeContentTabId === "library" && <div className="tokensContentWrapper">
                 <VersionBlock
                     packageName={packageName}
-                    latestVersion={shownPackageVersion}
+                    latestVersion={packageVersion}
                     detectedVersion="@0.0.28"
                 />
                 {<TokensList packageName={packageName}
-                    packageVersion={shownPackageVersion}
+                    packageVersion={packageVersion}
                     placeholderText='Search for a token by name, description or tags' />}
             </div>}
             {activeContentTabId === "release-history" && <ReleaseHistory packageName={packageName} packageType="Tokens" />}

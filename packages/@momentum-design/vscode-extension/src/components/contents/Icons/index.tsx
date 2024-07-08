@@ -6,6 +6,7 @@ import { VersionBlock } from '../common/VersionBlock';
 import Browser from '../common/Browser';
 import { ReleaseHistory } from '../common/ReleaseHistory/ReleaseHistory';
 import { useFetch } from '../common/hooks/useCustomFetch';
+import { useReleases } from '../common/VersionBlock/useReleases';
 
 const contentTabs = [{
     id: 'library',
@@ -23,7 +24,8 @@ export const IconsContent = () => {
 
     const { data, isPending } = useFetch(`https://unpkg.com/${packageName}/dist/manifest.json`, 'json');
 
-    const shownPackageVersion = "@0.0.133";
+    const { getLatestReleaseVersionPerPackage } = useReleases();
+    const packageVersion = getLatestReleaseVersionPerPackage(packageName) || 'NA';
 
     return (
         <ContentLayout>
@@ -31,14 +33,14 @@ export const IconsContent = () => {
             {activeContentTabId === "library" && <div className="iconContentWrapper">
                 <VersionBlock
                     packageName={packageName}
-                    latestVersion={shownPackageVersion}
+                    latestVersion={packageVersion}
                     detectedVersion="@0.0.131"
                 />
                 {!isPending ? <Browser
                     packageName={packageName}
-                    packageVersion={shownPackageVersion}
                     manifestContent={data as unknown as Record<string, string>}
                     placeholderText='Search for an icon by name, description or tags'
+                    packageVersion={packageVersion}
                     typeofAsset='icons' /> : <p>loading...</p>
                 }
             </div>}

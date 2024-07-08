@@ -24,18 +24,6 @@ export default defineConfig({
               dest: "dist/icons",
             },
             {
-              src: path.join(process.cwd(), "../", "illustrations/dist/svg/*.svg"),
-              dest: "dist/illustrations",
-            },
-            {
-              src: path.join(process.cwd(), "../", "brand-visuals/dist/svg/*.svg"),
-              dest: "dist/brand-visuals",
-            },
-            {
-              src: path.join(process.cwd(), "../", "animations/dist/lottie/**/*.json"),
-              dest: "dist/animations",
-            },
-            {
               src: path.join(process.cwd(), "../", "tokens/dist/css/theme/webex/*.css"),
               dest: "dist/tokens",
             },
@@ -57,8 +45,6 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    // // Workaround to fix inline dependency of a dependency, which is the case in @momentum-ui/react-collaboration
-    // mainFields: ["module", "browswer"],
     alias: [
       { find: "@momentum-design", replacement: path.resolve(__dirname, "../../../node_modules/@momentum-design") },
     ],

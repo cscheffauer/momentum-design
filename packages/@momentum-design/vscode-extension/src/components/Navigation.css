@@ -1,6 +1,8 @@
 .navigationWrapper {
-    flex-basis: 13.5rem;
+    max-width: 13.5rem;
+    min-width: 3.125rem;
     margin: 8px;
+    position: relative;
 }
 
 .navigationList {
@@ -21,4 +23,27 @@
 
 .navigationFooter {
     margin-top: auto;
+}
+
+.expandButton {
+    position: absolute;
+    top: calc(50% - 10px);
+    right: -10px;
+    padding: 0;
+    background-color: black !important;
+}
+
+.expandButton svg {
+    fill: currentColor;
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.sidebarDivider{
+    position: absolute;
+    top: 5%;
+    right: 0;
+    height: 90%;
+    width: 1px;
+    background: linear-gradient(transparent 10%, var(--mds-color-theme-text-secondary-normal), transparent 90%);
 }

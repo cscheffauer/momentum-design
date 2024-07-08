@@ -6,6 +6,7 @@ import { VersionBlock } from '../common/VersionBlock';
 import Browser from '../common/Browser';
 import { useFetch } from '../common/hooks/useCustomFetch';
 import { ReleaseHistory } from '../common/ReleaseHistory/ReleaseHistory';
+import { useReleases } from '../common/VersionBlock/useReleases';
 
 const contentTabs = [{
     id: 'library',
@@ -23,7 +24,9 @@ export const AnimationsContent = () => {
 
     const { data, isPending } = useFetch(`https://unpkg.com/${packageName}/dist/manifest.json`, 'json');
 
-    const shownPackageVersion = "@0.0.9";
+    const { getLatestReleaseVersionPerPackage } = useReleases();
+    const packageVersion = getLatestReleaseVersionPerPackage(packageName) || 'NA';
+
 
     return (
         <ContentLayout>
@@ -31,12 +34,12 @@ export const AnimationsContent = () => {
             {activeContentTabId === "library" && <div className="animationContentWrapper">
                 <VersionBlock
                     packageName={packageName}
-                    latestVersion={shownPackageVersion}
+                    latestVersion={packageVersion}
                     detectedVersion="@0.0.9"
                 />
                 {!isPending ? <Browser
                     packageName={packageName}
-                    packageVersion={shownPackageVersion}
+                    packageVersion={packageVersion}
                     pageSize={20}
                     cardSize={6.5}
                     manifestContent={data as unknown as Record<string, string>}
