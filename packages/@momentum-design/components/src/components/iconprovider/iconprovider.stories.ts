@@ -1,9 +1,13 @@
 import type { Meta, StoryObj, Args } from '@storybook/web-components';
 import '.';
 import './iconprovider.stories.utils';
-import fixtures from './iconprovider.fixtures';
+import { html } from 'lit';
 
-const render = (args: Args) => fixtures.base(args);
+const render = (args: Args) => html`
+  <mdc-iconprovider url="${args.url}" file-extension="${args.fileExtension}" length-unit="${args.lengthUnit}">
+    <mdc-subcomponent-icon></mdc-subcomponent-icon>
+  </mdc-iconprovider>
+`;
 
 const meta: Meta = {
   tags: ['autodocs'],

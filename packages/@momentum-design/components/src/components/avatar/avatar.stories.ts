@@ -1,9 +1,11 @@
 import type { Meta, StoryObj, Args } from '@storybook/web-components';
 import '.';
+import { html } from 'lit';
 import { DEFAULTS } from './avatar.constants';
-import fixtures from './avatar.fixtures';
 
-const render = (args: Args) => fixtures.base(args);
+const render = (args: Args) => html`
+  <mdc-avatar src="${args.src}" scale="${args.scale}" type="${args.type}"></mdc-avatar>
+`;
 
 const meta: Meta = {
   tags: ['autodocs'],

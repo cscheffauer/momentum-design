@@ -1,9 +1,17 @@
 import type { Meta, StoryObj, Args } from '@storybook/web-components';
 import '.';
+import { html } from 'lit';
 import { DEFAULTS } from './badge.constants';
-import fixtures from './badge.fixtures';
 
-const render = (args: Args) => fixtures.base(args);
+const render = (args: Args) => html`
+  <mdc-badge
+    type="${args.type}"
+    icon-name="${args.iconName}"
+    scale="${args.scale}"
+    length-unit="${args.lengthUnit}"
+    text="${args.text}"
+  ></mdc-badge>
+`;
 
 const meta: Meta = {
   tags: ['autodocs'],

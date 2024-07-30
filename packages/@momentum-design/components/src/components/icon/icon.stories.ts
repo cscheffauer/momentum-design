@@ -1,9 +1,11 @@
 import type { Meta, StoryObj, Args } from '@storybook/web-components';
 import '.';
-import fixtures from './icon.fixtures';
+import { html } from 'lit';
 
-const render = (args: Args) => fixtures.base(args);
-const renderAccessibility = (args: Args) => fixtures.accessibility(args);
+const render = (args: Args) => html` <mdc-icon name="${args.name}" scale="${args.scale}"></mdc-icon> `;
+const renderAccessibility = (args: Args) => html`
+  <mdc-icon name="${args.name}" scale="${args.scale}" role="${args.role}" aria-label="${args['aria-label']}"></mdc-icon>
+`;
 
 const meta: Meta = {
   tags: ['autodocs'],
