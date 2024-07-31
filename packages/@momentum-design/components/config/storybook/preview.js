@@ -18,8 +18,14 @@ const preview = {
       options: {
         runOnly: {
           type: 'tag',
-          values: ['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'],
+          values: ['best-practice', 'wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'],
         },
+      },
+    },
+    backgrounds: {
+      disable: true,
+      grid: {
+        disable: true,
       },
     },
     actions: { argTypesRegex: '^on[A-Z].*' },

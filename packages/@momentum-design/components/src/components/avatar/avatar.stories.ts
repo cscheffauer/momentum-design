@@ -8,7 +8,6 @@ const render = (args: Args) => html`
 `;
 
 const meta: Meta = {
-  tags: ['autodocs'],
   component: 'mdc-avatar',
   render,
   argTypes: {},
