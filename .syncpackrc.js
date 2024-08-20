@@ -1,4 +1,8 @@
-{
+// @ts-check
+
+/** @type {import("syncpack").RcFile} */
+
+const config = {
   "lintFormatting": false,
   "customTypes": {
     "nodeEngine": {
@@ -33,7 +37,7 @@
       "dependencyTypes": [
         "nodeEngine"
       ],
-      "preferVersion": "20.0.0"
+      "pinVersion": ">=20.0.0"
     },
     {
       "label": "Ensure @types/node corresponds to the node engine",
@@ -66,7 +70,9 @@
       "packages": [
         "**"
       ],
-      "policy": "same"
+      "policy": "sameRange"
     }
   ]
-}
+};
+
+module.exports = config;
