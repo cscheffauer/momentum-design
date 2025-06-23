@@ -20,5 +20,5 @@ module.exports = {
       }
     }
   ],
-  ignorePatterns: [...config.ignorePatterns, '.eslintrc.js', 'prettier.config.js', '*.png', '*.css', 'tsdoc.json', '*.mdx'],
+  ignorePatterns: [...config.ignorePatterns, '.eslintrc.js', 'prettier.config.js', '*.png', '*.css', 'tsdoc.json', '*.mdx', '*.figma*'],
 };
